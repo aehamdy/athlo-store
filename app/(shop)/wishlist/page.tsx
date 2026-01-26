@@ -1,5 +1,5 @@
 function WishlistPage() {
-  return <div>WishlistPage</div>;
+  return <main>WishlistPage</main>;
 }
 
 export default WishlistPage;

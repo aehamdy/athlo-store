@@ -1,5 +1,5 @@
 function FAQsPage() {
-  return <div>FAQsPage</div>;
+  return <main>FAQsPage</main>;
 }
 
 export default FAQsPage;
