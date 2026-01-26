@@ -1,9 +1,42 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
 
 @theme inline {
+  --color-accent-base: var(--accent-base);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-ring: var(--accent-ring);
+
+  --color-accent: var(--accent);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-subtle: var(--subtle);
+  --color-field: var(--field);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-danger-dark: var(--danger-dark);
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 100%;
+
+  /* ========= */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -47,6 +80,60 @@
 }
 
 :root {
+  --accent-base: hsl(86 82% 48%);
+  --accent-soft: color-mix(in hsl, var(--accent-base) 70%, transparent);
+  --accent-strong: color-mix(in hsl, var(--accent-base) 90%, transparent);
+  --accent-ring: color-mix(in hsl, var(--accent-base) 55%, transparent);
+
+  /* Background layers */
+  --background: oklch(1 0 0); /* page */
+  --surface: oklch(0.97 0 0); /* cards */
+
+  /* Text & icons */
+  --foreground: oklch(0.145 0 0); /* main text */
+  --muted-foreground: oklch(0.556 0 0); /* secondary */
+
+  --subtle: 0 0% 89%;
+  --field: hsl(0 0% 98%);
+
+  --success: hsl(160 42% 68%);
+  --warning: hsl(45 100% 51%);
+  --danger: hsl(0 100% 66%);
+  --danger-dark: hsl(0 100% 52%);
+
+  /* Font sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 2.5rem;
+  --text-6xl: 3rem;
+  --text-7xl: 3.25rem;
+  --text-8xl: 3.5rem;
+  --text-9xl: 3.75rem;
+
+  /* Spacing */
+  --space-tiny: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.25rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 1.75rem;
+  --space-3xl: 2rem;
+
+  /* Durations */
+  --transition-duration-fast: 200ms;
+  --transition-duration-normal: 300ms;
+  --transition-duration-slow: 500ms;
+
+  /* ========= */
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -82,6 +169,19 @@
 }
 
 .dark {
+  /* Background layers */
+  --background: oklch(0.145 0 0); /* page */
+  --surface: oklch(0.205 0 0); /* elevated */
+
+  /* Text & icons */
+  --foreground: oklch(0.985 0 0); /* main text */
+  --muted-foreground: oklch(0.708 0 0); /* secondary */
+
+  --subtle: 0 0% 18%;
+  --field: hsl(0 0% 4%);
+
+  /* ========= */
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -118,8 +218,5 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
