@@ -1,5 +1,5 @@
 function ThankYouPage() {
-  return <div>Thank You</div>;
+  return <main>Thank You</main>;
 }
 
 export default ThankYouPage;

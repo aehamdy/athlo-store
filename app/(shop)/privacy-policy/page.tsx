@@ -1,5 +1,5 @@
 function PrivacyPolicyPage() {
-  return <div>PrivacyPolicyPage</div>;
+  return <main>PrivacyPolicyPage</main>;
 }
 
 export default PrivacyPolicyPage;

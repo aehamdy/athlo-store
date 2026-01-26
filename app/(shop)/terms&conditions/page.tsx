@@ -1,5 +1,5 @@
 function TermsAndConditionsPage() {
-  return <div>TermsAndConditionsPage</div>;
+  return <main>TermsAndConditionsPage</main>;
 }
 
 export default TermsAndConditionsPage;
