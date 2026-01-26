@@ -10,7 +10,7 @@
   --color-accent-ring: var(--accent-ring);
 
   --color-accent: var(--accent);
-  --color-background: var(--background);
+  --color-base: var(--base);
   --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
@@ -86,8 +86,10 @@
   --accent-ring: color-mix(in hsl, var(--accent-base) 55%, transparent);
 
   /* Background layers */
-  --background: oklch(1 0 0); /* page */
-  --surface: oklch(0.97 0 0); /* cards */
+  /* --background:oklch(0.97 0 0); page */
+  /* --background: #fafafa; page */
+  --base: #fafafa; /* page */
+  --surface: #fff; /* cards */
 
   /* Text & icons */
   --foreground: oklch(0.145 0 0); /* main text */
@@ -170,7 +172,7 @@
 
 .dark {
   /* Background layers */
-  --background: oklch(0.145 0 0); /* page */
+  --base: oklch(0.145 0 0); /* page */
   --surface: oklch(0.205 0 0); /* elevated */
 
   /* Text & icons */
