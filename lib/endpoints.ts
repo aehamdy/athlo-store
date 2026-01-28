@@ -1,11 +1,13 @@
 const endpoints = {
   home: "/",
-  product: "/products",
+  products: "/products",
   about: "/about",
   contact: "/contact",
   wishlist: "/wishlist",
   profile: "/profile",
   checkout: "/checkout",
+  privacyPolicy: "/privacy-policy",
+  terms: "/terms-and-conditions",
   auth: {
     signIn: "/sign-in",
     signUp: "/sign-up",
