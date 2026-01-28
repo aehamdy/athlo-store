@@ -240,3 +240,4 @@
 .action-button {
   @apply p-xs hover:bg-accent-base focus-within:text-primary-dark focus-visible:bg-accent-base focus-visible:outline-none rounded-md transition-colors duration-normal cursor-pointer;
 }
+
