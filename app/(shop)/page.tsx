@@ -1,9 +1,11 @@
-import Header from "@/components/layout/Header";
+import Newsletter from "@/components/Newsletter";
 
 function Home() {
   return (
     <main className="">
-      <Header />
+      <section className="flex justify-center items-center p-5xl">
+        <Newsletter variant="default" />
+      </section>
     </main>
   );
 }
