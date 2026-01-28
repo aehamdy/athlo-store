@@ -1,11 +1,22 @@
+"use client";
+
 import { ReactNode } from "react";
+import "../globals.css";
 
 function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex items-center justify-center">
-        <div className="w-full max-w-md p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+      <body className="bg-base text-foreground">
+        <div className="relative bg-base text-foreground">
           {children}
+
+          <button
+            type="button"
+            onClick={() => document.documentElement.classList.toggle("dark")}
+            className="absolute top-4 start-4"
+          >
+            Switch Theme
+          </button>
         </div>
       </body>
     </html>
