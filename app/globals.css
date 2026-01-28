@@ -55,6 +55,8 @@
   --spacing-xl: 1.5rem;
   --spacing-2xl: 1.75rem;
   --spacing-3xl: 2rem;
+  --spacing-4xl: 2.5rem;
+  --spacing-5xl: 3rem;
 
   /* Border radius */
   --radius-sm: 0.25rem;
@@ -240,4 +242,3 @@
 .action-button {
   @apply p-xs hover:bg-accent-base focus-within:text-primary-dark focus-visible:bg-accent-base focus-visible:outline-none rounded-md transition-colors duration-normal cursor-pointer;
 }
-
