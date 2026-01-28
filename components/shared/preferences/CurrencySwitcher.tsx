@@ -8,8 +8,8 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from "../../../ui/dropdown-menu";
-import { Button } from "../../../ui/button";
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 const currencies = ["USD", "EGP", "SAR"] as const;
 
