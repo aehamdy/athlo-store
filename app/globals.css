@@ -236,9 +236,9 @@
 }
 
 .main-button {
-  @apply w-full p-xs text-center text-sm text-primary-dark bg-accent-base hover:bg-accent-soft active:bg-accent-strong rounded-sm hover:shadow-sm active:shadow-none cursor-pointer transition-colors duration-normal;
+  @apply w-full p-xs text-center text-sm text-primary-dark bg-accent-base hover:bg-accent-soft active:bg-accent-strong rounded-sm hover:shadow-sm active:shadow-none transition-colors duration-normal;
 }
 
 .action-button {
-  @apply p-xs hover:bg-accent-base focus-within:text-primary-dark focus-visible:bg-accent-base focus-visible:outline-none rounded-md transition-colors duration-normal cursor-pointer;
+  @apply p-xs hover:bg-accent-base focus-within:text-primary-dark focus-visible:bg-accent-base focus-visible:outline-none rounded-md transition-colors duration-normal;
 }
