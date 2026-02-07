@@ -5,11 +5,11 @@ import Icon from "../shared/Icon";
 import Heading from "../shared/Heading";
 import navLinks from "@/lib/navLinks";
 import userLinks from "@/lib/userLinks";
-import Newsletter from "../Newsletter";
+import Newsletter from "../home/NewsletterSection";
 
 function FooterMain() {
   return (
-    <section className="grid grid-cols-3 gap-xl py-lg">
+    <section className="grid grid-cols-3 gap-xl py-4xl">
       {/* Logo, tagline and social channels */}
 
       <div className="col-span-3 lg:col-span-1">
