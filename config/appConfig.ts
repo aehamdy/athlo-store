@@ -9,6 +9,12 @@ export type ContactType = {
   };
 };
 
+export type AddressType = {
+  street: string;
+  city: string;
+  country: string;
+};
+
 export type SocialType = {
   name: string;
   url: string;
@@ -23,6 +29,7 @@ export type AppConfigType = {
   tagLine: string;
   author: string;
   contact: ContactType;
+  address: AddressType;
   social: SocialType[];
 };
 
@@ -46,6 +53,12 @@ const appConfig: AppConfigType = {
       info: "info@athlostore.com",
       support: "support@athlostore.com",
     },
+  },
+  // Address
+  address: {
+    street: "123 Sports Street",
+    city: "Dubai",
+    country: "UAE",
   },
   //   Social Channels
   social: [
