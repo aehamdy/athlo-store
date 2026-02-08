@@ -8,7 +8,7 @@ type PageHeroProps = {
 
 function PageHero({ title, description, image }: PageHeroProps) {
   return (
-    <section className="relative flex items-center justify-center h-[80dvh] overflow-hidden ">
+    <section className="relative flex items-center justify-center h-[50dvh] md:h-[60dvh] lg:h-[80dvh] overflow-hidden ">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
