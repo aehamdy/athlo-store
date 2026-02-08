@@ -1,4 +1,4 @@
-import StatCard from "@/features/values/components/StatCard";
+import StatCard from "@/features/about/components/StatCard";
 
 const stats = [
   { id: 1, value: "50K+", label: "Happy Customers" },

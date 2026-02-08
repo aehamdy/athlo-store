@@ -1,4 +1,4 @@
-import ValueCard from "@/features/values/components/ValueCard";
+import ValueCard from "@/features/about/components/ValueCard";
 
 const values = [
   {

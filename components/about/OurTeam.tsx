@@ -1,5 +1,5 @@
+import TeamMemberCard from "@/features/about/components/TeamMemberCard";
 import Icon from "../shared/Icon";
-import TeamMemberCard from "@/features/values/components/TeamMemberCard";
 
 const teamMembers = [
   {
