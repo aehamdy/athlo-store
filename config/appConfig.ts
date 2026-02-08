@@ -17,6 +17,7 @@ export type SocialType = {
 
 export type AppConfigType = {
   name: string;
+  foundedIn: string;
   version: string;
   description: string;
   tagLine: string;
@@ -26,7 +27,8 @@ export type AppConfigType = {
 };
 
 const appConfig: AppConfigType = {
-  name: "Athlo Store",
+  name: "Athlo",
+  foundedIn: "2020",
   version: "1.0.0",
   description: "Athlo Store - Your one stop shop for all your athletic needs",
   tagLine:
