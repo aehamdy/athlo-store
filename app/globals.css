@@ -57,6 +57,8 @@
   --spacing-3xl: 2rem;
   --spacing-4xl: 2.5rem;
   --spacing-5xl: 3rem;
+  --spacing-6xl: 3.5rem;
+  --spacing-7xl: 4rem;
 
   /* Border radius */
   --radius-sm: 0.25rem;
@@ -241,4 +243,14 @@
 
 .action-button {
   @apply p-xs hover:bg-accent-base focus-within:text-primary-dark focus-visible:bg-accent-base focus-visible:outline-none rounded-md transition-colors duration-normal;
+}
+
+.section-spacing {
+  @apply py-3xl md:py-5xl lg:py-7xl px-sm md:px-md;
+}
+.section-spacing-y {
+  @apply py-3xl md:py-5xl lg:py-7xl;
+}
+.section-spacing-x {
+  @apply px-sm md:px-md;
 }
