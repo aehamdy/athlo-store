@@ -8,6 +8,7 @@ const endpoints = {
   checkout: "/checkout",
   privacyPolicy: "/privacy-policy",
   terms: "/terms-and-conditions",
+  faq: "/faqs",
   auth: {
     signIn: "/sign-in",
     signUp: "/sign-up",
