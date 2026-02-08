@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { LucideProps } from "lucide-react";
 import * as Icons from "lucide-react";
 
@@ -10,14 +11,11 @@ interface IconProps extends Omit<LucideProps, "ref"> {
 function Icon({ name, className, size = 16, ...props }: IconProps) {
   const LucideIcon = Icons[name] as React.ComponentType<LucideProps>;
 
-  if (!LucideIcon) {
-    console.warn(`Icon "${name}" not found in Lucide icons`);
-    return null;
-  }
+  if (!LucideIcon) return null;
 
   return (
     <LucideIcon
-      className={`${className} text-muted-foreground `}
+      className={cn("text-muted-foreground", className)}
       size={size}
       {...props}
     />
