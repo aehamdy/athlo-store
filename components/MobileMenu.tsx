@@ -11,9 +11,7 @@ import Icon from "./shared/Icon";
 import Nav from "./shared/Nav";
 import Link from "next/link";
 import endpoints from "@/lib/endpoints";
-import LanguageSwitcher from "./shared/preferences/LanguageSwitcher";
-import CurrencySwitcher from "./shared/preferences/CurrencySwitcher";
-import ThemeSwitcher from "./shared/preferences/ThemeSwitcher";
+import PreferencesActions from "./shared/preferences/PreferencesActions";
 
 function MobileMenu() {
   return (
@@ -48,11 +46,7 @@ function MobileMenu() {
           </div>
 
           <SheetFooter className="border-t border-subtle">
-            <div className="flex items-center gap-sm">
-              <LanguageSwitcher />
-              <CurrencySwitcher />
-              <ThemeSwitcher />
-            </div>
+            <PreferencesActions />
 
             <Link href={endpoints.auth.signIn} className="main-button">
               Sign In
