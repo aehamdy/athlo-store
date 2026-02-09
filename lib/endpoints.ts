@@ -3,12 +3,11 @@ const endpoints = {
   products: "/products",
   about: "/about",
   contact: "/contact",
-  wishlist: "/wishlist",
   profile: "/profile",
   checkout: "/checkout",
   privacyPolicy: "/privacy-policy",
   terms: "/terms-and-conditions",
-  faq: "/faqs",
+  faqs: "/faqs",
   auth: {
     signIn: "/sign-in",
     signUp: "/sign-up",

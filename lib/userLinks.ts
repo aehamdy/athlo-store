@@ -15,8 +15,8 @@ const userLinks: UserLinkType[] = [
     href: endpoints.auth.signUp,
   },
   {
-    label: "Wishlist",
-    href: endpoints.wishlist,
+    label: "FAQs",
+    href: endpoints.faqs,
   },
 ];
 
