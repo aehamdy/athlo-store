@@ -3,7 +3,6 @@ import MobileMenu from "./MobileMenu";
 import ProfileButton from "./ProfileButton";
 import SearchModal from "./SearchModal";
 import PreferencesActions from "./shared/preferences/PreferencesActions";
-import WishlistButton from "./WishlistButton";
 
 function HeaderActions() {
   return (
@@ -14,7 +13,6 @@ function HeaderActions() {
         <PreferencesActions />
       </div>
 
-      <WishlistButton />
       <CartButton />
 
       <div className="hidden lg:flex">
