@@ -6,7 +6,7 @@ import Footer from "@/components/footer/Footer";
 export default function ShopLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-base text-foreground">
+      <body className="mt-[60px] bg-base text-foreground">
         <Header />
 
         {/* Main content */}
