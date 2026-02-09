@@ -16,7 +16,7 @@ function FAQSection() {
         </div>
 
         <Link
-          href={endpoints.faq}
+          href={endpoints.faqs}
           className="w-fit p-sm text-center text-xs text-foreground hover:text-primary-dark bg-base hover:bg-accent-soft active:bg-accent-strong rounded-sm hover:shadow-sm active:shadow-none transition-colors duration-normal"
         >
           View FAQ
