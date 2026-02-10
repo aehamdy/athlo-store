@@ -1,6 +1,7 @@
 const endpoints = {
   home: "/",
   products: "/products",
+  productDetail: (slug: string) => `/products/${slug}`,
   about: "/about",
   contact: "/contact",
   profile: "/profile",
