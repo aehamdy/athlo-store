@@ -1,7 +1,7 @@
-import FilterContent from "@/components/product/FilterContent";
-import MobileFilter from "@/components/product/MobileFilter";
-import ProductsGrid from "@/components/product/ProductsGrid";
-import SortDropdown from "@/components/product/SortDropdown";
+import FilterContent from "@/components/products/FilterContent";
+import MobileFilter from "@/components/products/MobileFilter";
+import ProductsGrid from "@/components/products/ProductsGrid";
+import SortDropdown from "@/components/products/SortDropdown";
 import Heading from "@/components/shared/Heading";
 
 function ProductsPage() {
