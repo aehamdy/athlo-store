@@ -6,6 +6,7 @@ const endpoints = {
   contact: "/contact",
   profile: "/profile",
   checkout: "/checkout",
+  thankyou: "/thank-you",
   privacyPolicy: "/privacy-policy",
   terms: "/terms-and-conditions",
   faqs: "/faqs",
