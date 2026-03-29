@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import HeaderActions from "../HeaderActions";
 import Logo from "../shared/Logo";
 import Nav from "../shared/Nav";
-import { cn } from "@/lib/utils";
 
 function Header() {
   const [hidden, setHidden] = useState(false);
@@ -31,22 +30,23 @@ function Header() {
 
   return (
     <header
-      className={cn(
-        "fixed top-0 start-0 z-50 w-full",
-        "flex items-center justify-between",
-        "bg-background/70 backdrop-blur-md",
-        "py-sm px-md",
-        "transition-transform duration-normal ease-in-out",
-        hidden && "-translate-y-full",
-      )}
+      className={`fixed bottom-5 lg:top-2 lg:bottom-auto start-1/2 ${
+        hidden
+          ? "translate-y-[calc(100%+1.5rem)] lg:-translate-y-[calc(100%+1.5rem)]"
+          : "translate-y-0"
+      } -translate-x-1/2 w-fit lg:w-9/10 py-xs lg:py-sm px-sm lg:px-md bg-background backdrop-blur-md shadow-sm rounded-4xl z-50 transition-transform duration-normal ease-in-out`}
     >
-      <Logo />
+      <div className="flex justify-between items-center">
+        <div className="hidden lg:block">
+          <Logo />
+        </div>
 
-      <div className="hidden lg:block">
-        <Nav />
+        <div className="hidden lg:block">
+          <Nav />
+        </div>
+
+        <HeaderActions />
       </div>
-
-      <HeaderActions />
     </header>
   );
 }
