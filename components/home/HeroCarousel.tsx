@@ -67,7 +67,7 @@ function HeroCarousel() {
   }, [nextSlide]);
 
   return (
-    <section className="relative w-full h-[calc(100dvh-60px)] overflow-hidden">
+    <section className="relative w-full h-dvh overflow-hidden">
       {/* Slides */}
       {heroSlides.map((slide, index) => (
         <div
