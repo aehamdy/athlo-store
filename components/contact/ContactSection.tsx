@@ -5,30 +5,31 @@ import { Info } from "@/features/contact/types";
 import appConfig from "@/config/appConfig";
 import Icon from "../shared/Icon";
 
+const mainLocation = appConfig.locations?.[0];
+
 const contactInfo: Info[] = [
   {
     id: 1,
     icon: "MapPin",
     title: "Address",
-    details: [
-      appConfig.address.street,
-      `${appConfig.address.city}, ${appConfig.address.country}`,
-    ],
+    details: mainLocation
+      ? [
+          mainLocation.addresses[0]?.street,
+          `${mainLocation.addresses[0]?.city}, ${mainLocation.addresses[0]?.country}`,
+        ]
+      : [],
   },
   {
     id: 2,
     icon: "Phone",
     title: "Phone",
-    details: [
-      appConfig.contact.numbers.primary,
-      appConfig.contact.numbers.secondary,
-    ],
+    details: appConfig.contact.phones.map((phone) => phone.value),
   },
   {
     id: 3,
     icon: "Mail",
     title: "Email",
-    details: [appConfig.contact.emails.info, appConfig.contact.emails.support],
+    details: appConfig.contact.emails.map((email) => email.value),
   },
   {
     id: 4,
@@ -76,7 +77,6 @@ function ContactSection() {
                     name="MapPin"
                     className="w-12 h-12 mx-auto mb-2 text-muted-foreground"
                   />
-
                   <p className="text-muted-foreground">Location Map</p>
                 </div>
               </div>
