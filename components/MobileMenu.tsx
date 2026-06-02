@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -39,6 +40,9 @@ function MobileMenu() {
         >
           <SheetHeader className="border-b border-subtle">
             <SheetTitle>Menu</SheetTitle>
+            <SheetDescription className="sr-only">
+              Main navigation and preferences menu
+            </SheetDescription>
           </SheetHeader>
 
           <div className="no-scrollbar overflow-y-auto px-4">

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,8 +8,11 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "../../ui/dropdown-menu";
+
 import Icon from "../Icon";
 import { Button } from "../../ui/button";
+import { usePathname, useRouter } from "next/navigation";
+import { Locale } from "next-intl";
 
 const languages = [
   { code: "en", label: "English" },
@@ -18,36 +20,36 @@ const languages = [
 ] as const;
 
 function LanguageSwitcher() {
-  const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  function handleChange(locale: Locale) {
+    const segments = pathname.split("/");
+
+    segments[1] = locale;
+
+    const newPath = segments.join("/") || "/";
+    router.push(newPath);
+    router.refresh();
+  }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="plain"
-          aria-label="Select language"
-          aria-describedby="language-switcher-desc"
-          aria-haspopup="menu"
-          aria-expanded={open}
-          aria-controls="language-menu"
-          className="group action-button focus-visible:text-primary-dark"
-        >
-          <Icon
-            name="Globe"
-            className="group-hover:text-primary-dark group-focus-visible:text-primary-dark"
-          />
+        <Button variant="plain" aria-label="Select language">
+          <Icon name="Globe" />
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className="">
+      <DropdownMenuContent>
         <DropdownMenuGroup>
-          {/* <DropdownMenuLabel>Select Payment Method</DropdownMenuLabel> */}
-          <DropdownMenuRadioGroup
-          // value={paymentMethod}
-          // onValueChange={setPaymentMethod}
-          >
+          <DropdownMenuRadioGroup>
             {languages.map((lang) => (
-              <DropdownMenuRadioItem key={lang.code} value={lang.code}>
+              <DropdownMenuRadioItem
+                key={lang.code}
+                value={lang.code}
+                onClick={() => handleChange(lang.code)}
+              >
                 {lang.label}
               </DropdownMenuRadioItem>
             ))}

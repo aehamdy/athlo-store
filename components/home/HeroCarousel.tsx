@@ -45,7 +45,6 @@ const heroSlides = [
 
 function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  //   const { language, isRTL } = useLanguage();
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);

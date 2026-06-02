@@ -30,11 +30,11 @@ function Header() {
 
   return (
     <header
-      className={`fixed bottom-5 lg:top-2 lg:bottom-auto start-1/2 ${
+      className={`fixed bottom-5 lg:top-4 lg:bottom-auto start-1/2 -translate-x-1/2 w-fit lg:w-9/10 ${
         hidden
           ? "translate-y-[calc(100%+1.5rem)] lg:-translate-y-[calc(100%+1.5rem)]"
           : "translate-y-0"
-      } -translate-x-1/2 w-fit lg:w-9/10 py-xs lg:py-sm px-sm lg:px-md bg-background backdrop-blur-md shadow-sm rounded-4xl z-50 transition-transform duration-normal ease-in-out`}
+      } py-xs lg:py-sm px-sm lg:px-md bg-background backdrop-blur-md shadow-sm rounded-4xl z-50 transition-transform duration-normal ease-in-out`}
     >
       <div className="flex justify-between items-center">
         <div className="hidden lg:block">
