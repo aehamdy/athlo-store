@@ -11,6 +11,7 @@ import {
 import { Button } from "../ui/button";
 import Icon from "../shared/Icon";
 import FilterContent from "./FilterContent";
+import { Description } from "@radix-ui/react-dialog";
 
 function MobileFilter() {
   return (
@@ -26,6 +27,9 @@ function MobileFilter() {
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
         </SheetHeader>
+        <Description className="sr-only">
+          Customize your profile settings and preferences.
+        </Description>
         <Separator />
 
         <div className="px-sm">

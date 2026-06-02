@@ -1,7 +1,6 @@
 "use client";
 
 import { ReactNode } from "react";
-import "../globals.css";
 
 function AuthLayout({ children }: { children: ReactNode }) {
   return (

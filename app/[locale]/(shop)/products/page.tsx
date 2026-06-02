@@ -3,14 +3,17 @@ import MobileFilter from "@/components/products/MobileFilter";
 import ProductsGrid from "@/components/products/ProductsGrid";
 import SortDropdown from "@/components/products/SortDropdown";
 import Heading from "@/components/shared/Heading";
+import { useTranslations } from "next-intl";
 
 function ProductsPage() {
+  const t = useTranslations("ProductsPage");
+
   return (
     <main className="section-spacing">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-md mb-3xl">
         <div>
           <Heading as="h1" className="font-bold text-3xl">
-            Products
+            {t("title")}
           </Heading>
 
           <p className="mt-tiny text-muted-foreground">99 Items</p>
