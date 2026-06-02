@@ -8,16 +8,21 @@ import userLinks from "@/lib/userLinks";
 import Newsletter from "../home/NewsletterSection";
 
 function FooterMain() {
+  const primaryPhone =
+    appConfig.contact.phones.find((p) => p.label === "primary")?.value ?? "";
+
+  const infoEmail =
+    appConfig.contact.emails.find((e) => e.label === "info")?.value ?? "";
+
   return (
     <section className="grid grid-cols-3 gap-xl py-4xl">
       {/* Logo, tagline and social channels */}
-
       <div className="col-span-3 lg:col-span-1">
         <div className="flex flex-col gap-md">
           <Logo />
 
           <div className="md:w-3/5 lg:w-full">
-            <p className="">{appConfig.tagLine}</p>
+            <p>{appConfig.tagLine}</p>
           </div>
 
           <div className="flex items-center gap-sm">
@@ -36,6 +41,7 @@ function FooterMain() {
           </div>
         </div>
       </div>
+
       {/* Links */}
       <div className="col-span-3 lg:col-span-1 flex justify-between md:justify-start lg:justify-between items-start md:gap-4xl lg:gap-0">
         {/* Quick Links */}
@@ -78,16 +84,17 @@ function FooterMain() {
           <div className="flex flex-col gap-sm">
             <div className="flex items-center gap-sm">
               <Icon name="Phone" />
-              <p className="">{appConfig.contact.numbers.primary}</p>
+              <p>{primaryPhone}</p>
             </div>
 
             <div className="flex items-center gap-sm">
               <Icon name="Mail" />
-              <p className="">{appConfig.contact.emails.info}</p>
+              <p>{infoEmail}</p>
             </div>
           </div>
         </div>
       </div>
+
       {/* Newsletter */}
       <div className="col-span-3 lg:col-span-1">
         <Newsletter variant="compact" />

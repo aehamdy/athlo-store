@@ -1,66 +1,58 @@
-export type ContactType = {
-  numbers: {
-    primary: string;
-    secondary: string;
-  };
-  emails: {
-    info: string;
-    support: string;
-  };
-};
+import { AppConfig } from "./appConfigTypes";
 
-export type AddressType = {
-  street: string;
-  city: string;
-  country: string;
-};
-
-export type SocialType = {
-  name: string;
-  url: string;
-  icon: string;
-};
-
-export type AppConfigType = {
-  name: string;
-  foundedIn: string;
-  version: string;
-  description: string;
-  tagLine: string;
-  author: string;
-  contact: ContactType;
-  address: AddressType;
-  social: SocialType[];
-};
-
-const appConfig: AppConfigType = {
+const appConfig: AppConfig = {
   name: "Athlo",
-  foundedIn: "2020",
-  version: "1.0.0",
+  slug: "athlo-store",
+  author: "Athlo Store",
+  logoText: "Athlo Store",
+  foundedIn: "2026",
   description: "Athlo Store - Your one stop shop for all your athletic needs",
   tagLine:
     "Your premier destination for high-quality sportswear. Elevate your performance with our premium designs.",
-  author: "Athlo Store",
-  //   Contact
+  version: "1.0.0",
+
   contact: {
-    // Contact Numbers
-    numbers: {
-      primary: "+234 801 234 5678",
-      secondary: "+234 809 876 5432",
-    },
-    // Contact Emails
-    emails: {
-      info: "info@athlostore.com",
-      support: "support@athlostore.com",
-    },
+    phones: [
+      { label: "primary", value: "+234 801 234 5678" },
+      { label: "secondary", value: "+234 809 876 5432" },
+    ],
+    emails: [
+      { label: "info", value: "info@athlostore.com" },
+      { label: "support", value: "support@athlostore.com" },
+    ],
   },
-  // Address
-  address: {
-    street: "123 Sports Street",
-    city: "Dubai",
-    country: "UAE",
-  },
-  //   Social Channels
+
+  locations: [
+    {
+      name: "Cairo",
+      addresses: [
+        {
+          street: "123 Sports Street",
+          city: "Cairo",
+          country: "Egypt",
+          contact: "+201 234 5678",
+        },
+        {
+          street: "456 Sports Street",
+          city: "Cairo",
+          country: "Egypt",
+          contact: "+201 876 5432",
+        },
+      ],
+    },
+    {
+      name: "Alexandria",
+      addresses: [
+        {
+          street: "789 Sports Street",
+          city: "Alexandria",
+          country: "Egypt",
+          contact: "+201 555 5555",
+        },
+      ],
+    },
+  ],
+
   social: [
     { name: "facebook", url: "https://facebook.com/", icon: "Facebook" },
     { name: "instagram", url: "https://instagram.com/", icon: "Instagram" },
