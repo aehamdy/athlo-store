@@ -30,7 +30,8 @@ function Header() {
 
   return (
     <header
-      className={`fixed bottom-5 lg:top-4 lg:bottom-auto start-1/2 -translate-x-1/2 w-fit lg:w-9/10 ${
+      dir="ltr"
+      className={`fixed bottom-5 lg:top-4 lg:bottom-auto left-1/2 -translate-x-1/2 w-fit lg:w-9/10 ${
         hidden
           ? "translate-y-[calc(100%+1.5rem)] lg:-translate-y-[calc(100%+1.5rem)]"
           : "translate-y-0"
