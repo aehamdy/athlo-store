@@ -4,7 +4,7 @@ import ROUTES from "@/lib/routes";
 import { useTranslations } from "next-intl";
 
 function FAQSection() {
-  const t = useTranslations("faqs");
+  const t = useTranslations("faqsPage");
   const labelsT = useTranslations("labels");
 
   return (
