@@ -12,24 +12,26 @@ import { Button } from "../ui/button";
 import Icon from "../shared/Icon";
 import FilterContent from "./FilterContent";
 import { Description } from "@radix-ui/react-dialog";
+import { useTranslations } from "next-intl";
 
 function MobileFilter() {
+  const t = useTranslations("filters.mobileFilter");
+
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline">
           <Icon name="SlidersHorizontal" />
-          Filter
+          {t("filter")}
         </Button>
       </SheetTrigger>
 
       <SheetContent side="left">
         <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
+          <SheetTitle>{t("title")}</SheetTitle>
         </SheetHeader>
-        <Description className="sr-only">
-          Customize your profile settings and preferences.
-        </Description>
+
+        <Description className="sr-only">{t("description")}</Description>
         <Separator />
 
         <div className="px-sm">
@@ -37,10 +39,10 @@ function MobileFilter() {
         </div>
 
         <SheetFooter>
-          <Button type="submit">Apply Filters</Button>
+          <Button type="submit">{t("apply")}</Button>
 
           <SheetClose asChild>
-            <Button variant="outline">Close</Button>
+            <Button variant="outline">{t("close")}</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

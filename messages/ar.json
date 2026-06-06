@@ -158,6 +158,59 @@
     }
   },
 
+  "productsPage": {
+    "title": "المنتجات",
+    "filters": "الفلاتر",
+    "items": "عنصر"
+  },
+
+  "filters": {
+    "sort": {
+      "placeholder": "ترتيب حسب",
+      "newest": "الأحدث",
+      "priceLowToHigh": "السعر: من الأقل إلى الأعلى",
+      "priceHighToLow": "السعر: من الأعلى إلى الأقل"
+    },
+
+    "mobileFilter": {
+      "filter": "فلتر",
+      "title": "الفلاتر",
+      "description": "قم بتصفية المنتجات باستخدام الفلاتر",
+      "apply": "تطبيق الفلاتر",
+      "close": "إغلاق"
+    },
+
+    "categoryFilter": {
+      "title": "الفئة",
+      "all": "الكل",
+      "men": "رجال",
+      "women": "نساء",
+      "shoes": "أحذية",
+      "accessories": "إكسسوارات"
+    },
+
+    "priceFilter": {
+      "title": "نطاق السعر",
+      "min": "أقل سعر",
+      "max": "أعلى سعر",
+      "range": "{{min}} - {{max}}"
+    },
+
+    "size": {
+      "title": "المقاس"
+    },
+
+    "color": {
+      "title": "اللون"
+    },
+
+    "availability": {
+      "title": "التوفر",
+      "newOnly": "جديد فقط",
+      "featuredOnly": "مميز فقط"
+    }
+  },
+
   "aboutPage": {
     "title": "من نحن",
     "description": "نحن نؤمن بأن كل رياضي يستحق معدات عالية الاداء",

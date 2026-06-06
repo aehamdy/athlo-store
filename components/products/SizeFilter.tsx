@@ -11,12 +11,15 @@ import { Button } from "../ui/button";
 import { products } from "./ProductsGrid";
 import { useState } from "react";
 import { Separator } from "../ui/separator";
+import { useTranslations } from "next-intl";
 
 const allSizes = Array.from(
   new Set(products.flatMap((p) => p.sizes).filter((s) => s !== "One Size")),
 );
 
 function SizeFilter() {
+  const t = useTranslations("filters.size");
+
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [openSections, setOpenSections] = useState({
     category: true,
@@ -43,7 +46,8 @@ function SizeFilter() {
         onOpenChange={() => toggleSection("size")}
       >
         <CollapsibleTrigger className="flex items-center justify-between w-full py-lg cursor-pointer">
-          <span className="font-semibold">Size</span>
+          <span className="font-semibold">{t("title")}</span>
+
           <Icon
             name="ChevronDown"
             className={cn(

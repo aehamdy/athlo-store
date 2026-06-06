@@ -6,7 +6,7 @@ import AvailabilityFilter from "./AvailabilityFilter";
 
 function FilterContent() {
   return (
-    <div className="">
+    <>
       <CategoryFilter />
 
       <PriceRangeFilter />
@@ -16,7 +16,7 @@ function FilterContent() {
       <ColorFilter />
 
       <AvailabilityFilter />
-    </div>
+    </>
   );
 }
 
