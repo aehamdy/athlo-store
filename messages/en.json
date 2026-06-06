@@ -207,6 +207,20 @@
     }
   },
 
+  "productCard": {
+    "badges": {
+      "new": "New",
+      "featured": "Featured"
+    },
+
+    "currency": "EGP",
+
+    "actions": {
+      "addToCart": "Add to cart",
+      "quickView": "Quick View"
+    }
+  },
+
   "aboutPage": {
     "title": "About Us",
     "description": "We believe every athlete deserves high-performance gear",
