@@ -15,6 +15,10 @@
     "shopNow": "Shop Now",
     "addToCart": "Add to Cart",
     "buyNow": "Buy Now",
+    "continueShopping": "Continue Shopping",
+    "backToHome": "Back to Home",
+    "contactPage": "Contact Page",
+
     "subscribe": "Subscribe",
     "loadMore": "Load More",
     "search": "Search",
@@ -27,7 +31,6 @@
     "remove": "Remove",
     "cancel": "Cancel",
     "continue": "Continue",
-    "continueShopping": "Continue Shopping",
     "checkout": "Checkout",
     "placeOrder": "Place Order",
     "signIn": "Sign In",
@@ -393,6 +396,28 @@
     "popularCategories": "Popular Categories",
     "browseCategories": "Browse Categories",
     "productsCount": "{{count}} Products"
+  },
+
+  "thankYouPage": {
+    "successMessage": {
+      "title": "Congratulations!",
+      "subtitle": "Your order has been successfully placed",
+      "description": "We'll send you an email with order details and tracking information"
+    },
+
+    "orderNumberCard": {
+      "label": "Order Number"
+    },
+
+    "timeline": {
+      "confirmed": "Confirmed",
+      "processing": "Processing",
+      "shipped": "Shipped"
+    },
+
+    "support": {
+      "text": "Have questions? Contact us through our"
+    }
   },
 
   "cart": {
