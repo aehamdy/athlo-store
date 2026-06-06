@@ -20,20 +20,20 @@ function CurrencySwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="plain"
+          variant="primary"
           aria-label="Select currency"
           aria-describedby="currency-switcher-desc"
           aria-haspopup="menu"
           aria-expanded={open}
           aria-controls="currency-menu"
           onClick={() => setOpen((prev) => !prev)}
-          className="group action-button text-muted-foreground hover:text-primary-dark focus-visible:text-primary-dark"
+          className="group"
         >
           USD
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className="">
+      <DropdownMenuContent>
         <DropdownMenuGroup>
           <DropdownMenuRadioGroup
           // value={paymentMethod}
