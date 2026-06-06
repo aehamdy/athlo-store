@@ -1,36 +1,40 @@
+import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 
 function ContactUsForm() {
+  const t = useTranslations("labels");
+  const actionsT = useTranslations("actions");
+
   return (
     <form action="" className="space-y-xl">
       <div className="space-y-sm">
-        <Label htmlFor="name">Your Name</Label>
-        <Input id="name" required placeholder="Enter your name" className="" />
-      </div>
-
-      <div className="space-y-sm">
-        <Label htmlFor="email">Your Email</Label>
+        <Label htmlFor="name">{t("yourName")}</Label>
         <Input
-          id="email"
+          id="name"
           required
-          placeholder="Enter your email"
+          placeholder={t("enterYourName")}
           className=""
         />
       </div>
 
       <div className="space-y-sm">
-        <Label htmlFor="message">Your Message</Label>
+        <Label htmlFor="email">{t("yourEmail")}</Label>
+        <Input id="email" required placeholder={t("enterEmail")} className="" />
+      </div>
+
+      <div className="space-y-sm">
+        <Label htmlFor="message">{t("yourMessage")}</Label>
         <Textarea
           required
-          placeholder="Type your message here."
+          placeholder={t("enterYourMessage")}
           className="bg-field"
         />
       </div>
 
-      <Button className="main-button">Send Message</Button>
+      <Button className="main-button">{actionsT("sendMessage")}</Button>
     </form>
   );
 }
