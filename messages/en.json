@@ -1,9 +1,223 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "app": {
+    "tagLine": "Your premier destination for high-quality sportswear. Elevate your performance with our premium designs."
   },
 
-  "ProductsPage": {
-    "title": "Products"
+  "actions": {
+    "learnOurStory": "Learn Our Story",
+    "view": "View",
+    "viewAll": "View All",
+    "shopNow": "Shop Now",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "subscribe": "Subscribe",
+    "loadMore": "Load More",
+    "search": "Search",
+    "filter": "Filter",
+    "apply": "Apply",
+    "clear": "Clear",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "remove": "Remove",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "continueShopping": "Continue Shopping",
+    "checkout": "Checkout",
+    "placeOrder": "Place Order",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "submit": "Submit",
+    "retry": "Retry"
+  },
+
+  "labels": {
+    "price": "Price",
+    "category": "Category",
+    "categories": "Categories",
+    "brand": "Brand",
+    "brands": "Brands",
+    "quantity": "Quantity",
+    "size": "Size",
+    "color": "Color",
+    "sku": "SKU",
+    "discount": "Discount",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "total": "Total",
+    "email": "Email",
+    "enterEmail": "Enter your email",
+    "phone": "Phone",
+    "name": "Name",
+    "address": "Address",
+    "city": "City",
+    "country": "Country",
+    "postalCode": "Postal Code",
+    "orderNumber": "Order Number"
+  },
+
+  "messages": {
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "success": "Operation completed successfully.",
+    "error": "Something went wrong.",
+    "networkError": "Unable to connect to the server.",
+    "noProductsFound": "No products found.",
+    "emptyCart": "Your cart is empty.",
+    "emptyWishlist": "Your wishlist is empty.",
+    "itemAddedToCart": "Item added to cart.",
+    "itemRemovedFromCart": "Item removed from cart.",
+    "itemAddedToWishlist": "Item added to wishlist.",
+    "itemRemovedFromWishlist": "Item removed from wishlist.",
+    "orderPlaced": "Your order has been placed successfully.",
+    "requiredField": "This field is required.",
+    "invalidEmail": "Please enter a valid email address."
+  },
+
+  "navigation": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "home": "Home",
+    "products": "Products",
+    "contact": "Contact",
+    "about": "About Us",
+    "faqs": "FAQs",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "newArrivals": "New Arrivals",
+    "shop": "Shop",
+    "categories": "Categories",
+    "bestSellers": "Best Sellers",
+    "offers": "Offers",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "checkout": "Checkout",
+    "account": "Account",
+    "orders": "Orders"
+  },
+
+  "home": {
+    "hero": {
+      "slides": [
+        {
+          "title": "New Season Collection",
+          "description": "Elevate your performance with our latest gear.",
+          "cta": "Shop Now"
+        },
+        {
+          "title": "Run Further",
+          "description": "Premium running shoes designed for champions.",
+          "cta": "Explore Shoes"
+        },
+        {
+          "title": "Train Like Never Before",
+          "description": "High-performance apparel for every workout.",
+          "cta": "View Collection"
+        }
+      ]
+    },
+    "shopByCategory": {
+      "title": "Shop by Category"
+    },
+    "featuredProducts": {
+      "title": "Featured Products",
+      "description": "Handpicked products just for you."
+    },
+    "performance": {
+      "title": "Elevate Your Performance",
+      "description": "We craft high-performance sportswear that helps you achieve your best. From the gym to the street, our products are designed for athletes who demand excellence.",
+      "cta": "Learn Our Story"
+    },
+    "newArrivals": {
+      "title": "New Arrivals",
+      "description": "Check out our latest additions to the collection."
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Subscribe to receive exclusive offers and product updates."
+    }
+  },
+
+  "footer": {
+    "about": {
+      "title": "About Us",
+      "description": "Providing premium products and exceptional shopping experiences."
+    },
+    "quickLinks": {
+      "title": "Quick Links"
+    },
+    "customerService": {
+      "title": "Customer Service"
+    },
+    "contact": {
+      "title": "Contact Us"
+    },
+    "copyright": "Athlo Store. All rights reserved."
+  },
+
+  "products": {
+    "title": "Products",
+    "featured": "Featured Products",
+    "related": "Related Products",
+    "newArrivals": "New Arrivals",
+    "bestSellers": "Best Sellers",
+    "reviews": "Reviews",
+    "description": "Description",
+    "specifications": "Specifications",
+    "availability": "Availability",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "rating": "Rating",
+    "sortBy": "Sort By",
+    "filterBy": "Filter By"
+  },
+
+  "categories": {
+    "title": "Categories",
+    "allCategories": "All Categories",
+    "popularCategories": "Popular Categories",
+    "browseCategories": "Browse Categories",
+    "productsCount": "{{count}} Products"
+  },
+
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty.",
+    "summary": "Order Summary",
+    "couponCode": "Coupon Code",
+    "applyCoupon": "Apply Coupon",
+    "estimatedTotal": "Estimated Total",
+    "proceedToCheckout": "Proceed to Checkout"
+  },
+
+  "checkout": {
+    "title": "Checkout",
+    "billingDetails": "Billing Details",
+    "shippingDetails": "Shipping Details",
+    "paymentMethod": "Payment Method",
+    "orderSummary": "Order Summary",
+    "reviewOrder": "Review Order",
+    "secureCheckout": "Secure Checkout"
+  },
+
+  "account": {
+    "title": "My Account",
+    "profile": "Profile",
+    "personalInformation": "Personal Information",
+    "addresses": "Addresses",
+    "orders": "Orders",
+    "orderHistory": "Order History",
+    "settings": "Settings",
+    "changePassword": "Change Password",
+    "logout": "Logout"
+  },
+
+  "wishlist": {
+    "title": "Wishlist",
+    "empty": "Your wishlist is empty.",
+    "savedItems": "Saved Items",
+    "moveToCart": "Move to Cart"
   }
 }
