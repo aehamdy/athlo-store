@@ -4,6 +4,7 @@ import Heading from "../shared/Heading";
 import { Info } from "@/features/contact/types";
 import appConfig from "@/config/appConfig";
 import Icon from "../shared/Icon";
+import { useTranslations } from "next-intl";
 
 const mainLocation = appConfig.locations?.[0];
 
@@ -11,42 +12,47 @@ const contactInfo: Info[] = [
   {
     id: 1,
     icon: "MapPin",
-    title: "Address",
+    title: "address",
     details: mainLocation
       ? [
           mainLocation.addresses[0]?.street,
-          `${mainLocation.addresses[0]?.city}, ${mainLocation.addresses[0]?.country}`,
+          mainLocation.addresses[0]?.city,
+          mainLocation.addresses[0]?.country,
         ]
       : [],
   },
   {
     id: 2,
     icon: "Phone",
-    title: "Phone",
+    title: "phone",
     details: appConfig.contact.phones.map((phone) => phone.value),
   },
   {
     id: 3,
     icon: "Mail",
-    title: "Email",
+    title: "email",
     details: appConfig.contact.emails.map((email) => email.value),
   },
   {
     id: 4,
     icon: "Clock",
-    title: "Business Hours",
-    details: ["Sunday - Thursday: 9 AM - 6 PM", "Friday - Saturday: Closed"],
+    title: "businessHours",
+    details: ["businessHours.line1", "businessHours.line2"],
   },
 ];
 
 function ContactSection() {
+  const t = useTranslations("contactPage");
+
   return (
     <section className="section-spacing bg-base">
       <div className="px-md">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5xl">
           {/* Contact Form */}
           <div className="p-8 bg-surface border border-subtle rounded-2xl">
-            <h2 className="font-bold text-2xl mb-xl">Send Message</h2>
+            <Heading as="h2" className="font-bold text-2xl mb-xl">
+              {t("sendMessage")}
+            </Heading>
             <ContactUsForm />
           </div>
 
@@ -54,12 +60,11 @@ function ContactSection() {
           <div className="space-y-3xl">
             <div className="space-y-sm">
               <Heading className="font-bold text-2xl">
-                Contact Information
+                {t("contactInformation.title")}
               </Heading>
 
               <p className="text-muted-foreground">
-                Feel free to reach out to us with any questions or inquiries.
-                Our team is ready to help you.
+                {t("contactInformation.description")}
               </p>
             </div>
 
