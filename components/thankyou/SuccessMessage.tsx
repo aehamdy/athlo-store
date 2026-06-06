@@ -1,21 +1,24 @@
 import Heading from "../shared/Heading";
+import { useTranslations } from "next-intl";
 
 function SuccessMessage() {
+  const t = useTranslations("thankYouPage.successMessage");
+
   return (
     <div className="flex flex-col items-center gap-tiny">
       <Heading
         as="h1"
         className="mb-md font-bold text-3xl md:text-4xl animate-fade-in"
       >
-        Congratulations!
+        {t("title")}
       </Heading>
 
       <p className="mb-xs text-center text-xl text-muted-foreground animate-fade-in">
-        Your order has been successfully placed
+        {t("subtitle")}
       </p>
 
       <p className="mb-3xl text-center text-muted-foreground animate-fade-in">
-        We&apos;ll send you an email with order details and tracking information
+        {t("description")}
       </p>
     </div>
   );

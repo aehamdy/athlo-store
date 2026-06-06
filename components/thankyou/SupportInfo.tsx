@@ -1,16 +1,20 @@
 import ROUTES from "@/lib/routes";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 function SupportInfo() {
+  const t = useTranslations("thankYouPage.support");
+  const actionsT = useTranslations("actions");
+
   return (
     <div>
       <p className="mt-3xl text-sm text-muted-foreground animate-fade-in">
-        Have questions? Contact us through our{" "}
+        {t("text")}{" "}
         <Link
           href={ROUTES.public.contact}
           className="hover:text-accent-base underline"
         >
-          contact page
+          {actionsT("contactPage")}
         </Link>
       </p>
     </div>

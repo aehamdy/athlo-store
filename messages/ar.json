@@ -15,6 +15,10 @@
     "shopNow": "تسوق الآن",
     "addToCart": "أضف إلى السلة",
     "buyNow": "اشترِ الآن",
+    "continueShopping": "متابعة التسوق",
+    "backToHome": "العودة للرئيسية",
+    "contactPage": "صفحة التواصل",
+
     "subscribe": "اشترك",
     "loadMore": "تحميل المزيد",
     "search": "بحث",
@@ -27,7 +31,6 @@
     "remove": "إزالة",
     "cancel": "إلغاء",
     "continue": "متابعة",
-    "continueShopping": "مواصلة التسوق",
     "checkout": "إتمام الشراء",
     "placeOrder": "إتمام الطلب",
     "signIn": "تسجيل الدخول",
@@ -401,6 +404,28 @@
     "popularCategories": "الفئات الشائعة",
     "browseCategories": "تصفح الفئات",
     "productsCount": "{{count}} منتج"
+  },
+
+  "thankYouPage": {
+    "successMessage": {
+      "title": "تهانينا!",
+      "subtitle": "تم تقديم طلبك بنجاح",
+      "description": "سنرسل لك بريدًا إلكترونيًا يحتوي على تفاصيل الطلب ومعلومات التتبع"
+    },
+
+    "orderNumberCard": {
+      "label": "رقم الطلب"
+    },
+
+    "timeline": {
+      "confirmed": "تم التأكيد",
+      "processing": "قيد المعالجة",
+      "shipped": "تم الشحن"
+    },
+
+    "support": {
+      "text": "هل لديك أسئلة؟ تواصل معنا عبر"
+    }
   },
 
   "cart": {
