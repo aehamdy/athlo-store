@@ -6,41 +6,41 @@ import { Button } from "../ui/button";
 import { products } from "../products/ProductsGrid";
 import Link from "next/link";
 import ROUTES from "@/lib/routes";
+import { useTranslations } from "next-intl";
 
 function OrderSummary() {
+  const t = useTranslations("checkoutPage.summary");
+
   const items = products.slice(0, 3);
 
   return (
-    <div className="">
+    <div>
       <Card className="sticky top-24 bg-card border-subtle">
         <CardHeader>
-          <CardTitle>Order Summary</CardTitle>
+          <CardTitle>{t("title")}</CardTitle>
         </CardHeader>
 
         <CardContent className="space-y-md">
           <div className="space-y-sm max-h-64 overflow-y-auto">
             {items.map((item) => (
-              <div
-                // key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`}
-                key={item.id}
-                className="flex gap-sm"
-              >
+              <div key={item.id} className="flex gap-sm">
                 <Image
                   src={item.images[0]}
                   alt={item.name}
-                  className="w-16 h-16 object-cover rounded-md"
                   width={64}
                   height={64}
+                  className="w-16 h-16 object-cover rounded-md"
                 />
-                <div className="flex-1 min-w-0">
+
+                <div className="flex-1">
                   <p className="font-medium text-sm truncate">{item.name}</p>
+
                   <p className="text-xs text-muted-foreground">
-                    {/* {item.size} / {item.color} × {item.quantity} */}
-                    size: M, color: Black, quantity: 2
+                    {t("itemDetails")}
                   </p>
+
                   <p className="font-semibold text-sm text-accent-base">
-                    {/* {item.price * item.quantity} */}
-                    total= 66
+                    {t("itemTotal")}
                   </p>
                 </div>
               </div>
@@ -51,35 +51,35 @@ function OrderSummary() {
 
           <div className="space-y-xs">
             <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Subtotal</span>
-              <span>Subtotal</span>
+              <span className="text-muted-foreground">{t("subtotal")}</span>
+              <span>{t("subtotalValue")}</span>
             </div>
+
             <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Shipping</span>
-              <span>Free</span>
+              <span className="text-muted-foreground">{t("shipping")}</span>
+              <span>{t("free")}</span>
             </div>
+
             <Separator />
+
             <div className="flex justify-between font-semibold text-lg">
-              <span>Total</span>
-              <span className="text-accent-base">Total</span>
+              <span>{t("total")}</span>
+              <span className="text-accent-base">{t("totalValue")}</span>
             </div>
           </div>
 
           <Button type="submit" className="main-button">
-            <Icon
-              name="ShieldCheck"
-              className="w-4 h-4 me-xs text-primary-dark"
-            />
-            Place Order
+            <Icon name="ShieldCheck" className="w-4 h-4 me-xs" />
+            {t("placeOrder")}
           </Button>
 
           <p className="text-center text-xs text-muted-foreground">
-            By clicking &apos;Place Order&apos;, you agree to our{" "}
+            {t("termsPrefix")}{" "}
             <Link
               href={ROUTES.public.terms}
-              className="hover:text-accent-base transition-color duration-normal"
+              className="underline hover:text-accent-base"
             >
-              Terms of Service{" "}
+              {t("terms")}
             </Link>
           </p>
         </CardContent>

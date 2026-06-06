@@ -406,6 +406,45 @@
     "productsCount": "{{count}} منتج"
   },
 
+  "checkoutPage": {
+    "title": "إتمام الطلب",
+    "shipping": {
+      "title": "معلومات الشحن",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "address": "العنوان",
+      "city": "المدينة",
+      "postalCode": "الرمز البريدي",
+      "country": "الدولة"
+    },
+
+    "payment": {
+      "title": "طريقة الدفع",
+      "cashOnDelivery": "الدفع عند الاستلام",
+      "creditCard": "بطاقة ائتمان",
+      "cardNumber": "رقم البطاقة",
+      "expiryDate": "تاريخ الانتهاء",
+      "cvv": "رمز الأمان"
+    },
+
+    "summary": {
+      "title": "ملخص الطلب",
+      "itemDetails": "المقاس، اللون، الكمية",
+      "itemTotal": "إجمالي المنتج",
+      "subtotal": "المجموع الفرعي",
+      "subtotalValue": "المجموع الفرعي",
+      "shipping": "الشحن",
+      "free": "مجاني",
+      "total": "الإجمالي",
+      "totalValue": "الإجمالي",
+      "placeOrder": "إتمام الطلب",
+      "termsPrefix": "بالضغط على 'إتمام الطلب' فإنك توافق على",
+      "terms": "شروط الخدمة"
+    }
+  },
+
   "thankYouPage": {
     "successMessage": {
       "title": "تهانينا!",
@@ -436,16 +475,6 @@
     "applyCoupon": "تطبيق الكوبون",
     "estimatedTotal": "الإجمالي المتوقع",
     "proceedToCheckout": "المتابعة لإتمام الشراء"
-  },
-
-  "checkout": {
-    "title": "إتمام الشراء",
-    "billingDetails": "بيانات الفوترة",
-    "shippingDetails": "بيانات الشحن",
-    "paymentMethod": "طريقة الدفع",
-    "orderSummary": "ملخص الطلب",
-    "reviewOrder": "مراجعة الطلب",
-    "secureCheckout": "دفع آمن"
   },
 
   "account": {
