@@ -11,8 +11,11 @@ import { Label } from "../ui/label";
 import { Switch } from "../ui/switch";
 import { useState } from "react";
 import { Separator } from "../ui/separator";
+import { useTranslations } from "next-intl";
 
 function AvailabilityFilter() {
+  const t = useTranslations("filters.availability");
+
   const [openSections, setOpenSections] = useState({
     category: true,
     price: true,
@@ -20,6 +23,7 @@ function AvailabilityFilter() {
     color: false,
     availability: false,
   });
+
   const [showNewOnly, setShowNewOnly] = useState(false);
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
 
@@ -29,13 +33,12 @@ function AvailabilityFilter() {
 
   return (
     <div>
-      {" "}
       <Collapsible
         open={openSections.availability}
         onOpenChange={() => toggleSection("availability")}
       >
         <CollapsibleTrigger className="flex items-center justify-between w-full py-lg cursor-pointer">
-          <span className="font-semibold">Availability</span>
+          <span className="font-semibold">{t("title")}</span>
 
           <Icon
             name="ChevronDown"
@@ -45,10 +48,11 @@ function AvailabilityFilter() {
             )}
           />
         </CollapsibleTrigger>
+
         <CollapsibleContent className="mb-md pt-md space-y-md">
           <div className="flex items-center justify-between">
             <Label htmlFor="new-only" className="text-sm cursor-pointer">
-              New Only
+              {t("newOnly")}
             </Label>
 
             <Switch
@@ -60,7 +64,7 @@ function AvailabilityFilter() {
 
           <div className="flex items-center justify-between">
             <Label htmlFor="featured-only" className="text-sm cursor-pointer">
-              Featured Only
+              {t("featuredOnly")}
             </Label>
 
             <Switch
@@ -72,6 +76,7 @@ function AvailabilityFilter() {
           </div>
         </CollapsibleContent>
       </Collapsible>
+
       <Separator />
     </div>
   );

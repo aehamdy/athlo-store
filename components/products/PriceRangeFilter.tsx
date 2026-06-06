@@ -13,8 +13,10 @@ import Icon from "../shared/Icon";
 import { useState } from "react";
 import { products } from "./ProductsGrid";
 import { Separator } from "../ui/separator";
+import { useTranslations } from "next-intl";
 
 function PriceRangeFilter() {
+  const t = useTranslations("filters.priceFilter");
   const [openSections, setOpenSections] = useState({
     category: false,
     price: false,
@@ -33,20 +35,20 @@ function PriceRangeFilter() {
   };
 
   return (
-    <div className="">
+    <div>
       {/* Price Range Filter */}
       <Collapsible
         open={openSections.price}
         onOpenChange={() => toggleSection("price")}
       >
         <CollapsibleTrigger className="flex w-full items-center justify-between py-lg cursor-pointer">
-          <span className="font-semibold">Price Range</span>
+          <span className="font-semibold">{t("title")}</span>
 
           <Icon
             name="ChevronDown"
             className={cn(
               "h-4 w-4 transition-transform",
-              openSections.category && "rotate-180",
+              openSections.price && "rotate-180",
             )}
           />
         </CollapsibleTrigger>
@@ -63,7 +65,9 @@ function PriceRangeFilter() {
 
           <div className="flex items-center gap-sm">
             <div className="flex-1">
-              <Label className="text-xs text-muted-foreground">minPrice</Label>
+              <Label className="text-xs text-muted-foreground">
+                {t("min")}
+              </Label>
 
               <Input
                 type="number"
@@ -80,7 +84,9 @@ function PriceRangeFilter() {
             <span className="text-muted-foreground mt-lg">-</span>
 
             <div className="flex-1">
-              <Label className="text-xs text-muted-foreground">maxPrice</Label>
+              <Label className="text-xs text-muted-foreground">
+                {t("max")}
+              </Label>
               <Input
                 type="number"
                 value={priceRange[1]}

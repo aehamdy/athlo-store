@@ -154,6 +154,59 @@
     }
   },
 
+  "productsPage": {
+    "title": "Products",
+    "filters": "Filters",
+    "items": "Items"
+  },
+
+  "filters": {
+    "sort": {
+      "placeholder": "Sort by",
+      "newest": "Newest",
+      "priceLowToHigh": "Price: Low to High",
+      "priceHighToLow": "Price: High to Low"
+    },
+
+    "mobileFilter": {
+      "filter": "Filter",
+      "title": "Filters",
+      "description": "Refine your products using filters",
+      "apply": "Apply Filters",
+      "close": "Close"
+    },
+
+    "categoryFilter": {
+      "title": "Category",
+      "all": "All",
+      "men": "Men",
+      "women": "Women",
+      "shoes": "Shoes",
+      "accessories": "Accessories"
+    },
+
+    "priceFilter": {
+      "title": "Price Range",
+      "min": "Min Price",
+      "max": "Max Price",
+      "range": "{{min}} - {{max}}"
+    },
+
+    "size": {
+      "title": "Size"
+    },
+
+    "color": {
+      "title": "Color"
+    },
+
+    "availability": {
+      "title": "Availability",
+      "newOnly": "New Only",
+      "featuredOnly": "Featured Only"
+    }
+  },
+
   "aboutPage": {
     "title": "About Us",
     "description": "We believe every athlete deserves high-performance gear",

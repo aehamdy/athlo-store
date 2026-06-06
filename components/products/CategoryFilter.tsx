@@ -11,16 +11,25 @@ import {
 } from "../ui/collapsible";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
+import { useTranslations } from "next-intl";
 
+// const categories = [
+//   { id: "1", name: "All" },
+//   { id: "2", name: "Men" },
+//   { id: "3", name: "Women" },
+//   { id: "4", name: "Shoes" },
+//   { id: "5", name: "Accessories" },
+// ];
 const categories = [
-  { id: "all", name: "All", nameAr: "الكل" },
-  { id: "men", name: "Men", nameAr: "رجال" },
-  { id: "women", name: "Women", nameAr: "نساء" },
-  { id: "shoes", name: "Shoes", nameAr: "أحذية" },
-  { id: "accessories", name: "Accessories", nameAr: "إكسسوارات" },
+  { id: "all" },
+  { id: "men" },
+  { id: "women" },
+  { id: "shoes" },
+  { id: "accessories" },
 ];
 
 function CategoryFilter() {
+  const t = useTranslations("filters.categoryFilter");
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -62,7 +71,8 @@ function CategoryFilter() {
         onOpenChange={() => toggleSection("category")}
       >
         <CollapsibleTrigger className="flex items-center justify-between w-full py-lg cursor-pointer">
-          <span className="font-semibold">Category</span>
+          <span className="font-semibold">{t("title")}</span>
+
           <Icon
             name="ChevronDown"
             className={cn(
@@ -86,7 +96,7 @@ function CategoryFilter() {
                     : "text-muted-foreground hover:bg-muted hover:text-foreground",
                 )}
               >
-                {category.name}
+                {t(category.id)}
               </Button>
             ))}
           </div>

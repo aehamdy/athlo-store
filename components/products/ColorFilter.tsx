@@ -11,12 +11,15 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import { products } from "./ProductsGrid";
 import { Separator } from "../ui/separator";
+import { useTranslations } from "next-intl";
 
 const allColors = Array.from(
   new Map(products.flatMap((p) => p.colors).map((c) => [c.name, c])).values(),
 );
 
 function ColorFilter() {
+  const t = useTranslations("filters.color");
+
   const [openSections, setOpenSections] = useState({
     category: true,
     price: true,
@@ -24,6 +27,7 @@ function ColorFilter() {
     color: false,
     availability: false,
   });
+
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
 
   const toggleSection = (section: keyof typeof openSections) => {
@@ -45,7 +49,7 @@ function ColorFilter() {
         onOpenChange={() => toggleSection("color")}
       >
         <CollapsibleTrigger className="flex items-center justify-between w-full py-lg cursor-pointer">
-          <span className="font-semibold">Color</span>
+          <span className="font-semibold">{t("title")}</span>
 
           <Icon
             name="ChevronDown"

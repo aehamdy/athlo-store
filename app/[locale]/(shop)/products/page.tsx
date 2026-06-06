@@ -6,7 +6,9 @@ import Heading from "@/components/shared/Heading";
 import { useTranslations } from "next-intl";
 
 function ProductsPage() {
-  const t = useTranslations("products");
+  const t = useTranslations("productsPage");
+
+  const itemsCount = 99;
 
   return (
     <main className="section-spacing">
@@ -16,7 +18,9 @@ function ProductsPage() {
             {t("title")}
           </Heading>
 
-          <p className="mt-tiny text-muted-foreground">99 Items</p>
+          <p className="mt-tiny text-muted-foreground">
+            {itemsCount} {t("items")}
+          </p>
         </div>
 
         <div className="flex justify-between items-center gap-sm">
@@ -32,7 +36,7 @@ function ProductsPage() {
         <aside className="hidden md:block md:col-span-3 shrink-0">
           <div className="sticky top-14">
             <Heading as="h3" className="font-semibold text-lg mb-md">
-              Filters
+              {t("filters")}
             </Heading>
 
             <FilterContent />
