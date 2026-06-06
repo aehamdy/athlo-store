@@ -1,8 +1,9 @@
 import FAQItem from "@/features/faqs/components/FAQItem";
 import { useTranslations } from "next-intl";
+import Heading from "../shared/Heading";
 
 function FAQContent() {
-  const t = useTranslations("faqs");
+  const t = useTranslations("faqsPage");
 
   const categories = [
     "ordersShipping",
@@ -19,9 +20,12 @@ function FAQContent() {
 
           return (
             <div key={key} className="mb-4xl">
-              <h2 className="mb-md font-bold text-xl text-accent-base">
+              <Heading
+                as="h2"
+                className="mb-md font-bold text-xl text-accent-base"
+              >
                 {category.title}
-              </h2>
+              </Heading>
 
               <FAQItem
                 item={{
