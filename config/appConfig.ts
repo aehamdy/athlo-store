@@ -7,8 +7,6 @@ const appConfig: AppConfig = {
   logoText: "Athlo Store",
   foundedIn: "2026",
   description: "Athlo Store - Your one stop shop for all your athletic needs",
-  tagLine:
-    "Your premier destination for high-quality sportswear. Elevate your performance with our premium designs.",
   version: "1.0.0",
 
   contact: {

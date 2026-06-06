@@ -1,5 +1,7 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import SectionHeader from "../SectionHeader";
 
 const categories = [
   { id: "all", name: "All", nameAr: "الكل" },
@@ -17,17 +19,15 @@ const categoryImages: Record<string, string> = {
     "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600",
 };
 
-function CategoryGrid() {
-  //   const { language, isRTL } = useLanguage();
+function ShopByCategory() {
   const displayCategories = categories.filter((c) => c.id !== "all");
+
+  const t = useTranslations("home.shopByCategory");
 
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-          {/* {isRTL ? "تسوق حسب الفئة" : "Shop by Category"} */}
-          Shop by Category
-        </h2>
+        <SectionHeader sectionTitle={t("title")} />
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {displayCategories.map((category) => (
@@ -61,4 +61,4 @@ function CategoryGrid() {
   );
 }
 
-export default CategoryGrid;
+export default ShopByCategory;

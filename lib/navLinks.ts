@@ -1,26 +1,31 @@
-import endpoints from "./endpoints";
+import ROUTES from "./routes";
 
 export type NavItemType = {
-  name: string;
+  id: number;
+  key: string;
   href: string;
 };
 
 const navLinks: NavItemType[] = [
   {
-    name: "Home",
-    href: endpoints.home,
+    id: 1,
+    key: "home",
+    href: ROUTES.public.home,
   },
   {
-    name: "Products",
-    href: endpoints.products,
+    id: 2,
+    key: "products",
+    href: ROUTES.public.products,
   },
   {
-    name: "About",
-    href: endpoints.about,
+    id: 3,
+    key: "about",
+    href: ROUTES.public.about,
   },
   {
-    name: "Contact",
-    href: endpoints.contact,
+    id: 4,
+    key: "contact",
+    href: ROUTES.public.contact,
   },
 ];
 

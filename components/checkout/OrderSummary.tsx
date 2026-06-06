@@ -5,7 +5,7 @@ import Icon from "../shared/Icon";
 import { Button } from "../ui/button";
 import { products } from "../products/ProductsGrid";
 import Link from "next/link";
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
 
 function OrderSummary() {
   const items = products.slice(0, 3);
@@ -76,7 +76,7 @@ function OrderSummary() {
           <p className="text-center text-xs text-muted-foreground">
             By clicking &apos;Place Order&apos;, you agree to our{" "}
             <Link
-              href={endpoints.terms}
+              href={ROUTES.public.terms}
               className="hover:text-accent-base transition-color duration-normal"
             >
               Terms of Service{" "}

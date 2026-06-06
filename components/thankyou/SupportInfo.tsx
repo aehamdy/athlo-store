@@ -1,4 +1,4 @@
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
 import Link from "next/link";
 
 function SupportInfo() {
@@ -7,7 +7,7 @@ function SupportInfo() {
       <p className="mt-3xl text-sm text-muted-foreground animate-fade-in">
         Have questions? Contact us through our{" "}
         <Link
-          href={endpoints.contact}
+          href={ROUTES.public.contact}
           className="hover:text-accent-base underline"
         >
           contact page

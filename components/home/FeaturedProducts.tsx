@@ -1,8 +1,9 @@
-import Link from "next/link";
-import { Button } from "../ui/button";
-import { ArrowRight } from "lucide-react";
 import { ProductType } from "@/features/products/types";
 import ProductCard from "@/features/products/components/ProductCard";
+import { useTranslations } from "next-intl";
+
+import SectionHeader from "../SectionHeader";
+import ROUTES from "@/lib/routes";
 
 export const products: ProductType[] = [
   {
@@ -458,19 +459,17 @@ export const products: ProductType[] = [
 
 function FeaturedProducts() {
   const featuredProducts = products.filter((p) => p.isFeatured).slice(0, 4);
+  const t = useTranslations("home.featuredProducts");
+  const actionsT = useTranslations("actions");
 
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold">Featured Products</h2>
-          <Link href="/products">
-            <Button variant="ghost" className="gap-2">
-              View All
-              <ArrowRight className={`h-4 w-4`} />
-            </Button>
-          </Link>
-        </div>
+        <SectionHeader
+          sectionTitle={t("title")}
+          linkText={actionsT("viewAll")}
+          href={ROUTES.public.products}
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {featuredProducts.map((product) => (

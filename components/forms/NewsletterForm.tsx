@@ -1,4 +1,9 @@
+import { useTranslations } from "next-intl";
+
 function NewsletterForm() {
+  const labelsT = useTranslations("labels");
+  const actionsT = useTranslations("actions");
+
   return (
     <form
       action=""
@@ -9,12 +14,16 @@ function NewsletterForm() {
           type="email"
           name="email"
           id="email"
-          placeholder="Enter your email"
+          placeholder={labelsT("enterEmail")}
           className="w-full p-xs bg-field border border-subtle outline-none rounded-sm"
         />
       </div>
 
-      <input type="submit" value="Subscribe" className="main-button shrink-2" />
+      <input
+        type="submit"
+        value={actionsT("subscribe")}
+        className="main-button shrink-2"
+      />
     </form>
   );
 }

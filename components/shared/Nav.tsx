@@ -7,10 +7,10 @@ function Nav() {
       <ul className="flex flex-col lg:flex-row items-center gap-md">
         {navLinks.map((item) => (
           <li
-            key={item.name}
-            className={`${item.name === "Home" && "hidden lg:block"} w-full lg:w-fit`}
+            key={item.id}
+            className={`${item.key === "home" && "hidden lg:block"} w-full lg:w-fit`}
           >
-            <NavLink href={item.href} name={item.name} />
+            <NavLink href={item.href} name={item.key} />
           </li>
         ))}
       </ul>

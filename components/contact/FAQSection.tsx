@@ -1,6 +1,6 @@
-import endpoints from "@/lib/endpoints";
 import Heading from "../shared/Heading";
 import Link from "next/link";
+import ROUTES from "@/lib/routes";
 
 function FAQSection() {
   return (
@@ -16,7 +16,7 @@ function FAQSection() {
         </div>
 
         <Link
-          href={endpoints.faqs}
+          href={ROUTES.public.faqs}
           className="w-fit p-sm text-center text-xs text-foreground hover:text-primary-dark bg-base hover:bg-accent-soft active:bg-accent-strong rounded-sm hover:shadow-sm active:shadow-none transition-colors duration-normal"
         >
           View FAQ

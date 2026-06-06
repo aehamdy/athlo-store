@@ -1,4 +1,3 @@
-import endpoints from "@/lib/endpoints";
 import { products } from "../products/ProductsGrid";
 import {
   Breadcrumb,
@@ -8,6 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "../ui/breadcrumb";
+import ROUTES from "@/lib/routes";
 
 function ProductBreadcrumbs({ productId }: { productId: string }) {
   const product = products.find((product) => product.id == productId);
@@ -22,13 +22,15 @@ function ProductBreadcrumbs({ productId }: { productId: string }) {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href={endpoints.home}>Home</BreadcrumbLink>
+          <BreadcrumbLink href={ROUTES.public.home}>Home</BreadcrumbLink>
         </BreadcrumbItem>
 
         <BreadcrumbSeparator />
 
         <BreadcrumbItem>
-          <BreadcrumbLink href={endpoints.products}>Products</BreadcrumbLink>
+          <BreadcrumbLink href={ROUTES.public.products}>
+            Products
+          </BreadcrumbLink>
         </BreadcrumbItem>
 
         <BreadcrumbSeparator />

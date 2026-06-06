@@ -1,22 +1,26 @@
-import endpoints from "./endpoints";
+import ROUTES from "./routes";
 
 export type UserLinkType = {
-  label: string;
+  id: number;
+  key: string;
   href: string;
 };
 
 const userLinks: UserLinkType[] = [
   {
-    label: "SignIn",
-    href: endpoints.auth.signIn,
+    id: 1,
+    key: "signIn",
+    href: ROUTES.auth.signIn,
   },
   {
-    label: "SignUp",
-    href: endpoints.auth.signUp,
+    id: 2,
+    key: "signUp",
+    href: ROUTES.auth.signUp,
   },
   {
-    label: "FAQs",
-    href: endpoints.faqs,
+    id: 3,
+    key: "faqs",
+    href: ROUTES.public.faqs,
   },
 ];
 

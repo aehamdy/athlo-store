@@ -1,5 +1,5 @@
 import SignInForm from "@/components/forms/SignInForm";
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
 import Link from "next/link";
 
 function SignIn() {
@@ -29,7 +29,7 @@ function SignIn() {
               </p>
 
               <Link
-                href={endpoints.auth.signUp}
+                href={ROUTES.auth.signUp}
                 className="text-accent-base hover:underline"
               >
                 Sign Up
