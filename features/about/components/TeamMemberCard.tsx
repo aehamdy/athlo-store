@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { TeamMember } from "../types";
+import Heading from "@/components/shared/Heading";
 
 type TeamMemberCardProps = {
   member: TeamMember;
@@ -18,8 +19,10 @@ function TeamMemberCard({ member }: TeamMemberCardProps) {
         />
       </div>
 
-      <div className="space-y-tiny">
-        <h3 className="font-semibold">{member.name}</h3>
+      <div className="space-y-tiny text-center">
+        <Heading as="h3" className="font-semibold">
+          {member.name}
+        </Heading>
 
         <p className="text-center text-sm text-muted-foreground">
           {member.role}

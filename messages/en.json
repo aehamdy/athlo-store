@@ -154,6 +154,55 @@
     }
   },
 
+  "aboutPage": {
+    "title": "About Us",
+    "description": "We believe every athlete deserves high-performance gear",
+    "ourStory": {
+      "title": "Our Story",
+      "paragraph1": "<name>{name}</name> was founded in <year>{year}</year> by a group of passionate athletes who saw a gap in the market for high-quality, affordable sportswear.",
+      "paragraph2": "We started in a small garage with a big dream: to create sportswear that combines performance, style, and comfort. Today, we serve athletes worldwide.",
+      "paragraph3": "Every piece we design is inspired by real athletes' needs, and we rigorously test them to ensure they meet our high standards.",
+      "yearFounded": "Year Founded"
+    },
+    "stats": {
+      "happyCustomers": "Happy Customers",
+      "products": "Products",
+      "countries": "Countries",
+      "yearsExperience": "Years Experience"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "Our mission is to empower every athlete to achieve their best performance by providing innovative, high-quality sportswear. We are committed to continuous innovation, sustainability, and serving our community of athletes."
+    },
+    "values": {
+      "title": "Our Values",
+
+      "performance": "Performance",
+      "performanceDescription": "We design every product to maximize athletic performance",
+
+      "quality": "Quality",
+      "qualityDescription": "We use only the finest materials and technologies available",
+
+      "passion": "Passion",
+      "passionDescription": "We are athletes designing for athletes",
+
+      "sustainability": "Sustainability",
+      "sustainabilityDescription": "Committed to environmentally responsible practices"
+    },
+    "team": {
+      "title": "Our Team",
+      "description": "Our team consists of passionate athletes, designers, and engineers working together to create the best sportswear.",
+
+      "ahmedMohamed": "Ahmed Mohamed",
+      "sarahAhmed": "Sarah Ahmed",
+      "mohamedAli": "Mohamed Ali",
+
+      "founderCeo": "Founder & CEO",
+      "designDirector": "Design Director",
+      "headOfProduct": "Head of Product"
+    }
+  },
+
   "contactPage": {
     "title": "Contact Us",
     "description": "Have questions or need assistance? We're here to help. Reach out to our customer support team for any inquiries or concerns.",
