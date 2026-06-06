@@ -9,6 +9,7 @@
   },
 
   "actions": {
+    "goHome": "Go Home",
     "learnOurStory": "Learn Our Story",
     "view": "View",
     "viewAll": "View All",
@@ -456,6 +457,10 @@
     "support": {
       "text": "Have questions? Contact us through our"
     }
+  },
+
+  "notFound": {
+    "message": "Page not found"
   },
 
   "cart": {
