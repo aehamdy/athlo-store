@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 
 function AddToCartButton() {
-  const t = useTranslations("productCard.actions.addToCart");
+  const t = useTranslations("productCard.actions");
 
   return (
     <Button
@@ -15,7 +15,7 @@ function AddToCartButton() {
         name="ShoppingBag"
         className="text-primary-light group-hover/button:text-primary-dark transition-colors duration-normal"
       />
-      {t("actions.addToCart")}
+      {t("addToCart")}
     </Button>
   );
 }
