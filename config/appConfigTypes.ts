@@ -5,7 +5,6 @@ export type AppConfig = {
   logoText: string;
   foundedIn: string;
   description: string;
-  tagLine: string;
   version: string;
 
   contact: Contact;

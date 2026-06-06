@@ -1,7 +1,7 @@
 "use client";
 
 import SignUpForm from "@/components/forms/SignUpForm";
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
 import Link from "next/link";
 
 function SignUp() {
@@ -31,7 +31,7 @@ function SignUp() {
               </p>
 
               <Link
-                href={endpoints.auth.signIn}
+                href={ROUTES.auth.signIn}
                 className="text-accent-base hover:underline"
               >
                 Sign In

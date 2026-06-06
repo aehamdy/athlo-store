@@ -1,17 +1,22 @@
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 const links = [
-  { label: "Privacy Policy", href: endpoints.privacyPolicy },
-  { label: "Terms of Service", href: endpoints.terms },
+  { label: "privacyPolicy", href: ROUTES.public.privacyPolicy },
+  { label: "termsOfService", href: ROUTES.public.terms },
 ];
 
 function FooterLegal() {
+  const t = useTranslations("navigation");
+  const footerT = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
   return (
     <section className="flex flex-col md:flex-row justify-between items-center gap-xs py-sm md:py-lg border-t border-subtle">
-      <p className="">&copy; {currentYear} Athlo Store. All rights reserved.</p>
+      <p className="">
+        &copy; {currentYear} {footerT("copyright")}
+      </p>
 
       <div className="flex items-center gap-sm">
         {links.map((link) => (
@@ -20,7 +25,7 @@ function FooterLegal() {
             href={link.href}
             className="hover:text-accent-base transition-colors duration-normal"
           >
-            {link.label}
+            {t(link.label)}
           </Link>
         ))}
       </div>

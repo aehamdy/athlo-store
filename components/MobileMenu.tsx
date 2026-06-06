@@ -11,8 +11,8 @@ import {
 import Icon from "./shared/Icon";
 import Nav from "./shared/Nav";
 import Link from "next/link";
-import endpoints from "@/lib/endpoints";
 import PreferencesActions from "./shared/preferences/PreferencesActions";
+import ROUTES from "@/lib/routes";
 
 function MobileMenu() {
   return (
@@ -52,7 +52,7 @@ function MobileMenu() {
           <SheetFooter className="border-t border-subtle">
             <PreferencesActions />
 
-            <Link href={endpoints.auth.signIn} className="main-button">
+            <Link href={ROUTES.auth.signIn} className="main-button">
               Sign In
             </Link>
           </SheetFooter>

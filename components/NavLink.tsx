@@ -11,7 +11,7 @@ function NavLink({ href, name }: NavLinkProps) {
       href={href}
       className="block lg:flex font-medium text-sm text-muted-foreground hover:text-accent-base focus-visible:text-accent-base focus-visible:outline-none focus-visible:border-b-2 focus-visible:border-accent-base transition-colors duration-normal"
     >
-      {name}
+      {name.charAt(0).toUpperCase() + name.slice(1)}
     </Link>
   );
 }

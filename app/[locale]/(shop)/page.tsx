@@ -1,22 +1,65 @@
 import BrandStoryBanner from "@/components/home/BrandStoryBanner";
-import CategoryGrid from "@/components/home/CategoryGrid";
+import ShopByCategory from "@/components/home/ShopByCategory";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
-import HeroCarousel from "@/components/home/HeroCarousel";
+import HeroSection from "@/components/home/HeroSection";
 import NewArrivals from "@/components/home/NewArrivals";
 import NewsletterSection from "@/components/home/NewsletterSection";
-import { useTranslations } from "next-intl";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Athlo Store | Premium Sportswear & Athletic Gear",
+  description:
+    "Discover premium sportswear, running shoes, training apparel, and athletic accessories designed to elevate your performance.",
+
+  keywords: [
+    "sportswear",
+    "athletic apparel",
+    "running shoes",
+    "fitness clothing",
+    "sports gear",
+    "athlo store",
+    "training apparel",
+    "activewear",
+  ],
+
+  openGraph: {
+    title: "Athlo Store | Premium Sportswear & Athletic Gear",
+    description:
+      "Shop premium sportswear, running shoes, and training apparel built for performance.",
+    url: "https://your-domain.com",
+    siteName: "Athlo Store",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Athlo Store",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Athlo Store | Premium Sportswear & Athletic Gear",
+    description:
+      "Shop premium sportswear, running shoes, and training apparel built for performance.",
+    images: ["/images/og-home.jpg"],
+  },
+
+  alternates: {
+    canonical: "/",
+  },
+};
 
 function Home() {
-  const t = useTranslations("HomePage");
-
   return (
     <main className="">
       <section className="">
-        <HeroCarousel />
-        <h1 className="w-fit my-8 mx-auto font-bold text-xl text-pink-500">
-          {t("title")}
-        </h1>
-        <CategoryGrid />
+        <HeroSection />
+
+        <ShopByCategory />
 
         <FeaturedProducts />
 

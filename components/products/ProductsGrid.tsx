@@ -1,5 +1,5 @@
 import ProductCard from "@/features/products/components/ProductCard";
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
 import Link from "next/link";
 
 export interface Product {
@@ -478,7 +478,7 @@ function ProductsGrid() {
         {products.map((product) => (
           <Link
             key={product.id}
-            href={endpoints.productDetail(product.id)}
+            href={ROUTES.public.productDetail(product.id)}
             className=""
           >
             <ProductCard product={product} />

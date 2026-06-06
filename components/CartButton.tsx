@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import Icon from "./shared/Icon";
 import Link from "next/link";
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
 
 function CartButton() {
   return (
@@ -31,10 +31,7 @@ function CartButton() {
         </Button>
       </SheetTrigger>
 
-      <SheetContent
-        side="right"
-        className="w-9/10 sm:max-w-[400px] bg-base z-60"
-      >
+      <SheetContent side="right" className="w-9/10 sm:max-w-100 bg-base z-60">
         <SheetHeader className="border-b border-subtle">
           <SheetTitle className="flex items-center gap-xs">
             <Icon name="ShoppingBag" size={22} className="text-foreground" />
@@ -54,7 +51,7 @@ function CartButton() {
         </div>
 
         <SheetFooter className="border-t border-subtle">
-          <Link href={endpoints.checkout} className="main-button">
+          <Link href={ROUTES.public.checkout} className="main-button">
             Checkout
           </Link>
 

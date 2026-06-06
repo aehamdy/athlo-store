@@ -6,8 +6,13 @@ import Heading from "../shared/Heading";
 import navLinks from "@/lib/navLinks";
 import userLinks from "@/lib/userLinks";
 import Newsletter from "../home/NewsletterSection";
+import { useTranslations } from "next-intl";
 
 function FooterMain() {
+  const t = useTranslations("app");
+  const navigationsT = useTranslations("navigation");
+  const footerT = useTranslations("footer");
+
   const primaryPhone =
     appConfig.contact.phones.find((p) => p.label === "primary")?.value ?? "";
 
@@ -22,7 +27,7 @@ function FooterMain() {
           <Logo />
 
           <div className="md:w-3/5 lg:w-full">
-            <p>{appConfig.tagLine}</p>
+            <p>{t("tagLine")}</p>
           </div>
 
           <div className="flex items-center gap-sm">
@@ -47,17 +52,17 @@ function FooterMain() {
         {/* Quick Links */}
         <div className="space-y-sm">
           <Heading as="h4" className="font-semibold text-foreground">
-            Quick Links
+            {footerT("quickLinks.title")}
           </Heading>
 
           <ul className="flex flex-col gap-sm">
             {navLinks.map((link) => (
               <Link
-                key={link.href}
+                key={link.id}
                 href={link.href}
                 className="hover:text-accent-base transition-colors duration-normal"
               >
-                {link.name}
+                {navigationsT(link.key)}
               </Link>
             ))}
           </ul>
@@ -66,7 +71,7 @@ function FooterMain() {
         {/* Customer Service */}
         <div className="space-y-sm">
           <Heading as="h4" className="font-semibold text-foreground">
-            Customer Service
+            {footerT("customerService.title")}
           </Heading>
 
           <ul className="flex flex-col gap-sm">
@@ -76,7 +81,7 @@ function FooterMain() {
                 href={link.href}
                 className="hover:text-accent-base transition-colors duration-normal"
               >
-                {link.label}
+                {navigationsT(link.key)}
               </Link>
             ))}
           </ul>

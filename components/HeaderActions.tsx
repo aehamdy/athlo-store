@@ -5,13 +5,13 @@ import ProfileButton from "./ProfileButton";
 import SearchModal from "./SearchModal";
 import PreferencesActions from "./shared/preferences/PreferencesActions";
 import Icon from "./shared/Icon";
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
 
 function HeaderActions() {
   return (
     <div className="flex items-center gap-xs">
       <Link
-        href={endpoints.home}
+        href={ROUTES.public.home}
         className="group lg:hidden p-xs action-button"
       >
         <Icon

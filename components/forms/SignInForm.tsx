@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Icon from "../shared/Icon";
 import Link from "next/link";
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
 
 function SignInForm() {
   const [showPassword, setShowPassword] = useState(true);
@@ -39,7 +39,7 @@ function SignInForm() {
             </label>
 
             <Link
-              href={endpoints.auth.forgotPassword}
+              href={ROUTES.auth.forgotPassword}
               className="text-xs text-accent-base hover:underline"
             >
               Forgot Password?

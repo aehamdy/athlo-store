@@ -1,6 +1,6 @@
 import ForgotPasswordForm from "@/components/forms/ForgotPasswordForm";
 import Icon from "@/components/shared/Icon";
-import endpoints from "@/lib/endpoints";
+import ROUTES from "@/lib/routes";
 import Link from "next/link";
 
 function ForgorPasswordPage() {
@@ -27,7 +27,7 @@ function ForgorPasswordPage() {
             <ForgotPasswordForm />
 
             <Link
-              href={endpoints.auth.signIn}
+              href={ROUTES.auth.signIn}
               className="flex items-center gap-xs text-xs text-muted-foreground hover:text-foreground transition-colors duration-normal"
             >
               <Icon name="ArrowLeft" />

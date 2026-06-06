@@ -6,7 +6,7 @@ import Heading from "@/components/shared/Heading";
 import { useTranslations } from "next-intl";
 
 function ProductsPage() {
-  const t = useTranslations("ProductsPage");
+  const t = useTranslations("products");
 
   return (
     <main className="section-spacing">
