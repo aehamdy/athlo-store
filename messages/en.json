@@ -398,6 +398,44 @@
     "productsCount": "{{count}} Products"
   },
 
+  "checkoutPage": {
+    "title": "Checkout",
+    "shipping": {
+      "title": "Shipping Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "city": "City",
+      "postalCode": "Postal Code",
+      "country": "Country"
+    },
+    "payment": {
+      "title": "Payment Method",
+      "cashOnDelivery": "Cash on Delivery",
+      "creditCard": "Credit Card",
+      "cardNumber": "Card Number",
+      "expiryDate": "Expiry Date",
+      "cvv": "CVV"
+    },
+
+    "summary": {
+      "title": "Order Summary",
+      "itemDetails": "Size, color, quantity",
+      "itemTotal": "Item total",
+      "subtotal": "Subtotal",
+      "subtotalValue": "Subtotal",
+      "shipping": "Shipping",
+      "free": "Free",
+      "total": "Total",
+      "totalValue": "Total",
+      "placeOrder": "Place Order",
+      "termsPrefix": "By clicking 'Place Order', you agree to our",
+      "terms": "Terms of Service"
+    }
+  },
+
   "thankYouPage": {
     "successMessage": {
       "title": "Congratulations!",
@@ -428,16 +466,6 @@
     "applyCoupon": "Apply Coupon",
     "estimatedTotal": "Estimated Total",
     "proceedToCheckout": "Proceed to Checkout"
-  },
-
-  "checkout": {
-    "title": "Checkout",
-    "billingDetails": "Billing Details",
-    "shippingDetails": "Shipping Details",
-    "paymentMethod": "Payment Method",
-    "orderSummary": "Order Summary",
-    "reviewOrder": "Review Order",
-    "secureCheckout": "Secure Checkout"
   },
 
   "account": {
