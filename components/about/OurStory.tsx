@@ -1,35 +1,46 @@
 import appConfig from "@/config/appConfig";
 import Image from "next/image";
+import Heading from "../shared/Heading";
+import { useTranslations } from "next-intl";
 
 function OurStory() {
+  const t = useTranslations("aboutPage.ourStory");
+
   return (
     <section className="section-spacing bg-base">
       <div className="mx-auto px-base">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5xl items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-xl">Our Story</h2>
+            <Heading as="h2" className="text-3xl font-bold mb-xl">
+              {t("title")}
+            </Heading>
 
             <div className="space-y-md text-muted-foreground">
-              <p>
+              {/* <p>
                 <span className="font-bold text-accent-base">
                   {appConfig.name}
                 </span>{" "}
-                was founded in {appConfig.foundedIn} by a group of passionate
-                athletes who saw a gap in the market for high-quality,
-                affordable sportswear.
+                was founded in{" "}
+                <span className="font-bold">{appConfig.foundedIn}</span> by a
+                group of passionate athletes who saw a gap in the market for
+                high-quality, affordable sportswear.
+              </p> */}
+              <p>
+                {t.rich("paragraph1", {
+                  name: () => (
+                    <span className="font-bold text-accent-base">
+                      {appConfig.name}
+                    </span>
+                  ),
+                  year: () => (
+                    <span className="font-semibold">{appConfig.foundedIn}</span>
+                  ),
+                })}
               </p>
 
-              <p>
-                We started in a small garage with a big dream: to create
-                sportswear that combines performance, style, and comfort. Today,
-                we serve athletes worldwide.
-              </p>
+              <p>{t("paragraph2")}</p>
 
-              <p>
-                Every piece we design is inspired by real athlete&apos;s needs,
-                and we rigorously test them to ensure they meet our high
-                standards.
-              </p>
+              <p>{t("paragraph3")}</p>
             </div>
           </div>
 
@@ -42,8 +53,8 @@ function OurStory() {
               className="rounded-2xl w-full shadow-lg"
             />
             <div className="absolute -bottom-xl start-md lg:-start-xl p-md md:p-xl text-primary-dark bg-accent-base shadow-lg rounded-xl">
-              <p className="text-4xl font-bold">2020</p>
-              <p className="text-sm">Year Founded</p>
+              <p className="text-4xl font-bold">{appConfig.foundedIn}</p>
+              <p className="text-sm">{t("yearFounded")}</p>
             </div>
           </div>
         </div>
