@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import Heading from "../shared/Heading";
 
 function FAQHero() {
-  const t = useTranslations("faqs");
+  const t = useTranslations("faqsPage");
 
   return (
     <section className="relative flex items-center justify-center h-[30dvh] lg:h-[40vh] bg-accent-base/10 overflow-hidden">

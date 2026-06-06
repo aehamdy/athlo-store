@@ -164,7 +164,7 @@
     }
   },
 
-  "faqs": {
+  "faqsPage": {
     "title": "Frequently Asked Questions",
     "description": "Find answers to your most common questions",
     "haveQuestions": "Have Questions?",
