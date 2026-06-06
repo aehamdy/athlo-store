@@ -5,7 +5,7 @@ type CurrencyProps = {
 };
 
 function Currency({ price }: CurrencyProps) {
-  const t = useTranslations("productCard.currency");
+  const t = useTranslations("productCard");
 
   return (
     <p className="font-medium text-lg text-primary-light">

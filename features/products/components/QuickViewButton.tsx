@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 
 function QuickViewButton() {
-  const t = useTranslations("productCard.actions.quickView");
+  const t = useTranslations("productCard.actions");
 
   return (
     <Button
@@ -15,7 +15,7 @@ function QuickViewButton() {
         name="Eye"
         className="text-primary-light group-hover/button:text-primary-dark transition-colors duration-normal"
       />
-      {t("actions.quickView")}
+      {t("quickView")}
     </Button>
   );
 }
