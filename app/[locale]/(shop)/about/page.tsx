@@ -1,10 +1,10 @@
-import OurMission from "@/components/about/OurMission";
-import OurStory from "@/components/about/OurStory";
-import OurTeam from "@/components/about/OurTeam";
-import OurValues from "@/components/about/OurValues";
-import Stats from "@/components/about/Stats";
+import OurMission from "@/features/about/components/OurMission";
+import OurValues from "@/features/about/components/OurValues";
+import Stats from "@/features/about/components/Stats";
 import PageHero from "@/components/layout/PageHero";
 import { useTranslations } from "next-intl";
+import OurStory from "@/features/about/components/OurStory";
+import OurTeam from "@/features/about/components/OurTeam";
 
 function AboutPage() {
   const t = useTranslations("aboutPage");

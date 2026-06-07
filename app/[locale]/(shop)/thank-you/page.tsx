@@ -1,9 +1,9 @@
-import OrderNumberCard from "@/components/thankyou/OrderNumberCard";
-import SuccessIcon from "@/components/thankyou/SuccessIcon";
-import SuccessMessage from "@/components/thankyou/SuccessMessage";
-import ActionButtons from "@/components/thankyou/ActionButtons";
-import OrderTimeline from "@/components/thankyou/OrderTimeline";
-import SupportInfo from "@/components/thankyou/SupportInfo";
+import ActionButtons from "@/features/thankyou/components/ActionButtons";
+import OrderNumberCard from "@/features/thankyou/components/OrderNumberCard";
+import OrderTimeline from "@/features/thankyou/components/OrderTimeline";
+import SuccessIcon from "@/features/thankyou/components/SuccessIcon";
+import SuccessMessage from "@/features/thankyou/components/SuccessMessage";
+import SupportInfo from "@/features/thankyou/components/SupportInfo";
 
 function ThankYouPage() {
   return (

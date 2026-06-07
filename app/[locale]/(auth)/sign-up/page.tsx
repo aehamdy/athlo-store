@@ -1,6 +1,6 @@
 "use client";
 
-import SignUpForm from "@/components/forms/SignUpForm";
+import SignUpForm from "@/features/forms/SignUpForm";
 import ROUTES from "@/lib/routes";
 import Link from "next/link";
 
