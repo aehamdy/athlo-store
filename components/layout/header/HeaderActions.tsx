@@ -1,10 +1,10 @@
 import Link from "next/link";
-import CartButton from "./CartButton";
-import MobileMenu from "./MobileMenu";
-import ProfileButton from "./ProfileButton";
-import SearchModal from "./SearchModal";
-import PreferencesActions from "./shared/preferences/PreferencesActions";
-import Icon from "./shared/Icon";
+import CartButton from "../../CartButton";
+import MobileMenu from "../../MobileMenu";
+import ProfileButton from "../../ProfileButton";
+import SearchModal from "../../SearchModal";
+import PreferencesActions from "../../shared/preferences/PreferencesActions";
+import Icon from "../../shared/Icon";
 import ROUTES from "@/lib/routes";
 
 function HeaderActions() {
