@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Icon from "./shared/Icon";
 import { useLocale } from "next-intl";
-import Heading from "./shared/Heading";
-import { HeadingLevel } from "./shared/types";
+import { HeadingLevel } from "./types";
+import Heading from "./Heading";
+import Icon from "./Icon";
 
 type SectionHeaderProps = {
   headingLevel?: HeadingLevel;

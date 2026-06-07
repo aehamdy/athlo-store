@@ -28,7 +28,7 @@ function LoginForm() {
             </p>
 
             <Link
-              href={ROUTES.auth.signUp}
+              href={ROUTES.auth.register}
               className="text-accent-base hover:underline"
             >
               Sign Up

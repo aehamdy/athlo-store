@@ -25,7 +25,7 @@ function ForgotPasswordForm() {
           <ForgotPasswordForm />
 
           <Link
-            href={ROUTES.auth.signIn}
+            href={ROUTES.auth.login}
             className="flex items-center gap-xs text-xs text-muted-foreground hover:text-foreground transition-colors duration-normal"
           >
             <Icon name="ArrowLeft" />

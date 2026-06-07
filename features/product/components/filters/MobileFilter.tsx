@@ -1,3 +1,5 @@
+import Icon from "@/components/shared/Icon";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
@@ -8,11 +10,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "../ui/button";
-import Icon from "../shared/Icon";
-import FilterContent from "../../features/product/components/filters/FilterContent";
 import { Description } from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
+import FilterContent from "./FilterContent";
 
 function MobileFilter() {
   const t = useTranslations("filters.mobileFilter");

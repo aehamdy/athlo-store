@@ -1,17 +1,17 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../ui/collapsible";
-import Icon from "../shared/Icon";
-import { Label } from "../ui/label";
-import { Switch } from "../ui/switch";
-import { useState } from "react";
-import { Separator } from "../ui/separator";
-import { useTranslations } from "next-intl";
+} from "@/components/ui/collapsible";
+import Icon from "@/components/shared/Icon";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { Separator } from "@/components/ui/separator";
 
 function AvailabilityFilter() {
   const t = useTranslations("filters.availability");

@@ -1,19 +1,19 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { products } from "../ProductsGrid";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../ui/collapsible";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
-import { Slider } from "../ui/slider";
-import Icon from "../shared/Icon";
-import { useState } from "react";
-import { products } from "./ProductsGrid";
-import { Separator } from "../ui/separator";
-import { useTranslations } from "next-intl";
+} from "@/components/ui/collapsible";
+import Icon from "@/components/shared/Icon";
+import { Slider } from "@/components/ui/slider";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 
 function PriceRangeFilter() {
   const t = useTranslations("filters.priceFilter");

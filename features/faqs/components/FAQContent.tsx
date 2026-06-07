@@ -1,6 +1,6 @@
+import Heading from "@/components/shared/Heading";
 import FAQItem from "@/features/faqs/components/FAQItem";
 import { useTranslations } from "next-intl";
-import Heading from "../shared/Heading";
 
 function FAQContent() {
   const t = useTranslations("faqsPage");

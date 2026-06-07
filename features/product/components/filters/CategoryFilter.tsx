@@ -3,15 +3,15 @@
 import { useState, useMemo } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
-import Icon from "../shared/Icon";
+import { useTranslations } from "next-intl";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../ui/collapsible";
-import { Separator } from "../ui/separator";
-import { Button } from "../ui/button";
-import { useTranslations } from "next-intl";
+} from "@/components/ui/collapsible";
+import Icon from "@/components/shared/Icon";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 // const categories = [
 //   { id: "1", name: "All" },

@@ -1,9 +1,8 @@
 import { ProductType } from "@/features/products/types";
 import ProductCard from "@/features/products/components/ProductCard";
 import { useTranslations } from "next-intl";
-
-import SectionHeader from "../../components/SectionHeader";
 import ROUTES from "@/lib/routes";
+import SectionHeader from "@/components/shared/SectionHeader";
 
 export const products: ProductType[] = [
   {

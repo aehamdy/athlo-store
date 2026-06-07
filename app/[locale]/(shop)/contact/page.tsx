@@ -1,6 +1,6 @@
 import PageHero from "@/components/layout/PageHero";
-import FAQSection from "@/components/contact/FAQSection";
-import ContactSection from "@/components/contact/ContactSection";
+import ContactSection from "@/features/contact/components/ContactSection";
+import FAQSection from "@/features/contact/components/FAQSection";
 import { useTranslations } from "next-intl";
 
 function ContactPage() {

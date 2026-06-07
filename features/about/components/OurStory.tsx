@@ -1,7 +1,7 @@
 import appConfig from "@/config/appConfig";
 import Image from "next/image";
-import Heading from "../shared/Heading";
 import { useTranslations } from "next-intl";
+import Heading from "@/components/shared/Heading";
 
 function OurStory() {
   const t = useTranslations("aboutPage.ourStory");

@@ -1,6 +1,6 @@
-import SectionHeader from "@/components/SectionHeader";
 import LayoutContainer from "@/components/shared/LayoutContainer";
 import LayoutSection from "@/components/shared/LayoutSection";
+import SectionHeader from "@/components/shared/SectionHeader";
 import { useTranslations } from "next-intl";
 
 function PrivacyPolicyHero() {

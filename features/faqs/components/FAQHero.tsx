@@ -1,5 +1,5 @@
+import Heading from "@/components/shared/Heading";
 import { useTranslations } from "next-intl";
-import Heading from "../shared/Heading";
 
 function FAQHero() {
   const t = useTranslations("faqsPage");

@@ -1,17 +1,17 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Icon from "../shared/Icon";
+import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { products } from "../ProductsGrid";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../ui/collapsible";
-import { Button } from "../ui/button";
-import { products } from "./ProductsGrid";
-import { useState } from "react";
-import { Separator } from "../ui/separator";
-import { useTranslations } from "next-intl";
+} from "@/components/ui/collapsible";
+import Icon from "@/components/shared/Icon";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 const allSizes = Array.from(
   new Set(products.flatMap((p) => p.sizes).filter((s) => s !== "One Size")),

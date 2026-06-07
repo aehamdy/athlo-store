@@ -9,13 +9,13 @@ export type UserLinkType = {
 const userLinks: UserLinkType[] = [
   {
     id: 1,
-    key: "signIn",
-    href: ROUTES.auth.signIn,
+    key: "login",
+    href: ROUTES.auth.login,
   },
   {
     id: 2,
-    key: "signUp",
-    href: ROUTES.auth.signUp,
+    key: "register",
+    href: ROUTES.auth.register,
   },
   {
     id: 3,
