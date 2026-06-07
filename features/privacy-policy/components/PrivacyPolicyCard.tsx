@@ -7,7 +7,7 @@ type PrivacyPolicyCardProps = {
 
 function PrivacyPolicyCard({ title, body }: PrivacyPolicyCardProps) {
   return (
-    <article>
+    <article className="w-full">
       <div className="space-y-sm p-xl bg-card border border-border rounded-xl">
         <Heading as="h2" className="font-bold text-xl text-accent-base">
           {title}
