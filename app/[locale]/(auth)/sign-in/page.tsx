@@ -1,4 +1,4 @@
-import SignInForm from "@/components/forms/SignInForm";
+import SignInForm from "@/features/forms/SignInForm";
 import ROUTES from "@/lib/routes";
 import Link from "next/link";
 

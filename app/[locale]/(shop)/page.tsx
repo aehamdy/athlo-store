@@ -1,9 +1,9 @@
-import BrandStoryBanner from "@/components/home/BrandStoryBanner";
-import ShopByCategory from "@/components/home/ShopByCategory";
-import FeaturedProducts from "@/components/home/FeaturedProducts";
-import HeroSection from "@/components/home/HeroSection";
-import NewArrivals from "@/components/home/NewArrivals";
-import NewsletterSection from "@/components/home/NewsletterSection";
+import BrandStoryBanner from "@/features/home/BrandStoryBanner";
+import ShopByCategory from "@/features/home/ShopByCategory";
+import FeaturedProducts from "@/features/home/FeaturedProducts";
+import HeroSection from "@/features/home/HeroSection";
+import NewArrivals from "@/features/home/NewArrivals";
+import NewsletterSection from "@/features/home/NewsletterSection";
 
 import type { Metadata } from "next";
 

@@ -1,9 +1,9 @@
-import FilterContent from "@/components/products/FilterContent";
-import MobileFilter from "@/components/products/MobileFilter";
-import ProductsGrid from "@/components/products/ProductsGrid";
-import SortDropdown from "@/components/products/SortDropdown";
+import FilterContent from "@/features/product/components/filters/FilterContent";
+import SortDropdown from "@/features/product/components/filters/SortDropdown";
 import Heading from "@/components/shared/Heading";
 import { useTranslations } from "next-intl";
+import MobileFilter from "@/features/product/components/filters/MobileFilter";
+import ProductsGrid from "@/features/product/components/ProductsGrid";
 
 function ProductsPage() {
   const t = useTranslations("productsPage");

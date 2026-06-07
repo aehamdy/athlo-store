@@ -1,4 +1,4 @@
-import CheckoutForm from "@/components/forms/CheckoutForm";
+import CheckoutForm from "@/features/forms/CheckoutForm";
 import Heading from "@/components/shared/Heading";
 import { useTranslations } from "next-intl";
 

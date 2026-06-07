@@ -1,4 +1,4 @@
-import { products } from "../products/ProductsGrid";
+import { products } from "@/features/product/components/ProductsGrid";
 import {
   Breadcrumb,
   BreadcrumbItem,
