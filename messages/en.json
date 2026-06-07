@@ -34,9 +34,9 @@
     "continue": "Continue",
     "checkout": "Checkout",
     "placeOrder": "Place Order",
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
-    "signOut": "Sign Out",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "logout": "Sign Out",
     "submit": "Submit",
     "sendMessage": "Send Message",
     "retry": "Retry"
@@ -95,8 +95,8 @@
   },
 
   "navigation": {
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
+    "login": "Sign In",
+    "register": "Sign Up",
     "home": "Home",
     "products": "Products",
     "contact": "Contact",

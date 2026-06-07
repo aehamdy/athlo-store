@@ -1,7 +1,7 @@
+import Heading from "@/components/shared/Heading";
+import Icon from "@/components/shared/Icon";
 import TeamMemberCard from "@/features/about/components/TeamMemberCard";
-import Icon from "../shared/Icon";
 import { useTranslations } from "next-intl";
-import Heading from "../shared/Heading";
 
 const teamMembers = [
   {

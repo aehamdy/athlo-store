@@ -1,8 +1,8 @@
 import ProductCard from "@/features/products/components/ProductCard";
 import { products } from "./FeaturedProducts";
-import SectionHeader from "../../components/SectionHeader";
 import { useTranslations } from "next-intl";
 import ROUTES from "@/lib/routes";
+import SectionHeader from "@/components/shared/SectionHeader";
 
 function NewArrivals() {
   const newProducts = products.filter((p) => p.isNew).slice(0, 4);

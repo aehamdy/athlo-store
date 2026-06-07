@@ -1,10 +1,10 @@
 import ContactCard from "@/features/contact/components/ContactCard";
-import ContactUsForm from "../forms/ContactUsForm";
-import Heading from "../shared/Heading";
 import { Info } from "@/features/contact/types";
 import appConfig from "@/config/appConfig";
-import Icon from "../shared/Icon";
 import { useTranslations } from "next-intl";
+import Heading from "@/components/shared/Heading";
+import ContactUsForm from "@/features/forms/ContactUsForm";
+import Icon from "@/components/shared/Icon";
 
 const mainLocation = appConfig.locations?.[0];
 
@@ -53,6 +53,7 @@ function ContactSection() {
             <Heading as="h2" className="font-bold text-2xl mb-xl">
               {t("sendMessage")}
             </Heading>
+
             <ContactUsForm />
           </div>
 

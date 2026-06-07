@@ -5,7 +5,7 @@ import ProductInfo from "@/components/product/ProductInfo";
 import ProductQuantity from "@/components/product/ProductQuantity";
 import ProductSizeSelection from "@/components/product/ProductSizeSelection";
 import ProductTitleAndPrice from "@/components/product/ProductTitleAndPrice";
-import { products } from "@/components/products/ProductsGrid";
+import { products } from "@/features/product/components/ProductsGrid";
 import { notFound } from "next/navigation";
 
 interface ProductPageProps {

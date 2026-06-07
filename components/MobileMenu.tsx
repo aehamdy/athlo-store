@@ -52,7 +52,7 @@ function MobileMenu() {
           <SheetFooter className="border-t border-subtle">
             <PreferencesActions />
 
-            <Link href={ROUTES.auth.signIn} className="main-button">
+            <Link href={ROUTES.auth.login} className="main-button">
               Sign In
             </Link>
           </SheetFooter>

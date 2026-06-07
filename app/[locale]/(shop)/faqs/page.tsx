@@ -1,5 +1,5 @@
-import FAQContent from "@/components/faqs/FAQContent";
-import FAQHero from "@/components/faqs/FAQHero";
+import FAQContent from "@/features/faqs/components/FAQContent";
+import FAQHero from "@/features/faqs/components/FAQHero";
 
 function FAQsPage() {
   return (

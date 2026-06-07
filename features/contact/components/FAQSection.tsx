@@ -1,7 +1,7 @@
-import Heading from "../shared/Heading";
 import Link from "next/link";
 import ROUTES from "@/lib/routes";
 import { useTranslations } from "next-intl";
+import Heading from "@/components/shared/Heading";
 
 function FAQSection() {
   const t = useTranslations("faqsPage");

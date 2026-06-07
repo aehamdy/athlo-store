@@ -1,7 +1,7 @@
+import SectionHeader from "@/components/shared/SectionHeader";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import SectionHeader from "../../components/SectionHeader";
 
 const categories = [
   { id: "all", name: "All", nameAr: "الكل" },

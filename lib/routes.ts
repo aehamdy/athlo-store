@@ -16,8 +16,8 @@ const ROUTES = {
     profile: "/profile",
   },
   auth: {
-    signIn: "/sign-in",
-    signUp: "/sign-up",
+    login: "/login",
+    register: "/register",
     forgotPassword: "/forgot-password",
   },
 };

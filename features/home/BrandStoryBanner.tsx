@@ -1,9 +1,9 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import SectionHeader from "../../components/SectionHeader";
 import ROUTES from "@/lib/routes";
 import LayoutSection from "../../components/shared/LayoutSection";
 import LayoutContainer from "../../components/shared/LayoutContainer";
+import SectionHeader from "@/components/shared/SectionHeader";
 
 function BrandStoryBanner() {
   const t = useTranslations("home.performance");
