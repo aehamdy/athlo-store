@@ -357,6 +357,48 @@
     }
   },
 
+  "privacyPolicyPage": {
+    "hero": {
+      "title": "Privacy Policy",
+      "description": "How we handle and protect your data"
+    },
+
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "body": "We respect your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information when you use our website."
+      },
+      "informationWeCollect": {
+        "title": "Information We Collect",
+        "body": "We may collect personal information such as your name, email address, shipping address, and payment information when you create an account or complete a purchase. We also collect usage data to improve your experience."
+      },
+      "howWeUseYourInformation": {
+        "title": "How We Use Your Information",
+        "body": "We use your data to process orders, provide customer service, send updates and promotions, improve our products and services, and ensure the security of our website."
+      },
+      "sharingYourInformation": {
+        "title": "Sharing Your Information",
+        "body": "We do not sell your personal data. We may share it with trusted service providers such as shipping carriers and payment gateways only to the extent necessary to deliver our services."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "body": "We use cookies to enhance your experience, remember your preferences, and analyze site traffic. You can manage cookies through your browser settings."
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "body": "We use SSL encryption and strict security measures to protect your data. However, no method of transmission over the Internet is 100% secure."
+      },
+      "yourRights": {
+        "title": "Your Rights",
+        "body": "You have the right to access, correct, or delete your personal data. To do so, please contact us via the Contact page."
+      },
+      "updates": {
+        "title": "Updates to This Policy",
+        "body": "We may update this policy from time to time. Any changes will be posted on this page with the updated date."
+      }
+    }
+  },
+
   "footer": {
     "about": {
       "title": "About Us",
