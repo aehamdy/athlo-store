@@ -1,9 +1,9 @@
 "use client";
 
+import HeaderActions from "@/components/layout/header/HeaderActions";
+import Logo from "@/components/shared/Logo";
+import Nav from "@/components/shared/Nav";
 import { useEffect, useState } from "react";
-import HeaderActions from "../HeaderActions";
-import Logo from "../shared/Logo";
-import Nav from "../shared/Nav";
 
 function Header() {
   const [hidden, setHidden] = useState(false);

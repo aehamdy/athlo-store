@@ -1,5 +1,5 @@
 import navLinks from "@/lib/navLinks";
-import NavLink from "../NavLink";
+import NavLink from "./NavLink";
 
 function Nav() {
   return (

@@ -40,7 +40,7 @@ function SearchModal() {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-[400px]">
+      <DialogContent className="sm:max-w-100">
         <DialogHeader>
           <DialogTitle></DialogTitle>
           <DialogDescription></DialogDescription>
