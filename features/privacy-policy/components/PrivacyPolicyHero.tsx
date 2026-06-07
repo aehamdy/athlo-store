@@ -1,6 +1,6 @@
-import Heading from "@/components/shared/Heading";
-import LayoutContainer from "@/components/shared/preferences/LayoutContainer";
-import LayoutSection from "@/components/shared/preferences/LayoutSection";
+import SectionHeader from "@/components/SectionHeader";
+import LayoutContainer from "@/components/shared/LayoutContainer";
+import LayoutSection from "@/components/shared/LayoutSection";
 import { useTranslations } from "next-intl";
 
 function PrivacyPolicyHero() {
@@ -10,12 +10,7 @@ function PrivacyPolicyHero() {
     <LayoutSection>
       <LayoutContainer>
         <div>
-          <Heading
-            as="h1"
-            className="mb-xs font-bold text-foreground text-4xl md:text-5xl"
-          >
-            {t("hero.title")}
-          </Heading>
+          <SectionHeader sectionTitle={t("hero.title")} />
 
           <p className="text-lg text-muted-foreground">
             {t("hero.description")}

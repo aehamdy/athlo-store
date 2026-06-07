@@ -7,6 +7,8 @@
   --color-accent-base: var(--accent-base);
   --color-accent-soft: var(--accent-soft);
   --color-accent-strong: var(--accent-strong);
+  --color-accent-light: var(--accent-light);
+  /* --color-accent-light: 86 82% 48%; */
   --color-accent-ring: var(--accent-ring);
 
   --color-accent: var(--accent);
@@ -125,6 +127,7 @@
   --accent-base: hsl(86 82% 48%);
   --accent-soft: color-mix(in hsl, var(--accent-base) 90%, transparent);
   --accent-strong: color-mix(in hsl, var(--accent-base) 80%, transparent);
+  --accent-light: color-mix(in hsl, var(--accent-base) 10%, transparent);
   --accent-ring: color-mix(in hsl, var(--accent-base) 55%, transparent);
 
   /* Background layers */
