@@ -2,37 +2,46 @@ import Link from "next/link";
 import Icon from "./shared/Icon";
 import { useLocale } from "next-intl";
 import Heading from "./shared/Heading";
+import { HeadingLevel } from "./shared/types";
 
 type SectionHeaderProps = {
+  headingLevel?: HeadingLevel;
   sectionTitle: string;
   linkText?: string;
   href?: string;
 };
 
-function SectionHeader({ sectionTitle, linkText, href }: SectionHeaderProps) {
+function SectionHeader({
+  headingLevel = "h1",
+  sectionTitle,
+  linkText,
+  href,
+}: SectionHeaderProps) {
   const locale = useLocale();
   const isRTL = locale === "ar";
 
   return (
     <div
-      className={`flex items-center ${linkText ? "justify-between" : "justify-center"} mb-8`}
+      className={`flex  ${linkText ? "justify-between" : "flex-col justify-center"} items-center mb-8`}
     >
-      <Heading as="h2" className="text-2xl md:text-3xl font-bold">
+      <Heading
+        as={headingLevel}
+        className={`${headingLevel === "h1" ? "mb-xs text-4xl md:text-5xl" : "text-2xl md:text-3xl"} font-bold text-foreground`}
+      >
         {sectionTitle}
       </Heading>
 
       {linkText && href && (
         <Link
-          href={href || "#"}
-          className="flex items-center gap-2 p-1 px-2 hover:text-black hover:bg-accent-base rounded-md duration-normal"
+          href={href}
+          className="group flex items-center gap-sm py-tiny px-xs text-foreground hover:text-black hover:bg-accent-base rounded-md duration-normal"
         >
           {linkText}
 
-          {isRTL ? (
-            <Icon name="ArrowLeft" className="h-4 w-4 text-current" />
-          ) : (
-            <Icon name="ArrowRight" className="h-4 w-4 text-current" />
-          )}
+          <Icon
+            name={`${isRTL ? "ArrowLeft" : "ArrowRight"}`}
+            className={`w-4 h-4 me-2 ${isRTL ? "group-hover:-translate-x-xs" : "group-hover:translate-x-xs"} text-current duration-normal`}
+          />
         </Link>
       )}
     </div>
