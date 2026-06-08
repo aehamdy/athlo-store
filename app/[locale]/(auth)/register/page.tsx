@@ -1,9 +1,9 @@
-import RegisterForm from "@/features/auth/components/register-form/RegisterForm";
+import RegisterPanel from "@/features/auth/components/register-form/RegisterPanel";
 
 function RegisterPage() {
   return (
     <main className="h-dvh">
-      <RegisterForm />
+      <RegisterPanel />
     </main>
   );
 }
