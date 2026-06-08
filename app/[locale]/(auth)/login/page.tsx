@@ -1,9 +1,9 @@
-import LoginForm from "@/features/auth/components/login-form/LoginForm";
+import LoginPanel from "@/features/auth/components/login-form/LoginPanel";
 
 function LoginPage() {
   return (
     <main className="h-dvh">
-      <LoginForm />
+      <LoginPanel />
     </main>
   );
 }

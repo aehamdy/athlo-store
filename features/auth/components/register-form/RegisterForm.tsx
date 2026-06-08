@@ -1,42 +1,115 @@
-import SignUpForm from "@/features/forms/SignUpForm";
-import ROUTES from "@/lib/routes";
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
+import Icon from "../../../../components/shared/Icon";
 
 function RegisterForm() {
+  const [visiblePasswords, setVisiblePasswords] = useState({
+    password: true,
+    confirmPassword: true,
+  });
+
+  const togglePasswordVisibility = (field: "password" | "confirmPassword") => {
+    setVisiblePasswords((prev) => ({
+      ...prev,
+      [field]: !prev[field],
+    }));
+  };
+
   return (
-    <div className="h-full flex items-center justify-center">
-      <div className="w-9/10 md:w-3/4 lg:w-1/3 p-3xl space-y-3xl bg-surface border border-subtle rounded-xl shadow-md">
-        <div className="flex flex-col items-center gap-md">
-          <h1 className="">LOGO</h1>
+    <form action="" className="flex flex-col items-center gap-lg w-full">
+      <div className="flex flex-col gap-md w-full">
+        <div className="flex flex-col gap-xs w-full">
+          <label htmlFor="name" className="text-sm">
+            Name
+          </label>
 
-          <div className="flex flex-col items-center gap-sm">
-            <h1 className="font-bold text-xl text-foreground">Sign Up</h1>
-
-            <p className="text-center text-muted-foreground">
-              Create your account to get started
-            </p>
+          <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
+            <Icon name="User" />
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your full name"
+              className="w-full outline-none"
+            />
           </div>
         </div>
 
-        {/* Form */}
-        <div className="flex flex-col items-center gap-xl">
-          <SignUpForm />
+        <div className="flex flex-col gap-xs w-full">
+          <label htmlFor="email" className="text-sm">
+            Email
+          </label>
 
-          <div className="flex items-center gap-xs text-sm">
-            <p className="text-muted-foreground">
-              Don&apos;t have an account?{" "}
-            </p>
+          <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
+            <Icon name="Mail" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="you@example.com"
+              className="w-full outline-none"
+            />
+          </div>
+        </div>
 
-            <Link
-              href={ROUTES.auth.login}
-              className="text-accent-base hover:underline"
+        <div className="flex flex-col gap-xs w-full">
+          <label htmlFor="password" className="text-sm">
+            Password
+          </label>
+
+          <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
+            <Icon name="Lock" />
+
+            <input
+              type={visiblePasswords.password ? "password" : "text"}
+              name="password"
+              id="password"
+              placeholder="••••••••"
+              className="w-full outline-none"
+            />
+
+            <button
+              type="button"
+              onClick={() => togglePasswordVisibility("password")}
+              className="hover:primary-dark dark:hover:primary-light cursor-pointer"
             >
-              Sign In
-            </Link>
+              <Icon name={visiblePasswords.password ? "Eye" : "EyeClosed"} />
+            </button>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-xs w-full">
+          <label htmlFor="confirm-password" className="text-sm">
+            Confirm Password
+          </label>
+
+          <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
+            <Icon name="Lock" />
+
+            <input
+              type={visiblePasswords.confirmPassword ? "password" : "text"}
+              name="confirm-password"
+              id="confirm-password"
+              placeholder="••••••••"
+              className="w-full outline-none"
+            />
+
+            <button
+              type="button"
+              onClick={() => togglePasswordVisibility("confirmPassword")}
+              className="hover:primary-dark dark:hover:primary-light cursor-pointer"
+            >
+              <Icon
+                name={visiblePasswords.confirmPassword ? "Eye" : "EyeClosed"}
+              />
+            </button>
           </div>
         </div>
       </div>
-    </div>
+
+      <input type="submit" value="Sign in" className="main-button" />
+    </form>
   );
 }
 
