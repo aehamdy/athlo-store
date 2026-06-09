@@ -1,32 +1,26 @@
 "use client";
 
-import { useState } from "react";
 import Icon from "../../../../components/shared/Icon";
 import Link from "next/link";
 import ROUTES from "@/lib/routes";
+import PasswordInput from "../shared/PasswordInput";
 
 function LoginForm() {
-  const [showPassword, setShowPassword] = useState(true);
-
-  const handleShowPassword = () => {
-    setShowPassword((val) => !val);
-  };
-
   return (
     <form action="" className="flex flex-col items-center gap-lg w-full">
       <div className="flex flex-col gap-md w-full">
         <div className="flex flex-col gap-xs w-full">
           <label htmlFor="email" className="text-sm">
-            Email
+            Username
           </label>
 
           <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
-            <Icon name="Mail" />
+            <Icon name="UserRound" />
             <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="you@example.com"
+              type="text"
+              name="username"
+              id="username"
+              placeholder="username"
               className="w-full outline-none"
             />
           </div>
@@ -46,25 +40,7 @@ function LoginForm() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
-            <Icon name="Lock" />
-
-            <input
-              type={showPassword ? "password" : "text"}
-              name="password"
-              id="password"
-              placeholder="••••••••"
-              className="w-full outline-none"
-            />
-
-            <button
-              type="button"
-              onClick={handleShowPassword}
-              className="hover:primary-dark dark:hover:primary-light cursor-pointer"
-            >
-              <Icon name={showPassword ? "Eye" : "EyeClosed"} />
-            </button>
-          </div>
+          <PasswordInput />
         </div>
       </div>
 
