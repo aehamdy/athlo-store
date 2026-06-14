@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Icon from "../../components/shared/Icon";
 import ROUTES from "@/lib/routes";
 import { useTranslations } from "next-intl";
+import Icon from "@/components/shared/Icon";
 
 function ActionButtons() {
   const t = useTranslations("actions");
