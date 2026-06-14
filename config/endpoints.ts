@@ -1,5 +1,6 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-const API_VERSION_PATH = `${BASE_URL}/Api/V1`;
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+const API_VERSION_PATH = `${API_BASE_URL}/Api/V1`;
 
 const CONTROLLER_PATH = {
   authentication: `${API_VERSION_PATH}/Authentication`,
