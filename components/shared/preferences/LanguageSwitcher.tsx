@@ -33,6 +33,7 @@ function LanguageSwitcher() {
       onClick={handleToggle}
       variant="primary"
       aria-label="Switch language"
+      className="w-full"
     >
       <Icon name="Globe" className="text-current" />
       <span className="uppercase">{nextLocale}</span>

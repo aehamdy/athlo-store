@@ -19,7 +19,7 @@ function ThemeSwitcher() {
         onClick={handleThemeSwitch}
         aria-label="Toggle theme"
         aria-describedby="theme-switcher-desc"
-        className="group action-button"
+        className="group action-button w-full"
       >
         <Icon
           name={isDark ? "Sun" : "MoonStar"}
