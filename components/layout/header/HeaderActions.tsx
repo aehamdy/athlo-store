@@ -1,11 +1,11 @@
 import Link from "next/link";
 import CartButton from "../../CartButton";
 import MobileMenu from "../../MobileMenu";
-import ProfileButton from "../../ProfileButton";
 import SearchModal from "../../SearchModal";
 import PreferencesActions from "../../shared/preferences/PreferencesActions";
 import Icon from "../../shared/Icon";
 import ROUTES from "@/lib/routes";
+import AccountActions from "@/components/AccountActions";
 
 function HeaderActions() {
   return (
@@ -29,7 +29,7 @@ function HeaderActions() {
       <CartButton />
 
       <div className="hidden lg:flex">
-        <ProfileButton />
+        <AccountActions />
       </div>
 
       <div className="block lg:hidden">
