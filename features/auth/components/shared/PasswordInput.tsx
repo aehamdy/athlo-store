@@ -1,34 +1,46 @@
 "use client";
 
+import ErrorMessage from "@/components/shared/ErrorMessage";
 import Icon from "@/components/shared/Icon";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
-function PasswordInput() {
-  const [showPassword, setShowPassword] = useState(true);
+type PasswordInputProps = {
+  error?: FieldError;
+} & UseFormRegisterReturn &
+  React.InputHTMLAttributes<HTMLInputElement>;
+
+function PasswordInput({ error, ...inputProps }: PasswordInputProps) {
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleShowPassword = () => {
-    setShowPassword((val) => !val);
+    setIsVisible((val) => !val);
   };
 
   return (
-    <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
-      <Icon name="Lock" />
+    <div className="space-y-xs">
+      <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
+        <Icon name="Lock" />
 
-      <input
-        type={showPassword ? "password" : "text"}
-        name="password"
-        id="password"
-        placeholder="••••••••"
-        className="w-full outline-none"
-      />
+        <input
+          type={isVisible ? "text" : "password"}
+          placeholder="••••••••"
+          className="w-full outline-none"
+          {...inputProps}
+        />
 
-      <button
-        type="button"
-        onClick={handleShowPassword}
-        className="hover:primary-dark dark:hover:primary-light cursor-pointer"
-      >
-        <Icon name={showPassword ? "Eye" : "EyeClosed"} />
-      </button>
+        <Button
+          variant="plain"
+          size="xs"
+          onClick={handleShowPassword}
+          className=""
+        >
+          <Icon name={isVisible ? "EyeClosed" : "Eye"} className="" />
+        </Button>
+      </div>
+
+      {error && <ErrorMessage message={error?.message} />}
     </div>
   );
 }
