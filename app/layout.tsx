@@ -1,5 +1,6 @@
 import { getLocale } from "next-intl/server";
 import "./globals.css";
+import Providers from "@/lib/providers";
 
 export default async function RootLayout({
   children,
@@ -10,7 +11,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
