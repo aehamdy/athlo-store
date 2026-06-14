@@ -19,11 +19,15 @@
     "continueShopping": "Continue Shopping",
     "backToHome": "Back to Home",
     "contactPage": "Contact Page",
-
     "subscribe": "Subscribe",
-    "loadMore": "Load More",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "logout": "Sign Out",
+    "placeOrder": "Place Order",
     "search": "Search",
     "filter": "Filter",
+
+    "loadMore": "Load More",
     "apply": "Apply",
     "clear": "Clear",
     "save": "Save",
@@ -33,10 +37,6 @@
     "cancel": "Cancel",
     "continue": "Continue",
     "checkout": "Checkout",
-    "placeOrder": "Place Order",
-    "login": "Sign In",
-    "register": "Sign Up",
-    "logout": "Sign Out",
     "submit": "Submit",
     "sendMessage": "Send Message",
     "retry": "Retry"
@@ -48,9 +48,14 @@
     "enterEmail": "Enter your email",
     "name": "Name",
     "yourName": "Your Name",
+    "username": "Username",
     "enterYourName": "Enter your name",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "don'tHaveAnAccount": "Don't have an account?",
     "yourMessage": "Your Message",
     "enterYourMessage": "Enter your message",
+    "loading": "Loading...",
     "phone": "Phone",
     "address": "Address",
     "businessHours": "Business Hours",
@@ -114,6 +119,13 @@
     "checkout": "Checkout",
     "account": "Account",
     "orders": "Orders"
+  },
+
+  "authPages": {
+    "enterCredentialsToContinue": "Enter your credentials to continue",
+    "createYourAccountToGetStarted": "Create your account to get started",
+    "haveAnAccount": "Have an account?",
+    "dontHaveAnAccount": "Don&apos;t have an account?"
   },
 
   "home": {
