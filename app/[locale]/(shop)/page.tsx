@@ -59,13 +59,13 @@ function Home() {
       <section className="">
         <HeroSection />
 
-        <ShopByCategory />
+        {/* <ShopByCategory /> */}
 
-        <FeaturedProducts />
+        {/* <FeaturedProducts /> */}
 
         <BrandStoryBanner />
 
-        <NewArrivals />
+        {/* <NewArrivals /> */}
 
         <section className="py-24 bg-surface">
           <NewsletterSection variant="default" />

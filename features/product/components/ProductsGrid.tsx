@@ -1,3 +1,4 @@
+import getProducts from "@/features/products/api/getProducts";
 import ProductCard from "@/features/products/components/ProductCard";
 import ROUTES from "@/lib/routes";
 import Link from "next/link";
@@ -18,6 +19,16 @@ export interface Product {
   isNew?: boolean;
   isFeatured?: boolean;
 }
+
+export type PaginatedProductsResponse = {
+  data: Product[];
+  currentPage: number;
+  totalPages: number;
+  totalCount: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+  pageSize: number;
+};
 
 export const products: Product[] = [
   {
@@ -471,12 +482,13 @@ export const products: Product[] = [
   },
 ];
 
-function ProductsGrid() {
-  // Here goes all product cards
+async function ProductsGrid() {
+  const { data: productsList } = await getProducts();
+
   return (
     <section className="flex-1">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-xl">
-        {products.map((product) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+        {productsList.map((product: Product) => (
           <Link
             key={product.id}
             href={ROUTES.public.productDetail(product.id)}

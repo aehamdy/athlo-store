@@ -16,4 +16,30 @@ export const ENDPOINTS = {
   user: {
     register: `${CONTROLLER_PATH.user}/Create`,
   },
+  product: {
+    paginated: ({
+      pageNumber,
+      pageSize,
+      search,
+      ordering,
+    }: {
+      pageNumber?: number;
+      pageSize?: number;
+      search?: string;
+      ordering?: number;
+    }) => {
+      const params = new URLSearchParams();
+
+      if (pageNumber !== undefined)
+        params.set("PageNumber", pageNumber.toString());
+
+      if (pageSize !== undefined) params.set("PageSize", pageSize.toString());
+
+      if (search) params.set("Search", search);
+
+      if (ordering !== undefined) params.set("Ordering", ordering.toString());
+
+      return `${CONTROLLER_PATH.product}/Paginated?${params.toString()}`;
+    },
+  },
 };

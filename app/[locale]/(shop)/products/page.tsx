@@ -11,7 +11,7 @@ function ProductsPage() {
   const itemsCount = 99;
 
   return (
-    <main className="section-spacing">
+    <main className="section-spacing bg-surface">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-md mb-3xl">
         <div>
           <Heading as="h1" className="font-bold text-3xl">
@@ -33,7 +33,7 @@ function ProductsPage() {
       </div>
 
       <div className="grid grid-cols-12 gap-5xl section-spacing-x">
-        <aside className="hidden md:block md:col-span-3 shrink-0">
+        <aside className="hidden md:block md:col-span-2 shrink-0">
           <div className="sticky top-14">
             <Heading as="h3" className="font-semibold text-lg mb-md">
               {t("filters")}
@@ -43,7 +43,7 @@ function ProductsPage() {
           </div>
         </aside>
 
-        <div className="col-span-9">
+        <div className="col-span-10">
           <ProductsGrid />
         </div>
       </div>
