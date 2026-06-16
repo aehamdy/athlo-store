@@ -1,7 +1,5 @@
 import getProducts from "@/features/products/api/getProducts";
-import ProductCard from "@/features/products/components/ProductCard";
-import ROUTES from "@/lib/routes";
-import Link from "next/link";
+import InfiniteProducts from "./InfiniteProducts";
 
 export interface Product {
   id: string;
@@ -483,21 +481,18 @@ export const products: Product[] = [
 ];
 
 async function ProductsGrid() {
-  const { data: productsList } = await getProducts();
+  const initialData = await getProducts({
+    pageNumber: 1,
+    pageSize: 20,
+  });
 
   return (
     <section className="flex-1">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
-        {productsList.map((product: Product) => (
-          <Link
-            key={product.id}
-            href={ROUTES.public.productDetail(product.id)}
-            className=""
-          >
-            <ProductCard product={product} />
-          </Link>
-        ))}
-      </div>
+      <InfiniteProducts
+        initialProducts={initialData.data}
+        initialPage={initialData.currentPage}
+        hasNextPage={initialData.hasNextPage}
+      />
     </section>
   );
 }
