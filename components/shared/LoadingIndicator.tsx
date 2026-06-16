@@ -1,8 +1,9 @@
 type LoadingIndicatorProps = {
   size: "xs" | "sm" | "md" | "lg";
+  accent?: boolean;
 };
 
-function LoadingIndicator({ size }: LoadingIndicatorProps) {
+function LoadingIndicator({ size, accent }: LoadingIndicatorProps) {
   const indicatorSize =
     size === "xs"
       ? "w-2 h-2"
@@ -14,7 +15,7 @@ function LoadingIndicator({ size }: LoadingIndicatorProps) {
 
   return (
     <div
-      className={`${indicatorSize} border border-gray-500 border-s-transparent rounded-full animate-spin`}
+      className={`${indicatorSize} border ${accent ? "border-accent-base" : "border-gray-500"} border-s-transparent rounded-full animate-spin`}
     />
   );
 }
