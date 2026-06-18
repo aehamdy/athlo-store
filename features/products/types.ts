@@ -1,15 +1,30 @@
-export type ProductType = {
-  id: string;
+export type ProductT = {
+  id: number | string;
+  code?: string;
   name: string;
-  nameAr: string;
   description: string;
-  descriptionAr: string;
-  price: number;
-  category: string;
-  categoryAr: string;
+  club?: string;
+  brandName?: string;
+  categoryName?: string;
+  basePrice?: number;
+  minPrice?: number;
+  maxPrice?: number;
+  priceAfterDiscount?: number;
+  minPriceAfterDiscount?: number;
+  maxPriceAfterDiscount?: number;
+  hasVariants?: boolean;
+  season: string;
+  attributeKey?: string;
   images: string[];
-  sizes: string[];
-  colors: { name: string; hex: string }[];
-  isNew?: boolean;
-  isFeatured?: boolean;
 };
+
+export type ProductPricesT = {
+  basePrice?: number;
+  minPrice?: number;
+  maxPrice?: number;
+  priceAfterDiscount?: number;
+  minPriceAfterDiscount?: number;
+  maxPriceAfterDiscount?: number;
+};
+
+export type ProductTitleVariant = "card" | "details";
