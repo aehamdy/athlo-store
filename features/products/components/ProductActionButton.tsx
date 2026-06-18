@@ -39,7 +39,7 @@ function ProductActionButton({
           className="
           absolute
           top-1/2
-          end-full
+          right-full
           -translate-y-1/2
           group-hover/actions:-translate-x-xs
           opacity-0
