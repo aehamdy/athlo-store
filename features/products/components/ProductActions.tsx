@@ -17,7 +17,7 @@ const actionButtons: actionButtonT[] = [
 
 function ProductActions() {
   return (
-    <div className="absolute top-1.5 -end-full group-hover:end-1.5 flex flex-col gap-sm py-xs px-tiny transition-all duration-normal">
+    <div className="absolute top-1.5 end-1.5 lg:-end-full lg:group-hover:end-1.5 flex flex-col gap-sm py-xs px-tiny transition-all duration-normal">
       {actionButtons.map((button: actionButtonT) => (
         <ProductActionButton
           key={button.id}
