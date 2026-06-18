@@ -1,0 +1,32 @@
+import ProductMetaInfo from "./ProductMetaInfo";
+import ProductPriceDisplay from "./ProductPriceDisplay";
+import { ProductPricesT } from "../types";
+import ProductTitleDisplay from "./ProductTitleDisplay";
+
+type ProductCardInfoProps = {
+  name: string;
+  brand?: string;
+  category?: string;
+  season?: string;
+  prices: ProductPricesT;
+};
+
+function ProductCardInfo({
+  name,
+  brand,
+  category,
+  season,
+  prices,
+}: ProductCardInfoProps) {
+  return (
+    <div className="border-t p-4 bg-base">
+      <ProductMetaInfo brand={brand} season={season} category={category} />
+
+      <ProductTitleDisplay variant="card" title={name} />
+
+      <ProductPriceDisplay prices={prices} />
+    </div>
+  );
+}
+
+export default ProductCardInfo;
