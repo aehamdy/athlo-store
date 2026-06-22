@@ -10,7 +10,7 @@ function ProductTitleDisplay({ variant, title }: ProductTitleDisplayProps) {
   return (
     <Heading
       as="h3"
-      className={`my-xs line-clamp-1 ${variant === "details" ? "" : "font-normal text-sm text-muted-foreground"}`}
+      className={`line-clamp-1 ${variant === "details" ? "font-bold text-xl text-foreground" : "font-medium text-sm text-muted-foreground"}`}
     >
       {title}
     </Heading>
