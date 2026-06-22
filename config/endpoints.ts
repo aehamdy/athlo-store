@@ -41,5 +41,7 @@ export const ENDPOINTS = {
 
       return `${CONTROLLER_PATH.product}/Paginated?${params.toString()}`;
     },
+    productDetails: (id: string) =>
+      `${CONTROLLER_PATH.product}/${id}/With-Variants`,
   },
 };
