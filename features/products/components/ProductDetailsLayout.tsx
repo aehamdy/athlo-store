@@ -9,6 +9,8 @@ import { useState } from "react";
 import mapProductPrices from "../utils/mapProductPrices";
 import ProductDescription from "./ProductDescription";
 import ProductAttributeSelector from "./ProductAttributeSelector";
+import ProductColorSelector from "./ProductColorSelector";
+import ProductStockInfo from "./ProductStockInfo";
 
 type ProductDetailsLayoutProps = {
   product: ProductT;
@@ -72,6 +74,17 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
               setSelectedAttribute={setSelectedAttribute}
               setSelectedColor={setSelectedColor}
             />
+
+            <ProductColorSelector
+              selectedColor={selectedColor}
+              selectedAttribute={selectedAttribute}
+              product={product}
+              setSelectedColor={setSelectedColor}
+            />
+
+            {selectedVariant && (
+              <ProductStockInfo selectedVariant={selectedVariant} />
+            )}
           </div>
         </div>
       </div>
