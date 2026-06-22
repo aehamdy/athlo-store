@@ -1,5 +1,5 @@
 import { ENDPOINTS } from "@/config/endpoints";
-import { PaginatedProductsResponse } from "@/features/product/components/ProductsGrid";
+import { PaginatedProductsResponse } from "@/features/products/components/ProductsGrid";
 import { api } from "@/lib/api";
 
 type GetProductsParams = {
