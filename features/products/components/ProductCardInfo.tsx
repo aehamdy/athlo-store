@@ -19,8 +19,13 @@ function ProductCardInfo({
   prices,
 }: ProductCardInfoProps) {
   return (
-    <div dir="ltr" className="border-t p-4 bg-base">
-      <ProductMetaInfo brand={brand} season={season} category={category} />
+    <div dir="ltr" className="border-t p-4 space-y-3 bg-base">
+      <ProductMetaInfo
+        variant="card"
+        brand={brand}
+        season={season}
+        category={category}
+      />
 
       <ProductTitleDisplay variant="card" title={name} />
 
