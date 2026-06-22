@@ -1,21 +1,42 @@
-export type ProductT = {
-  id: number | string;
+export type ProductT = ProductPricesT & {
+  id: number;
   code?: string;
   name: string;
   description: string;
+
   club?: string;
   brandName?: string;
   categoryName?: string;
-  basePrice?: number;
-  minPrice?: number;
-  maxPrice?: number;
-  priceAfterDiscount?: number;
-  minPriceAfterDiscount?: number;
-  maxPriceAfterDiscount?: number;
+
   hasVariants?: boolean;
   season: string;
   attributeKey?: string;
+
   images: string[];
+
+  variants?: ProductVariantT[];
+};
+
+export type ProductDetailsApiResponse = {
+  statusCode: number;
+  meta: unknown;
+  succeeded: boolean;
+  message: string;
+  errors: unknown;
+  data: ProductT;
+};
+
+export type ProductVariantT = {
+  id: number;
+  sku: string;
+  price: number;
+  priceAfterDiscount: number;
+  stockQuantity: number;
+  attributeValueEn: string;
+  attributeValueAr: string;
+  unit: string;
+  colorLabel: string;
+  colorHex: string;
 };
 
 export type ProductPricesT = {
