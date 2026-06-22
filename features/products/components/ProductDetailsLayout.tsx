@@ -7,6 +7,8 @@ import ProductTitleDisplay from "./ProductTitleDisplay";
 import ProductMetaInfo from "./ProductMetaInfo";
 import { useState } from "react";
 import mapProductPrices from "../utils/mapProductPrices";
+import ProductDescription from "./ProductDescription";
+import ProductAttributeSelector from "./ProductAttributeSelector";
 
 type ProductDetailsLayoutProps = {
   product: ProductT;
@@ -60,6 +62,16 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
             <ProductTitleDisplay variant="details" title={product.name} />
 
             <ProductPriceDisplay variant="details" prices={displayedPrices} />
+
+            <ProductDescription description={product.description} />
+
+            <ProductAttributeSelector
+              attributeKey={product.attributeKey}
+              product={product}
+              selectedAttribute={selectedAttribute}
+              setSelectedAttribute={setSelectedAttribute}
+              setSelectedColor={setSelectedColor}
+            />
           </div>
         </div>
       </div>
