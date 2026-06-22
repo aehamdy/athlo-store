@@ -2,9 +2,10 @@ import { ProductPricesT } from "../types";
 
 type ProductPriceDisplayProps = {
   prices: ProductPricesT;
+  variant?: string;
 };
 
-function ProductPriceDisplay({ prices }: ProductPriceDisplayProps) {
+function ProductPriceDisplay({ variant, prices }: ProductPriceDisplayProps) {
   const minPrice = prices.minPrice ?? 0;
   const maxPrice = prices.maxPrice ?? 0;
   const minAfter = prices.minPriceAfterDiscount ?? 0;
@@ -13,7 +14,9 @@ function ProductPriceDisplay({ prices }: ProductPriceDisplayProps) {
   const hasDiscount = minAfter > 0 && minPrice > 0 && minAfter < minPrice;
 
   return (
-    <div className="flex flex-wrap items-center gap-2 text-md">
+    <div
+      className={`flex flex-wrap items-center gap-2 ${variant === "details" ? "text-xl" : "text-md"}`}
+    >
       {hasDiscount ? (
         <>
           <span className="font-bold text-accent-base">
