@@ -3,6 +3,7 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -11,10 +12,39 @@ import {
 import Icon from "./shared/Icon";
 import Link from "next/link";
 import ROUTES from "@/lib/routes";
+import CartItemCard from "@/features/cart/components/CartItemCard";
+import { ProductCartItem } from "@/features/cart/types";
+import { useState } from "react";
+import useFetchCartItems from "@/features/cart/hooks/useFetchCartItems";
+import CartSummary from "@/features/cart/components/CartSummary";
+import cartQueryKeys from "@/features/cart/constants/cartQueryKeys";
+import { useQueryClient } from "@tanstack/react-query";
+import prefetchCartItems from "@/features/cart/api/prefetchCartItems";
+import CartIetmCardSkeleton from "@/features/cart/components/CartIetmCardSkeleton";
+import ErrorMessage from "./shared/ErrorMessage";
+import EmptyCart from "@/features/cart/components/EmptyCart";
 
 function CartButton() {
+  const [open, setOpen] = useState(false);
+
+  const { data: cartItems = [], isLoading, isError } = useFetchCartItems(open);
+
+  const queryClient = useQueryClient();
+
+  const handleMouseEnter = () => {
+    const cached = queryClient.getQueryData(cartQueryKeys.all);
+
+    if (!cached) {
+      setTimeout(() => {
+        prefetchCartItems(queryClient);
+      }, 5000);
+    }
+  };
+
+  const isCartEmpty = cartItems.length === 0;
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
           variant="plain"
@@ -23,6 +53,7 @@ function CartButton() {
           aria-haspopup="true"
           aria-controls="cart"
           className="group action-button focus-visible:text-primary-dark"
+          onMouseEnter={handleMouseEnter}
         >
           <Icon
             name="ShoppingBag"
@@ -35,35 +66,51 @@ function CartButton() {
         <SheetHeader className="border-b border-subtle">
           <SheetTitle className="flex items-center gap-xs">
             <Icon name="ShoppingBag" size={22} className="text-foreground" />
-            Your Cart <span className="text-sm">(0)</span>
+            <div className="flex items-center gap-xs">
+              Your Cart <span className="text-sm">( {cartItems.length} )</span>
+            </div>
           </SheetTitle>
+
+          <SheetDescription className="sr-only">
+            Review and manage the items in your shopping cart.
+          </SheetDescription>
         </SheetHeader>
 
-        <div className="grid flex-1 auto-rows-min gap-6 px-4">
-          <div className="grid gap-3">
-            {/* <Label htmlFor="sheet-demo-name">Name</Label> */}
-            {/* <Input id="sheet-demo-name" defaultValue="Pedro Duarte" /> */}
-          </div>
-          <div className="grid gap-3">
-            {/* <Label htmlFor="sheet-demo-username">Username</Label> */}
-            {/* <Input id="sheet-demo-username" defaultValue="@peduarte" /> */}
-          </div>
-        </div>
+        <ul className="min-h-101.25 space-y-xs px-sm overflow-y-auto">
+          {isLoading && <CartIetmCardSkeleton />}
 
-        <SheetFooter className="border-t border-subtle">
-          <Link href={ROUTES.public.checkout} className="main-button">
-            Checkout
-          </Link>
+          {isError && <ErrorMessage message="Failed to load cart." />}
 
-          <SheetClose asChild>
-            <Button
-              variant="plain"
-              className="font-normal hover:text-primary-dark bg-transparent hover:bg-accent-soft border border-subtle transition-colors duration-normal cursor-pointer"
+          {!isLoading && !isError && cartItems.length === 0 && <EmptyCart />}
+
+          {cartItems?.map((item: ProductCartItem) => (
+            <CartItemCard key={item.id} product={item} />
+          ))}
+        </ul>
+
+        {cartItems.length >= 1 && (
+          <SheetFooter className="border-t border-subtle">
+            <CartSummary open={open} />
+
+            <Link
+              href={isCartEmpty ? "#" : ROUTES.public.checkout}
+              aria-disabled={isCartEmpty}
+              onClick={(e) => isCartEmpty && e.preventDefault()}
+              className={`main-button ${isCartEmpty && "pointer-events-none opacity-50 cursor-not-allowed"}`}
             >
-              Continue Shopping
-            </Button>
-          </SheetClose>
-        </SheetFooter>
+              Checkout
+            </Link>
+
+            <SheetClose asChild>
+              <Button
+                variant="plain"
+                className="font-normal text-foreground hover:text-primary-dark bg-transparent hover:bg-accent-base border border-subtle transition-colors duration-normal cursor-pointer"
+              >
+                Continue Shopping
+              </Button>
+            </SheetClose>
+          </SheetFooter>
+        )}
       </SheetContent>
     </Sheet>
   );
