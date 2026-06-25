@@ -12,17 +12,13 @@ import {
 import Icon from "../../../components/shared/Icon";
 import Link from "next/link";
 import ROUTES from "@/lib/routes";
-import CartItemCard from "@/features/cart/components/CartItemCard";
-import { ProductCartItem } from "@/features/cart/types";
 import { useState } from "react";
 import useFetchCartItems from "@/features/cart/hooks/useFetchCartItems";
 import CartSummary from "@/features/cart/components/CartSummary";
 import cartQueryKeys from "@/features/cart/constants/cartQueryKeys";
 import { useQueryClient } from "@tanstack/react-query";
 import prefetchCartItems from "@/features/cart/api/prefetchCartItems";
-import CartIetmCardSkeleton from "@/features/cart/components/CartIetmCardSkeleton";
-import ErrorMessage from "../../../components/shared/ErrorMessage";
-import EmptyCart from "@/features/cart/components/EmptyCart";
+import CartList from "./CartList";
 
 function CartDrawer() {
   const [open, setOpen] = useState(false);
@@ -74,17 +70,11 @@ function CartDrawer() {
           </SheetDescription>
         </SheetHeader>
 
-        <ul className="min-h-101.25 space-y-xs px-sm overflow-y-auto">
-          {isLoading && <CartIetmCardSkeleton />}
-
-          {isError && <ErrorMessage message="Failed to load cart." />}
-
-          {!isLoading && !isError && cartItems.length === 0 && <EmptyCart />}
-
-          {cartItems?.map((item: ProductCartItem) => (
-            <CartItemCard key={item.id} product={item} />
-          ))}
-        </ul>
+        <CartList
+          cartItems={cartItems}
+          isLoading={isLoading}
+          isError={isError}
+        />
 
         {cartItems.length >= 1 && (
           <SheetFooter className="border-t border-subtle">
