@@ -1,8 +1,8 @@
 import ErrorMessage from "@/components/shared/ErrorMessage";
-import CartIetmCardSkeleton from "./CartIetmCardSkeleton";
 import EmptyCart from "./EmptyCart";
 import CartItemCard from "./CartItemCard";
 import { ProductCartItem } from "../types";
+import CartItemCardSkeleton from "./CartItemCardSkeleton";
 
 type CartListProps = {
   cartItems: ProductCartItem[];
@@ -15,7 +15,7 @@ function CartList({ cartItems, isLoading, isError }: CartListProps) {
     <ul className="min-h-101.25 space-y-xs px-sm overflow-y-auto">
       {!isLoading && !isError && cartItems.length === 0 && <EmptyCart />}
 
-      {isLoading && <CartIetmCardSkeleton />}
+      {isLoading && <CartItemCardSkeleton />}
 
       {isError && <ErrorMessage message="Failed to load cart." />}
 
