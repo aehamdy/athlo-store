@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CartButton from "../../CartButton";
+import CartDrawer from "../../../features/cart/components/CartDrawer";
 import MobileMenu from "../../MobileMenu";
 import SearchModal from "../../SearchModal";
 import PreferencesActions from "../../shared/preferences/PreferencesActions";
@@ -26,7 +26,7 @@ function HeaderActions() {
         <PreferencesActions />
       </div>
 
-      <CartButton />
+      <CartDrawer />
 
       <div className="hidden lg:flex">
         <AccountActions />
