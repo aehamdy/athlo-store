@@ -106,7 +106,10 @@ function CartItemCard({ product }: CartItemCardProps) {
               <Button
                 variant="plain"
                 className="text-muted-foreground hover:text-primary-dark disabled:text-gray-500 disabled:bg-base hover:bg-accent-base border hover:border-transparent focus-visible:bg-accent-base focus-visible:border-transparent"
-                disabled={isQuantityPending}
+                disabled={
+                  product.quantity === product.stockQuantity ||
+                  isQuantityPending
+                }
                 onClick={handleIncreaseQuantity}
               >
                 <Icon name="Plus" className="text-current" />

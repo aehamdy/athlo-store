@@ -12,6 +12,7 @@ export type ProductCartItem = {
   originalPrice: number;
   finalPrice: number;
   quantity: number;
+  stockQuantity: number;
   totalPrice: number;
 };
 
