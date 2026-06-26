@@ -9,11 +9,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormValues, loginSchema } from "../../schemas/login.schema";
 import ErrorMessage from "@/components/shared/ErrorMessage";
 import useLogin from "../../hooks/useLogin";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/stores/auth.store";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import LoadingIndicator from "@/components/shared/LoadingIndicator";
+import { STORAGE_KEYS } from "@/config/constants";
 
 function LoginForm() {
   const actionsT = useTranslations("actions");
@@ -27,8 +29,8 @@ function LoginForm() {
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      username: "",
-      password: "",
+      username: "admin",
+      password: "M123_m",
     },
   });
 
@@ -38,11 +40,15 @@ function LoginForm() {
 
       const { accessToken, refreshToken, user } = result.data;
 
-      localStorage.setItem("athlo-store-accessToken", accessToken);
-      localStorage.setItem(
-        "athlo-store-refreshToken",
-        refreshToken.tokenString,
-      );
+      Cookies.set(STORAGE_KEYS.accessToken, accessToken, {
+        expires: 7,
+        sameSite: "lax",
+      });
+
+      Cookies.set(STORAGE_KEYS.refreshToken, refreshToken.tokenString, {
+        expires: 30,
+        sameSite: "lax",
+      });
 
       const { login } = useAuthStore.getState();
       login(user);
