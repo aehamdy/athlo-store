@@ -14,7 +14,7 @@ function ProductCard({ product }: ProductCardProps) {
   const prices = mapProductPrices(product);
 
   return (
-    <article className="group relative overflow-hidden rounded-2xl border bg-surface transition-shadow duration-normal hover:shadow-lg">
+    <article className="group relative bg-surface border hover:border-accent-ring rounded-2xl hover:shadow-lg transition-shadow duration-normal overflow-hidden">
       <Link
         href={ROUTES.public.productDetail(product.id.toString())}
         className="focus-visible:bg-red-500 focus-visible:shadow-lg"
@@ -38,7 +38,10 @@ function ProductCard({ product }: ProductCardProps) {
         />
       </Link>
 
-      <ProductActions />
+      <ProductActions
+        productId={product.id}
+        hasVariants={product.hasVariants}
+      />
     </article>
   );
 }
