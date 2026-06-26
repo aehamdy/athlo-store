@@ -1,4 +1,5 @@
 import Icon from "@/components/shared/Icon";
+import Tooltip from "@/components/shared/Tooltip";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -6,6 +7,7 @@ type ProductActionButtonProps = {
   variant?: "icon" | "default";
   icon: React.ComponentProps<typeof Icon>["name"];
   label: string;
+  tooltip?: "top" | "right" | "bottom" | "left";
   onClick: () => void;
   disabled?: boolean;
   className?: string;
@@ -15,6 +17,7 @@ function ProductActionButton({
   variant = "default",
   icon,
   label,
+  tooltip,
   onClick,
   disabled = false,
   className,
@@ -35,48 +38,24 @@ function ProductActionButton({
           <Icon name={icon} className="group-hover/actions:text-current" />
         </Button>
 
-        <span
-          className="
-          absolute
-          top-1/2
-          right-full
-          -translate-y-1/2
-          group-hover/actions:-translate-x-xs
-          opacity-0
-          group-hover/actions:opacity-100
-          scale-90
-          group-hover/actions:scale-95
-          px-xs
-          py-tiny
-          text-xs
-          text-foreground
-          bg-surface
-          whitespace-nowrap
-          rounded-xs
-          shadow-lg
-          transition-all 
-          duration-300
-          pointer-events-none
-        "
-        >
-          {label}
-        </span>
+        {label && tooltip && <Tooltip label={label} tooltip={tooltip} />}
       </div>
     );
   }
 
   return (
     <Button
+      aria-label={label}
+      className={cn(
+        "inline-flex items-center justify-center gap-sm h-11 px-xs py-tiny text-xs rounded-4xl",
+        className,
+      )}
       disabled={disabled}
       onClick={onClick}
-      className={cn("flex items-center gap-sm", className)}
-      aria-label={label}
     >
-      <Icon name={icon} />
+      <Icon name={icon} className="text-current" />
 
-      <span className="py-tiny px-xs text-xs text-white bg-black rounded-xs whitespace-nowrap">
-        {label}
-      </span>
+      <span className="text-current whitespace-nowrap">{label}</span>
     </Button>
   );
 }
