@@ -11,6 +11,9 @@ import ProductDescription from "./ProductDescription";
 import ProductAttributeSelector from "./ProductAttributeSelector";
 import ProductColorSelector from "./ProductColorSelector";
 import ProductStockInfo from "./ProductStockInfo";
+import ProductQuantitySelector from "./ProductQuantitySelector";
+import ProductActionButton from "./ProductActionButton";
+import useHandleAddToCart from "@/features/cart/hooks/useHandleAddToCart";
 
 type ProductDetailsLayoutProps = {
   product: ProductT;
@@ -19,6 +22,9 @@ type ProductDetailsLayoutProps = {
 function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
   const [selectedAttribute, setSelectedAttribute] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
+  const { addProduct, isPending } = useHandleAddToCart();
 
   const selectedVariant =
     product.variants?.find(
@@ -41,6 +47,12 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
         maxPriceAfterDiscount: displayedVariant.priceAfterDiscount,
       }
     : mapProductPrices(product);
+
+  const handleAddToCart = () => {
+    if (!selectedVariant) return;
+
+    addProduct(selectedVariant.id, quantity);
+  };
 
   return (
     <section>
@@ -85,6 +97,33 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
             {selectedVariant && (
               <ProductStockInfo selectedVariant={selectedVariant} />
             )}
+
+            <ProductQuantitySelector
+              quantity={quantity}
+              setQuantity={setQuantity}
+              selectedVariant={selectedVariant}
+            />
+
+            <div className="flex items-center gap-lg w-full">
+              <div className="w-[85%]">
+                <ProductActionButton
+                  icon="ShoppingBag"
+                  label="Add To Cart"
+                  className="flex-1 py-lg w-full"
+                  disabled={!selectedVariant || isPending}
+                  onClick={handleAddToCart}
+                />
+              </div>
+
+              <ProductActionButton
+                variant="icon"
+                tooltip="top"
+                icon="Heart"
+                label="Add to wishlist"
+                className="shrink-0"
+                onClick={() => {}}
+              />
+            </div>
           </div>
         </div>
       </div>
