@@ -48,4 +48,4 @@ export type ProductPricesT = {
   maxPriceAfterDiscount?: number;
 };
 
-export type ProductTitleVariant = "card" | "details";
+export type ProductViewVariant = "details" | "card" | "quickView";
