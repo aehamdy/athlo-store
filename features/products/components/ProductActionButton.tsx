@@ -8,7 +8,7 @@ type ProductActionButtonProps = {
   icon: React.ComponentProps<typeof Icon>["name"];
   label: string;
   tooltip?: "top" | "right" | "bottom" | "left";
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
   className?: string;
 };

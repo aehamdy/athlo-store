@@ -1,5 +1,7 @@
+import { ProductViewVariant } from "../types";
+
 type ProductMetaInfoProps = {
-  variant: "card" | "details";
+  variant: ProductViewVariant;
   brand?: string;
   season?: string;
   category?: string;

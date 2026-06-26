@@ -38,10 +38,7 @@ function ProductCard({ product }: ProductCardProps) {
         />
       </Link>
 
-      <ProductActions
-        productId={product.id}
-        hasVariants={product.hasVariants}
-      />
+      <ProductActions product={product} hasVariants={product.hasVariants} />
     </article>
   );
 }
