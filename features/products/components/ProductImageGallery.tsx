@@ -4,20 +4,25 @@ import Image from "next/image";
 import { Button } from "../../../components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { ProductViewVariant } from "../types";
 
 type ProductImageGalleryProps = {
   images: string[];
   productName: string;
+  variant?: ProductViewVariant;
 };
 
 function ProductImageGallery({
   images,
   productName,
+  variant,
 }: ProductImageGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0);
 
   return (
-    <div className="space-y-md">
+    <div
+      className={`space-y-md ${variant === "details" ? "bg-surface" : variant === "quickView" ? "bg-base" : "bg-white"}`}
+    >
       <div className="aspect-square bg-muted rounded-xl border overflow-hidden">
         <Image
           src={images[selectedImage]}

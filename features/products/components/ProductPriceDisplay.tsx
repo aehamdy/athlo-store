@@ -1,8 +1,8 @@
-import { ProductPricesT } from "../types";
+import { ProductPricesT, ProductViewVariant } from "../types";
 
 type ProductPriceDisplayProps = {
   prices: ProductPricesT;
-  variant?: string;
+  variant?: ProductViewVariant;
 };
 
 function ProductPriceDisplay({ variant, prices }: ProductPriceDisplayProps) {

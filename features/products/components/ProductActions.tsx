@@ -6,6 +6,8 @@ import { useTranslations } from "next-intl";
 import ROUTES from "@/lib/routes";
 import useHandleAddToCart from "@/features/cart/hooks/useHandleAddToCart";
 import { useRouter } from "next/navigation";
+import { ProductT } from "../types";
+import ProductQuickViewDialog from "./quick-view/ProductQuickViewDialog";
 
 type actionButtonT = {
   id: number;
@@ -47,47 +49,62 @@ const actionButtons: actionButtonT[] = [
 ];
 
 type ProductActionsProps = {
-  productId: number;
+  product: ProductT;
   hasVariants: boolean | undefined;
 };
 
-function ProductActions({ productId, hasVariants }: ProductActionsProps) {
+function ProductActions({ product, hasVariants }: ProductActionsProps) {
   const t = useTranslations("actions");
   const router = useRouter();
   const { addProduct } = useHandleAddToCart();
 
   return (
     <div className="absolute top-1.5 right-1.5 lg:-right-full lg:group-hover:right-1.5 flex flex-col gap-sm py-xs px-tiny transition-all duration-normal">
-      {actionButtons.map((button: actionButtonT) => (
-        <ProductActionButton
-          key={button.id}
-          variant="icon"
-          icon={
-            button.type === "cart" && hasVariants
-              ? "PackageSearch"
-              : button.icon
-          }
-          label={
-            button.type === "cart" && hasVariants
-              ? t("selectOptions")
-              : t(button.label)
-          }
-          tooltip="left"
-          onClick={() => {
-            if (button.type === "cart") {
-              if (hasVariants) {
-                router.push(ROUTES.public.productDetail(productId.toString()));
-              } else {
-                addProduct(productId);
-              }
+      {actionButtons.map((button: actionButtonT) => {
+        if (button.type === "quickview") {
+          return (
+            <ProductQuickViewDialog key={button.id} product={product}>
+              <ProductActionButton
+                variant="icon"
+                icon="Eye"
+                label={t("quickView")}
+                tooltip="left"
+              />
+            </ProductQuickViewDialog>
+          );
+        }
 
-              return;
+        return (
+          <ProductActionButton
+            key={button.id}
+            variant="icon"
+            icon={
+              button.type === "cart" && hasVariants
+                ? "PackageSearch"
+                : button.icon
             }
-
-            button.onClick();
-          }}
-        />
-      ))}
+            label={
+              button.type === "cart" && hasVariants
+                ? t("selectOptions")
+                : t(button.label)
+            }
+            tooltip="left"
+            onClick={() => {
+              if (button.type === "cart") {
+                if (hasVariants) {
+                  router.push(
+                    ROUTES.public.productDetail(product.id.toString()),
+                  );
+                } else {
+                  addProduct(product.id);
+                }
+                return;
+              }
+              button.onClick();
+            }}
+          />
+        );
+      })}
     </div>
   );
 }

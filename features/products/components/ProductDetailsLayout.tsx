@@ -61,6 +61,7 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
           <ProductImageGallery
             images={product.images}
             productName={product.name}
+            variant="details"
           />
         </div>
 
