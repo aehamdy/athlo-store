@@ -17,6 +17,27 @@ export type ProductT = ProductPricesT & {
   variants?: ProductVariantT[];
 };
 
+export type ProductDetails = {
+  id: number;
+  code: string;
+  name: string;
+  description: string;
+  season: string;
+  club: string;
+  brandName: string;
+  categoryName: string;
+  basePrice: number;
+  minPrice: number;
+  maxPrice: number;
+  hasVariants: boolean;
+  priceAfterDiscount: number;
+  minPriceAfterDiscount: number;
+  maxPriceAfterDiscount: number;
+  attributeKey: string;
+  images: string[];
+  variants: ProductVariantT[];
+};
+
 export type ProductDetailsApiResponse = {
   statusCode: number;
   meta: unknown;
