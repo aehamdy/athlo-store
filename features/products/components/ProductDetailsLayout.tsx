@@ -1,22 +1,24 @@
 "use client";
 
-import ProductImageGallery from "@/features/products/components/ProductImageGallery";
-import { ProductT } from "../types";
+import { useState } from "react";
+
+import ProductImageGallery from "./ProductImageGallery";
 import ProductPriceDisplay from "./ProductPriceDisplay";
 import ProductTitleDisplay from "./ProductTitleDisplay";
 import ProductMetaInfo from "./ProductMetaInfo";
-import { useState } from "react";
-import mapProductPrices from "../utils/mapProductPrices";
 import ProductDescription from "./ProductDescription";
 import ProductAttributeSelector from "./ProductAttributeSelector";
 import ProductColorSelector from "./ProductColorSelector";
 import ProductStockInfo from "./ProductStockInfo";
 import ProductQuantitySelector from "./ProductQuantitySelector";
 import ProductActionButton from "./ProductActionButton";
+
+import { ProductDetails } from "../types";
 import useHandleAddToCart from "@/features/cart/hooks/useHandleAddToCart";
+import useProductVariant from "../hooks/useProductVariant";
 
 type ProductDetailsLayoutProps = {
-  product: ProductT;
+  product: ProductDetails;
 };
 
 function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
@@ -26,27 +28,18 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
 
   const { addProduct, isPending } = useHandleAddToCart();
 
-  const selectedVariant =
-    product.variants?.find(
-      (variant) =>
-        variant.attributeValueEn === selectedAttribute &&
-        variant.colorLabel === selectedColor,
-    ) ?? null;
-
-  const displayedVariant =
-    selectedVariant ??
-    product.variants?.find(
-      (variant) => variant.attributeValueEn === selectedAttribute,
-    );
-
-  const displayedPrices = displayedVariant
-    ? {
-        minPrice: displayedVariant.price,
-        maxPrice: displayedVariant.price,
-        minPriceAfterDiscount: displayedVariant.priceAfterDiscount,
-        maxPriceAfterDiscount: displayedVariant.priceAfterDiscount,
-      }
-    : mapProductPrices(product);
+  const {
+    hasAttribute,
+    hasColor,
+    selectedVariant,
+    displayedPrices,
+    canPurchase,
+    maxQuantity,
+  } = useProductVariant({
+    product,
+    selectedAttribute,
+    selectedColor,
+  });
 
   const handleAddToCart = () => {
     if (!selectedVariant) return;
@@ -57,21 +50,23 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
   return (
     <section>
       <div className="grid lg:grid-cols-12 gap-lg">
+        {/* Product Images */}
         <div className="lg:col-span-5">
           <ProductImageGallery
+            variant="details"
             images={product.images}
             productName={product.name}
-            variant="details"
           />
         </div>
 
+        {/* Product Info */}
         <div className="lg:col-span-7 pt-sm">
           <div className="space-y-md">
             <ProductMetaInfo
               variant="details"
               brand={product.brandName}
-              season={product.season}
               category={product.categoryName}
+              season={product.season}
             />
 
             <ProductTitleDisplay variant="details" title={product.name} />
@@ -80,29 +75,35 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
 
             <ProductDescription description={product.description} />
 
-            <ProductAttributeSelector
-              attributeKey={product.attributeKey}
-              product={product}
-              selectedAttribute={selectedAttribute}
-              setSelectedAttribute={setSelectedAttribute}
-              setSelectedColor={setSelectedColor}
-            />
+            {hasAttribute && (
+              <ProductAttributeSelector
+                attributeKey={product.attributeKey}
+                unit={product.variants[0]?.unit ?? ""}
+                product={product}
+                selectedAttribute={selectedAttribute}
+                setSelectedAttribute={setSelectedAttribute}
+                setSelectedColor={setSelectedColor}
+              />
+            )}
 
-            <ProductColorSelector
-              selectedColor={selectedColor}
-              selectedAttribute={selectedAttribute}
-              product={product}
-              setSelectedColor={setSelectedColor}
-            />
+            {hasColor && (
+              <ProductColorSelector
+                product={product}
+                selectedAttribute={selectedAttribute}
+                selectedColor={selectedColor}
+                setSelectedColor={setSelectedColor}
+              />
+            )}
 
-            {selectedVariant && (
-              <ProductStockInfo selectedVariant={selectedVariant} />
+            {canPurchase && selectedVariant && (
+              <ProductStockInfo stockQuantity={selectedVariant.stockQuantity} />
             )}
 
             <ProductQuantitySelector
               quantity={quantity}
               setQuantity={setQuantity}
-              selectedVariant={selectedVariant}
+              maxQuantity={maxQuantity}
+              disabled={!canPurchase}
             />
 
             <div className="flex items-center gap-lg w-full">
@@ -110,8 +111,8 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
                 <ProductActionButton
                   icon="ShoppingBag"
                   label="Add To Cart"
-                  className="flex-1 py-lg w-full"
-                  disabled={!selectedVariant || isPending}
+                  className="w-full py-lg"
+                  disabled={!canPurchase || isPending}
                   onClick={handleAddToCart}
                 />
               </div>
