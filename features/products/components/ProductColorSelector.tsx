@@ -1,75 +1,83 @@
 import Icon from "@/components/shared/Icon";
 import { Button } from "@/components/ui/button";
-import { ProductT } from "../types";
+import { ProductDetails } from "../types";
 
 type ProductColorSelectorProps = {
-  selectedColor: string;
+  product: ProductDetails;
   selectedAttribute: string;
-  product: ProductT;
+  selectedColor: string;
   setSelectedColor: (value: string) => void;
 };
+
 function ProductColorSelector({
-  selectedColor,
-  selectedAttribute,
   product,
+  selectedAttribute,
+  selectedColor,
   setSelectedColor,
 }: ProductColorSelectorProps) {
-  const allColors = [
+  const colors = [
     ...new Map(
-      (product.variants ?? []).map((variant) => [
+      product.variants.map((variant) => [
         variant.colorLabel,
         {
-          colorCode: variant.colorHex,
           label: variant.colorLabel,
+          hex: variant.colorHex,
         },
       ]),
     ).values(),
   ];
 
-  const fullVariants = product.variants?.filter(
-    (variant) =>
-      variant.attributeValueEn.toLowerCase() ===
-      selectedAttribute.toLowerCase(),
-  );
-
-  const handleSelectColor = (colorLabel: string) => {
-    setSelectedColor(colorLabel);
-  };
-
   return (
     <div className="space-y-3">
       {selectedColor && (
-        <p className="flex ietms-center gap-xs font-medium text-sm text-foreground">
-          Color:{" "}
-          <span className="text-muted-foreground">
-            {selectedColor.charAt(0).toUpperCase() +
-              selectedColor.slice(1).toLowerCase() || ""}
-          </span>
+        <p className="flex items-center gap-xs font-medium text-sm">
+          Color:
+          <span className="text-muted-foreground">{selectedColor}</span>
         </p>
       )}
 
-      <div className="flex items-center flex-wrap gap-4">
-        {allColors?.map((swatch) => {
-          const variantForSwatch = selectedAttribute
-            ? fullVariants?.find((v) => v.colorLabel === swatch.label)
-            : product.variants?.find((v) => v.colorLabel === swatch.label);
+      <div className="flex flex-wrap gap-4">
+        {colors.map((color) => {
+          const matchingVariant = product.variants.find(
+            (variant) =>
+              variant.colorLabel === color.label &&
+              (!selectedAttribute ||
+                variant.attributeValueEn === selectedAttribute),
+          );
 
-          const isOutOfStock = (variantForSwatch?.stockQuantity ?? 0) === 0;
-          const isSelectedColor = selectedColor === swatch.label;
+          const availableForSelectedAttribute = !!matchingVariant;
+
+          const outOfStock =
+            availableForSelectedAttribute &&
+            matchingVariant.stockQuantity === 0;
+
+          const isDimmed = selectedAttribute && !availableForSelectedAttribute;
+
+          const selected = selectedColor === color.label;
+
+          const lightColor =
+            color.hex.toLowerCase() === "#ffffff" ||
+            color.hex.toLowerCase() === "#e0e0e0";
 
           return (
             <Button
-              key={swatch.colorCode}
+              key={color.label}
               variant="plain"
-              className={`group relative flex justify-center items-center gap-2 w-12 h-12 border-4 ${isSelectedColor ? "border-accent-base scale-110" : "border-subtle"} ${isOutOfStock ? "opacity-45 cursor-not-allowed" : "hover:scale-105"} rounded-full transition-transform`}
-              style={{ backgroundColor: swatch.colorCode }}
-              disabled={isOutOfStock}
-              onClick={() => handleSelectColor(swatch.label)}
+              disabled={outOfStock}
+              onClick={() => setSelectedColor(color.label)}
+              className={` relative flex items-center justify-center w-12 h-12 rounded-full border-4 transition-all ${selected ? "border-accent-base scale-110" : "border-subtle"}     ${
+                isDimmed
+                  ? "opacity-40 cursor-not-allowed"
+                  : outOfStock
+                    ? "opacity-40 cursor-not-allowed scale-90"
+                    : "opacity-100 hover:scale-105"
+              }`}
+              style={{ backgroundColor: color.hex }}
             >
-              {isSelectedColor && !isOutOfStock && (
+              {selected && !outOfStock && !isDimmed && (
                 <Icon
                   name="Check"
-                  className={`${swatch.colorCode === "#ffffff" || swatch.colorCode === "#E0E0E0" ? "text-black" : "text-white"}`}
+                  className={lightColor ? "text-black" : "text-white"}
                 />
               )}
             </Button>
