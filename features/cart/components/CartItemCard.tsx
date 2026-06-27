@@ -51,14 +51,9 @@ function CartItemCard({ product }: CartItemCardProps) {
 
               <div className="flex items-center gap-xs text-xs text-muted-foreground">
                 {product.attributeKey && (
-                  <p>
-                    {product.attributeKey}: {product.attributeValue}
-                  </p>
-                )}
-
-                {product.unit && (
-                  <p>
-                    {product.unit}: {product.attributeValue}
+                  <p className="flex items-center">
+                    {product.attributeKey}: {product.attributeValue}{" "}
+                    {product.unit && product.unit}
                   </p>
                 )}
 
