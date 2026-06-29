@@ -1,10 +1,13 @@
+import { isAuthenticated } from "@/lib/auth/auth";
 import useFetchReviews from "../hooks/useFetchReviews";
 import ReviewForm from "./ReviewForm";
 import ReviewsList from "./ReviewsList";
 import ReviewsSectionHeader from "./ReviewsSectionHeader";
 import { useParams } from "next/navigation";
+import ReviewLoginPanel from "./ReviewLoginPanel";
 
 function ReviewsSection() {
+  const isUserAuthenticated = isAuthenticated();
   const params = useParams();
 
   const {
@@ -15,14 +18,14 @@ function ReviewsSection() {
 
   return (
     <section className="space-y-3xl">
-      <ReviewsSectionHeader />
+      <ReviewsSectionHeader reviewsCount={reviewList?.length ?? 0} />
 
       <div className="grid lg:grid-cols-5 gap-3xl">
-        <div className="col-span-2">
-          <ReviewForm />
+        <div className="lg:col-span-2">
+          {isUserAuthenticated ? <ReviewForm /> : <ReviewLoginPanel />}
         </div>
 
-        <div className="col-span-3">
+        <div className="lg:col-span-3">
           <ReviewsList
             reviews={reviewList ?? []}
             isPending={isPending}
