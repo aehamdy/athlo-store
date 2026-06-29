@@ -186,7 +186,8 @@
     "basedOnReviews": "{count, plural, =0 {Based on no reviews} one {Based on # review} other {Based on # reviews}}",
     "noReviews": "No reviews yet. Be the first to share your experience!",
     "signInToWrite": "Sign in to write a review",
-    "signInDescription": "You need to be signed in to share your thoughts about this product."
+    "signInDescription": "You need to be signed in to share your thoughts about this product.",
+    "you": "You"
   },
 
   "filters": {
