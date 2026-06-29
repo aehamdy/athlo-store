@@ -1,6 +1,7 @@
 import { ReviewItemT } from "../reviews-types";
 import ReviewItem from "./ReviewItem";
 import ReviewListSkeleton from "./ReviewListSkeleton";
+import { useTranslations } from "next-intl";
 
 type ReviewsListProps = {
   reviews: ReviewItemT[];
@@ -9,26 +10,29 @@ type ReviewsListProps = {
 };
 
 function ReviewsList({ reviews, isPending, isError }: ReviewsListProps) {
+  const tMessage = useTranslations("messages");
+  const tReviews = useTranslations("reviews");
+
   if (isPending) {
     return <ReviewListSkeleton />;
   }
 
   if (isError) {
-    return <p>Something went wrong.</p>;
+    return <p>{tMessage("error")}</p>;
   }
 
   if (reviews.length === 0) {
     return (
       <div className="flex h-105.25 items-center justify-center">
         <p className="text-center text-muted-foreground">
-          No reviews yet. Be the first to share your experience!
+          {tReviews("noReviews")}
         </p>
       </div>
     );
   }
 
   return (
-    <ul className="p-tiny h-105.25 overflow-y-auto space-y-md">
+    <ul className="max-h-105.25 space-y-md p-tiny overflow-y-auto">
       {reviews.map((review) => (
         <li key={review.id}>
           <ReviewItem review={review} />

@@ -1,11 +1,18 @@
 import Heading from "@/components/shared/Heading";
 import Icon from "@/components/shared/Icon";
+import { useTranslations } from "next-intl";
 
-function ReviewsSectionHeader() {
+type ReviewsSectionHeaderProps = {
+  reviewsCount: number;
+};
+
+function ReviewsSectionHeader({ reviewsCount }: ReviewsSectionHeaderProps) {
+  const tReviews = useTranslations("reviews");
+
   return (
     <div className="space-y-xs">
       <Heading as="h2" className="font-bold text-xl text-foreground">
-        Customer Reviews
+        {tReviews("title")}
       </Heading>
 
       <div className="flex items-center gap-xs">
@@ -26,7 +33,9 @@ function ReviewsSectionHeader() {
 
         <span className="w-1 h-1 bg-muted-foreground rounded-full"></span>
 
-        <div className="text-muted-foreground">Based on 2 reviews</div>
+        <div className="text-muted-foreground">
+          {tReviews("basedOnReviews", { count: reviewsCount })}
+        </div>
       </div>
     </div>
   );
