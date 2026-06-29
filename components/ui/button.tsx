@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-dark bg-accent-soft hover:bg-accent-soft/80",
+        default: "text-primary-dark bg-accent-soft hover:bg-accent-strong",
         primary:
           "action-button text-muted-foreground hover:text-primary-dark focus-visible:text-primary-dark",
         destructive:
