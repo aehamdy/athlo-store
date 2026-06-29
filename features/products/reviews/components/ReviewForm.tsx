@@ -9,7 +9,7 @@ import { useParams } from "next/navigation";
 import { MAX_REVIEW_LENGTH } from "../constants/constants";
 import useAddReview from "../hooks/useAddReview";
 import RatingInput from "./RatingInput";
-import { ReviewFormType, reviewSchema } from "../reviews-schem";
+import { ReviewFormType, reviewSchema } from "../reviews-schema";
 
 function ReviewForm() {
   const { id } = useParams<{ id: string }>();
