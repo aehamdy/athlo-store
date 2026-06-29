@@ -16,6 +16,7 @@ import ProductActionButton from "./ProductActionButton";
 import { ProductDetails } from "../types";
 import useHandleAddToCart from "@/features/cart/hooks/useHandleAddToCart";
 import useProductVariant from "../hooks/useProductVariant";
+import ReviewsSection from "../reviews/components/ReviewsSection";
 
 type ProductDetailsLayoutProps = {
   product: ProductDetails;
@@ -48,7 +49,7 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
   };
 
   return (
-    <section>
+    <section className="space-y-3xl">
       <div className="grid lg:grid-cols-12 gap-lg">
         {/* Product Images */}
         <div className="lg:col-span-5">
@@ -129,6 +130,8 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
           </div>
         </div>
       </div>
+
+      <ReviewsSection />
     </section>
   );
 }
