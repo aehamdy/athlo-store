@@ -24,7 +24,6 @@ function ReviewItem({ review }: ReviewItemProps) {
           <div className="space-y-md">
             <div className="flex flex-col gap-tiny">
               <Heading as="h4" className="font-medium text-md">
-                {/* {review.userName} */}
                 {formattedName}
               </Heading>
 
