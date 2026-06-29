@@ -6,6 +6,7 @@ const CONTROLLER_PATH = {
   authentication: `${API_VERSION_PATH}/Authentication`,
   user: `${API_VERSION_PATH}/User`,
   product: `${API_VERSION_PATH}/Product`,
+  review: `${API_VERSION_PATH}/Review`,
   cart: `${API_VERSION_PATH}/CartItem`,
   category: `${API_VERSION_PATH}/Category`,
 };
@@ -44,6 +45,10 @@ export const ENDPOINTS = {
     },
     productDetails: (id: string) =>
       `${CONTROLLER_PATH.product}/${id}/With-Variants`,
+  },
+  review: {
+    list: (id: string) => `${CONTROLLER_PATH.review}/product/${id}`,
+    create: `${CONTROLLER_PATH.review}/Create`,
   },
   cart: {
     list: `${CONTROLLER_PATH.cart}/List`,
