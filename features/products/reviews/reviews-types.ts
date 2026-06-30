@@ -20,3 +20,10 @@ export type AddReviewPayload = {
   rating: number;
   comment: string;
 };
+
+export type EditReviewPayload = {
+  productId: number;
+  id: number;
+  rating: number;
+  comment: string;
+};
