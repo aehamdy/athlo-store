@@ -12,6 +12,10 @@ import { ReviewFormType, reviewSchema } from "../reviews-schema";
 import RatingInput from "./RatingInput";
 import useUpdateReview from "../hooks/useUpdateReview";
 import { useParams } from "next/navigation";
+import formatName from "@/lib/utils/formatName";
+import { useTranslations } from "next-intl";
+import formatDate from "@/lib/utils/formatDate";
+import TermsAndConditionsCard from "@/features/termsAndConditions/components/TermsAndConditionsCard";
 
 type ReviewItemEditorProps = {
   review: ReviewItemT;
@@ -24,6 +28,8 @@ function ReviewItemEditor({
   isOwner,
   onCancel,
 }: ReviewItemEditorProps) {
+  const t = useTranslations("reviews");
+  const tActions = useTranslations("actions");
   const { id: productId } = useParams<{ id: string }>();
   const {
     register,
@@ -39,6 +45,9 @@ function ReviewItemEditor({
       comment: review.comment,
     },
   });
+
+  const formattedName = formatName(review.userName);
+  const { date } = formatDate(review.createdAt);
 
   const comment = watch("comment");
   const rating = watch("rating");
@@ -74,16 +83,16 @@ function ReviewItemEditor({
           <div className="flex flex-col gap-tiny">
             <div className="flex items-center gap-sm">
               <Heading as="h4" className="font-medium text-md">
-                My Name
+                {formattedName}
               </Heading>
 
               {isOwner && (
                 <span className="px-4 font-medium text-sm text-accent-base bg-accent-light rounded-lg">
-                  You
+                  {t("you")}
                 </span>
               )}
 
-              <div className="text-xs text-muted-foreground">June 30, 2026</div>
+              <div className="text-xs text-muted-foreground">{date}</div>
             </div>
 
             <div className="flex flex-col gap-tiny">
@@ -135,7 +144,7 @@ function ReviewItemEditor({
                   className="flex items-center gap-sm"
                   onClick={onCancel}
                 >
-                  Cancel
+                  {tActions("cancel")}
                   <Icon name="X" className="text-current" />
                 </Button>
 
@@ -144,7 +153,7 @@ function ReviewItemEditor({
                   className="flex items-center gap-sm"
                   disabled={isPending || !isValid}
                 >
-                  Save
+                  {tActions("save")}
                   <Icon name="Check" className="text-current" />
                 </Button>
               </div>
