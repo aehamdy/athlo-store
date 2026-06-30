@@ -18,9 +18,10 @@ import {
 
 type ReviewItemActionsProps = {
   reviewId: number;
+  onEdit: () => void;
 };
 
-function ReviewItemActions({ reviewId }: ReviewItemActionsProps) {
+function ReviewItemActions({ reviewId, onEdit }: ReviewItemActionsProps) {
   const { id: productId } = useParams<{ id: string }>();
 
   const { mutate: deleteReview, isPending } = useDeleteReview(productId);
@@ -71,7 +72,7 @@ function ReviewItemActions({ reviewId }: ReviewItemActionsProps) {
       <Button
         variant="plain"
         className="group text-muted-foreground hover:text-bg-blue-500 hover:bg-blue-500/10"
-        onClick={() => {}}
+        onClick={onEdit}
       >
         <Icon name="Pen" className="group-hover:text-blue-500" />
       </Button>
