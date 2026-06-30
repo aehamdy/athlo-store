@@ -1,13 +1,13 @@
-import { isAuthenticated } from "@/lib/auth/auth";
 import useFetchReviews from "../hooks/useFetchReviews";
 import ReviewForm from "./ReviewForm";
 import ReviewsList from "./ReviewsList";
 import ReviewsSectionHeader from "./ReviewsSectionHeader";
 import { useParams } from "next/navigation";
 import ReviewLoginPanel from "./ReviewLoginPanel";
+import { getCurrentUser } from "@/lib/auth/getCurrentUser";
 
 function ReviewsSection() {
-  const isUserAuthenticated = isAuthenticated();
+  const currentUser = getCurrentUser();
   const params = useParams();
 
   const {
@@ -22,7 +22,7 @@ function ReviewsSection() {
 
       <div className="grid lg:grid-cols-5 gap-3xl">
         <div className="lg:col-span-2">
-          {isUserAuthenticated ? <ReviewForm /> : <ReviewLoginPanel />}
+          {currentUser ? <ReviewForm /> : <ReviewLoginPanel />}
         </div>
 
         <div className="lg:col-span-3">
