@@ -1,3 +1,5 @@
+"use client";
+
 import Heading from "@/components/shared/Heading";
 import Icon from "@/components/shared/Icon";
 import { ReviewItemT } from "../reviews-types";
@@ -6,12 +8,15 @@ import formatName from "@/lib/utils/formatName";
 import { useTranslations } from "next-intl";
 import { getCurrentUser } from "@/lib/auth/getCurrentUser";
 import ReviewItemActions from "./ReviewItemActions";
+import { useState } from "react";
+import ReviewItemEditor from "./ReviewItemEditor";
 
 type ReviewItemProps = {
   review: ReviewItemT;
 };
 
 function ReviewItem({ review }: ReviewItemProps) {
+  const [isEditing, setIsEditing] = useState(false);
   const t = useTranslations("reviews");
   const currentUser = getCurrentUser();
 
@@ -20,6 +25,16 @@ function ReviewItem({ review }: ReviewItemProps) {
   const { date } = formatDate(review.createdAt);
 
   const formattedName = formatName(review.userName);
+
+  if (isEditing) {
+    return (
+      <ReviewItemEditor
+        review={review}
+        isOwner={isOwner}
+        onCancel={() => setIsEditing(false)}
+      />
+    );
+  }
 
   return (
     <article
@@ -69,7 +84,12 @@ function ReviewItem({ review }: ReviewItemProps) {
         <div className="flex flex-col items-center gap-xs">
           <Icon name="Quote" size={22} className="text-subtle" />
 
-          {isOwner && <ReviewItemActions reviewId={review.id} />}
+          {isOwner && (
+            <ReviewItemActions
+              reviewId={review.id}
+              onEdit={() => setIsEditing(true)}
+            />
+          )}
         </div>
       </div>
     </article>
