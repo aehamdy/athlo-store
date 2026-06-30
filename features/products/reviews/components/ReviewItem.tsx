@@ -3,9 +3,9 @@ import Icon from "@/components/shared/Icon";
 import { ReviewItemT } from "../reviews-types";
 import formatDate from "@/lib/utils/formatDate";
 import formatName from "@/lib/utils/formatName";
-import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import { getCurrentUser } from "@/lib/auth/getCurrentUser";
+import ReviewItemActions from "./ReviewItemActions";
 
 type ReviewItemProps = {
   review: ReviewItemT;
@@ -22,7 +22,9 @@ function ReviewItem({ review }: ReviewItemProps) {
   const formattedName = formatName(review.userName);
 
   return (
-    <article className="p-3 bg-surface border border-subtle hover:shadow-sm rounded-md duration-normal">
+    <article
+      className={`p-3 bg-surface border ${isOwner && "border-s-4 border-s-accent-ring"} border-subtle hover:shadow-sm rounded-md duration-normal`}
+    >
       <div className="flex flex-1 items-start gap-sm text-foreground">
         <div className="flex flex-1 items-start gap-sm">
           <div className="flex justify-center items-center w-10 h-10 font-medium text-md text-accent-base bg-accent-light rounded-full">
@@ -67,25 +69,7 @@ function ReviewItem({ review }: ReviewItemProps) {
         <div className="flex flex-col items-center gap-xs">
           <Icon name="Quote" size={22} className="text-subtle" />
 
-          {isOwner && (
-            <div className="flex flex-col gap-xs">
-              <Button
-                variant="plain"
-                className="group text-muted-foreground hover:bg-red-500/10"
-                onClick={() => {}}
-              >
-                <Icon name="Trash2" className="group-hover:text-red-500" />
-              </Button>
-
-              <Button
-                variant="plain"
-                className="group text-muted-foreground hover:text-bg-blue-500 hover:bg-blue-500/10"
-                onClick={() => {}}
-              >
-                <Icon name="Pen" className="group-hover:text-blue-500" />
-              </Button>
-            </div>
-          )}
+          {isOwner && <ReviewItemActions reviewId={review.id} />}
         </div>
       </div>
     </article>
