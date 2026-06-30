@@ -5,15 +5,18 @@ import formatDate from "@/lib/utils/formatDate";
 import formatName from "@/lib/utils/formatName";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
-import { isAuthenticated } from "@/lib/auth/auth";
+import { getCurrentUser } from "@/lib/auth/getCurrentUser";
 
 type ReviewItemProps = {
   review: ReviewItemT;
 };
 
 function ReviewItem({ review }: ReviewItemProps) {
-  const isUserAuthenticated = isAuthenticated();
   const t = useTranslations("reviews");
+  const currentUser = getCurrentUser();
+
+  const isOwner = currentUser?.id === review.userId;
+
   const { date } = formatDate(review.createdAt);
 
   const formattedName = formatName(review.userName);
@@ -33,7 +36,7 @@ function ReviewItem({ review }: ReviewItemProps) {
                   {formattedName}
                 </Heading>
 
-                {isUserAuthenticated && (
+                {isOwner && (
                   <span className="px-4 font-medium text-sm text-accent-base bg-accent-light rounded-lg">
                     {t("you")}
                   </span>
@@ -64,7 +67,7 @@ function ReviewItem({ review }: ReviewItemProps) {
         <div className="flex flex-col items-center gap-xs">
           <Icon name="Quote" size={22} className="text-subtle" />
 
-          {isUserAuthenticated && (
+          {isOwner && (
             <div className="flex flex-col gap-xs">
               <Button
                 variant="plain"
