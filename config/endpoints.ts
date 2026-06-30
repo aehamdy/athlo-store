@@ -49,6 +49,8 @@ export const ENDPOINTS = {
   review: {
     list: (id: string) => `${CONTROLLER_PATH.review}/product/${id}`,
     create: `${CONTROLLER_PATH.review}/Create`,
+    edit: `${CONTROLLER_PATH.review}/Edit`,
+    delete: (id: string) => `${CONTROLLER_PATH.review}/${id}`,
   },
   cart: {
     list: `${CONTROLLER_PATH.cart}/List`,
