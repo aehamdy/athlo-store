@@ -9,8 +9,8 @@ function RegisterPanel() {
   const authT = useTranslations("authPages");
 
   return (
-    <div className="h-full flex items-center justify-center">
-      <div className="w-9/10 md:w-3/4 lg:w-1/3 p-3xl space-y-3xl bg-surface border border-subtle rounded-xl shadow-md">
+    <div className="h-full flex justify-center items-center w-full my-4">
+      <div className="w-[95%] md:w-3/4 lg:w-1/2 p-4 space-y-3xl bg-surface border border-subtle rounded-xl shadow-md">
         <AuthHeader
           title={actionsT("register")}
           description={authT("createYourAccountToGetStarted")}

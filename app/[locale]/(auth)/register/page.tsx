@@ -2,9 +2,9 @@ import RegisterPanel from "@/features/auth/components/register-form/RegisterPane
 
 function RegisterPage() {
   return (
-    <main className="h-dvh">
+    <section className="flex items-center w-full min-h-dvh">
       <RegisterPanel />
-    </main>
+    </section>
   );
 }
 
