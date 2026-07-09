@@ -1,27 +1,31 @@
 "use client";
 
-import Icon from "../../../../components/shared/Icon";
 import Link from "next/link";
-import ROUTES from "@/lib/routes";
-import PasswordInput from "../shared/PasswordInput";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginFormValues, loginSchema } from "../../schemas/login.schema";
-import ErrorMessage from "@/components/shared/ErrorMessage";
-import useLogin from "../../hooks/useLogin";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
-import { useAuthStore } from "@/lib/stores/auth.store";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
+
+import ROUTES from "@/lib/routes";
+import { STORAGE_KEYS } from "@/config/constants";
+import { useAuthStore } from "@/lib/stores/auth.store";
+
 import { Button } from "@/components/ui/button";
 import LoadingIndicator from "@/components/shared/LoadingIndicator";
-import { STORAGE_KEYS } from "@/config/constants";
+import ErrorMessage from "@/components/shared/ErrorMessage";
+import useLogin from "../../hooks/useLogin";
+import { LoginFormValues, loginSchema } from "../../schemas/login.schema";
+import FormInput from "@/features/profile/components/FormInput";
+import PasswordInput from "../shared/PasswordInput";
 
 function LoginForm() {
   const actionsT = useTranslations("actions");
   const labelsT = useTranslations("labels");
-  const loginMutation = useLogin();
+
   const router = useRouter();
+  const loginMutation = useLogin();
+
   const {
     register,
     handleSubmit,
@@ -50,46 +54,30 @@ function LoginForm() {
         sameSite: "lax",
       });
 
-      const { login } = useAuthStore.getState();
-      login(user);
+      useAuthStore.getState().login(user);
 
       router.replace(ROUTES.public.home);
-    } catch (err) {
-      console.log("Login Failed: ", err);
+    } catch (error) {
+      console.error("Login failed:", error);
     }
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col items-center gap-lg w-full"
+      className="flex flex-col gap-lg w-full"
     >
-      <div className="flex flex-col gap-md w-full">
-        <div className="flex flex-col gap-xs w-full">
-          <label htmlFor="username" className="text-sm">
-            {labelsT("username")}
-          </label>
+      <div className="space-y-md">
+        <FormInput
+          id="username"
+          name="username"
+          label={labelsT("username")}
+          placeholder={labelsT("username")}
+          register={register}
+          error={errors.username}
+        />
 
-          <div className="space-y-xs">
-            <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
-              <Icon name="UserRound" />
-
-              <input
-                type="text"
-                id="username"
-                placeholder={labelsT("username")}
-                className="w-full outline-none"
-                {...register("username")}
-              />
-            </div>
-
-            {errors.username && (
-              <ErrorMessage message={errors.username.message} />
-            )}
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-xs w-full">
+        <div className="space-y-xs">
           <div className="flex items-center justify-between">
             <label htmlFor="password" className="text-sm">
               {labelsT("password")}
@@ -107,11 +95,11 @@ function LoginForm() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-sm">
+      <div className="space-y-sm">
         <Button
           type="submit"
-          variant="default"
           disabled={loginMutation.isPending}
+          className="w-full"
         >
           {loginMutation.isPending ? (
             <div className="flex items-center gap-sm">
