@@ -34,7 +34,6 @@
     "loadMore": "Load More",
     "apply": "Apply",
     "clear": "Clear",
-    "save": "Save",
     "edit": "Edit",
     "delete": "Delete",
     "remove": "Remove",
@@ -53,18 +52,34 @@
     "name": "Name",
     "yourName": "Your Name",
     "username": "Username",
+    "firstName": "First Name",
+    "lastName": "Last Name",
     "enterYourName": "Enter your name",
     "password": "Password",
     "forgotPassword": "Forgot password?",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "updatePassword": "Update Password",
+    "saveChanges": "Save Changes",
     "don'tHaveAnAccount": "Don't have an account?",
     "yourMessage": "Your Message",
     "enterYourMessage": "Enter your message",
     "loading": "Loading...",
+    "updating": "Updating...",
     "phone": "Phone",
+    "phoneNumber": "Phone Number",
+    "birthDate": "Birth Date",
+    "city": "City",
+    "country": "Country",
+    "region": "Region",
+    "postalCode": "Postal Code",
     "address": "Address",
     "businessHours": "Business Hours",
     "viewFaqs": "View FAQs",
     "viewDetails": "View Details",
+    "signOut": "Sign Out",
+    "deleteAccount": "Delete Account",
 
     "price": "Price",
     "category": "Category",
@@ -80,9 +95,6 @@
     "shipping": "Shipping",
     "tax": "Tax",
     "total": "Total",
-    "city": "City",
-    "country": "Country",
-    "postalCode": "Postal Code",
     "orderNumber": "Order Number"
   },
 
@@ -472,6 +484,34 @@
         "title": "Changes to Terms",
         "body": "We reserve the right to modify these Terms at any time. Updates will be posted on this page with the revised date."
       }
+    }
+  },
+
+  "profilePage": {
+    "title": "My Profile",
+    "description": "Manage your personal info and security settings",
+
+    "tabs": {
+      "profile": "Profile",
+      "password": "Password",
+      "dangerZone": "Danger Zone"
+    },
+
+    "profile": {
+      "title": "Personal Information",
+      "description": "Update your account information."
+    },
+
+    "password": {
+      "title": "Change Password",
+      "description": "Use a strong password to keep your account secure."
+    },
+
+    "dangerZone": {
+      "title": "Danger Zone",
+      "description": "Manage sensitive account actions, including signing out of your account or permanently deleting it. Some actions cannot be undone.",
+      "signOutDescription": "Sign out from this device",
+      "deleteAccountDescription": "Your account and all data will be permanently deleted. This action cannot be undone."
     }
   },
 
