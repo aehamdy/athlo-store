@@ -1,8 +1,8 @@
-import useCurrentUser from "@/features/profile/hooks/useCurrentUser";
 import { ReviewItemT } from "../reviews-types";
 import ReviewItem from "./ReviewItem";
 import ReviewListSkeleton from "./ReviewListSkeleton";
 import { useTranslations } from "next-intl";
+import getCurrentUserClaims from "@/lib/auth/getCurrentUserClaims";
 
 type ReviewsListProps = {
   reviews: ReviewItemT[];
@@ -14,7 +14,8 @@ function ReviewsList({ reviews, isPending, isError }: ReviewsListProps) {
   const tMessage = useTranslations("messages");
   const tReviews = useTranslations("reviews");
 
-  const { data: currentUser } = useCurrentUser();
+  const claims = getCurrentUserClaims();
+  const userId = claims?.id ?? 0;
 
   if (isPending) {
     return <ReviewListSkeleton />;
@@ -38,7 +39,7 @@ function ReviewsList({ reviews, isPending, isError }: ReviewsListProps) {
     <ul className="max-h-105.25 space-y-md p-tiny overflow-y-auto">
       {reviews.map((review) => (
         <li key={review.id}>
-          <ReviewItem review={review} currentUserId={currentUser?.id} />
+          <ReviewItem review={review} currentUserId={userId} />
         </li>
       ))}
     </ul>
