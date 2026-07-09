@@ -30,7 +30,12 @@ function PasswordInput({ error, ...inputProps }: PasswordInputProps) {
           {...inputProps}
         />
 
-        <Button variant="plain" size="xs" onClick={handleShowPassword}>
+        <Button
+          type="button"
+          variant="plain"
+          size="xs"
+          onClick={handleShowPassword}
+        >
           <Icon name={isVisible ? "EyeClosed" : "Eye"} className="" />
         </Button>
       </div>
