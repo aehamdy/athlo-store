@@ -2,19 +2,22 @@ import { create } from "zustand";
 import { AuthState } from "@/features/auth/types/auth.types";
 
 export const useAuthStore = create<AuthState>((set) => ({
+  initialized: false,
+
   isAuthenticated: false,
   user: null,
 
   login: (user) =>
     set({
-      isAuthenticated: true,
       user,
+      isAuthenticated: true,
     }),
 
   logout: () =>
     set({
-      isAuthenticated: false,
+      initialized: true,
       user: null,
+      isAuthenticated: false,
     }),
 
   setUser: (user) =>
@@ -26,5 +29,10 @@ export const useAuthStore = create<AuthState>((set) => ({
   setAuthenticated: (authenticated) =>
     set({
       isAuthenticated: authenticated,
+    }),
+
+  setInitialized: (initialized) =>
+    set({
+      initialized,
     }),
 }));

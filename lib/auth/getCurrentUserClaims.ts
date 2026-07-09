@@ -11,15 +11,15 @@ type DecodedToken = {
   "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": string;
 };
 
-export type CurrentUser = {
+export type CurrentUserClaims = {
   id: number;
   userName: string;
-  email: string;
-  phoneNumber: string;
-  role: string;
+  // email: string;
+  // phoneNumber: string;
+  // role: string;
 };
 
-export function getCurrentUser(): CurrentUser | null {
+function getCurrentUserClaims(): CurrentUserClaims | null {
   const token = getAccessToken();
 
   if (!token) return null;
@@ -31,16 +31,18 @@ export function getCurrentUser(): CurrentUser | null {
       id: Number(decoded.Id),
       userName:
         decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
-      email:
-        decoded[
-          "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
-        ],
-      phoneNumber: decoded.PhoneNumber,
-      role: decoded[
-        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
-      ],
+      // email:
+      //   decoded[
+      //     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+      //   ],
+      // phoneNumber: decoded.PhoneNumber,
+      // role: decoded[
+      //   "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+      // ],
     };
   } catch {
     return null;
   }
 }
+
+export default getCurrentUserClaims;

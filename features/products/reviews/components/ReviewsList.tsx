@@ -1,3 +1,4 @@
+import useCurrentUser from "@/features/profile/hooks/useCurrentUser";
 import { ReviewItemT } from "../reviews-types";
 import ReviewItem from "./ReviewItem";
 import ReviewListSkeleton from "./ReviewListSkeleton";
@@ -12,6 +13,8 @@ type ReviewsListProps = {
 function ReviewsList({ reviews, isPending, isError }: ReviewsListProps) {
   const tMessage = useTranslations("messages");
   const tReviews = useTranslations("reviews");
+
+  const { data: currentUser } = useCurrentUser();
 
   if (isPending) {
     return <ReviewListSkeleton />;
@@ -35,7 +38,7 @@ function ReviewsList({ reviews, isPending, isError }: ReviewsListProps) {
     <ul className="max-h-105.25 space-y-md p-tiny overflow-y-auto">
       {reviews.map((review) => (
         <li key={review.id}>
-          <ReviewItem review={review} />
+          <ReviewItem review={review} currentUserId={currentUser?.id} />
         </li>
       ))}
     </ul>

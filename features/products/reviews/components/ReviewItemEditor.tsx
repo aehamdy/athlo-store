@@ -15,7 +15,6 @@ import { useParams } from "next/navigation";
 import formatName from "@/lib/utils/formatName";
 import { useTranslations } from "next-intl";
 import formatDate from "@/lib/utils/formatDate";
-import TermsAndConditionsCard from "@/features/termsAndConditions/components/TermsAndConditionsCard";
 
 type ReviewItemEditorProps = {
   review: ReviewItemT;

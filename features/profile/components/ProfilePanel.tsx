@@ -2,7 +2,6 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,9 +12,11 @@ import {
 } from "@/components/ui/card";
 import { ProfileFormType, profileSchema } from "../schema/profile.schema";
 import FormInput from "./FormInput";
-import { useEffect } from "react";
 import { User } from "@/features/auth/types/auth.types";
 import { useTranslations } from "next-intl";
+import getCurrentUserClaims from "@/lib/auth/getCurrentUserClaims";
+import useUpdateProfile from "../hooks/useUpdateProfile";
+import LoadingIndicator from "@/components/shared/LoadingIndicator";
 
 type ProfilePanelProps = {
   user: User;
@@ -24,33 +25,36 @@ type ProfilePanelProps = {
 function ProfilePanel({ user }: ProfilePanelProps) {
   const t = useTranslations("profilePage.profile");
   const tLabels = useTranslations("labels");
+  const claims = getCurrentUserClaims();
+
+  const userId = claims?.id ?? 0;
+  const userName = claims?.userName ?? "";
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<ProfileFormType>({
     resolver: zodResolver(profileSchema),
+    mode: "onChange",
     defaultValues: {
-      userName: "",
-      email: "",
-      firstName: "",
-      lastName: "",
-      phoneNumber: "",
-      birthDate: "",
-      city: "",
-      region: "",
-      postalCode: "",
-      country: "",
+      userName: userName ?? "",
+      email: user.email ?? "",
+      firstName: user.firstName ?? "",
+      lastName: user.lastName ?? "",
+      phoneNumber: user.phoneNumber ?? "",
+      birthDate: user.birthDate.split("T")[0] ?? "",
+      city: user.city ?? "",
+      region: user.region ?? "",
+      postalCode: user.postalCode ?? "",
+      country: user.country ?? "",
     },
   });
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
+  const { mutate, isPending } = useUpdateProfile();
 
   function onSubmit(values: ProfileFormType) {
-    console.log(values);
+    mutate({ id: userId, ...values });
   }
 
   return (
@@ -149,8 +153,18 @@ function ProfilePanel({ user }: ProfilePanelProps) {
           </div>
 
           <div className="flex justify-end">
-            <Button type="submit" disabled={isSubmitting}>
-              {tLabels("saveChanges")}
+            <Button
+              type="submit"
+              disabled={!isDirty || !isValid || isPending || isSubmitting}
+            >
+              {isPending ? (
+                <div className="flex items-center gap-sm">
+                  <LoadingIndicator size="sm" />
+                  {tLabels("updating")}
+                </div>
+              ) : (
+                tLabels("saveChanges")
+              )}
             </Button>
           </div>
         </form>

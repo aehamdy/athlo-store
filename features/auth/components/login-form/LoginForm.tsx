@@ -66,7 +66,7 @@ function LoginForm() {
     >
       <div className="flex flex-col gap-md w-full">
         <div className="flex flex-col gap-xs w-full">
-          <label htmlFor="email" className="text-sm">
+          <label htmlFor="username" className="text-sm">
             {labelsT("username")}
           </label>
 
@@ -108,16 +108,11 @@ function LoginForm() {
       </div>
 
       <div className="flex flex-col gap-sm">
-        {/* <input
+        <Button
           type="submit"
-          value={
-            loginMutation.isPending ? labelsT("loading") : actionsT("login")
-          }
+          variant="default"
           disabled={loginMutation.isPending}
-          className="main-button disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
-        /> */}
-
-        <Button variant="default" disabled={loginMutation.isPending}>
+        >
           {loginMutation.isPending ? (
             <div className="flex items-center gap-sm">
               <LoadingIndicator size="xs" />
