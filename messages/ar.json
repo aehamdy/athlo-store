@@ -34,6 +34,8 @@
     "apply": "تطبيق",
     "clear": "مسح",
     "save": "حفظ",
+    "saveChanges": "حفظ التغيرات",
+
     "edit": "تعديل",
     "delete": "حذف",
     "remove": "إزالة",
@@ -52,18 +54,34 @@
     "name": "الاسم",
     "yourName": "اسمك",
     "username": "اسم المستخدم",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
     "enterYourName": "أدخل اسمك",
     "password": "كلمة المرور",
     "forgotPassword": "هل نسيت كلمة المرور؟",
+    "currentPassword": "كلمة المرور الحالية",
+    "newPassword": "كلمة المرور الجديدة",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "updatePassword": "تحديث كلمة المرور",
+    "saveChanges": "حفظ التغيرات",
     "don'tHaveAnAccount": "ليس لديك حساب؟",
     "yourMessage": "رسالتك",
     "enterYourMessage": "أدخل رسالتك",
     "loading": "جارٍ التحميل...",
-    "phone": "رقم الهاتف",
+    "updating": "جارٍ النحديث...",
+    "phone": "الهاتف",
+    "phoneNumber": "رقم الهاتف",
+    "birthDate": "تاريخ الميلاد",
+    "city": "المدينة",
+    "country": "الدولة",
+    "region": "المنطقة",
+    "postalCode": "الرمز البريدي",
     "address": "العنوان",
     "businessHours": "ساعات العمل",
     "viewFaqs": "عرض الأسئلة الشائعة",
     "viewDetails": "عرض التفاصيل",
+    "signOut": "تسجيل الخروج",
+    "deleteAccount": "حذف الحساب",
 
     "price": "السعر",
     "category": "الفئة",
@@ -74,14 +92,11 @@
     "size": "المقاس",
     "color": "اللون",
     "sku": "رمز المنتج",
-    "discount": "خصم",
+    "discount": "الخصم",
     "subtotal": "المجموع الفرعي",
     "shipping": "الشحن",
     "tax": "الضريبة",
     "total": "الإجمالي",
-    "city": "المدينة",
-    "country": "الدولة",
-    "postalCode": "الرمز البريدي",
     "orderNumber": "رقم الطلب"
   },
 
@@ -472,6 +487,30 @@
         "title": "تعديلات الشروط",
         "body": "قد يتم تحديث الشروط."
       }
+    }
+  },
+
+  "profilePage": {
+    "title": "ملفي الشخصي",
+    "description": "إدارة معلوماتك الشخصية وإعدادات الأمان",
+    "tabs": {
+      "profile": "الملف الشخصي",
+      "password": "كلمة المرور",
+      "dangerZone": "منطقة الخطر"
+    },
+    "profile": {
+      "title": "المعلومات الشخصية",
+      "description": "قم بتحديث معلومات حسابك."
+    },
+    "password": {
+      "title": "تغيير كلمة المرور",
+      "description": "استخدم كلمة مرور قوية للحفاظ على أمان حسابك."
+    },
+    "dangerZone": {
+      "title": "منطقة الخطر",
+      "description": "إدارة الإجراءات الحساسة المتعلقة بالحساب، مثل تسجيل الخروج أو حذف الحساب نهائيًا. بعض هذه الإجراءات لا يمكن التراجع عنها.",
+      "signOutDescription": "تسجيل الخروج من هذا الجهاز",
+      "deleteAccountDescription": "سيتم حذف حسابك وجميع بياناتك نهائيًا. لا يمكن التراجع عن هذا الإجراء."
     }
   },
 
