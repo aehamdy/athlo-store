@@ -1,3 +1,4 @@
+import LogoutButton from "@/components/LogoutButton";
 import Icon from "@/components/shared/Icon";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,14 +27,7 @@ function DangerZonePanel() {
 
         <CardContent className="flex flex-col">
           <div className="ms-auto w-40">
-            <Button
-              variant="plain"
-              className="flex items-center gap-xl w-full p-3 text-foreground bg-base hover:bg-subtle border border-subtle"
-            >
-              <Icon name="LogOut" className="text-current" />
-
-              {tLabels("signOut")}
-            </Button>
+            <LogoutButton variant="outline" />
           </div>
         </CardContent>
       </Card>

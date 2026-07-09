@@ -6,8 +6,14 @@ import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/stores/auth.store";
 import ROUTES from "@/lib/routes";
 import { logout } from "@/lib/auth/auth";
+import { useTranslations } from "next-intl";
 
-function LogoutButton() {
+type LogoutButtonProps = {
+  variant: "outline" | "destructive";
+};
+
+function LogoutButton({ variant = "destructive" }: LogoutButtonProps) {
+  const t = useTranslations("account");
   const router = useRouter();
 
   const handleLogoutClick = () => {
@@ -19,12 +25,8 @@ function LogoutButton() {
   };
 
   return (
-    <Button
-      variant="destructive"
-      className="w-full text-white"
-      onClick={handleLogoutClick}
-    >
-      <Icon name="LogOut" className="text-current" /> Logout
+    <Button variant={variant} className="w-full" onClick={handleLogoutClick}>
+      <Icon name="LogOut" className="text-current" /> {t("logout")}
     </Button>
   );
 }
