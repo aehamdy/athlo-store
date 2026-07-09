@@ -39,7 +39,7 @@ function CartDrawer() {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
+      <SheetTrigger asChild className="relative">
         <Button
           variant="plain"
           aria-label="Open cart"
@@ -53,6 +53,12 @@ function CartDrawer() {
             name="ShoppingBag"
             className="group-hover:text-primary-dark group-focus-visible:text-primary-dark"
           />
+
+          {cartItems.length > 0 && (
+            <span className="flex justify-center items-center absolute top-0 end-0 w-4 h-4 text-sm bg-accent-soft rounded-full">
+              {cartItems.length}
+            </span>
+          )}
         </Button>
       </SheetTrigger>
 
