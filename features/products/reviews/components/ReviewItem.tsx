@@ -9,7 +9,6 @@ import { useTranslations } from "next-intl";
 import ReviewItemActions from "./ReviewItemActions";
 import { useState } from "react";
 import ReviewItemEditor from "./ReviewItemEditor";
-import useCurrentUser from "@/features/profile/hooks/useCurrentUser";
 
 type ReviewItemProps = {
   review: ReviewItemT;
