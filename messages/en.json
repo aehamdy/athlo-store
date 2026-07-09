@@ -81,6 +81,10 @@
     "viewDetails": "View Details",
     "signOut": "Sign Out",
     "deleteAccount": "Delete Account",
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel",
+    "deleting": "Deleting...",
 
     "price": "Price",
     "category": "Category",
@@ -512,7 +516,9 @@
       "title": "Danger Zone",
       "description": "Manage sensitive account actions, including signing out of your account or permanently deleting it. Some actions cannot be undone.",
       "signOutDescription": "Sign out from this device",
-      "deleteAccountDescription": "Your account and all data will be permanently deleted. This action cannot be undone."
+      "deleteAccountDescription": "Your account and all data will be permanently deleted. This action cannot be undone.",
+      "deleteAccount": "Delete this account?",
+      "deleteAccountMessage": "This action cannot be undone. Your account will be permanently deleted."
     }
   },
 
