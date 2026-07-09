@@ -6,21 +6,21 @@ import { ReviewItemT } from "../reviews-types";
 import formatDate from "@/lib/utils/formatDate";
 import formatName from "@/lib/utils/formatName";
 import { useTranslations } from "next-intl";
-import { getCurrentUser } from "@/lib/auth/getCurrentUser";
 import ReviewItemActions from "./ReviewItemActions";
 import { useState } from "react";
 import ReviewItemEditor from "./ReviewItemEditor";
+import useCurrentUser from "@/features/profile/hooks/useCurrentUser";
 
 type ReviewItemProps = {
   review: ReviewItemT;
+  currentUserId?: number;
 };
 
-function ReviewItem({ review }: ReviewItemProps) {
+function ReviewItem({ review, currentUserId }: ReviewItemProps) {
   const [isEditing, setIsEditing] = useState(false);
   const t = useTranslations("reviews");
-  const currentUser = getCurrentUser();
 
-  const isOwner = currentUser?.id === review.userId;
+  const isOwner = currentUserId === review.userId;
 
   const { date } = formatDate(review.createdAt);
 

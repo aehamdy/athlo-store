@@ -13,20 +13,27 @@ export type LoginResponse = {
 };
 
 export interface User {
-  id: string;
+  id?: number;
+  email: string;
   firstName: string;
   lastName: string;
-  email: string;
-  phone?: string;
-  avatar?: string;
+  phoneNumber: string;
+  birthDate: string;
+  city: string;
+  region: string;
+  postalCode: string;
+  country: string;
 }
 
-export interface AuthState {
+export type AuthState = {
+  initialized: boolean;
   isAuthenticated: boolean;
   user: User | null;
 
   login: (user: User) => void;
   logout: () => void;
+
   setUser: (user: User | null) => void;
   setAuthenticated: (authenticated: boolean) => void;
-}
+  setInitialized: (initialized: boolean) => void;
+};

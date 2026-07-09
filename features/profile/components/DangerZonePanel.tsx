@@ -15,7 +15,7 @@ function DangerZonePanel() {
 
   return (
     <section className="flex flex-col gap-lg">
-      <Card>
+      <Card className="gap-xs">
         <CardHeader>
           <CardTitle className="font-semibold text-lg">
             {tLabels("signOut")}
@@ -24,7 +24,7 @@ function DangerZonePanel() {
           <CardDescription>{t("signOutDescription")}</CardDescription>
         </CardHeader>
 
-        <CardContent className="flex flex-col gap-xl">
+        <CardContent className="flex flex-col">
           <div className="ms-auto w-40">
             <Button
               variant="plain"
@@ -38,7 +38,7 @@ function DangerZonePanel() {
         </CardContent>
       </Card>
 
-      <Card className="border-red-500/50">
+      <Card className="gap-xs border-red-500/50">
         <CardHeader>
           <CardTitle className="font-semibold text-lg text-red-500">
             {tLabels("deleteAccount")}
