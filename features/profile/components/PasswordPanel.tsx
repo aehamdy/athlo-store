@@ -12,17 +12,26 @@ import { PasswordFormType, passwordSchema } from "../schema/password.schema";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/shared/Icon";
 import { useTranslations } from "next-intl";
+import getCurrentUserClaims from "@/lib/auth/getCurrentUserClaims";
+import useUpdatePassword from "../hooks/useUpdatePassword";
+import LoadingIndicator from "@/components/shared/LoadingIndicator";
+import { toast } from "sonner";
 
 function PasswordPanel() {
   const t = useTranslations("profilePage.password");
   const tLabels = useTranslations("labels");
+  const claims = getCurrentUserClaims();
+
+  const userId = claims?.id ?? 0;
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    reset,
+    formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<PasswordFormType>({
     resolver: zodResolver(passwordSchema),
+    mode: "onChange",
     defaultValues: {
       currentPassword: "",
       newPassword: "",
@@ -30,8 +39,22 @@ function PasswordPanel() {
     },
   });
 
+  const { mutate, isPending } = useUpdatePassword();
+
   function onSubmit(values: PasswordFormType) {
-    console.log(values);
+    mutate(
+      { id: userId, ...values },
+      {
+        onSuccess: () => {
+          toast.success(tLabels("passwordUpdated"));
+          reset();
+        },
+
+        onError: (err) => {
+          toast.error(err.message);
+        },
+      },
+    );
   }
 
   return (
@@ -78,11 +101,20 @@ function PasswordPanel() {
           <div className="flex justify-end">
             <Button
               type="submit"
-              disabled={isSubmitting}
-              className="flex items-center gap-sm text-black"
+              disabled={!isDirty || !isValid || isPending || isSubmitting}
+              className="text-black"
             >
-              <Icon name="Lock" className="text-current" />
-              {tLabels("updatePassword")}
+              {isPending ? (
+                <div className="flex items-center gap-sm">
+                  <LoadingIndicator size="sm" />
+                  {tLabels("updating")}
+                </div>
+              ) : (
+                <div className="flex items-center gap-sm">
+                  <Icon name="Lock" className="text-current" />
+                  {tLabels("updatePassword")}
+                </div>
+              )}
             </Button>
           </div>
         </form>

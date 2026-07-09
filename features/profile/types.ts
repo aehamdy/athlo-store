@@ -11,3 +11,10 @@ export type UpdateProfileRequest = {
   postalCode: string;
   country: string;
 };
+
+export type UpdatePasswordRequest = {
+  id: number;
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+};

@@ -20,7 +20,7 @@ export const ENDPOINTS = {
     profile: (id: string) => `${CONTROLLER_PATH.user}/${id}`,
     update: `${CONTROLLER_PATH.user}/Edit`,
     delete: (id: string) => `${CONTROLLER_PATH.user}/${id}`,
-    changePassword: `${CONTROLLER_PATH.user}/change-password`,
+    updatePassword: `${CONTROLLER_PATH.user}/change-password`,
   },
   product: {
     paginated: ({

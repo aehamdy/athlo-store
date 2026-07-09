@@ -7,10 +7,20 @@ export const passwordSchema = z
 
     newPassword: z
       .string()
-      .min(PASSWORD_MIN_LENGTH, "Password must be at least 8 characters")
-      .max(PASSWORD_MAX_LENGTH, "Password is too long"),
+      .min(
+        PASSWORD_MIN_LENGTH,
+        `Password must be at least ${PASSWORD_MIN_LENGTH} characters`,
+      )
+      .max(
+        PASSWORD_MAX_LENGTH,
+        `Password must not exceed ${PASSWORD_MAX_LENGTH} characters`,
+      ),
 
     confirmPassword: z.string().min(1, "Please confirm your new password"),
+  })
+  .refine((data) => data.newPassword !== data.currentPassword, {
+    path: ["newPassword"],
+    message: "New password must be different from your current password",
   })
   .refine((data) => data.newPassword === data.confirmPassword, {
     path: ["confirmPassword"],
