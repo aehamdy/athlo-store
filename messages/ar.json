@@ -63,6 +63,7 @@
     "newPassword": "كلمة المرور الجديدة",
     "confirmPassword": "تأكيد كلمة المرور",
     "updatePassword": "تحديث كلمة المرور",
+    "passwordUpdated": "تم تحديث كلمة المرور بنجاح.",
     "saveChanges": "حفظ التغيرات",
     "don'tHaveAnAccount": "ليس لديك حساب؟",
     "yourMessage": "رسالتك",

@@ -61,6 +61,7 @@
     "newPassword": "New Password",
     "confirmPassword": "Confirm Password",
     "updatePassword": "Update Password",
+    "passwordUpdated": "Password updated successfully.",
     "saveChanges": "Save Changes",
     "don'tHaveAnAccount": "Don't have an account?",
     "yourMessage": "Your Message",
