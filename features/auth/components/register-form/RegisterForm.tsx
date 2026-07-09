@@ -1,114 +1,175 @@
 "use client";
 
-import { useState } from "react";
-import Icon from "../../../../components/shared/Icon";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import FormInput from "@/features/profile/components/FormInput";
+import LoadingIndicator from "@/components/shared/LoadingIndicator";
+import { Button } from "@/components/ui/button";
+
+import {
+  RegisterFormType,
+  registerSchema,
+} from "../../schemas/register.schema";
+import useRegister from "../../hooks/useRegister";
 
 function RegisterForm() {
-  const [visiblePasswords, setVisiblePasswords] = useState({
-    password: true,
-    confirmPassword: true,
+  const { mutate, isPending } = useRegister();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isDirty, isValid },
+  } = useForm<RegisterFormType>({
+    resolver: zodResolver(registerSchema),
+    mode: "onChange",
+    defaultValues: {
+      userName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
+      birthDate: "",
+      city: "",
+      region: "",
+      postalCode: "",
+      country: "",
+    },
   });
 
-  const togglePasswordVisibility = (field: "password" | "confirmPassword") => {
-    setVisiblePasswords((prev) => ({
-      ...prev,
-      [field]: !prev[field],
-    }));
-  };
+  function onSubmit(data: RegisterFormType) {
+    mutate(data, {
+      onSuccess() {
+        reset();
+      },
+    });
+  }
 
   return (
-    <form action="" className="flex flex-col items-center gap-lg w-full">
-      <div className="flex flex-col gap-md w-full">
-        <div className="flex flex-col gap-xs w-full">
-          <label htmlFor="name" className="text-sm">
-            Name
-          </label>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col items-center gap-lg w-full"
+    >
+      <div className="grid grid-cols-2 gap-6 w-full">
+        <FormInput
+          id="userName"
+          name="userName"
+          label="Username"
+          register={register}
+          error={errors.userName}
+        />
 
-          <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
-            <Icon name="User" />
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Your full name"
-              className="w-full outline-none"
-            />
-          </div>
-        </div>
+        <FormInput
+          id="email"
+          name="email"
+          type="email"
+          label="Email"
+          register={register}
+          error={errors.email}
+        />
 
-        <div className="flex flex-col gap-xs w-full">
-          <label htmlFor="email" className="text-sm">
-            Email
-          </label>
+        <FormInput
+          id="firstName"
+          name="firstName"
+          label="First Name"
+          register={register}
+          error={errors.firstName}
+        />
 
-          <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
-            <Icon name="Mail" />
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="you@example.com"
-              className="w-full outline-none"
-            />
-          </div>
-        </div>
+        <FormInput
+          id="lastName"
+          name="lastName"
+          label="Last Name"
+          register={register}
+          error={errors.lastName}
+        />
 
-        <div className="flex flex-col gap-xs w-full">
-          <label htmlFor="password" className="text-sm">
-            Password
-          </label>
+        <FormInput
+          id="phoneNumber"
+          name="phoneNumber"
+          type="tel"
+          label="Phone Number"
+          register={register}
+          error={errors.phoneNumber}
+        />
 
-          <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
-            <Icon name="Lock" />
+        <FormInput
+          id="birthDate"
+          name="birthDate"
+          type="date"
+          label="Birth Date"
+          register={register}
+          error={errors.birthDate}
+        />
 
-            <input
-              type={visiblePasswords.password ? "password" : "text"}
-              name="password"
-              id="password"
-              placeholder="••••••••"
-              className="w-full outline-none"
-            />
+        <FormInput
+          id="city"
+          name="city"
+          label="City"
+          register={register}
+          error={errors.city}
+        />
 
-            <button
-              type="button"
-              onClick={() => togglePasswordVisibility("password")}
-              className="hover:primary-dark dark:hover:primary-light cursor-pointer"
-            >
-              <Icon name={visiblePasswords.password ? "Eye" : "EyeClosed"} />
-            </button>
-          </div>
-        </div>
+        <FormInput
+          id="region"
+          name="region"
+          label="Region"
+          register={register}
+          error={errors.region}
+        />
 
-        <div className="flex flex-col gap-xs w-full">
-          <label htmlFor="confirm-password" className="text-sm">
-            Confirm Password
-          </label>
+        <FormInput
+          id="postalCode"
+          name="postalCode"
+          label="Postal Code"
+          register={register}
+          error={errors.postalCode}
+        />
 
-          <div className="flex items-center gap-2 p-xs bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
-            <Icon name="Lock" />
+        <FormInput
+          id="country"
+          name="country"
+          label="Country"
+          register={register}
+          error={errors.country}
+        />
 
-            <input
-              type={visiblePasswords.confirmPassword ? "password" : "text"}
-              name="confirm-password"
-              id="confirm-password"
-              placeholder="••••••••"
-              className="w-full outline-none"
-            />
+        <FormInput
+          id="password"
+          name="password"
+          type="password"
+          label="Password"
+          register={register}
+          error={errors.password}
+        />
 
-            <button
-              type="button"
-              onClick={() => togglePasswordVisibility("confirmPassword")}
-              className="hover:primary-dark dark:hover:primary-light cursor-pointer"
-            >
-              <Icon
-                name={visiblePasswords.confirmPassword ? "Eye" : "EyeClosed"}
-              />
-            </button>
-          </div>
-        </div>
+        <FormInput
+          id="confirmPassword"
+          name="confirmPassword"
+          type="password"
+          label="Confirm Password"
+          register={register}
+          error={errors.confirmPassword}
+        />
       </div>
 
-      <input type="submit" value="Sign in" className="main-button" />
+      <Button
+        type="submit"
+        className="w-full"
+        disabled={!isDirty || !isValid || isPending}
+      >
+        {isPending ? (
+          <div className="flex items-center gap-sm">
+            <LoadingIndicator size="xs" />
+            Creating Account...
+          </div>
+        ) : (
+          "Create Account"
+        )}
+      </Button>
     </form>
   );
 }
