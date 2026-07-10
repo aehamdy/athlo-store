@@ -567,14 +567,23 @@
     "title": "الدفع",
     "shipping": {
       "title": "معلومات الشحن",
-      "firstName": "الاسم الأول",
-      "lastName": "اسم العائلة",
+      "fullName": "الاسم الكامل",
       "email": "البريد الإلكتروني",
-      "phone": "الهاتف",
+      "phone": "رقم الهاتف",
       "address": "العنوان",
       "city": "المدينة",
+      "region": "المنطقة",
       "postalCode": "الرمز البريدي",
-      "country": "الدولة"
+      "country": "الدولة",
+      "buildingNumber": "رقم المبنى",
+      "floorNumber": "رقم الطابق",
+      "apartmentNumber": "رقم الشقة",
+      "notes": "ملاحظات",
+      "notesPlaceholder": "ضف تعليمات للتوصيل (اختياري)",
+      "shippingMethods": "طرق الشحن",
+      "loadingShippingMethods": "جاري تحميل طريق الشحن...",
+      "failedToLoadShippingMethods": "فشل تحميل طريق الشحن",
+      "free": "مجاني"
     },
     "payment": {
       "title": "طريقة الدفع",
@@ -587,6 +596,7 @@
 
     "summary": {
       "title": "ملخص الطلب",
+      "items": "المنتجات",
       "itemDetails": "المقاس، اللون، الكمية",
       "itemTotal": "إجمالي العناصر",
       "subtotal": "المجموع الفرعي",
