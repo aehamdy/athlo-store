@@ -568,14 +568,23 @@
     "title": "Checkout",
     "shipping": {
       "title": "Shipping Information",
-      "firstName": "First Name",
-      "lastName": "Last Name",
+      "fullName": "Full Name",
       "email": "Email",
       "phone": "Phone",
       "address": "Address",
       "city": "City",
+      "region": "Region",
       "postalCode": "Postal Code",
-      "country": "Country"
+      "country": "Country",
+      "buildingNumber": "Building Number",
+      "floorNumber": "Floor Number",
+      "apartmentNumber": "Apartment Number",
+      "notes": "Notes",
+      "notesPlaceholder": "Add delivery instructions (optional)",
+      "shippingMethods": "Shipping Methods",
+      "loadingShippingMethods": "Loading shipping methods...",
+      "failedToLoadShippingMethods": "Failed to load shipping methods!",
+      "free": "Free"
     },
     "payment": {
       "title": "Payment Method",
@@ -588,6 +597,7 @@
 
     "summary": {
       "title": "Order Summary",
+      "items": "Items",
       "itemDetails": "Size, color, quantity",
       "itemTotal": "Item total",
       "subtotal": "Subtotal",

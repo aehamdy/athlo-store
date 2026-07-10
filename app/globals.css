@@ -240,6 +240,10 @@
   }
 }
 
+.form-input {
+  @apply text-primary-dark border-subtle focus-visible:border-none focus-visible:ring-accent-ring;
+}
+
 .main-button {
   @apply w-full p-xs text-center text-sm text-primary-dark bg-accent-base hover:bg-accent-soft active:bg-accent-strong rounded-sm hover:shadow-sm active:shadow-none transition-colors duration-normal;
 }
