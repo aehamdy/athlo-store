@@ -69,4 +69,4 @@ export type ProductPricesT = {
   maxPriceAfterDiscount?: number;
 };
 
-export type ProductViewVariant = "details" | "card" | "quickView";
+export type ProductViewVariant = "details" | "card" | "cart-item" | "quickView";
