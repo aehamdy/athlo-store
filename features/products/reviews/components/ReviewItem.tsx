@@ -4,11 +4,11 @@ import Heading from "@/components/shared/Heading";
 import Icon from "@/components/shared/Icon";
 import { ReviewItemT } from "../reviews-types";
 import formatDate from "@/lib/utils/formatDate";
-import formatName from "@/lib/utils/formatName";
 import { useTranslations } from "next-intl";
 import ReviewItemActions from "./ReviewItemActions";
 import { useState } from "react";
 import ReviewItemEditor from "./ReviewItemEditor";
+import formatTitle from "@/lib/utils/formatTitle";
 
 type ReviewItemProps = {
   review: ReviewItemT;
@@ -23,7 +23,7 @@ function ReviewItem({ review, currentUserId }: ReviewItemProps) {
 
   const { date } = formatDate(review.createdAt);
 
-  const formattedName = formatName(review.userName);
+  const formattedName = formatTitle(review.userName);
 
   if (isEditing) {
     return (
