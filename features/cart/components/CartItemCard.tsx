@@ -6,7 +6,6 @@ import { ProductCartItem } from "../types";
 import useDeleteCartItem from "../hooks/useDeleteCartItem";
 import useUpdateCartItemQuantity from "../hooks/useUpdateCartItemQuantity";
 import Currency from "@/features/products/components/Currency";
-import formatTitle from "@/lib/utils/formatTitle";
 import ProductTitleDisplay from "@/features/products/components/ProductTitleDisplay";
 
 type CartItemCardProps = {
