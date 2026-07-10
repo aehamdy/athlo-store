@@ -1,35 +1,43 @@
 "use client";
 
-import { FieldError, Path, UseFormRegister } from "react-hook-form";
+import type {
+  FieldError,
+  FieldPath,
+  FieldValues,
+  UseFormRegister,
+} from "react-hook-form";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-type FormInputProps<T extends Record<string, unknown>> = {
-  id: Path<T>;
-  name: Path<T>;
+type FormInputProps<T extends FieldValues> = {
+  id: FieldPath<T>;
+  name: FieldPath<T>;
   label: string;
   register: UseFormRegister<T>;
   error?: FieldError;
+  required?: boolean;
   type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   disabled?: boolean;
 };
 
-function FormInput<T extends Record<string, unknown>>({
+function FormInput<T extends FieldValues>({
   id,
   name,
   label,
   register,
   error,
+  required,
   type = "text",
   placeholder,
   disabled,
 }: FormInputProps<T>) {
   return (
     <div className="space-y-2">
-      <Label htmlFor={id} className="font-normal text-foreground">
+      <Label htmlFor={id} className="font-medium text-muted-foreground">
         {label}
+        {required && <span className="ms-0.5 text-destructive">*</span>}
       </Label>
 
       <Input
@@ -37,8 +45,8 @@ function FormInput<T extends Record<string, unknown>>({
         type={type}
         placeholder={placeholder}
         disabled={disabled}
-        {...register(name)}
-        className="text-foreground border-subtle focus-visible:border-none focus-visible:ring-accent-ring"
+        {...register(name, { valueAsNumber: true })}
+        className="form-input"
       />
 
       {error && <p className="text-sm text-destructive">{error.message}</p>}
