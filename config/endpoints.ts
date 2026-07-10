@@ -9,6 +9,7 @@ const CONTROLLER_PATH = {
   review: `${API_VERSION_PATH}/Review`,
   cart: `${API_VERSION_PATH}/CartItem`,
   category: `${API_VERSION_PATH}/Category`,
+  shippingMethods: `${API_VERSION_PATH}/ShippingMethod`,
 };
 
 export const ENDPOINTS = {
@@ -62,5 +63,8 @@ export const ENDPOINTS = {
     summary: `${CONTROLLER_PATH.cart}/GetCartSummary`,
     delete: (id: number) => `${CONTROLLER_PATH.cart}/${id}`,
     updateQuantity: `${CONTROLLER_PATH.cart}/Edit`,
+  },
+  shippingMethod: {
+    list: `${CONTROLLER_PATH.shippingMethods}/List`,
   },
 };
