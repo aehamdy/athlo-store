@@ -6,6 +6,8 @@ import { ProductCartItem } from "../types";
 import useDeleteCartItem from "../hooks/useDeleteCartItem";
 import useUpdateCartItemQuantity from "../hooks/useUpdateCartItemQuantity";
 import Currency from "@/features/products/components/Currency";
+import formatTitle from "@/lib/utils/formatTitle";
+import ProductTitleDisplay from "@/features/products/components/ProductTitleDisplay";
 
 type CartItemCardProps = {
   product: ProductCartItem;
@@ -46,9 +48,10 @@ function CartItemCard({ product }: CartItemCardProps) {
 
           <div className="space-y-tiny">
             <div className="space-y-0.5">
-              <Heading as="h5" className="font-medium text-sm text-foreground">
-                {product.productName}
-              </Heading>
+              <ProductTitleDisplay
+                variant="cart-item"
+                title={product.productName}
+              />
 
               <div className="flex items-center gap-xs text-xs text-muted-foreground">
                 {product.attributeKey && (
