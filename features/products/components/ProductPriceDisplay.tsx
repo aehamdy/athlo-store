@@ -1,4 +1,5 @@
 import { ProductPricesT, ProductViewVariant } from "../types";
+import Currency from "./Currency";
 
 type ProductPriceDisplayProps = {
   prices: ProductPricesT;
@@ -20,19 +21,36 @@ function ProductPriceDisplay({ variant, prices }: ProductPriceDisplayProps) {
       {hasDiscount ? (
         <>
           <span className="font-bold text-accent-base">
-            {minAfter} EGP
-            {maxAfter > minAfter && ` ~ ${maxAfter} EGP`}
+            <Currency price={minAfter} />
+
+            {maxAfter > minAfter && (
+              <>
+                {" ~ "}
+                <Currency price={maxAfter} />
+              </>
+            )}
           </span>
 
           <span className="text-sm text-red-500 line-through">
-            {minPrice} EGP
-            {maxPrice > minPrice && ` ~ ${maxPrice} EGP`}
+            <Currency price={minPrice} />
+
+            {maxPrice > minPrice && (
+              <>
+                {" ~ "}
+                <Currency price={maxPrice} />
+              </>
+            )}
           </span>
         </>
       ) : (
         <span className="font-bold text-accent-base">
-          {minPrice} EGP
-          {maxPrice > minPrice && ` ~ ${maxPrice} EGP`}
+          <Currency price={minPrice} />
+          {maxPrice > minPrice && (
+            <>
+              {" ~ "}
+              <Currency price={maxPrice} />
+            </>
+          )}
         </span>
       )}
     </div>

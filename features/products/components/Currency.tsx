@@ -1,17 +1,14 @@
-import { useTranslations } from "next-intl";
-
 type CurrencyProps = {
-  price: number | string;
+  price: number;
 };
 
 function Currency({ price }: CurrencyProps) {
-  const t = useTranslations("productCard");
-
-  return (
-    <p className="font-medium text-lg text-primary-light">
-      {t("currency")} {price}
-    </p>
-  );
+  return new Intl.NumberFormat("en-EG", {
+    style: "currency",
+    currency: "EGP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
 }
 
 export default Currency;

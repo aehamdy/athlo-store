@@ -1,3 +1,4 @@
+import Currency from "@/features/products/components/Currency";
 import useGetCartSummary from "../hooks/useGetCartSummary";
 
 type CartSummaryProps = {
@@ -26,16 +27,16 @@ function CartSummary({ open }: CartSummaryProps) {
         {discountedSubtotal < subtotal ? (
           <div>
             <p className="text-xs text-muted-foreground line-through">
-              {subtotal}
+              <Currency price={subtotal} />
             </p>
 
             <p className="font-medium text-sm text-red-500">
-              {discountedSubtotal.toFixed(2)} EGP
+              <Currency price={discountedSubtotal} />
             </p>
           </div>
         ) : (
           <p className="font-medium text-sm text-accent-base">
-            {subtotal.toFixed(2)} EGP
+            <Currency price={subtotal} />
           </p>
         )}
       </div>

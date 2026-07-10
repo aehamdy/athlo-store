@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ProductCartItem } from "../types";
 import useDeleteCartItem from "../hooks/useDeleteCartItem";
 import useUpdateCartItemQuantity from "../hooks/useUpdateCartItemQuantity";
+import Currency from "@/features/products/components/Currency";
 
 type CartItemCardProps = {
   product: ProductCartItem;
@@ -72,15 +73,15 @@ function CartItemCard({ product }: CartItemCardProps) {
                 {product.finalPrice < product.originalPrice ? (
                   <div className="flex items-center gap-xs">
                     <span className="text-muted-foreground line-through">
-                      {product.originalPrice}
+                      <Currency price={product.originalPrice} />
                     </span>
                     <span className="text-red-500">
-                      {product.finalPrice} EGP
+                      <Currency price={product.finalPrice} />
                     </span>
                   </div>
                 ) : (
                   <div className="text-accent-base">
-                    {product.originalPrice} EGP
+                    <Currency price={product.originalPrice} />
                   </div>
                 )}
               </Heading>
