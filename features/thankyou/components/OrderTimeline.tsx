@@ -1,5 +1,5 @@
-import Icon from "../../components/shared/Icon";
-import { Card, CardContent } from "../../components/ui/card";
+import Icon from "@/components/shared/Icon";
+import { Card, CardContent } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
 
 function OrderTimeline() {
