@@ -102,6 +102,7 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
             label={t("buildingNumber")}
             register={register}
             error={errors.buildingNumber}
+            valueAsNumber
             required
           />
         </div>
@@ -113,6 +114,7 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
             label={t("floorNumber")}
             register={register}
             error={errors.floorNumber}
+            valueAsNumber
             required
           />
 
@@ -122,6 +124,7 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
             label={t("apartmentNumber")}
             register={register}
             error={errors.apartmentNumber}
+            valueAsNumber
             required
           />
         </div>

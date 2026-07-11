@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const checkoutSchema = z.object({
-  shippingMethodId: z.number(),
+  shippingMethodId: z.number().min(1),
 
   fullName: z.string().min(1, "Full name is required"),
   phoneNumber: z.string().min(1, "Phone number is required"),
@@ -10,9 +10,9 @@ export const checkoutSchema = z.object({
   region: z.string().min(1, "Region is required"),
   country: z.string().min(1, "Country is required"),
 
-  buildingNumber: z.string().min(1, "Building number is required"),
-  floorNumber: z.string().optional(),
-  apartmentNumber: z.string().optional(),
+  buildingNumber: z.number().min(1, "Building number is required"),
+  floorNumber: z.number().min(1, "Floor number is required"),
+  apartmentNumber: z.number().min(1, "Apartment number is required"),
 
   paymentMethod: z.enum(["cashOnDelivery", "creditCard"]),
 

@@ -1,6 +1,6 @@
 import Currency from "@/features/products/components/Currency";
 import { ShippingMethod } from "../types";
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { CheckoutFormType } from "../checkout.schema";
 import { useTranslations } from "next-intl";
 
@@ -15,7 +15,7 @@ function ShippingMethodCard({
 }: ShippingMethodCardProps) {
   const t = useTranslations("checkoutPage.shipping");
 
-  const { register } = useFormContext<CheckoutFormType>();
+  const { control } = useFormContext<CheckoutFormType>();
 
   return (
     <article className="">
@@ -27,13 +27,16 @@ function ShippingMethodCard({
         }`}
       >
         <div className="flex gap-md">
-          <input
-            type="radio"
-            value={shippingMethod.id}
-            {...register("shippingMethodId", {
-              valueAsNumber: true,
-            })}
-            className="mt-1"
+          <Controller
+            name="shippingMethodId"
+            control={control}
+            render={({ field }) => (
+              <input
+                type="radio"
+                checked={field.value === shippingMethod.id}
+                onChange={() => field.onChange(shippingMethod.id)}
+              />
+            )}
           />
 
           <div>

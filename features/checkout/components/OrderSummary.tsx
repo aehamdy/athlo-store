@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useFormContext } from "react-hook-form";
-
 import {
   Card,
   CardContent,
@@ -22,12 +21,16 @@ import CheckoutItemsList from "./CheckoutItemsList";
 
 type OrderSummaryProps = {
   shippingMethods: ShippingMethod[];
+  isCreatingOrder: boolean;
 };
 
-function OrderSummary({ shippingMethods }: OrderSummaryProps) {
+function OrderSummary({ shippingMethods, isCreatingOrder }: OrderSummaryProps) {
   const t = useTranslations("checkoutPage.summary");
 
-  const { watch } = useFormContext<CheckoutFormType>();
+  const {
+    watch,
+    formState: { isValid, isSubmitting },
+  } = useFormContext<CheckoutFormType>();
 
   const selectedShippingMethodId = watch("shippingMethodId");
 
@@ -35,7 +38,7 @@ function OrderSummary({ shippingMethods }: OrderSummaryProps) {
     (method) => method.id === Number(selectedShippingMethodId),
   );
 
-  const shippingCost = selectedShippingMethod?.price ?? 0;
+  const shippingCost = selectedShippingMethod?.price;
 
   const {
     data: summary,
@@ -54,8 +57,9 @@ function OrderSummary({ shippingMethods }: OrderSummaryProps) {
   const { totalItems, totalPrice, totalPriceAfterDiscount, totalDiscount } =
     summary;
 
-  const total =
-    (totalDiscount > 0 ? totalPriceAfterDiscount : totalPrice) + shippingCost;
+  const subtotal = totalDiscount > 0 ? totalPriceAfterDiscount : totalPrice;
+
+  const total = subtotal + (shippingCost ?? 0);
 
   return (
     <Card className="bg-card border-subtle">
@@ -109,10 +113,16 @@ function OrderSummary({ shippingMethods }: OrderSummaryProps) {
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">{t("shipping")}</span>
 
-            {shippingCost === 0 ? (
-              <span>{t("free")}</span>
+            {selectedShippingMethod ? (
+              selectedShippingMethod.price === 0 ? (
+                <span>{t("free")}</span>
+              ) : (
+                <Currency price={selectedShippingMethod.price} />
+              )
             ) : (
-              <Currency price={shippingCost} />
+              <span className="text-muted-foreground">
+                {t("notSelectedYet")}
+              </span>
             )}
           </div>
 
@@ -128,10 +138,25 @@ function OrderSummary({ shippingMethods }: OrderSummaryProps) {
           </div>
         </div>
 
-        <Button type="submit" className="main-button">
-          <Icon name="ShieldCheck" className="me-xs h-4 w-4 text-current" />
-
-          {t("placeOrder")}
+        <Button
+          type="submit"
+          className="main-button"
+          disabled={!isValid || isSubmitting || isCreatingOrder}
+        >
+          {isCreatingOrder ? (
+            <>
+              <Icon
+                name="LoaderCircle"
+                className="me-xs h-4 w-4 animate-spin"
+              />
+              {t("placingOrder")}
+            </>
+          ) : (
+            <>
+              <Icon name="ShieldCheck" className="me-xs h-4 w-4" />
+              {t("placeOrder")}
+            </>
+          )}
         </Button>
 
         <p className="text-center text-xs text-muted-foreground">
