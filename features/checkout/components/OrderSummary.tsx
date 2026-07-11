@@ -12,14 +12,13 @@ import {
 } from "../../../components/ui/card";
 import { Separator } from "../../../components/ui/separator";
 import { Button } from "../../../components/ui/button";
-
 import Icon from "../../../components/shared/Icon";
 import Currency from "@/features/products/components/Currency";
-
 import ROUTES from "@/lib/routes";
 import useFetchCartSummary from "../hooks/useFetchCartSummary";
 import { CheckoutFormType } from "../checkout.schema";
 import { ShippingMethod } from "../types";
+import CheckoutItemsList from "./CheckoutItemsList";
 
 type OrderSummaryProps = {
   shippingMethods: ShippingMethod[];
@@ -38,13 +37,17 @@ function OrderSummary({ shippingMethods }: OrderSummaryProps) {
 
   const shippingCost = selectedShippingMethod?.price ?? 0;
 
-  const { data: summary, isPending, isError } = useFetchCartSummary();
+  const {
+    data: summary,
+    isPending: isSummaryPending,
+    isError: isSummaryError,
+  } = useFetchCartSummary();
 
-  if (isPending) {
+  if (isSummaryPending) {
     return <div>OrderSummarySkeleton</div>;
   }
 
-  if (isError || !summary) {
+  if (isSummaryError || !summary) {
     return <p>Failed to load order summary.</p>;
   }
 
@@ -65,10 +68,7 @@ function OrderSummary({ shippingMethods }: OrderSummaryProps) {
       </CardHeader>
 
       <CardContent className="space-y-md">
-        {/* Cart Items */}
-        <div className="space-y-sm max-h-64 overflow-y-auto">
-          {/* TODO: Render cart items here */}
-        </div>
+        <CheckoutItemsList />
 
         <Separator />
 
