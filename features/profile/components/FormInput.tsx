@@ -45,7 +45,7 @@ function FormInput<T extends FieldValues>({
         type={type}
         placeholder={placeholder}
         disabled={disabled}
-        {...register(name, { valueAsNumber: true })}
+        {...register(name)}
         className="form-input"
       />
 

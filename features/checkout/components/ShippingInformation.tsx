@@ -99,7 +99,6 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
           <FormInput
             id="buildingNumber"
             name="buildingNumber"
-            type="number"
             label={t("buildingNumber")}
             register={register}
             error={errors.buildingNumber}
@@ -111,19 +110,19 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
           <FormInput
             id="floorNumber"
             name="floorNumber"
-            type="number"
             label={t("floorNumber")}
             register={register}
             error={errors.floorNumber}
+            required
           />
 
           <FormInput
             id="apartmentNumber"
             name="apartmentNumber"
-            type="number"
             label={t("apartmentNumber")}
             register={register}
             error={errors.apartmentNumber}
+            required
           />
         </div>
 
