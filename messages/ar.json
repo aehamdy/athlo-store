@@ -603,9 +603,11 @@
       "subtotalValue": "المجموع الفرعي",
       "shipping": "الشحن",
       "free": "مجاني",
+      "notSelectedYet": "لم يتم الاختيار بعد",
       "total": "الإجمالي",
       "totalValue": "الإجمالي",
       "placeOrder": "إتمام الطلب",
+      "placingOrder": "جارٍ إرسال طلبك...",
       "termsPrefix": "بالضغط على 'إتمام الطلب' فإنك توافق على",
       "terms": "الشروط والأحكام"
     }

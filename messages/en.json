@@ -604,9 +604,11 @@
       "subtotalValue": "Subtotal",
       "shipping": "Shipping",
       "free": "Free",
+      "notSelectedYet": "Not selected yet",
       "total": "Total",
       "totalValue": "Total",
       "placeOrder": "Place Order",
+      "placingOrder": "Placing your order...",
       "termsPrefix": "By clicking 'Place Order', you agree to our",
       "terms": "Terms of Service"
     }
