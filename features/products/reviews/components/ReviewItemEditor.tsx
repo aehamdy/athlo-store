@@ -12,7 +12,7 @@ import { ReviewFormType, reviewSchema } from "../reviews-schema";
 import RatingInput from "./RatingInput";
 import useUpdateReview from "../hooks/useUpdateReview";
 import { useParams } from "next/navigation";
-import formatName from "@/lib/utils/formatName";
+import formatName from "@/lib/utils/formatTitle";
 import { useTranslations } from "next-intl";
 import formatDate from "@/lib/utils/formatDate";
 
