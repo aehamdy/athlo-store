@@ -1,4 +1,4 @@
-import Heading from "../../components/shared/Heading";
+import Heading from "@/components/shared/Heading";
 import { useTranslations } from "next-intl";
 
 function SuccessMessage() {

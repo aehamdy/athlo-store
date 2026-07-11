@@ -1,4 +1,4 @@
-import Icon from "../../components/shared/Icon";
+import Icon from "@/components/shared/Icon";
 
 function SuccessIcon() {
   return (
