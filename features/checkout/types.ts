@@ -43,3 +43,22 @@ export type ShippingMethod = {
   price: number;
   estimatedDeliveryDays: number;
 };
+
+export type CreateOrderRequest = {
+  shippingMethodId: number;
+  shipment: {
+    fullName: string;
+    city: string;
+    country: string;
+    region: string;
+    streetAddress: string;
+    buildingNumber: number;
+    floorNumber: number;
+    apartmentNumber: number;
+    phoneNumber: string;
+    notes: string;
+    trackingNumber: string;
+    shippingMethod: string;
+    shipmentStatus: string;
+  };
+};

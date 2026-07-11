@@ -10,6 +10,7 @@ const CONTROLLER_PATH = {
   cart: `${API_VERSION_PATH}/CartItem`,
   category: `${API_VERSION_PATH}/Category`,
   shippingMethods: `${API_VERSION_PATH}/ShippingMethod`,
+  order: `${API_VERSION_PATH}/Order`,
 };
 
 export const ENDPOINTS = {
@@ -66,5 +67,8 @@ export const ENDPOINTS = {
   },
   shippingMethod: {
     list: `${CONTROLLER_PATH.shippingMethods}/List`,
+  },
+  order: {
+    create: `${CONTROLLER_PATH.order}/Create`,
   },
 };

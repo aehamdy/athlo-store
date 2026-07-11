@@ -20,6 +20,7 @@ type FormInputProps<T extends FieldValues> = {
   type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   disabled?: boolean;
+  valueAsNumber?: boolean;
 };
 
 function FormInput<T extends FieldValues>({
@@ -32,6 +33,7 @@ function FormInput<T extends FieldValues>({
   type = "text",
   placeholder,
   disabled,
+  valueAsNumber,
 }: FormInputProps<T>) {
   return (
     <div className="space-y-2">
@@ -45,7 +47,9 @@ function FormInput<T extends FieldValues>({
         type={type}
         placeholder={placeholder}
         disabled={disabled}
-        {...register(name)}
+        {...register(name, {
+          valueAsNumber,
+        })}
         className="form-input"
       />
 
