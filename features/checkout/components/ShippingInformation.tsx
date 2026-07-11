@@ -2,18 +2,15 @@
 
 import { useTranslations } from "next-intl";
 import { useFormContext } from "react-hook-form";
-
 import Icon from "@/components/shared/Icon";
 import Heading from "@/components/shared/Heading";
-import Currency from "@/features/products/components/Currency";
 import FormInput from "@/features/profile/components/FormInput";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-
 import { CheckoutFormType } from "../checkout.schema";
 import { ShippingMethod } from "../types";
+import ShippingMethodCard from "./ShippingMethodCard";
 
 type ShippingInformationProps = {
   shippingMethods: ShippingMethod[];
@@ -159,40 +156,10 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
           <ul className="space-y-sm">
             {shippingMethods.map((method) => (
               <li key={method.id}>
-                <label
-                  className={`flex items-start justify-between gap-md p-md border rounded-md cursor-pointer transition-colors ${
-                    selectedShippingMethodId === method.id
-                      ? "border-accent-base bg-accent-base/10"
-                      : "border-subtle hover:border-accent-soft"
-                  }`}
-                >
-                  <div className="flex gap-md">
-                    <input
-                      type="radio"
-                      value={method.id}
-                      {...register("shippingMethodId", {
-                        valueAsNumber: true,
-                      })}
-                      className="mt-1"
-                    />
-
-                    <div>
-                      <p className="font-medium">{method.name}</p>
-
-                      <p className="text-sm text-muted-foreground">
-                        {method.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <span className="font-semibold text-accent-base whitespace-nowrap">
-                    {method.price === 0 ? (
-                      t("free")
-                    ) : (
-                      <Currency price={method.price} />
-                    )}
-                  </span>
-                </label>
+                <ShippingMethodCard
+                  shippingMethod={method}
+                  selectedShippingMethodId={selectedShippingMethodId}
+                />
               </li>
             ))}
           </ul>
