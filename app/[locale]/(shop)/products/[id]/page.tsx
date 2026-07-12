@@ -24,7 +24,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) notFound();
 
   return (
-    <main className="pt-20 lg:pt-30 pb-4xl section-spacing-x bg-surface">
+    <main className="main-page">
       <ProductDetailsLayout product={product} />
     </main>
   );

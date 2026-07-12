@@ -11,7 +11,7 @@ function ProductsPage() {
   const itemsCount = 99;
 
   return (
-    <main className="section-spacing bg-surface">
+    <main className="main-page">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-md mb-3xl">
         <div>
           <Heading as="h1" className="font-bold text-3xl">
