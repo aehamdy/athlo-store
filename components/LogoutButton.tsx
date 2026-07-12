@@ -9,7 +9,7 @@ import { logout } from "@/lib/auth/auth";
 import { useTranslations } from "next-intl";
 
 type LogoutButtonProps = {
-  variant: "outline" | "destructive";
+  variant?: "outline" | "destructive";
 };
 
 function LogoutButton({ variant = "destructive" }: LogoutButtonProps) {
