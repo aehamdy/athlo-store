@@ -1,15 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+
 import ProductCard from "@/features/products/components/ProductCard";
 import LoadingMoreProducts from "../../product/components/LoadingMoreProducts";
-import { ProductT } from "@/features/products/types";
 
-type InfiniteProductsProps = {
-  initialProducts: ProductT[];
-  initialPage: number;
-  hasNextPage: boolean;
-};
+import { ProductT } from "@/features/products/types";
+import fetchProducts from "../api/fetchProducts";
 
 type PaginatedProductsResponse = {
   data: ProductT[];
@@ -21,14 +18,17 @@ type PaginatedProductsResponse = {
   pageSize: number;
 };
 
-export default function InfiniteProducts({
-  initialProducts,
-  initialPage,
-  hasNextPage: initialHasNextPage,
-}: InfiniteProductsProps) {
-  const [products, setProducts] = useState(initialProducts);
-  const [currentPage, setCurrentPage] = useState(initialPage);
-  const [hasNextPage, setHasNextPage] = useState(initialHasNextPage);
+type InfiniteProductsProps = {
+  initialData: PaginatedProductsResponse;
+};
+
+function InfiniteProducts({ initialData }: InfiniteProductsProps) {
+  const [products, setProducts] = useState(initialData.data);
+
+  const [currentPage, setCurrentPage] = useState(initialData.currentPage);
+
+  const [hasNextPage, setHasNextPage] = useState(initialData.hasNextPage);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -40,34 +40,27 @@ export default function InfiniteProducts({
     setIsLoading(true);
 
     try {
-      const response = await fetch(
-        `/api/products?pageNumber=${currentPage + 1}&pageSize=20`,
-      );
-
-      if (!response.ok) {
-        const text = await response.text();
-        console.error("API error:", text);
-        return;
-      }
-
-      const data: PaginatedProductsResponse = await response.json();
+      const data = await fetchProducts({
+        pageNumber: currentPage + 1,
+        pageSize: initialData.pageSize,
+      });
 
       setProducts((prev) => [...prev, ...data.data]);
+
       setCurrentPage(data.currentPage);
+
       setHasNextPage(data.hasNextPage);
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error("Failed to fetch more products:", error);
     } finally {
       setIsLoading(false);
     }
-  }, [currentPage, hasNextPage, isLoading]);
+  }, [currentPage, hasNextPage, isLoading, initialData.pageSize]);
 
   useEffect(() => {
     if (!loadMoreRef.current) return;
 
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-    }
+    observerRef.current?.disconnect();
 
     observerRef.current = new IntersectionObserver(
       ([entry]) => {
@@ -75,7 +68,9 @@ export default function InfiniteProducts({
           loadMore();
         }
       },
-      { threshold: 1 },
+      {
+        threshold: 1,
+      },
     );
 
     observerRef.current.observe(loadMoreRef.current);
@@ -96,7 +91,7 @@ export default function InfiniteProducts({
       {isLoading && <LoadingMoreProducts />}
 
       {!hasNextPage && products.length > 0 && (
-        <div>
+        <div className="mt-xl">
           <p className="text-center text-sm text-muted-foreground">
             No more products to load.
           </p>
@@ -105,3 +100,5 @@ export default function InfiniteProducts({
     </section>
   );
 }
+
+export default InfiniteProducts;

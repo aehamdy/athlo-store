@@ -54,7 +54,6 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
         {/* Product Images */}
         <div className="lg:col-span-5">
           <ProductImageGallery
-            variant="details"
             images={product.images}
             productName={product.name}
           />

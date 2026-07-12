@@ -34,7 +34,10 @@ function OurTeam() {
           <div className="flex flex-col items-center gap-sm">
             <Icon name="Users" className="text-accent-base" size={40} />
 
-            <Heading as="h2" className="text-3xl font-bold mb-xl">
+            <Heading
+              as="h2"
+              className="mb-xl font-bold text-3xl text-foreground"
+            >
               {t("title")}
             </Heading>
           </div>

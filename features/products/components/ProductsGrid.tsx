@@ -1,6 +1,6 @@
-import getProducts from "@/features/products/api/getProducts";
 import InfiniteProducts from "./InfiniteProducts";
 import { ProductT } from "@/features/products/types";
+import fetchProducts from "../api/fetchProducts";
 
 export type PaginatedProductsResponse = {
   data: ProductT[];
@@ -13,18 +13,14 @@ export type PaginatedProductsResponse = {
 };
 
 async function ProductsGrid() {
-  const initialData = await getProducts({
+  const initialData = await fetchProducts({
     pageNumber: 1,
     pageSize: 20,
   });
 
   return (
     <section className="flex-1">
-      <InfiniteProducts
-        initialProducts={initialData.data}
-        initialPage={initialData.currentPage}
-        hasNextPage={initialData.hasNextPage}
-      />
+      <InfiniteProducts initialData={initialData} />
     </section>
   );
 }

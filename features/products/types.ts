@@ -44,7 +44,7 @@ export type ProductDetailsApiResponse = {
   succeeded: boolean;
   message: string;
   errors: unknown;
-  data: ProductT;
+  data: ProductDetails;
 };
 
 export type ProductVariantT = {
@@ -67,6 +67,13 @@ export type ProductPricesT = {
   priceAfterDiscount?: number;
   minPriceAfterDiscount?: number;
   maxPriceAfterDiscount?: number;
+};
+
+export type GetProductsParams = {
+  pageNumber?: number;
+  pageSize?: number;
+  search?: string;
+  ordering?: number;
 };
 
 export type ProductViewVariant = "details" | "card" | "cart-item" | "quickView";

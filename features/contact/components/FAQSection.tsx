@@ -11,7 +11,9 @@ function FAQSection() {
     <section className="section-spacing bg-surface">
       <div className="flex flex-col items-center gap-md">
         <div className="flex flex-col items-center gap-xs">
-          <Heading className="text-2xl font-bold">{t("haveQuestions")}</Heading>
+          <Heading className="font-bold text-2xl text-foreground">
+            {t("haveQuestions")}
+          </Heading>
 
           <p className="w-full md:w-3/4 text-center text-muted-foreground">
             {t("checkFaqs")}

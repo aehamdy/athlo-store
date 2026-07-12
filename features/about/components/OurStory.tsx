@@ -11,20 +11,14 @@ function OurStory() {
       <div className="mx-auto px-base">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5xl items-center">
           <div>
-            <Heading as="h2" className="text-3xl font-bold mb-xl">
+            <Heading
+              as="h2"
+              className="mb-xl font-bold text-3xl text-foreground"
+            >
               {t("title")}
             </Heading>
 
             <div className="space-y-md text-muted-foreground">
-              {/* <p>
-                <span className="font-bold text-accent-base">
-                  {appConfig.name}
-                </span>{" "}
-                was founded in{" "}
-                <span className="font-bold">{appConfig.foundedIn}</span> by a
-                group of passionate athletes who saw a gap in the market for
-                high-quality, affordable sportswear.
-              </p> */}
               <p>
                 {t.rich("paragraph1", {
                   name: () => (

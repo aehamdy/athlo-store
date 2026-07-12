@@ -17,7 +17,7 @@ function ContactCard({ info }: ContactCardProps) {
         <Icon name={info.icon} className="w-5 h-5 text-accent-base" />
       </div>
 
-      <Heading as="h3" className="font-semibold mb-xs">
+      <Heading as="h3" className="mb-xs font-semibold text-foreground">
         {t(info.title)}
       </Heading>
 

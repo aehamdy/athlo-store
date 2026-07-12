@@ -13,7 +13,9 @@ function BrandStoryBanner() {
       <LayoutContainer>
         <SectionHeader headingLevel="h2" sectionTitle={t("title")} />
 
-        <p className="text-muted-foreground mx-auto mb-8">{t("description")}</p>
+        <p className="w-9/10 lg:w-1/2 mx-auto mb-8 text-muted-foreground text-center">
+          {t("description")}
+        </p>
 
         <div className="w-fit mx-auto">
           <Link href={ROUTES.public.about} className="main-button">

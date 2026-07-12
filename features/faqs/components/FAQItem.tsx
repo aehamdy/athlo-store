@@ -19,7 +19,7 @@ function FAQItem({ item }: FAQItemProps) {
     >
       {item.faqs.map((faq, fIdx) => (
         <AccordionItem key={fIdx} value={`${fIdx}-${fIdx}`} className="px-xl">
-          <AccordionTrigger className="text-start hover:no-underline">
+          <AccordionTrigger className="text-start text-foreground">
             {faq.q}
           </AccordionTrigger>
 

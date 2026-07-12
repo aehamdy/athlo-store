@@ -9,11 +9,12 @@ type GetProductsParams = {
   ordering?: number;
 };
 
-async function getProducts(params: GetProductsParams = {}) {
+async function fetchProducts(params: GetProductsParams = {}) {
   const response = await api.get<PaginatedProductsResponse>(
     ENDPOINTS.product.paginated(params),
   );
+
   return response.data;
 }
 
-export default getProducts;
+export default fetchProducts;

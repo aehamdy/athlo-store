@@ -26,8 +26,8 @@ function PasswordInput({ error, ...inputProps }: PasswordInputProps) {
         <input
           type={isVisible ? "text" : "password"}
           placeholder="••••••••"
-          className="w-full outline-none"
           {...inputProps}
+          className="w-full outline-none text-muted-foreground"
         />
 
         <Button
