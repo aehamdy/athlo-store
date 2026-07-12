@@ -11,26 +11,39 @@ function ContactUsForm() {
   return (
     <form action="" className="space-y-xl">
       <div className="space-y-sm">
-        <Label htmlFor="name">{t("yourName")}</Label>
+        <Label htmlFor="name" className="text-muted-foreground">
+          {t("yourName")}
+        </Label>
         <Input
           id="name"
           required
           placeholder={t("enterYourName")}
-          className=""
+          className="form-input"
         />
       </div>
 
       <div className="space-y-sm">
-        <Label htmlFor="email">{t("yourEmail")}</Label>
-        <Input id="email" required placeholder={t("enterEmail")} className="" />
+        <Label htmlFor="email" className="text-muted-foreground">
+          {t("yourEmail")}
+        </Label>
+
+        <Input
+          id="email"
+          required
+          placeholder={t("enterEmail")}
+          className="form-input"
+        />
       </div>
 
       <div className="space-y-sm">
-        <Label htmlFor="message">{t("yourMessage")}</Label>
+        <Label htmlFor="message" className="text-muted-foreground">
+          {t("yourMessage")}
+        </Label>
+
         <Textarea
           required
           placeholder={t("enterYourMessage")}
-          className="bg-field"
+          className="form-input"
         />
       </div>
 

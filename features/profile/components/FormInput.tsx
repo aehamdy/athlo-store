@@ -6,14 +6,13 @@ import type {
   FieldValues,
   UseFormRegister,
 } from "react-hook-form";
-
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 type FormInputProps<T extends FieldValues> = {
   id: FieldPath<T>;
   name: FieldPath<T>;
-  label: string;
+  label?: string;
   register: UseFormRegister<T>;
   error?: FieldError;
   required?: boolean;
