@@ -10,7 +10,11 @@ function useAddToCart() {
 
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: cartQueryKeys.all,
+        queryKey: cartQueryKeys.items,
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: cartQueryKeys.summary,
       });
     },
   });

@@ -23,7 +23,7 @@ import CartList from "./CartList";
 function CartDrawer() {
   const [open, setOpen] = useState(false);
 
-  const { data: cartItems = [], isLoading, isError } = useFetchCartItems(open);
+  const { data: cartItems = [], isLoading, isError } = useFetchCartItems();
 
   const queryClient = useQueryClient();
 
