@@ -9,9 +9,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import Icon from "@/components/shared/Icon";
-import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 
 function PriceRangeFilter() {
@@ -21,27 +19,18 @@ function PriceRangeFilter() {
     price: false,
   });
 
-  // const minProductPrice = Math.min(...products.map((p) => p.price));
-  // const maxProductPrice = Math.max(...products.map((p) => p.price));
-
-  // const [priceRange, setPriceRange] = useState<[number, number]>([
-  //   minProductPrice,
-  //   maxProductPrice,
-  // ]);
-
   const toggleSection = (section: keyof typeof openSections) => {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
   };
 
   return (
     <div>
-      {/* Price Range Filter */}
       <Collapsible
         open={openSections.price}
         onOpenChange={() => toggleSection("price")}
       >
         <CollapsibleTrigger className="flex w-full items-center justify-between py-lg cursor-pointer">
-          <span className="font-semibold">{t("title")}</span>
+          <span className="font-semibold text-foreground">{t("title")}</span>
 
           <Icon
             name="ChevronDown"

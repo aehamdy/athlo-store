@@ -13,13 +13,6 @@ import Icon from "@/components/shared/Icon";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
-// const categories = [
-//   { id: "1", name: "All" },
-//   { id: "2", name: "Men" },
-//   { id: "3", name: "Women" },
-//   { id: "4", name: "Shoes" },
-//   { id: "5", name: "Accessories" },
-// ];
 const categories = [
   { id: "all" },
   { id: "men" },
@@ -65,13 +58,12 @@ function CategoryFilter() {
 
   return (
     <div>
-      {/* Category Filter */}
       <Collapsible
         open={openSections.category}
         onOpenChange={() => toggleSection("category")}
       >
         <CollapsibleTrigger className="flex items-center justify-between w-full py-lg cursor-pointer">
-          <span className="font-semibold">{t("title")}</span>
+          <span className="font-semibold text-foreground">{t("title")}</span>
 
           <Icon
             name="ChevronDown"

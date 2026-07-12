@@ -17,7 +17,7 @@ function SortDropdown() {
 
   return (
     <Select value={sortBy} onValueChange={(v) => setSortBy(v as SortOption)}>
-      <SelectTrigger className="w-40">
+      <SelectTrigger className="w-40 text-foreground">
         <SelectValue placeholder="Sort by" />
       </SelectTrigger>
 
