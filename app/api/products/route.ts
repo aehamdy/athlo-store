@@ -1,4 +1,4 @@
-import getProducts from "@/features/products/api/getProducts";
+import fetchProducts from "@/features/products/api/fetchProducts";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
     : undefined;
 
   try {
-    const data = await getProducts({
+    const data = await fetchProducts({
       pageNumber,
       pageSize,
       search,
