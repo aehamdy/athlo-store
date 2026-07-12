@@ -28,11 +28,14 @@ function AccountMenu() {
 
       <DropdownMenuContent>
         <DropdownMenuGroup>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuItem>
+          <DropdownMenuLabel className="mb-tiny border-b">
+            My Account
+          </DropdownMenuLabel>
+
+          <DropdownMenuItem asChild>
             <Link
               href={ROUTES.user.profile}
-              className="flex items-center gap-sm"
+              className="flex items-center gap-sm cursor-pointer"
             >
               <Icon
                 name="UserRound"
@@ -46,7 +49,9 @@ function AccountMenu() {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          <LogoutButton />
+          <DropdownMenuItem>
+            <LogoutButton />
+          </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
