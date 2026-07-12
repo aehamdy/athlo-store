@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Input } from "@/components/ui/input";
 
 function NewsletterForm() {
   const labelsT = useTranslations("labels");
@@ -10,12 +11,12 @@ function NewsletterForm() {
       className="flex flex-col md:flex-row items-center gap-sm w-full"
     >
       <div className="flex items-center gap-2 w-full bg-field border border-subtler focus-within:border focus-within:border-accent-strong rounded-sm">
-        <input
+        <Input
           type="email"
           name="email"
           id="email"
           placeholder={labelsT("enterEmail")}
-          className="w-full p-xs bg-field border border-subtle outline-none rounded-sm"
+          className="form-input"
         />
       </div>
 

@@ -35,7 +35,7 @@ function Header() {
         hidden
           ? "translate-y-[calc(100%+1.5rem)] lg:-translate-y-[calc(100%+1.5rem)]"
           : "translate-y-0"
-      } py-xs lg:py-sm px-sm lg:px-md bg-background backdrop-blur-md shadow-sm rounded-4xl z-50 transition-transform duration-normal ease-in-out`}
+      } py-xs lg:py-sm px-sm lg:px-md bg-background/80 backdrop-blur-md shadow-sm rounded-4xl z-50 transition-transform duration-normal ease-in-out`}
     >
       <div className="flex justify-between items-center">
         <div className="hidden lg:block">
