@@ -61,6 +61,12 @@
   --spacing-5xl: 3rem;
   --spacing-6xl: 3.5rem;
   --spacing-7xl: 4rem;
+  --spacing-8xl: 4.5rem;
+  --spacing-9xl: 5rem;
+  --spacing-10xl: 5.5rem;
+  --spacing-11xl: 6rem;
+  --spacing-12xl: 6.5rem;
+  --spacing-13xl: 7rem;
 
   /* Border radius */
   --radius-sm: 0.25rem;
@@ -131,10 +137,10 @@
   --accent-ring: color-mix(in hsl, var(--accent-base) 55%, transparent);
 
   /* Background layers */
-  /* --background:oklch(0.97 0 0); page */
-  /* --background: #fafafa; page */
-  --base: #fafafa; /* page */
-  --surface: #fff; /* cards */
+  /* --base: #fafafa; page */
+  /* --surface: #fff; cards */
+  --base: oklch(0.985 0 0);
+  --surface: oklch(1 0 0); /* cards */
 
   /* Text & icons */
   --foreground: oklch(0.145 0 0); /* main text */
@@ -189,8 +195,10 @@
 
 .dark {
   /* Background layers */
-  --base: oklch(0.145 0 0); /* page */
-  --surface: oklch(0.205 0 0); /* elevated */
+  /* --base: oklch(0.145 0 0);
+  --surface: oklch(0.205 0 0); */
+  --base: oklch(0.17 0 0);
+  --surface: oklch(0.22 0 0);
 
   /* Text & icons */
   --foreground: oklch(0.985 0 0); /* main text */
@@ -241,7 +249,7 @@
 }
 
 .form-input {
-  @apply text-primary-dark border-subtle focus-visible:border-none focus-visible:ring-accent-ring;
+  @apply text-foreground border-subtle focus-visible:border-none focus-visible:ring-accent-ring;
 }
 
 .main-button {
@@ -260,4 +268,8 @@
 }
 .section-spacing-x {
   @apply px-sm md:px-md;
+}
+
+.main-page {
+  @apply py-3xl md:py-5xl lg:py-13xl px-sm md:px-md bg-base;
 }

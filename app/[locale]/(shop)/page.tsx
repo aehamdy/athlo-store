@@ -2,7 +2,7 @@ import BrandStoryBanner from "@/features/home/BrandStoryBanner";
 import ShopByCategory from "@/features/home/ShopByCategory";
 import FeaturedProducts from "@/features/home/FeaturedProducts";
 import HeroSection from "@/features/home/HeroSection";
-import NewArrivals from "@/features/home/NewArrivals";
+// import NewArrivals from "@/features/home/NewArrivals";
 import NewsletterSection from "@/features/home/NewsletterSection";
 
 import type { Metadata } from "next";
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 
 function Home() {
   return (
-    <main className="">
+    <main>
       <section className="">
         <HeroSection />
 
@@ -67,7 +67,7 @@ function Home() {
 
         {/* <NewArrivals /> */}
 
-        <section className="py-24 bg-surface">
+        <section className="py-11xl bg-surface">
           <NewsletterSection variant="default" />
         </section>
       </section>
