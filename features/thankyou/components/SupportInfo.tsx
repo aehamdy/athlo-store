@@ -8,7 +8,7 @@ function SupportInfo() {
 
   return (
     <div>
-      <p className="mt-3xl text-sm text-muted-foreground animate-fade-in">
+      <p className="mt-3xl text-center text-sm text-muted-foreground">
         {t("text")}{" "}
         <Link
           href={ROUTES.public.contact}

@@ -7,7 +7,7 @@ function ActionButtons() {
   const t = useTranslations("actions");
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 w-full justify-center animate-fade-in">
+    <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
       <Link
         href={ROUTES.public.products}
         className="group flex justify-center items-center gap-sm w-full sm:w-fit p-sm font-medium text-primary-dark bg-accent-base hover:bg-accent-soft transition-colors duration-normal rounded-md"

@@ -13,7 +13,7 @@ function SuccessMessage() {
         {t("title")}
       </Heading>
 
-      <p className="mb-xs text-center text-xl text-muted-foreground animate-fade-in">
+      <p className="mb-xs text-center text-xl text-accent-base">
         {t("subtitle")}
       </p>
 
