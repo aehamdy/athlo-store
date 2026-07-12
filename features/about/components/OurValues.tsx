@@ -61,7 +61,9 @@ function OurValues() {
   return (
     <section className="section-spacing bg-surface">
       <div className="flex flex-col items-center gap-5xl px-md">
-        <h2 className="font-bold text-3xl text-center">{t("title")}</h2>
+        <h2 className="font-bold text-3xl  text-foreground text-center">
+          {t("title")}
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3xl">
           {values.map((value) => (

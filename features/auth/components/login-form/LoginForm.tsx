@@ -79,7 +79,7 @@ function LoginForm() {
 
         <div className="space-y-xs">
           <div className="flex items-center justify-between">
-            <label htmlFor="password" className="text-sm">
+            <label htmlFor="password" className="text-sm text-muted-foreground">
               {labelsT("password")}
             </label>
 

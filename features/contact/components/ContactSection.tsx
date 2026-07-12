@@ -50,7 +50,10 @@ function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5xl">
           {/* Contact Form */}
           <div className="p-8 bg-surface border border-subtle rounded-2xl">
-            <Heading as="h2" className="font-bold text-2xl mb-xl">
+            <Heading
+              as="h2"
+              className="mb-xl font-bold text-2xl text-foreground"
+            >
               {t("sendMessage")}
             </Heading>
 
@@ -60,7 +63,7 @@ function ContactSection() {
           {/* Contact Info */}
           <div className="space-y-3xl">
             <div className="space-y-sm">
-              <Heading className="font-bold text-2xl">
+              <Heading className="font-bold text-2xl text-foreground">
                 {t("contactInformation.title")}
               </Heading>
 

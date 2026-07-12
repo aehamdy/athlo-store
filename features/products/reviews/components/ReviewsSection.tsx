@@ -25,7 +25,9 @@ function ReviewsSection() {
           {isUserAuthenticated ? <ReviewForm /> : <ReviewLoginPanel />}
         </div>
 
-        <div className="lg:col-span-3">
+        <div
+          className={`lg:col-span-3 ${reviewList?.length === 0 && "bg-surface border border-subtle rounded-md"}`}
+        >
           <ReviewsList
             reviews={reviewList ?? []}
             isPending={isPending}

@@ -46,7 +46,6 @@ function ProductQuickViewDialog({ product, children }: Props) {
             <ProductImageGallery
               images={product.images}
               productName={product.name}
-              variant="quickView"
             />
           </div>
 

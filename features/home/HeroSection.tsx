@@ -56,7 +56,7 @@ export default function HeroSection() {
   }, [next]);
 
   return (
-    <section className="relative h-dvh overflow-hidden">
+    <section className="relative h-[75dvh] md:h-[80dvh] overflow-hidden">
       {/* Slides */}
       {slides.map((slide, i) => {
         const active = i === current;

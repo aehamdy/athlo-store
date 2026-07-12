@@ -20,7 +20,7 @@ function TeamMemberCard({ member }: TeamMemberCardProps) {
       </div>
 
       <div className="space-y-tiny text-center">
-        <Heading as="h3" className="font-semibold">
+        <Heading as="h3" className="font-semibold text-foreground">
           {member.name}
         </Heading>
 
