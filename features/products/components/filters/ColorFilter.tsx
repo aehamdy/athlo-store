@@ -10,12 +10,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import Icon from "@/components/shared/Icon";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-
-// const allColors = Array.from(
-//   new Map(products.flatMap((p) => p.colors).map((c) => [c.name, c])).values(),
-// );
 
 function ColorFilter() {
   const t = useTranslations("filters.color");
@@ -49,7 +44,7 @@ function ColorFilter() {
         onOpenChange={() => toggleSection("color")}
       >
         <CollapsibleTrigger className="flex items-center justify-between w-full py-lg cursor-pointer">
-          <span className="font-semibold">{t("title")}</span>
+          <span className="font-semibold text-foreground">{t("title")}</span>
 
           <Icon
             name="ChevronDown"

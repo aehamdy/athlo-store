@@ -9,12 +9,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import Icon from "@/components/shared/Icon";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-
-// const allSizes = Array.from(
-//   new Set(products.flatMap((p) => p.sizes).filter((s) => s !== "One Size")),
-// );
 
 function SizeFilter() {
   const t = useTranslations("filters.size");
@@ -45,7 +40,7 @@ function SizeFilter() {
         onOpenChange={() => toggleSection("size")}
       >
         <CollapsibleTrigger className="flex items-center justify-between w-full py-lg cursor-pointer">
-          <span className="font-semibold">{t("title")}</span>
+          <span className="font-semibold text-foreground">{t("title")}</span>
 
           <Icon
             name="ChevronDown"

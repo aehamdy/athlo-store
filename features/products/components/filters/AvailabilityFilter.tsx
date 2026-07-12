@@ -38,7 +38,7 @@ function AvailabilityFilter() {
         onOpenChange={() => toggleSection("availability")}
       >
         <CollapsibleTrigger className="flex items-center justify-between w-full py-lg cursor-pointer">
-          <span className="font-semibold">{t("title")}</span>
+          <span className="font-semibold text-foreground">{t("title")}</span>
 
           <Icon
             name="ChevronDown"
@@ -51,7 +51,10 @@ function AvailabilityFilter() {
 
         <CollapsibleContent className="mb-md pt-md space-y-md">
           <div className="flex items-center justify-between">
-            <Label htmlFor="new-only" className="text-sm cursor-pointer">
+            <Label
+              htmlFor="new-only"
+              className="text-sm text-muted-foreground cursor-pointer"
+            >
               {t("newOnly")}
             </Label>
 
@@ -63,7 +66,10 @@ function AvailabilityFilter() {
           </div>
 
           <div className="flex items-center justify-between">
-            <Label htmlFor="featured-only" className="text-sm cursor-pointer">
+            <Label
+              htmlFor="featured-only"
+              className="text-sm text-muted-foreground cursor-pointer"
+            >
               {t("featuredOnly")}
             </Label>
 

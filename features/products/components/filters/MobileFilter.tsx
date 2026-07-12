@@ -20,13 +20,13 @@ function MobileFilter() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" className="text-foreground">
           <Icon name="SlidersHorizontal" />
           {t("filter")}
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="left">
+      <SheetContent side="right" className="sm:max-w-100">
         <SheetHeader>
           <SheetTitle>{t("title")}</SheetTitle>
         </SheetHeader>
@@ -42,7 +42,9 @@ function MobileFilter() {
           <Button type="submit">{t("apply")}</Button>
 
           <SheetClose asChild>
-            <Button variant="outline">{t("close")}</Button>
+            <Button variant="outline" className="text-foreground">
+              {t("close")}
+            </Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>
