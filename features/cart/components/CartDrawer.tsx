@@ -89,7 +89,14 @@ function CartDrawer() {
             <Link
               href={isCartEmpty ? "#" : ROUTES.public.checkout}
               aria-disabled={isCartEmpty}
-              onClick={(e) => isCartEmpty && e.preventDefault()}
+              onClick={(e) => {
+                if (isCartEmpty) {
+                  e.preventDefault();
+                  return;
+                }
+
+                setOpen(false);
+              }}
               className={`main-button ${isCartEmpty && "pointer-events-none opacity-50 cursor-not-allowed"}`}
             >
               Checkout
