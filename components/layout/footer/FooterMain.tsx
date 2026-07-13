@@ -5,8 +5,8 @@ import Icon from "../../shared/Icon";
 import Heading from "../../shared/Heading";
 import navLinks from "@/lib/navLinks";
 import userLinks from "@/lib/userLinks";
-import Newsletter from "../../../features/home/NewsletterSection";
 import { useTranslations } from "next-intl";
+import NewsletterForm from "@/features/forms/NewsletterForm";
 
 function FooterMain() {
   const t = useTranslations("app");
@@ -100,9 +100,8 @@ function FooterMain() {
         </div>
       </div>
 
-      {/* Newsletter */}
       <div className="col-span-3 lg:col-span-1">
-        <Newsletter variant="compact" />
+        <NewsletterForm />
       </div>
     </section>
   );
