@@ -1,11 +1,9 @@
 import BrandStoryBanner from "@/features/home/BrandStoryBanner";
 import ShopByCategory from "@/features/home/ShopByCategory";
-import FeaturedProducts from "@/features/home/FeaturedProducts";
 import HeroSection from "@/features/home/HeroSection";
-// import NewArrivals from "@/features/home/NewArrivals";
 import NewsletterSection from "@/features/home/NewsletterSection";
-
 import type { Metadata } from "next";
+import NewArrivals from "@/features/home/NewArrivals";
 
 export const metadata: Metadata = {
   title: "Athlo Store | Premium Sportswear & Athletic Gear",
@@ -56,20 +54,16 @@ export const metadata: Metadata = {
 function Home() {
   return (
     <main>
-      <section className="">
-        <HeroSection />
+      <HeroSection />
 
-        <ShopByCategory />
+      <ShopByCategory />
 
-        {/* <FeaturedProducts /> */}
+      <BrandStoryBanner />
 
-        <BrandStoryBanner />
+      <NewArrivals />
 
-        {/* <NewArrivals /> */}
-
-        <section className="py-11xl bg-surface">
-          <NewsletterSection variant="default" />
-        </section>
+      <section className="py-11xl bg-surface">
+        <NewsletterSection variant="default" />
       </section>
     </main>
   );

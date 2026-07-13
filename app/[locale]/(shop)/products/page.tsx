@@ -1,12 +1,19 @@
 import FilterContent from "@/features/products/components/filters/FilterContent";
 import SortDropdown from "@/features/products/components/filters/SortDropdown";
 import Heading from "@/components/shared/Heading";
-import { useTranslations } from "next-intl";
 import MobileFilter from "@/features/products/components/filters/MobileFilter";
 import ProductsGrid from "@/features/products/components/ProductsGrid";
+import { getTranslations } from "next-intl/server";
 
-function ProductsPage() {
-  const t = useTranslations("productsPage");
+type ProductsPageProps = {
+  searchParams: Promise<{
+    category?: string;
+  }>;
+};
+
+async function ProductsPage({ searchParams }: ProductsPageProps) {
+  const { category } = await searchParams;
+  const t = await getTranslations("productsPage");
 
   return (
     <main className="main-page">
@@ -41,7 +48,7 @@ function ProductsPage() {
         </aside>
 
         <div className="lg:col-span-10">
-          <ProductsGrid />
+          <ProductsGrid category={category} />
         </div>
       </div>
     </main>
