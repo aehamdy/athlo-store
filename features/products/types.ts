@@ -76,4 +76,14 @@ export type GetProductsParams = {
   ordering?: number;
 };
 
+export type PaginatedProductsResponse = {
+  data: ProductT[];
+  currentPage: number;
+  totalPages: number;
+  totalCount: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+  pageSize: number;
+};
+
 export type ProductViewVariant = "details" | "card" | "cart-item" | "quickView";
