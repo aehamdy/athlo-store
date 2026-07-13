@@ -1,4 +1,4 @@
-import BrandStoryBanner from "@/features/home/BrandStoryBanner";
+import BrandStoryBanner from "@/features/home/components/BrandStoryBanner";
 import ShopByCategory from "@/features/home/ShopByCategory";
 import HeroSection from "@/features/home/HeroSection";
 import NewsletterSection from "@/features/home/NewsletterSection";
