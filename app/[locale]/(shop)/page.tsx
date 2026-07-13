@@ -59,7 +59,7 @@ function Home() {
       <section className="">
         <HeroSection />
 
-        {/* <ShopByCategory /> */}
+        <ShopByCategory />
 
         {/* <FeaturedProducts /> */}
 
