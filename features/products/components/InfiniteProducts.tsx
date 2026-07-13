@@ -20,9 +20,10 @@ type PaginatedProductsResponse = {
 
 type InfiniteProductsProps = {
   initialData: PaginatedProductsResponse;
+  category?: string;
 };
 
-function InfiniteProducts({ initialData }: InfiniteProductsProps) {
+function InfiniteProducts({ initialData, category }: InfiniteProductsProps) {
   const [products, setProducts] = useState(initialData.data);
 
   const [currentPage, setCurrentPage] = useState(initialData.currentPage);
@@ -43,6 +44,7 @@ function InfiniteProducts({ initialData }: InfiniteProductsProps) {
       const data = await fetchProducts({
         pageNumber: currentPage + 1,
         pageSize: initialData.pageSize,
+        search: category,
       });
 
       setProducts((prev) => [...prev, ...data.data]);
@@ -55,7 +57,7 @@ function InfiniteProducts({ initialData }: InfiniteProductsProps) {
     } finally {
       setIsLoading(false);
     }
-  }, [currentPage, hasNextPage, isLoading, initialData.pageSize]);
+  }, [currentPage, hasNextPage, isLoading, initialData.pageSize, category]);
 
   useEffect(() => {
     if (!loadMoreRef.current) return;
@@ -77,6 +79,13 @@ function InfiniteProducts({ initialData }: InfiniteProductsProps) {
 
     return () => observerRef.current?.disconnect();
   }, [loadMore]);
+
+  if (products.length === 0)
+    return (
+      <div className="flex justify-center items-center h-full text-foreground">
+        <p>There are no products!</p>
+      </div>
+    );
 
   return (
     <section className="flex-1">
