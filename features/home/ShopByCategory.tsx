@@ -7,11 +7,9 @@ function ShopByCategory() {
 
   return (
     <section className="py-16 bg-background">
-      {/* <div className="container mx-auto px-4"> */}
       <SectionHeader sectionTitle={t("title")} headingLevel="h2" />
 
       <CategoriesSlider />
-      {/* </div> */}
     </section>
   );
 }
