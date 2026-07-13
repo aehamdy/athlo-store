@@ -1,6 +1,6 @@
 import SectionHeader from "@/components/shared/SectionHeader";
-import CategoriesSlider from "./components/CategoriesWrapper";
 import { useTranslations } from "next-intl";
+import CategoriesWrapper from "./CategoriesWrapper";
 
 function ShopByCategory() {
   const t = useTranslations("home.shopByCategory");
@@ -9,7 +9,7 @@ function ShopByCategory() {
     <section className="py-16 bg-background">
       <SectionHeader sectionTitle={t("title")} headingLevel="h2" />
 
-      <CategoriesSlider />
+      <CategoriesWrapper />
     </section>
   );
 }

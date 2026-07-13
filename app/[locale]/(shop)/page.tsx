@@ -1,9 +1,9 @@
 import BrandStoryBanner from "@/features/home/components/BrandStoryBanner";
-import ShopByCategory from "@/features/home/ShopByCategory";
-import HeroSection from "@/features/home/HeroSection";
-import NewsletterSection from "@/features/home/NewsletterSection";
+import HeroSection from "@/features/home/components/HeroSection";
+import NewArrivals from "@/features/home/components/NewArrivals";
+import NewsletterSection from "@/features/home/components/NewsletterSection";
+import ShopByCategory from "@/features/home/components/ShopByCategory";
 import type { Metadata } from "next";
-import NewArrivals from "@/features/home/NewArrivals";
 
 export const metadata: Metadata = {
   title: "Athlo Store | Premium Sportswear & Athletic Gear",

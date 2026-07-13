@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { Button } from "../../components/ui/button";
 import { cn } from "@/lib/utils";
-import Icon from "../../components/shared/Icon";
+import { Button } from "@/components/ui/button";
+import Icon from "@/components/shared/Icon";
 
 const HERO_SLIDES = [
   {

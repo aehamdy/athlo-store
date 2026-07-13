@@ -1,6 +1,6 @@
+import Heading from "@/components/shared/Heading";
+import NewsletterForm from "@/features/forms/NewsletterForm";
 import { useTranslations } from "next-intl";
-import NewsletterForm from "../forms/NewsletterForm";
-import Heading from "../../components/shared/Heading";
 
 type NewsletterSectionProps = {
   variant: "default" | "compact";

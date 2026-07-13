@@ -1,8 +1,8 @@
 "use client";
 
-import ProductCard from "../products/components/ProductCard";
-import { ProductT } from "../products/types";
-import useFetchNewArrivals from "./hooks/useFetchNewArrivals";
+import ProductCard from "@/features/products/components/ProductCard";
+import useFetchNewArrivals from "../hooks/useFetchNewArrivals";
+import { ProductT } from "@/features/products/types";
 
 function NewArrivalsWrapper() {
   const { data: newProducts } = useFetchNewArrivals();
