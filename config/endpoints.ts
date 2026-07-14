@@ -73,5 +73,6 @@ export const ENDPOINTS = {
   },
   order: {
     create: `${CONTROLLER_PATH.order}/Create`,
+    orderHistory: `${CONTROLLER_PATH.order}/My-Orders`,
   },
 };
