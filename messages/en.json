@@ -498,6 +498,7 @@
 
     "tabs": {
       "profile": "Profile",
+      "my-orders": "My Orders",
       "password": "Password",
       "dangerZone": "Danger Zone"
     },
@@ -505,6 +506,24 @@
     "profile": {
       "title": "Personal Information",
       "description": "Update your account information."
+    },
+
+    "my-orders": {
+      "title": "Order History",
+      "description": "Track your past and current orders.",
+      "order": "Order",
+      "Pending": "Pending",
+      "Shipped": "Shipped",
+      "Paid": "Paid",
+      "Completed": "Completed",
+      "Delivered": "Delivered",
+      "Cancelled": "Cancelled",
+      "total": "Total",
+      "viewDetails": "View Details",
+      "orderDetails": "Order Details",
+      "viewOrderDetails": "View Order Details",
+      "orderDate": "Order Date",
+      "status": "Status"
     },
 
     "password": {
