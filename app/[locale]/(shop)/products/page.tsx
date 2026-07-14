@@ -8,11 +8,13 @@ import { getTranslations } from "next-intl/server";
 type ProductsPageProps = {
   searchParams: Promise<{
     category?: string;
+    search?: string;
+    ordering?: string;
   }>;
 };
 
 async function ProductsPage({ searchParams }: ProductsPageProps) {
-  const { category } = await searchParams;
+  const { category, search, ordering } = await searchParams;
   const t = await getTranslations("productsPage");
 
   return (
@@ -48,7 +50,11 @@ async function ProductsPage({ searchParams }: ProductsPageProps) {
         </aside>
 
         <div className="lg:col-span-10">
-          <ProductsGrid category={category} />
+          <ProductsGrid
+            category={category}
+            search={search}
+            ordering={ordering ? Number(ordering) : undefined}
+          />
         </div>
       </div>
     </main>

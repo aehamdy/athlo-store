@@ -12,20 +12,18 @@ import {
 import Icon from "@/components/shared/Icon";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-
-const categories = [
-  { id: "all" },
-  { id: "men" },
-  { id: "women" },
-  { id: "shoes" },
-  { id: "accessories" },
-];
+import useFetchCategories from "@/features/home/hooks/useFetchCategories";
+import { CategoryT } from "@/features/home/types";
 
 function CategoryFilter() {
+  const { data } = useFetchCategories();
+
   const t = useTranslations("filters.categoryFilter");
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  const categories = data?.data ?? [];
 
   const selectedCategory = useMemo(
     () => searchParams.get("category") ?? "all",
@@ -75,23 +73,38 @@ function CategoryFilter() {
         </CollapsibleTrigger>
 
         <CollapsibleContent className="pt-xs">
-          <div className="mb-md space-y-tiny">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant="plain"
-                onClick={() => handleCategoryChange(category.id)}
-                className={cn(
-                  "flex justify-start w-full px-sm py-xs rounded-lg transition-colors cursor-pointer",
-                  selectedCategory === category.id
-                    ? "text-primary-dark bg-accent-base/90 hover:bg-accent-base"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground",
-                )}
-              >
-                {t(category.id)}
-              </Button>
+          <ul className="max-h-70 mb-md space-y-tiny overflow-y-scroll">
+            <Button
+              variant="plain"
+              onClick={() => handleCategoryChange("all")}
+              className={cn(
+                "flex justify-start w-full px-sm py-xs rounded-lg",
+                selectedCategory === "all"
+                  ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
+              )}
+            >
+              All
+            </Button>
+
+            {categories.map((category: CategoryT) => (
+              <li key={category.id} className="">
+                <Button
+                  key={category.id}
+                  variant="plain"
+                  onClick={() => handleCategoryChange(category.name)}
+                  className={cn(
+                    "flex justify-start w-full px-sm py-xs rounded-lg transition-colors cursor-pointer",
+                    selectedCategory === category.name
+                      ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
+                  )}
+                >
+                  {category.name}
+                </Button>
+              </li>
             ))}
-          </div>
+          </ul>
         </CollapsibleContent>
       </Collapsible>
 
