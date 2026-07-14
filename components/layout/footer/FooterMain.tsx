@@ -1,3 +1,5 @@
+"use client";
+
 import appConfig from "@/config/appConfig";
 import Logo from "../../shared/Logo";
 import Link from "next/link";
@@ -7,11 +9,26 @@ import navLinks from "@/lib/navLinks";
 import userLinks from "@/lib/userLinks";
 import { useTranslations } from "next-intl";
 import NewsletterForm from "@/features/forms/NewsletterForm";
+import { useAuthStore } from "@/lib/stores/auth.store";
+import { brandLogos } from "@/config/brand-logos";
 
 function FooterMain() {
   const t = useTranslations("app");
   const navigationsT = useTranslations("navigation");
   const footerT = useTranslations("footer");
+
+  const { isAuthenticated } = useAuthStore();
+
+  const visibleLinks = userLinks.filter((link) => {
+    switch (link.visibility) {
+      case "always":
+        return true;
+      case "guest":
+        return !isAuthenticated;
+      case "authenticated":
+        return isAuthenticated;
+    }
+  });
 
   const primaryPhone =
     appConfig.contact.phones.find((p) => p.label === "primary")?.value ?? "";
@@ -31,18 +48,20 @@ function FooterMain() {
           </div>
 
           <div className="flex items-center gap-sm">
-            {appConfig.social.map((channel) => (
-              <Link
-                key={channel.name}
-                href={channel.url}
-                className="group text-sm"
-              >
-                <Icon
-                  name="ExternalLink"
-                  className="group-hover:text-accent-base"
-                />
-              </Link>
-            ))}
+            {appConfig.social.map((channel) => {
+              const SocialIcon = brandLogos[channel.name];
+
+              return (
+                <Link
+                  key={channel.name}
+                  href={channel.url}
+                  target="_blank"
+                  className="group text-lg text-muted-foreground"
+                >
+                  <SocialIcon className="group-hover:text-accent-base" />
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -75,13 +94,13 @@ function FooterMain() {
           </Heading>
 
           <ul className="flex flex-col gap-sm">
-            {userLinks.map((link) => (
+            {visibleLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className="hover:text-accent-base transition-colors duration-normal"
               >
-                {navigationsT(link.key)}
+                {navigationsT(link.label)}
               </Link>
             ))}
           </ul>

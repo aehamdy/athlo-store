@@ -52,10 +52,10 @@ const appConfig: AppConfig = {
   ],
 
   social: [
-    { name: "facebook", url: "https://facebook.com/", icon: "Facebook" },
-    { name: "instagram", url: "https://instagram.com/", icon: "Instagram" },
-    { name: "twitter", url: "https://twitter.com/", icon: "Twitter" },
-    { name: "youtube", url: "https://youtube.com/", icon: "Youtube" },
+    { name: "facebook", url: "https://facebook.com/" },
+    { name: "instagram", url: "https://instagram.com/" },
+    { name: "x", url: "https://twitter.com/" },
+    { name: "youtube", url: "https://youtube.com/" },
   ],
 };
 

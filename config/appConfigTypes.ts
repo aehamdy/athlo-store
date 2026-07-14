@@ -1,3 +1,5 @@
+import { BrandLogoName } from "./brand-logos";
+
 export type AppConfig = {
   name: string;
   slug: string;
@@ -41,8 +43,7 @@ type Location = {
   addresses: Address[];
 };
 
-type SocialLink = {
-  name: string;
+export type SocialLink = {
+  name: BrandLogoName;
   url: string;
-  icon: string;
 };
