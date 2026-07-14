@@ -210,9 +210,9 @@
   "filters": {
     "sort": {
       "placeholder": "Sort by",
-      "newest": "Newest",
-      "priceLowToHigh": "Price: Low to High",
-      "priceHighToLow": "Price: High to Low"
+      "newestFirst": "Newest First",
+      "alphabetically": "Alphabetically",
+      "priceLowToHigh": "Price: Low to High"
     },
 
     "mobileFilter": {
