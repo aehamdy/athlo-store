@@ -24,7 +24,7 @@ function TabsWrapper({ user }: TabWrapperProps) {
 
   return (
     <Tabs dir={dir} defaultValue="profile" className="w-full space-y-lg">
-      <TabsList className="w-full space-x-sm bg-surface p-2">
+      <TabsList className="w-full space-x-sm bg-surface">
         {tabsList.map((tab) => (
           <TabsTrigger
             key={tab.id}
