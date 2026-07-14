@@ -3,12 +3,14 @@ import ProfilePanel from "./ProfilePanel";
 import PasswordPanel from "./PasswordPanel";
 import DangerZonePanel from "./DangerZonePanel";
 import { User } from "@/features/auth/types/auth.types";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import MyOrders from "./MyOrders";
 
 const tabsList = [
   { id: 1, value: "profile", label: "profile" },
-  { id: 2, value: "password", label: "password" },
-  { id: 3, value: "danger-zone", label: "dangerZone" },
+  { id: 2, value: "my-orders", label: "my-orders" },
+  { id: 3, value: "password", label: "password" },
+  { id: 4, value: "danger-zone", label: "dangerZone" },
 ];
 
 type TabWrapperProps = {
@@ -16,10 +18,12 @@ type TabWrapperProps = {
 };
 
 function TabsWrapper({ user }: TabWrapperProps) {
+  const locale = useLocale();
+  const dir = locale === "ar" ? "rtl" : "ltr";
   const t = useTranslations("profilePage.tabs");
 
   return (
-    <Tabs defaultValue="profile" className="w-full space-y-lg">
+    <Tabs dir={dir} defaultValue="profile" className="w-full space-y-lg">
       <TabsList className="w-full space-x-sm bg-surface">
         {tabsList.map((tab) => (
           <TabsTrigger
@@ -34,6 +38,10 @@ function TabsWrapper({ user }: TabWrapperProps) {
 
       <TabsContent value="profile">
         <ProfilePanel user={user} />
+      </TabsContent>
+
+      <TabsContent value="my-orders">
+        <MyOrders />
       </TabsContent>
 
       <TabsContent value="password">
