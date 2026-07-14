@@ -1,10 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-
 import ProductCard from "@/features/products/components/ProductCard";
 import LoadingMoreProducts from "../../product/components/LoadingMoreProducts";
-
 import { ProductT } from "@/features/products/types";
 import fetchProducts from "../api/fetchProducts";
 
@@ -20,10 +18,15 @@ type PaginatedProductsResponse = {
 
 type InfiniteProductsProps = {
   initialData: PaginatedProductsResponse;
-  category?: string;
+  search?: string;
+  ordering?: number;
 };
 
-function InfiniteProducts({ initialData, category }: InfiniteProductsProps) {
+function InfiniteProducts({
+  initialData,
+  search,
+  ordering,
+}: InfiniteProductsProps) {
   const [products, setProducts] = useState(initialData.data);
 
   const [currentPage, setCurrentPage] = useState(initialData.currentPage);
@@ -44,7 +47,8 @@ function InfiniteProducts({ initialData, category }: InfiniteProductsProps) {
       const data = await fetchProducts({
         pageNumber: currentPage + 1,
         pageSize: initialData.pageSize,
-        search: category,
+        search,
+        ordering,
       });
 
       setProducts((prev) => [...prev, ...data.data]);
@@ -57,7 +61,7 @@ function InfiniteProducts({ initialData, category }: InfiniteProductsProps) {
     } finally {
       setIsLoading(false);
     }
-  }, [currentPage, hasNextPage, isLoading, initialData.pageSize, category]);
+  }, [currentPage, hasNextPage, isLoading, initialData.pageSize, search]);
 
   useEffect(() => {
     if (!loadMoreRef.current) return;
