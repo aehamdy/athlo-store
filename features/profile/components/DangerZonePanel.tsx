@@ -47,7 +47,7 @@ function DangerZonePanel() {
           <CardDescription>{t("signOutDescription")}</CardDescription>
         </CardHeader>
 
-        <CardContent className="flex flex-col">
+        <CardContent className="flex flex-col px-lg">
           <div className="ms-auto w-40">
             <LogoutButton variant="outline" />
           </div>
@@ -63,7 +63,7 @@ function DangerZonePanel() {
           <CardDescription>{t("deleteAccountDescription")}</CardDescription>
         </CardHeader>
 
-        <CardContent className="flex flex-col gap-xl">
+        <CardContent className="flex flex-col gap-xl px-lg">
           <div className="ms-auto w-40">
             <AlertDialog>
               <AlertDialogTrigger asChild>
