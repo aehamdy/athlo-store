@@ -24,12 +24,12 @@ function TabsWrapper({ user }: TabWrapperProps) {
 
   return (
     <Tabs dir={dir} defaultValue="profile" className="w-full space-y-lg">
-      <TabsList className="w-full space-x-sm bg-surface">
+      <TabsList className="w-full space-x-sm bg-surface p-2">
         {tabsList.map((tab) => (
           <TabsTrigger
             key={tab.id}
             value={tab.value}
-            className="data-[state=active]:text-red-500 data-[state=active]:bg-red-500 cursor-pointer"
+            className="p-2 data-[state=active]:text-red-500 data-[state=active]:bg-red-500 cursor-pointer"
           >
             {t(tab.label)}
           </TabsTrigger>

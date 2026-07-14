@@ -67,7 +67,7 @@ function PasswordPanel() {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="text-sm text-muted-foreground">
+      <CardContent className="px-lg text-sm text-muted-foreground">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-6">
             <FormInput

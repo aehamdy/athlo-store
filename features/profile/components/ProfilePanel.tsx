@@ -66,7 +66,7 @@ function ProfilePanel({ user }: ProfilePanelProps) {
       </CardHeader>
 
       <CardContent>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="px-lg space-y-6">
           <div className="grid gap-6 md:grid-cols-2">
             <FormInput
               id="userName"
