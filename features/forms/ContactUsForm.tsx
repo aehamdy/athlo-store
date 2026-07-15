@@ -47,7 +47,9 @@ function ContactUsForm() {
         />
       </div>
 
-      <Button className="main-button">{actionsT("sendMessage")}</Button>
+      <Button className="main-button" disabled>
+        {actionsT("sendMessage")}
+      </Button>
     </form>
   );
 }
