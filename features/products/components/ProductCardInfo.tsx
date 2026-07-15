@@ -9,6 +9,7 @@ type ProductCardInfoProps = {
   category?: string;
   season?: string;
   prices: ProductPricesT;
+  variant?: string;
 };
 
 function ProductCardInfo({
@@ -17,15 +18,18 @@ function ProductCardInfo({
   category,
   season,
   prices,
+  variant,
 }: ProductCardInfoProps) {
   return (
     <div dir="ltr" className="border-t p-4 space-y-3 bg-surface">
-      <ProductMetaInfo
-        variant="card"
-        brand={brand}
-        season={season}
-        category={category}
-      />
+      {variant !== "search" && (
+        <ProductMetaInfo
+          variant="card"
+          brand={brand}
+          season={season}
+          category={category}
+        />
+      )}
 
       <ProductTitleDisplay variant="card" title={name} />
 

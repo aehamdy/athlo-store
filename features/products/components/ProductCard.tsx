@@ -8,9 +8,11 @@ import mapProductPrices from "../utils/mapProductPrices";
 
 type ProductCardProps = {
   product: ProductT;
+  variant?: string;
+  onClick?: () => void;
 };
 
-function ProductCard({ product }: ProductCardProps) {
+function ProductCard({ product, variant, onClick }: ProductCardProps) {
   const prices = mapProductPrices(product);
 
   return (
@@ -18,6 +20,7 @@ function ProductCard({ product }: ProductCardProps) {
       <Link
         href={ROUTES.public.productDetail(product.id.toString())}
         className="focus-visible:bg-red-500 focus-visible:shadow-lg"
+        onClick={onClick}
       >
         <div className="aspect-square bg-white overflow-hidden">
           <Image
@@ -30,6 +33,7 @@ function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <ProductCardInfo
+          variant={variant}
           name={product.name}
           brand={product.brandName}
           category={product.categoryName}
@@ -38,7 +42,9 @@ function ProductCard({ product }: ProductCardProps) {
         />
       </Link>
 
-      <ProductActions product={product} hasVariants={product.hasVariants} />
+      {variant !== "search" && (
+        <ProductActions product={product} hasVariants={product.hasVariants} />
+      )}
     </article>
   );
 }

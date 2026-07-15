@@ -10,27 +10,36 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Icon from "./shared/Icon";
-import { useRef, KeyboardEvent } from "react";
+import { useRef, useState, useEffect } from "react";
+import useSearchProducts from "@/features/products/hooks/useSearchProducts";
+import ProductCard from "@/features/products/components/ProductCard";
 
 function SearchModal() {
+  const [open, setOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const { data } = useSearchProducts(searchValue);
 
-  const handleModal = (e: KeyboardEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (e.key === "k" && e.ctrlKey) {
-      // Open search modal
-      buttonRef.current?.click();
-    }
-  };
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setOpen(true);
+      }
+    };
+
+    window.addEventListener("keydown", handler);
+
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild className="">
         <Button
           variant="plain"
           className="flex justify-between items-center gap-3xl text-muted-foreground lg:bg-field lg:border lg:border-subtle"
           ref={buttonRef}
-          onKeyDown={handleModal}
         >
           <Icon name="Search" />
 
@@ -40,35 +49,49 @@ function SearchModal() {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-100">
-        <DialogHeader>
-          <DialogTitle></DialogTitle>
-          <DialogDescription></DialogDescription>
+      <DialogContent className="sm:max-w-9/10 lg:max-w-1/2 h-[70dvh] overflow-y-auto">
+        <DialogHeader className="sticky top-0 bg-surface py-2 px-2 md:px-4 lg:px-8 shadow-xs z-50">
+          <DialogTitle>
+            <span className="">Search</span>
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Search for products
+          </DialogDescription>
+
           <div className="flex items-center gap-2 p-tiny bg-field border-2 border-subtler focus-within:border-2 focus-within:border-accent-strong rounded-sm">
             <Icon name="Search" />
+
             <input
               type="text"
-              name="search"
-              id="search"
               placeholder="Search products..."
               className="w-full outline-none"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  console.log(searchValue);
+                }
+              }}
             />
           </div>
         </DialogHeader>
 
-        <div className="no-scrollbar -mx-4 max-h-[50vh] overflow-y-auto px-4">
-          {/* {Array.from({ length: 10 }).map((_, index) => (
-            <p key={index} className="mb-4 leading-normal">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          ))} */}
-        </div>
+        {data?.data?.length === 0 ? (
+          <div className="flex justify-center items-center h-20 text-muted-foreground">
+            <p className="">There are no results for your search!</p>
+          </div>
+        ) : (
+          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md py-2 px-4 lg:px-10">
+            {data?.data?.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                variant="search"
+                onClick={() => setOpen(false)}
+              />
+            ))}
+          </ul>
+        )}
       </DialogContent>
     </Dialog>
   );
