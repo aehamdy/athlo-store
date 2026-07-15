@@ -30,7 +30,7 @@ function ProductActionButton({
           disabled={disabled}
           onClick={onClick}
           className={cn(
-            "focus-visible:bg-accent-base focus-visible:text-primary-dark w-10 h-10 text-foreground hover:text-primary-dark bg-surface hover:bg-accent-base rounded-full shadow-lg",
+            "focus-visible:bg-accent-base focus-visible:text-primary-dark w-10 md:w-12 h-10 md:h-12 text-foreground hover:text-primary-dark bg-surface hover:bg-accent-base rounded-full shadow-lg",
             className,
           )}
           aria-label={label}
