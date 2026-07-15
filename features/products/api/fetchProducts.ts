@@ -1,6 +1,6 @@
 import { ENDPOINTS } from "@/config/endpoints";
-import { PaginatedProductsResponse } from "@/features/products/components/ProductsGrid";
 import { api } from "@/lib/api";
+import { PaginatedProductsResponse } from "../types";
 
 type GetProductsParams = {
   pageNumber?: number;
