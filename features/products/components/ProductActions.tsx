@@ -20,27 +20,13 @@ type actionButtonT = {
 const actionButtons: actionButtonT[] = [
   {
     id: 1,
-    type: "wishlist",
-    icon: "Heart",
-    label: "addToWishlist",
-    onClick: () => {},
-  },
-  {
-    id: 2,
     type: "quickview",
     icon: "Eye",
     label: "quickView",
     onClick: () => {},
   },
   {
-    id: 3,
-    type: "compare",
-    icon: "GitCompare",
-    label: "addToCompare",
-    onClick: () => {},
-  },
-  {
-    id: 4,
+    id: 2,
     type: "cart",
     icon: "ShoppingBag",
     label: "addToCart",
