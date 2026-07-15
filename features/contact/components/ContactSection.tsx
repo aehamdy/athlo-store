@@ -57,6 +57,13 @@ function ContactSection() {
               {t("sendMessage")}
             </Heading>
 
+            <div className="flex flex-col items center text-center">
+              <p className="text-red-500">
+                The contact form is currently unavailable because the backend
+                functionality is still under development.
+              </p>
+            </div>
+
             <ContactUsForm />
           </div>
 
