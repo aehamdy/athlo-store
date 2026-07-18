@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "../../../components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import AppImage from "@/components/shared/AppImage";
 
 type ProductImageGalleryProps = {
   images: string[];
@@ -19,12 +19,11 @@ function ProductImageGallery({
   return (
     <div className={`space-y-md bg-base`}>
       <div className="aspect-square bg-muted rounded-xl border overflow-hidden">
-        <Image
-          src={images[selectedImage]}
-          alt={productName}
+        <AppImage
+          productImage={images[selectedImage]}
+          altText={productName}
           width={500}
           height={500}
-          className="w-full h-full object-cover"
         />
       </div>
 
@@ -41,10 +40,9 @@ function ProductImageGallery({
                   : "border-subtle",
               )}
             >
-              <Image
-                src={image}
-                alt=""
-                className="w-full h-full object-cover"
+              <AppImage
+                productImage={image}
+                altText={""}
                 width={200}
                 height={200}
               />
