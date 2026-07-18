@@ -1,10 +1,12 @@
-import Image from "next/image";
+"use client";
+
 import { ProductT } from "../types";
 import ProductActions from "./ProductActions";
 import ProductCardInfo from "./ProductCardInfo";
 import Link from "next/link";
 import ROUTES from "@/lib/routes";
 import mapProductPrices from "../utils/mapProductPrices";
+import AppImage from "@/components/shared/AppImage";
 
 type ProductCardProps = {
   product: ProductT;
@@ -23,12 +25,10 @@ function ProductCard({ product, variant, onClick }: ProductCardProps) {
         onClick={onClick}
       >
         <div className="aspect-square bg-white overflow-hidden">
-          <Image
-            src={product.images[0] || "/images/placeholder.png"}
-            alt={product.name}
-            width={300}
-            height={300}
-            className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-slow"
+          <AppImage
+            productImage={product.images[0]}
+            altText={product.name}
+            className="group-hover:scale-105"
           />
         </div>
 

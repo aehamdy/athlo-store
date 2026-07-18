@@ -1,7 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { CategoryT } from "../types";
 import ROUTES from "@/lib/routes";
+import AppImage from "@/components/shared/AppImage";
+import Heading from "@/components/shared/Heading";
 
 type CategoryCardProps = {
   category: CategoryT;
@@ -15,20 +16,21 @@ function CategoryCard({ category }: CategoryCardProps) {
         href={`${ROUTES.public.products}?category=${encodeURIComponent(category.name)}`}
         className="group relative aspect-square rounded-xl overflow-hidden"
       >
-        <Image
-          src={category.imageUrl}
-          alt={category.name}
-          width={600}
-          height={600}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        <AppImage
+          productImage={category.imageUrl}
+          altText={category.name}
+          className="group-hover:scale-110 "
         />
 
         <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
 
         <div className="absolute bottom-0 left-0 right-0 p-4">
-          <h3 className="text-white text-lg md:text-xl font-semibold">
+          <Heading
+            as="h3"
+            className="text-white text-sm md:text-lg font-semibold"
+          >
             {category.name}
-          </h3>
+          </Heading>
         </div>
 
         <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
