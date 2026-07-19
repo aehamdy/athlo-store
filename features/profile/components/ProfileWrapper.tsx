@@ -3,16 +3,25 @@
 import UserCard from "./UserCard";
 import useCurrentUser from "../hooks/useCurrentUser";
 import TabsWrapper from "./TabsWrapper";
+import LoadingIndicator from "@/components/shared/LoadingIndicator";
+import ErrorMessage from "@/components/shared/ErrorMessage";
+import { Button } from "@/components/ui/button";
 
 function ProfileWrapper() {
   const { data: user, isPending, isError } = useCurrentUser();
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return <LoadingIndicator size="lg" />;
   }
 
   if (isError || !user) {
-    return <div>Failed to load profile.</div>;
+    return (
+      <div className="flex flex-col gap-lg">
+        <ErrorMessage message="Failed to load profile." />
+
+        <Button variant="default">Return to home</Button>
+      </div>
+    );
   }
 
   return (
