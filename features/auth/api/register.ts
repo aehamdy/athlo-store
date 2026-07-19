@@ -1,9 +1,14 @@
 import { api } from "@/lib/api";
-import { RegisterRequest } from "../types/auth.types";
+import { RegisterRequest, RegisterResponse } from "../types/auth.types";
 import { ENDPOINTS } from "@/config/endpoints";
 
-function register(payload: RegisterRequest) {
-  return api.post(ENDPOINTS.user.register, payload);
+async function register(payload: RegisterRequest) {
+  const response = await api.post<RegisterResponse>(
+    ENDPOINTS.user.register,
+    payload,
+  );
+
+  return response.data;
 }
 
 export default register;
