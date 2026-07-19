@@ -9,6 +9,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
   login: (user) =>
     set({
+      initialized: true,
       user,
       isAuthenticated: true,
     }),
@@ -22,12 +23,14 @@ export const useAuthStore = create<AuthState>((set) => ({
 
   setUser: (user) =>
     set({
+      initialized: true,
       user,
       isAuthenticated: !!user,
     }),
 
   setAuthenticated: (authenticated) =>
     set({
+      initialized: true,
       isAuthenticated: authenticated,
     }),
 

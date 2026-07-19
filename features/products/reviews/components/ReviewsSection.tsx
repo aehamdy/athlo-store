@@ -1,13 +1,15 @@
-import { isAuthenticated } from "@/lib/auth/auth";
+"use client";
+
 import useFetchReviews from "../hooks/useFetchReviews";
 import ReviewForm from "./ReviewForm";
 import ReviewsList from "./ReviewsList";
 import ReviewsSectionHeader from "./ReviewsSectionHeader";
 import { useParams } from "next/navigation";
 import ReviewLoginPanel from "./ReviewLoginPanel";
+import { useAuthStore } from "@/lib/stores/auth.store";
 
 function ReviewsSection() {
-  const isUserAuthenticated = isAuthenticated();
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const params = useParams();
 
   const {
@@ -22,7 +24,7 @@ function ReviewsSection() {
 
       <div className="grid lg:grid-cols-5 gap-3xl">
         <div className="lg:col-span-2">
-          {isUserAuthenticated ? <ReviewForm /> : <ReviewLoginPanel />}
+          {isAuthenticated ? <ReviewForm /> : <ReviewLoginPanel />}
         </div>
 
         <div
