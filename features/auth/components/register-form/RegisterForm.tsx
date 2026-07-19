@@ -72,6 +72,24 @@ function RegisterForm() {
         />
 
         <FormInput
+          id="password"
+          name="password"
+          type="password"
+          label="Password"
+          register={register}
+          error={errors.password}
+        />
+
+        <FormInput
+          id="confirmPassword"
+          name="confirmPassword"
+          type="password"
+          label="Confirm Password"
+          register={register}
+          error={errors.confirmPassword}
+        />
+
+        <FormInput
           id="firstName"
           name="firstName"
           label="First Name"
@@ -135,24 +153,6 @@ function RegisterForm() {
           label="Country"
           register={register}
           error={errors.country}
-        />
-
-        <FormInput
-          id="password"
-          name="password"
-          type="password"
-          label="Password"
-          register={register}
-          error={errors.password}
-        />
-
-        <FormInput
-          id="confirmPassword"
-          name="confirmPassword"
-          type="password"
-          label="Confirm Password"
-          register={register}
-          error={errors.confirmPassword}
         />
       </div>
 

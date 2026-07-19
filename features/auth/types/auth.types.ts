@@ -52,3 +52,7 @@ export type RegisterRequest = {
   postalCode: string;
   country: string;
 };
+
+export type RegisterResponse = {
+  message: string;
+};
