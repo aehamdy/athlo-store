@@ -33,8 +33,8 @@ function LoginForm() {
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      username: "admin",
-      password: "M123_m",
+      username: "ahmed",
+      password: "Ahmed.10",
     },
   });
 
