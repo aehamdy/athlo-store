@@ -3,6 +3,7 @@ import "./globals.css";
 import Providers from "@/lib/providers";
 import { cookies } from "next/headers";
 import { STORAGE_KEYS } from "@/config/constants";
+import { Toaster } from "@/components/ui/sonner";
 
 export default async function RootLayout({
   children,
@@ -19,6 +20,8 @@ export default async function RootLayout({
       <body>
         <Providers initialIsAuthenticated={initialIsAuthenticated}>
           {children}
+
+          <Toaster richColors position="bottom-right" />
         </Providers>
       </body>
     </html>
