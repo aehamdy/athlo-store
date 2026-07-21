@@ -38,12 +38,12 @@ function SearchModal() {
       <DialogTrigger asChild className="">
         <Button
           variant="plain"
-          className="flex justify-between items-center gap-3xl text-muted-foreground lg:bg-field lg:border lg:border-subtle"
+          className="flex justify-between items-center gap-xl text-muted-foreground lg:border lg:border-subtle"
           ref={buttonRef}
         >
           <Icon name="Search" />
 
-          <div className="hidden lg:block bg-subtle py-tiny px-xs rounded-sm">
+          <div className="hidden lg:block bg-surface py-tiny px-xs rounded-sm">
             Ctrl + K
           </div>
         </Button>

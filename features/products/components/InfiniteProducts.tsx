@@ -93,7 +93,7 @@ function InfiniteProducts({
 
   return (
     <section className="flex-1">
-      <div className="grid grid-cols-1 gap-xl sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-xl sm:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

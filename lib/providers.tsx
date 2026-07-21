@@ -15,14 +15,15 @@ export default function Providers({
   children,
   initialIsAuthenticated,
 }: ProvidersProps) {
+  const setAuthenticated = useAuthStore((state) => state.setAuthenticated);
+
   useEffect(() => {
     setupInterceptors();
   }, []);
 
-  // Initialize Zustand once
-  useAuthStore.setState({
-    isAuthenticated: initialIsAuthenticated,
-  });
+  useEffect(() => {
+    setAuthenticated(initialIsAuthenticated);
+  }, [initialIsAuthenticated, setAuthenticated]);
 
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

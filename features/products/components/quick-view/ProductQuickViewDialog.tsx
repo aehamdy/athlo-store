@@ -42,7 +42,7 @@ function ProductQuickViewDialog({ product, children }: Props) {
         </DialogHeader>
 
         <div className="grid md:grid-cols-2">
-          <div className="flex justify-center items-center bg-white">
+          <div className="flex justify-center items-center p-md">
             <ProductImageGallery
               images={product.images}
               productName={product.name}

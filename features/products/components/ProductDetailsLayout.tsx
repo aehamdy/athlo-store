@@ -49,7 +49,7 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
   };
 
   return (
-    <section className="space-y-3xl">
+    <section className="lg:pt-2xl space-y-3xl">
       <div className="grid lg:grid-cols-12 gap-lg">
         {/* Product Images */}
         <div className="lg:col-span-5">
@@ -117,14 +117,14 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
                 />
               </div>
 
-              <ProductActionButton
+              {/* <ProductActionButton
                 variant="icon"
                 tooltip="top"
                 icon="Heart"
                 label="Add to wishlist"
                 className="shrink-0"
                 onClick={() => {}}
-              />
+              /> */}
             </div>
           </div>
         </div>

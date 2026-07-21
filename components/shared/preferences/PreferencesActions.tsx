@@ -14,8 +14,8 @@ function PreferencesActions() {
     <div className="flex items-center gap-xs">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="plain" className="action-button">
-            <Icon name="Settings" />
+          <Button variant="plain" className="group action-button">
+            <Icon name="Settings" className="group-hover:text-current" />
           </Button>
         </DropdownMenuTrigger>
 

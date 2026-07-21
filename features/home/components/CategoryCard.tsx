@@ -19,7 +19,7 @@ function CategoryCard({ category }: CategoryCardProps) {
         <AppImage
           productImage={category.imageUrl}
           altText={category.name}
-          className="group-hover:scale-110 "
+          className="group-hover:scale-105 "
         />
 
         <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
