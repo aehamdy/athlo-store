@@ -514,6 +514,8 @@
     "my-orders": {
       "title": "سجل الطلبات",
       "description": "تتبع طلباتك الحالية والسابقة.",
+      "noOrdersMessage": "لا توجد أي طلبات لديك حتى الآن.",
+      "failedToLoadOrders": "حدث خطأ أثناء تحميل طلباتك.",
       "order": "الطلب",
       "Pending": "قيد التجهيز",
       "Shipped": "تم الشحن",
@@ -588,6 +590,8 @@
 
   "checkoutPage": {
     "title": "الدفع",
+    "failedToLoadProfile": "تعذر تحميل الملف الشخصي.",
+    "failedToLoadShippingMethods": "تعذر تحميل طرق الشحن.",
     "shipping": {
       "title": "معلومات الشحن",
       "fullName": "الاسم الكامل",
@@ -619,6 +623,7 @@
 
     "summary": {
       "title": "ملخص الطلب",
+      "failedToLoadSummary": "تعذر تحميل ملخص الطلب.",
       "items": "المنتجات",
       "itemDetails": "المقاس، اللون، الكمية",
       "itemTotal": "إجمالي العناصر",
