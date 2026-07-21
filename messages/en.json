@@ -511,6 +511,8 @@
     "my-orders": {
       "title": "Order History",
       "description": "Track your past and current orders.",
+      "noOrdersMessage": "You haven't placed any orders yet.",
+      "failedToLoadOrders": "Failed to load your orders.",
       "order": "Order",
       "Pending": "Pending",
       "Shipped": "Shipped",
@@ -585,6 +587,8 @@
 
   "checkoutPage": {
     "title": "Checkout",
+    "failedToLoadProfile": "Failed to load profile.",
+    "failedToLoadShippingMethods": "Failed to load shipping methods.",
     "shipping": {
       "title": "Shipping Information",
       "fullName": "Full Name",
@@ -616,6 +620,7 @@
 
     "summary": {
       "title": "Order Summary",
+      "failedToLoadSummary": "Failed to load order summary.",
       "items": "Items",
       "itemDetails": "Size, color, quantity",
       "itemTotal": "Item total",
