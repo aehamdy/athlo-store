@@ -28,7 +28,7 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
   const selectedShippingMethodId = Number(watch("shippingMethodId"));
 
   return (
-    <Card className="bg-card border-border">
+    <Card className="bg-card border-border px-md">
       <CardHeader>
         <CardTitle className="flex items-center gap-md">
           <Icon name="Truck" size={24} className="text-accent-base" />
@@ -67,7 +67,7 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
           required
         />
 
-        <div className="grid sm:grid-cols-2 gap-md">
+        <div className="grid grid-cols-2 gap-md">
           <FormInput
             id="city"
             name="city"
@@ -86,7 +86,7 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
           />
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-md">
+        <div className="grid grid-cols-2 gap-md">
           <FormInput
             id="country"
             name="country"
@@ -107,7 +107,7 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
           />
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-md">
+        <div className="grid grid-cols-2 gap-md">
           <FormInput
             id="floorNumber"
             name="floorNumber"
@@ -155,7 +155,7 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
             </Heading>
           </div>
 
-          <ul className="space-y-sm">
+          <ul className="max-h-71 p-sm space-y-sm overflow-y-auto">
             {shippingMethods.map((method) => (
               <li key={method.id}>
                 <ShippingMethodCard

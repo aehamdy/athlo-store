@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 function CartItemCardSkeleton() {
   return (
     <div className="flex items-start gap-sm h-31 p-3 bg-surface rounded-md">
-      <Skeleton className="w-24 h-18 rounded-md animate-pulse" />
+      <Skeleton className="w-24 h-8xl rounded-md animate-pulse" />
 
       <div className="space-y-1">
         <div className="flex flex-col gap-tiny">

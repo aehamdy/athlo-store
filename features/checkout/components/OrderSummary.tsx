@@ -18,6 +18,8 @@ import useFetchCartSummary from "../hooks/useFetchCartSummary";
 import { CheckoutFormType } from "../checkout.schema";
 import { ShippingMethod } from "../types";
 import CheckoutItemsList from "./CheckoutItemsList";
+import LoadingIndicator from "@/components/shared/LoadingIndicator";
+import ErrorMessage from "@/components/shared/ErrorMessage";
 
 type OrderSummaryProps = {
   shippingMethods: ShippingMethod[];
@@ -46,13 +48,10 @@ function OrderSummary({ shippingMethods, isCreatingOrder }: OrderSummaryProps) {
     isError: isSummaryError,
   } = useFetchCartSummary();
 
-  if (isSummaryPending) {
-    return <div>OrderSummarySkeleton</div>;
-  }
+  if (isSummaryPending) return <LoadingIndicator size="md" />;
 
-  if (isSummaryError || !summary) {
-    return <p>Failed to load order summary.</p>;
-  }
+  if (isSummaryError || !summary)
+    return <ErrorMessage message="failedToLoadSummary" />;
 
   const { totalItems, totalPrice, totalPriceAfterDiscount, totalDiscount } =
     summary;
@@ -62,7 +61,7 @@ function OrderSummary({ shippingMethods, isCreatingOrder }: OrderSummaryProps) {
   const total = subtotal + (shippingCost ?? 0);
 
   return (
-    <Card className="bg-card border-subtle">
+    <Card className="px-md bg-card border-subtle">
       <CardHeader className="flex justify-between items-center">
         <CardTitle className="text-xl">{t("title")}</CardTitle>
 

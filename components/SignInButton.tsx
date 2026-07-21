@@ -8,7 +8,7 @@ function SignInButton() {
   return (
     <Link
       href={ROUTES.auth.login}
-      className="py-1 px-2 hover:bg-accent-base border rounded-lg duration-normal"
+      className="py-1 px-2 bg-accent-soft hover:scale-105 active:scale-95 rounded-lg duration-fast"
     >
       {t("login")}
     </Link>

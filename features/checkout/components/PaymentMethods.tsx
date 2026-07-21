@@ -17,7 +17,7 @@ function PaymentMethods() {
   const paymentMethod = watch("paymentMethod");
 
   return (
-    <Card className="bg-card border-subtle">
+    <Card className="px-md bg-card border-subtle">
       <CardHeader>
         <CardTitle className="flex items-center gap-xs">
           <Icon name="CreditCard" size={24} className="text-accent-base" />

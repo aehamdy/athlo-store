@@ -5,6 +5,8 @@ import useFetchShippingMethods from "../hooks/useFetchShippingMethods";
 
 import CheckoutForm from "./CheckoutForm";
 import { ShippingMethod } from "../types";
+import ErrorMessage from "@/components/shared/ErrorMessage";
+import CheckoutSkeleton from "./skeletons/CheckoutSkeleton";
 
 function Checkout() {
   const {
@@ -19,17 +21,13 @@ function Checkout() {
     isError: isShippingError,
   } = useFetchShippingMethods();
 
-  if (isUserPending || isShippingPending) {
-    return <div>Loading...</div>;
-  }
+  if (isUserPending || isShippingPending) return <CheckoutSkeleton />;
 
-  if (isUserError || !userResponse) {
-    return <div>Failed to load profile.</div>;
-  }
+  if (isUserError || !userResponse)
+    return <ErrorMessage message="Failed to load profile." />;
 
-  if (isShippingError) {
-    return <div>Failed to load shipping methods.</div>;
-  }
+  if (isShippingError)
+    return <ErrorMessage message="Failed to load shipping methods." />;
 
   return (
     <CheckoutForm
