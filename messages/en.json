@@ -232,6 +232,11 @@
       "accessories": "Accessories"
     },
 
+    "brandsFilter": {
+      "title": "Brands",
+      "all": "All"
+    },
+
     "priceFilter": {
       "title": "Price Range",
       "min": "Min Price",
