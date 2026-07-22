@@ -86,4 +86,10 @@ export type PaginatedProductsResponse = {
   pageSize: number;
 };
 
+export type BrandT = {
+  id: number;
+  name: string;
+  imageUrl: string;
+};
+
 export type ProductViewVariant = "details" | "card" | "cart-item" | "quickView";

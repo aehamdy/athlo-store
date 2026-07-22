@@ -3,12 +3,18 @@ import fetchProducts from "../api/fetchProducts";
 
 type ProductsGridProps = {
   category?: string;
+  brand?: string;
   search?: string;
   ordering?: number;
 };
 
-async function ProductsGrid({ category, search, ordering }: ProductsGridProps) {
-  const backendSearch = category || search;
+async function ProductsGrid({
+  category,
+  brand,
+  search,
+  ordering,
+}: ProductsGridProps) {
+  const backendSearch = category || search || brand;
 
   const initialData = await fetchProducts({
     pageNumber: 1,

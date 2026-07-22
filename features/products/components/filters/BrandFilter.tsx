@@ -1,32 +1,32 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
+import Icon from "@/components/shared/Icon";
+import { Button } from "@/components/ui/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import Icon from "@/components/shared/Icon";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import useFetchCategories from "@/features/home/hooks/useFetchCategories";
-import { CategoryT } from "@/features/home/types";
+import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
+import useFetchBrands from "../../hooks/useFetchBrands";
+import { BrandT } from "../../types";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useMemo, useState } from "react";
 
-function CategoryFilter() {
-  const { data } = useFetchCategories();
+function BrandFilter() {
+  const { data } = useFetchBrands();
 
-  const t = useTranslations("filters.categoryFilter");
+  const t = useTranslations("filters.brandsFilter");
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const categories = data?.data ?? [];
+  const brands = data?.data ?? [];
 
-  const selectedCategory = useMemo(
-    () => searchParams.get("category") ?? "all",
+  const selectedBrand = useMemo(
+    () => searchParams.get("brand") ?? "all",
     [searchParams],
   );
 
@@ -42,13 +42,13 @@ function CategoryFilter() {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
   };
 
-  const handleCategoryChange = (category: string) => {
+  const handleBrandChange = (brand: string) => {
     const params = new URLSearchParams(searchParams.toString());
 
-    if (category === "all") {
-      params.delete("category");
+    if (brand === "all") {
+      params.delete("brand");
     } else {
-      params.set("category", category);
+      params.set("brand", brand);
     }
 
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
@@ -57,8 +57,8 @@ function CategoryFilter() {
   return (
     <div>
       <Collapsible
-        open={openSections.category}
-        onOpenChange={() => toggleSection("category")}
+        open={openSections.brand}
+        onOpenChange={() => toggleSection("brand")}
       >
         <CollapsibleTrigger className="flex items-center justify-between w-full py-lg cursor-pointer">
           <span className="font-semibold text-foreground">{t("title")}</span>
@@ -76,10 +76,10 @@ function CategoryFilter() {
           <ul className="max-h-70 mb-md space-y-tiny overflow-y-scroll">
             <Button
               variant="plain"
-              onClick={() => handleCategoryChange("all")}
+              onClick={() => handleBrandChange("all")}
               className={cn(
                 "flex justify-start w-full px-sm py-xs rounded-lg",
-                selectedCategory === "all"
+                selectedBrand === "all"
                   ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
               )}
@@ -87,20 +87,20 @@ function CategoryFilter() {
               All
             </Button>
 
-            {categories.map((category: CategoryT) => (
-              <li key={category.id} className="">
+            {brands.map((brand: BrandT) => (
+              <li key={brand.id} className="">
                 <Button
-                  key={category.id}
+                  key={brand.id}
                   variant="plain"
-                  onClick={() => handleCategoryChange(category.name)}
+                  onClick={() => handleBrandChange(brand.name)}
                   className={cn(
                     "flex justify-start w-full px-sm py-xs rounded-lg transition-colors cursor-pointer",
-                    selectedCategory === category.name
+                    selectedBrand === brand.name
                       ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
                   )}
                 >
-                  {category.name}
+                  {brand.name}
                 </Button>
               </li>
             ))}
@@ -113,4 +113,4 @@ function CategoryFilter() {
   );
 }
 
-export default CategoryFilter;
+export default BrandFilter;

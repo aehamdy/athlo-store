@@ -7,6 +7,7 @@ const CONTROLLER_PATH = {
   user: `${API_VERSION_PATH}/User`,
   product: `${API_VERSION_PATH}/Product`,
   category: `${API_VERSION_PATH}/Category`,
+  brand: `${API_VERSION_PATH}/Brand`,
   review: `${API_VERSION_PATH}/Review`,
   cart: `${API_VERSION_PATH}/CartItem`,
   shippingMethods: `${API_VERSION_PATH}/ShippingMethod`,
@@ -54,6 +55,9 @@ export const ENDPOINTS = {
   },
   category: {
     list: `${CONTROLLER_PATH.category}/List`,
+  },
+  brand: {
+    list: `${CONTROLLER_PATH.brand}/List`,
   },
   review: {
     list: (id: string) => `${CONTROLLER_PATH.review}/product/${id}`,
