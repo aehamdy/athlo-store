@@ -234,6 +234,11 @@
       "accessories": "إكسسوارات"
     },
 
+    "brandsFilter": {
+      "title": "الماركات",
+      "all": "الكل"
+    },
+
     "priceFilter": {
       "title": "نطاق السعر",
       "min": "أقل سعر",
