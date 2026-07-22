@@ -2,7 +2,7 @@ import ThankYou from "@/features/thankyou/components/ThankYou";
 
 function ThankYouPage() {
   return (
-    <main className="section-spacing">
+    <main className="main-page">
       <ThankYou />
     </main>
   );
