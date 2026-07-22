@@ -6,7 +6,7 @@ function CheckoutPage() {
   const t = useTranslations("checkoutPage");
 
   return (
-    <main className="bg-base">
+    <main className="main-page">
       <section className="py-xl lg:py-8xl px-md">
         <Heading as="h1" className="mb-8 font-bold text-3xl text-foreground">
           {t("title")}
