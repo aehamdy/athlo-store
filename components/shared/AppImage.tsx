@@ -3,9 +3,10 @@
 import ASSETS from "@/config/assets";
 import Image from "next/image";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 type AppImageProps = {
-  productImage: string | undefined;
+  productImage?: string;
   altText: string;
   width?: number;
   height?: number;
@@ -15,26 +16,28 @@ type AppImageProps = {
 function AppImage({
   productImage,
   altText,
-  width,
-  height,
+  width = 300,
+  height = 300,
   className,
 }: AppImageProps) {
-  const [imageSrc, setImageSrc] = useState(
-    productImage || ASSETS.fallbackImage,
-  );
+  const [hasError, setHasError] = useState(false);
+
+  const imageSrc = hasError
+    ? ASSETS.fallbackImage
+    : productImage || ASSETS.fallbackImage;
 
   return (
     <Image
+      key={productImage}
       src={imageSrc}
       alt={altText}
-      onError={() => {
-        if (imageSrc !== ASSETS.fallbackImage) {
-          setImageSrc(ASSETS.fallbackImage);
-        }
-      }}
-      width={width || 300}
-      height={height || 300}
-      className={`h-full w-full object-cover transition-all duration-slow ${className}`}
+      width={width}
+      height={height}
+      className={cn(
+        "h-full w-full object-cover transition-all duration-slow",
+        className,
+      )}
+      onError={() => setHasError(true)}
     />
   );
 }
