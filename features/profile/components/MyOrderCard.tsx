@@ -85,7 +85,7 @@ function MyOrderCard({ order, orderIndex }: MyOrderCardProps) {
                 {t("viewDetails")}
               </DialogTrigger>
 
-              <DialogContent className="sm:max-w-125">
+              <DialogContent className="sm:max-w-125 p-lg">
                 <DialogHeader>
                   <DialogTitle className="text-foreground">
                     {t("orderDetails")}
