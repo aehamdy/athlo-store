@@ -3,23 +3,23 @@
 import UserCard from "./UserCard";
 import useCurrentUser from "../hooks/useCurrentUser";
 import TabsWrapper from "./TabsWrapper";
-import LoadingIndicator from "@/components/shared/LoadingIndicator";
 import ErrorMessage from "@/components/shared/ErrorMessage";
 import { Button } from "@/components/ui/button";
+import ProfileSkeleton from "./ProfileSkeleton";
 
 function ProfileWrapper() {
   const { data: user, isPending, isError } = useCurrentUser();
 
-  if (isPending) {
-    return <LoadingIndicator size="lg" />;
-  }
+  if (isPending) return <ProfileSkeleton />;
 
   if (isError || !user) {
     return (
-      <div className="flex flex-col gap-lg">
+      <div className="flex flex-col items-center gap-lg py-6xl">
         <ErrorMessage message="Failed to load profile." />
 
-        <Button variant="default">Return to home</Button>
+        <div className="flex justify-center items-center">
+          <Button variant="default">Return to home</Button>
+        </div>
       </div>
     );
   }
