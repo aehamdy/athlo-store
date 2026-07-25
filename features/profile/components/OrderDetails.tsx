@@ -40,7 +40,10 @@ function OrderDetails({ order, date, orderStatusStyle }: OrderDetailsProps) {
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-sm">
                   <div className="flex justify-center items-center w-9 h-9 p-xs bg-accent-light rounded-md">
-                    <Icon name="Package" className="w-4 h-4 text-accent-base" />
+                    <Icon
+                      name="Package"
+                      className="w-10 h-10 text-accent-base"
+                    />
                   </div>
 
                   <div className="flex flex-col items-start text-sm text-muted-foreground">
@@ -67,7 +70,9 @@ function OrderDetails({ order, date, orderStatusStyle }: OrderDetailsProps) {
       <div className="flex justify-between items-center mt-sm font-semibold text-md text-foreground">
         <span>Total</span>
 
-        <Currency price={order.totalAmount} />
+        <div className="text-accent-base">
+          <Currency price={order.totalAmount} />
+        </div>
       </div>
     </section>
   );
