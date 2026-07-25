@@ -29,12 +29,10 @@ function ProductColorSelector({
 
   return (
     <div className="space-y-3">
-      {selectedColor && (
-        <p className="flex items-center gap-xs font-medium text-sm">
-          Color:
-          <span className="text-muted-foreground">{selectedColor}</span>
-        </p>
-      )}
+      <p className="flex items-center gap-xs font-medium text-sm text-foreground">
+        Color:
+        <span className="text-muted-foreground">{selectedColor}</span>
+      </p>
 
       <div className="flex flex-wrap gap-4">
         {colors.map((color) => {
