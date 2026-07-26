@@ -36,8 +36,8 @@ async function ProductsPage({ searchParams }: ProductsPageProps) {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-12 gap-5xl section-spacing-x">
-        <aside className="hidden lg:block lg:col-span-2 shrink-0">
+      <div className="grid lg:grid-cols-12 gap-md">
+        <aside className="hidden lg:block lg:col-span-2 shrink-0 p-sm bg-surface rounded-md">
           <div className="sticky top-14">
             <Heading
               as="h3"
