@@ -4,6 +4,7 @@ import Heading from "@/components/shared/Heading";
 import MobileFilter from "@/features/products/components/filters/MobileFilter";
 import ProductsGrid from "@/features/products/components/ProductsGrid";
 import { getTranslations } from "next-intl/server";
+import ProductsGridViewSelector from "@/features/products/components/filters/ProductsGridViewSelector";
 
 type ProductsPageProps = {
   searchParams: Promise<{
@@ -28,7 +29,13 @@ async function ProductsPage({ searchParams }: ProductsPageProps) {
         </div>
 
         <div className="flex justify-between items-center gap-sm">
-          <SortDropdown />
+          <div className="flex items-center gap-xl">
+            <div className="hidden lg:block">
+              <ProductsGridViewSelector />
+            </div>
+
+            <SortDropdown />
+          </div>
 
           <div className="lg:hidden">
             <MobileFilter />
