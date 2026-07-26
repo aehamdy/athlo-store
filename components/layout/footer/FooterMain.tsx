@@ -41,7 +41,9 @@ function FooterMain() {
       {/* Logo, tagline and social channels */}
       <div className="col-span-3 lg:col-span-1">
         <div className="flex flex-col gap-md">
-          <Logo />
+          <div className="w-fit me-auto">
+            <Logo />
+          </div>
 
           <div className="md:w-3/5 lg:w-full">
             <p>{t("tagLine")}</p>
