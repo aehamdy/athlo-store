@@ -3,8 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import ProductCard from "@/features/products/components/ProductCard";
 import LoadingMoreProducts from "../../product/components/LoadingMoreProducts";
-import { ProductT } from "@/features/products/types";
+import { GridColumns, ProductT } from "@/features/products/types";
 import fetchProducts from "../api/fetchProducts";
+import useGridPreviewStore from "@/lib/stores/grid-preview.store";
+import { cn } from "@/lib/utils";
 
 type PaginatedProductsResponse = {
   data: ProductT[];
@@ -28,6 +30,7 @@ function InfiniteProducts({
   ordering,
 }: InfiniteProductsProps) {
   const [products, setProducts] = useState(initialData.data);
+  const count = useGridPreviewStore((state) => state.count);
 
   const [currentPage, setCurrentPage] = useState(initialData.currentPage);
 
@@ -63,6 +66,12 @@ function InfiniteProducts({
     }
   }, [currentPage, hasNextPage, isLoading, initialData.pageSize, search]);
 
+  const gridClasses: Record<GridColumns, string> = {
+    2: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-2",
+    3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+    4: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
+  };
+
   useEffect(() => {
     if (!loadMoreRef.current) return;
 
@@ -93,7 +102,7 @@ function InfiniteProducts({
 
   return (
     <section className="flex-1">
-      <div className="grid grid-cols-1 gap-xl sm:grid-cols-2 lg:grid-cols-4">
+      <div className={cn("grid gap-xl", gridClasses[count])}>
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

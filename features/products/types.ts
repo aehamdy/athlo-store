@@ -93,3 +93,10 @@ export type BrandT = {
 };
 
 export type ProductViewVariant = "details" | "card" | "cart-item" | "quickView";
+
+export type GridColumns = 2 | 3 | 4;
+
+export type GridPreviewState = {
+  count: GridColumns;
+  setCount: (count: GridColumns) => void;
+};
