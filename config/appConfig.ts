@@ -4,9 +4,11 @@ const appConfig: AppConfig = {
   name: "Athlo",
   slug: "athlo-store",
   author: "Athlo Store",
+  siteName: "Athlo Store",
   logoText: "Athlo Store",
   foundedIn: "2026",
   description: "Athlo Store - Your one stop shop for all your athletic needs",
+  url: "https://athlo-store.vercel.app",
   version: "1.0.0",
 
   contact: {

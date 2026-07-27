@@ -4,9 +4,11 @@ export type AppConfig = {
   name: string;
   slug: string;
   author: string;
+  siteName: string;
   logoText: string;
   foundedIn: string;
   description: string;
+  url: string;
   version: string;
 
   contact: Contact;
