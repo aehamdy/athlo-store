@@ -4,6 +4,54 @@ import Providers from "@/lib/providers";
 import { cookies } from "next/headers";
 import { STORAGE_KEYS } from "@/config/constants";
 import { Toaster } from "@/components/ui/sonner";
+import { Metadata } from "next";
+import appConfig from "@/config/appConfig";
+
+export const metadata: Metadata = {
+  title: `${appConfig.siteName} | Premium Sportswear & Athletic Gear`,
+  description:
+    "Discover premium sportswear, running shoes, training apparel, and athletic accessories designed to elevate your performance.",
+
+  keywords: [
+    "sportswear",
+    "athletic apparel",
+    "running shoes",
+    "fitness clothing",
+    "sports gear",
+    "athlo store",
+    "training apparel",
+    "activewear",
+  ],
+
+  openGraph: {
+    title: `${appConfig.siteName} | Premium Sportswear & Athletic Gear`,
+    description:
+      "Shop premium sportswear, running shoes, and training apparel built for performance.",
+    url: appConfig.url,
+    siteName: appConfig.siteName,
+    type: "website",
+    images: [
+      {
+        url: "/images/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: appConfig.siteName,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: `${appConfig.siteName} | Premium Sportswear & Athletic Gear`,
+    description:
+      "Shop premium sportswear, running shoes, and training apparel built for performance.",
+    images: ["/images/og-home.jpg"],
+  },
+
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function RootLayout({
   children,
