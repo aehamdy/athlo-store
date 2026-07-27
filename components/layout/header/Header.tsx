@@ -3,6 +3,8 @@
 import HeaderActions from "@/components/layout/header/HeaderActions";
 import Logo from "@/components/shared/Logo";
 import Nav from "@/components/shared/Nav";
+import ROUTES from "@/lib/routes";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function Header() {
@@ -38,9 +40,11 @@ function Header() {
       } py-xs lg:py-sm px-sm lg:px-md bg-background/80 backdrop-blur-md shadow-sm rounded-4xl z-50 transition-transform duration-normal ease-in-out`}
     >
       <div className="flex justify-between items-center">
-        <div className="hidden lg:block">
-          <Logo />
-        </div>
+        <Link href={ROUTES.public.home}>
+          <div className="hidden lg:block">
+            <Logo />
+          </div>
+        </Link>
 
         <div className="hidden lg:block">
           <Nav />
