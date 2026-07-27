@@ -8,7 +8,11 @@ import { Metadata } from "next";
 import appConfig from "@/config/appConfig";
 
 export const metadata: Metadata = {
-  title: `${appConfig.siteName} | Premium Sportswear & Athletic Gear`,
+  title: {
+    default: appConfig.siteName,
+    template: `%s | ${appConfig.siteName}`,
+  },
+
   description:
     "Discover premium sportswear, running shoes, training apparel, and athletic accessories designed to elevate your performance.",
 

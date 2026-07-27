@@ -1,7 +1,14 @@
 import PageHero from "@/components/layout/PageHero";
+import appConfig from "@/config/appConfig";
 import ContactSection from "@/features/contact/components/ContactSection";
 import FAQSection from "@/features/contact/components/FAQSection";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: `Get in touch with the ${appConfig.name} team for support, questions, or partnership inquiries.`,
+};
 
 function ContactPage() {
   const t = useTranslations("contactPage");

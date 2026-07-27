@@ -5,6 +5,13 @@ import MobileFilter from "@/features/products/components/filters/MobileFilter";
 import ProductsGrid from "@/features/products/components/ProductsGrid";
 import { getTranslations } from "next-intl/server";
 import ProductsGridViewSelector from "@/features/products/components/filters/ProductsGridViewSelector";
+import { Metadata } from "next";
+import appConfig from "@/config/appConfig";
+
+export const metadata: Metadata = {
+  title: "Products",
+  description: `Browse ${appConfig.name}'s collection of premium sportswear, footwear, and fitness accessories for men and women.`,
+};
 
 type ProductsPageProps = {
   searchParams: Promise<{
