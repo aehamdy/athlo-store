@@ -1,5 +1,5 @@
 import Heading from "@/components/shared/Heading";
-import NewsletterForm from "@/features/forms/NewsletterForm";
+import NewsletterForm from "./NewsletterForm";
 import { useTranslations } from "next-intl";
 
 type NewsletterSectionProps = {
