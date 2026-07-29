@@ -18,6 +18,8 @@ const ROUTES = {
     login: "/login",
     register: "/register",
     forgotPassword: "/forgot-password",
+    verifyCode: "/verify-code",
+    resetPassword: "/reset-password",
   },
 };
 
