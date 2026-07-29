@@ -8,7 +8,7 @@ import Heading from "../../shared/Heading";
 import navLinks from "@/lib/navLinks";
 import userLinks from "@/lib/userLinks";
 import { useTranslations } from "next-intl";
-import NewsletterForm from "@/features/forms/NewsletterForm";
+import NewsletterForm from "@/features/home/components/NewsletterForm";
 import { useAuthStore } from "@/lib/stores/auth.store";
 import { brandLogos } from "@/config/brand-logos";
 

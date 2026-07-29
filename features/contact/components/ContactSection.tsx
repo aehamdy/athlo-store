@@ -3,7 +3,7 @@ import { Info } from "@/features/contact/types";
 import appConfig from "@/config/appConfig";
 import { useTranslations } from "next-intl";
 import Heading from "@/components/shared/Heading";
-import ContactUsForm from "@/features/forms/ContactUsForm";
+import ContactUsForm from "./ContactUsForm";
 import Icon from "@/components/shared/Icon";
 
 const mainLocation = appConfig.locations?.[0];
