@@ -17,6 +17,9 @@ const CONTROLLER_PATH = {
 export const ENDPOINTS = {
   auth: {
     login: `${CONTROLLER_PATH.authentication}/SignIn`,
+    sendVerificationCode: `${CONTROLLER_PATH.authentication}/SendResetPasswordCode`,
+    verifyCode: `${CONTROLLER_PATH.authentication}/ConfirmResetPasswordCode`,
+    resetPassword: `${CONTROLLER_PATH.authentication}/ResetPassword`,
   },
   user: {
     register: `${CONTROLLER_PATH.user}/Create`,
