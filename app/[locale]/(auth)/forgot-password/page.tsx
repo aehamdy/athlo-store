@@ -1,5 +1,5 @@
 import appConfig from "@/config/appConfig";
-import ForgotPasswordForm from "@/features/forms/ForgotPasswordForm";
+import ForgotPasswordForm from "@/features/forgot-password/components/ForgotPasswordForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 
 function ForgotPasswordPage() {
   return (
-    <main className="h-dvh">
+    <section className="h-dvh">
       <ForgotPasswordForm />
-    </main>
+    </section>
   );
 }
 
