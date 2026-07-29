@@ -44,7 +44,8 @@
     "checkout": "الدفع",
     "submit": "إرسال",
     "sendMessage": "إرسال رسالة",
-    "retry": "إعادة المحاولة"
+    "retry": "إعادة المحاولة",
+    "back": "العودة"
   },
 
   "labels": {
@@ -149,7 +150,38 @@
     "enterCredentialsToContinue": "أدخل بياناتك للمتابعة",
     "createYourAccountToGetStarted": "أنشئ حسابك للبدء",
     "haveAnAccount": "هل لديك حساب؟",
-    "dontHaveAnAccount": "ليس لديك حساب؟"
+    "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صالح.",
+    "dontHaveAnAccount": "ليس لديك حساب؟",
+
+    "forgotPasswordPage": {
+      "forgotPasswordTitle": "نسيت كلمة المرور؟",
+      "forgotPasswordDescription": "أدخل بريدك الإلكتروني وسنرسل إليك رمز تحقق لإعادة تعيين كلمة المرور.",
+      "sendVerificationCode": "إرسال رمز التحقق",
+      "sendingCode": "جاري إرسال الكود...",
+      "backToSignIn": "العودة إلى تسجيل الدخول"
+    },
+
+    "verifyCode": {
+      "enterVerificationCodeTitle": "أدخل رمز التحقق",
+      "enterVerificationCodeDescription": "أدخل رمز التحقق الذي تم إرساله إلى بريدك الإلكتروني.",
+      "verifyCode": "تحقق من الرمز",
+      "verifyingCode": "جارٍ التحقق...",
+      "invalidVerificationCode": "يرجى إدخال رمز تحقق صالح مكوّن من 6 أرقام."
+    },
+
+    "resetPassword": {
+      "resetPasswordTitle": "إعادة تعيين كلمة المرور",
+      "resetPasswordDescription": "أدخل كلمة المرور الجديدة لتأمين حسابك.",
+      "passwordPlaceholder": "أدخل كلمة المرور الجديدة",
+      "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور الجديدة",
+      "resetPassword": "إعادة تعيين كلمة المرور",
+      "resettingPassword": "جارٍ إعادة تعيين كلمة المرور...",
+      "passwordMinLength": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل.",
+      "confirmPasswordRequired": "يرجى تأكيد كلمة المرور.",
+      "passwordsDoNotMatch": "كلمتا المرور غير متطابقتين.",
+      "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح.",
+      "passwordResetFailed": "فشل في إعادة تعيين كلمة المرور."
+    }
   },
 
   "home": {

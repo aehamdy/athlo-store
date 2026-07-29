@@ -42,7 +42,8 @@
     "checkout": "Checkout",
     "submit": "Submit",
     "sendMessage": "Send Message",
-    "retry": "Retry"
+    "retry": "Retry",
+    "back": "Back"
   },
 
   "labels": {
@@ -147,7 +148,38 @@
     "enterCredentialsToContinue": "Enter your credentials to continue",
     "createYourAccountToGetStarted": "Create your account to get started",
     "haveAnAccount": "Have an account?",
-    "dontHaveAnAccount": "Don't have an account?"
+    "invalidEmail": "Please enter a valid email address",
+    "dontHaveAnAccount": "Don't have an account?",
+
+    "forgotPasswordPage": {
+      "forgotPasswordTitle": "Forgot Password?",
+      "forgotPasswordDescription": "Enter your email and we'll send you a verification code to reset your password.",
+      "sendVerificationCode": "Send Verification Code",
+      "sendingCode": "Sending Code...",
+      "backToSignIn": "Back to Sign In"
+    },
+
+    "verifyCode": {
+      "enterVerificationCodeTitle": "Enter Verification Code",
+      "enterVerificationCodeDescription": "Enter the verification code we sent to your email address.",
+      "verifyCode": "Verify Code",
+      "verifyingCode": "Verifying...",
+      "invalidVerificationCode": "Please enter a valid 6-digit verification code."
+    },
+
+    "resetPassword": {
+      "resettingPassword": "Resetting password...",
+      "resetPasswordTitle": "Reset Your Password",
+      "resetPasswordDescription": "Create a new password for your account. Make sure it's strong and easy for you to remember.",
+      "resetPassword": "Reset Password",
+      "passwordPlaceholder": "Enter your new password",
+      "confirmPasswordPlaceholder": "Confirm your new password",
+      "passwordMinLength": "Password must be at least 8 characters.",
+      "confirmPasswordRequired": "Please confirm your password.",
+      "passwordsDoNotMatch": "Passwords do not match.",
+      "passwordResetSuccess": "Your password has been reset successfully.",
+      "passwordResetFailed": "Failed to reset your password."
+    }
   },
 
   "home": {
