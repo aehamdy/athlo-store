@@ -102,7 +102,12 @@
     "shipping": "Shipping",
     "tax": "Tax",
     "total": "Total",
-    "orderNumber": "Order Number"
+    "orderNumber": "Order Number",
+
+    "searchTitle": "Search",
+    "searchDescription": "Find products by name, category, or brand.",
+    "searchPlaceholder": "Search products...",
+    "searchNoResults": "No products found. Try a different keyword."
   },
 
   "messages": {
