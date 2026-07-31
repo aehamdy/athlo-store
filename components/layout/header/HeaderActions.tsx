@@ -6,8 +6,11 @@ import PreferencesActions from "../../shared/preferences/PreferencesActions";
 import Icon from "../../shared/Icon";
 import ROUTES from "@/lib/routes";
 import AccountActions from "@/components/AccountActions";
+import { useAuthStore } from "@/lib/stores/auth.store";
 
 function HeaderActions() {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+
   return (
     <div className="flex items-center gap-xs">
       <Link
@@ -26,7 +29,7 @@ function HeaderActions() {
         <PreferencesActions />
       </div>
 
-      <CartDrawer />
+      {isAuthenticated && <CartDrawer />}
 
       <div className="hidden lg:flex">
         <AccountActions />

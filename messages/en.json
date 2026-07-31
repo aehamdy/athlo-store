@@ -25,6 +25,7 @@
     "contactPage": "Contact Page",
     "subscribe": "Subscribe",
     "login": "Sign In",
+    "loginRequiredForCart": "Please sign in to add items to your cart.",
     "register": "Sign Up",
     "logout": "Sign Out",
     "placeOrder": "Place Order",

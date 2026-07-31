@@ -25,6 +25,7 @@
     "contactPage": "صفحة التواصل",
     "subscribe": "اشترك",
     "login": "تسجيل الدخول",
+    "loginRequiredForCart": "يرجى تسجيل الدخول لإضافة المنتجات إلى سلة التسوق.",
     "register": "إنشاء حساب",
     "logout": "تسجيل الخروج",
     "placeOrder": "إتمام الطلب",
