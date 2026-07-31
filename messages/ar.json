@@ -104,7 +104,12 @@
     "shipping": "الشحن",
     "tax": "الضريبة",
     "total": "الإجمالي",
-    "orderNumber": "رقم الطلب"
+    "orderNumber": "رقم الطلب",
+
+    "searchTitle": "بحث",
+    "searchDescription": "ابحث عن المنتجات حسب الاسم أو الفئة أو العلامة التجارية.",
+    "searchPlaceholder": "ابحث عن المنتجات...",
+    "searchNoResults": "لم يتم العثور على أي منتجات. جرّب كلمة بحث أخرى."
   },
 
   "messages": {
