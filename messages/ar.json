@@ -109,7 +109,16 @@
     "searchTitle": "بحث",
     "searchDescription": "ابحث عن المنتجات حسب الاسم أو الفئة أو العلامة التجارية.",
     "searchPlaceholder": "ابحث عن المنتجات...",
-    "searchNoResults": "لم يتم العثور على أي منتجات. جرّب كلمة بحث أخرى."
+    "searchNoResults": "لم يتم العثور على أي منتجات. جرّب كلمة بحث أخرى.",
+
+    "shareProduct": "مشاركة المنتج",
+    "shareProductDescription": "شارك هذا المنتج مع أصدقائك أو انسخ رابطه.",
+    "share": "مشاركة",
+    "sharingNotSupported": "المشاركة غير مدعومة في هذا المتصفح.",
+    "shareFailed": "تعذر مشاركة المنتج.",
+    "copyLink": "نسخ الرابط",
+    "productLinkCopied": "تم نسخ رابط المنتج!",
+    "copyLinkFailed": "تعذر نسخ رابط المنتج."
   },
 
   "messages": {
