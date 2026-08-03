@@ -35,7 +35,7 @@ function CartItemCard({ product }: CartItemCardProps) {
     <article className="p-3 text-foreground bg-surface border hover:border-accent-ring rounded-md duration-normal">
       <div className="flex justify-between items-start">
         <div className="flex items-start gap-sm">
-          <div className="rounded-sm overflow-hidden">
+          <div className="rounded-sm overflow-hidden h-25">
             <Image
               src={product.productImageUrl}
               alt={product.productName}
