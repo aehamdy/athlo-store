@@ -43,15 +43,13 @@ function Share({ productTitle }: ShareProps) {
 
   return (
     <Popover>
-      <PopoverTrigger>
-        <Button
-          variant="plain"
-          aria-label={t("shareProduct")}
-          className="py-3 px-4 text-foreground hover:text-primary-dark bg-surface hover:bg-accent-soft rounded-full shadow-md"
-        >
-          <Icon name="Share2" className="text-current" />
-        </Button>
+      <PopoverTrigger
+        aria-label={t("shareProduct")}
+        className="p-3 text-foreground hover:text-primary-dark bg-surface hover:bg-accent-soft rounded-full shadow-md cursor-pointer"
+      >
+        <Icon name="Share2" className="text-current" />
       </PopoverTrigger>
+
       <PopoverContent className="flex flex-col gap-sm">
         <PopoverHeader>
           <PopoverTitle>{t("shareProduct")}</PopoverTitle>
