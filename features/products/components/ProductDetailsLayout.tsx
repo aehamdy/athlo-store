@@ -17,6 +17,7 @@ import { ProductDetails } from "../types";
 import useHandleAddToCart from "@/features/cart/hooks/useHandleAddToCart";
 import useProductVariant from "../hooks/useProductVariant";
 import ReviewsSection from "../reviews/components/ReviewsSection";
+import Share from "./Share";
 
 type ProductDetailsLayoutProps = {
   product: ProductDetails;
@@ -107,14 +108,16 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
             />
 
             <div className="flex items-center gap-lg w-full">
-              <div className="w-[85%]">
+              <div className="flex justify-between lg:justify-evenly items-center gap-sm w-full">
                 <ProductActionButton
                   icon="ShoppingBag"
                   label="Add To Cart"
-                  className="w-full py-lg"
+                  className="w-[85%] py-lg"
                   disabled={!canPurchase || isPending}
                   onClick={handleAddToCart}
                 />
+
+                <Share productTitle={product.name} />
               </div>
 
               {/* <ProductActionButton
