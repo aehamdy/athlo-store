@@ -1,3 +1,4 @@
+import OfflineBanner from "@/components/shared/OfflineBanner";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
@@ -10,6 +11,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
+      <OfflineBanner />
       {children}
     </NextIntlClientProvider>
   );
