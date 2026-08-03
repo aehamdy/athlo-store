@@ -118,7 +118,9 @@
     "shareFailed": "تعذر مشاركة المنتج.",
     "copyLink": "نسخ الرابط",
     "productLinkCopied": "تم نسخ رابط المنتج!",
-    "copyLinkFailed": "تعذر نسخ رابط المنتج."
+    "copyLinkFailed": "تعذر نسخ رابط المنتج.",
+
+    "offlineDescription": "قد لا تكون بعض الميزات متاحة حتى تتم استعادة اتصالك بالإنترنت."
   },
 
   "messages": {

@@ -116,7 +116,9 @@
     "shareFailed": "Unable to share the product.",
     "copyLink": "Copy Link",
     "productLinkCopied": "Product link copied!",
-    "copyLinkFailed": "Failed to copy the product link."
+    "copyLinkFailed": "Failed to copy the product link.",
+
+    "offlineDescription": "Some features may not be available until your connection is restored."
   },
 
   "messages": {
