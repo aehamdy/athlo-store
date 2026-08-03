@@ -107,7 +107,16 @@
     "searchTitle": "Search",
     "searchDescription": "Find products by name, category, or brand.",
     "searchPlaceholder": "Search products...",
-    "searchNoResults": "No products found. Try a different keyword."
+    "searchNoResults": "No products found. Try a different keyword.",
+
+    "shareProduct": "Share Product",
+    "shareProductDescription": "Share this product with your friends or copy its link.",
+    "share": "Share",
+    "sharingNotSupported": "Sharing isn't supported on this browser.",
+    "shareFailed": "Unable to share the product.",
+    "copyLink": "Copy Link",
+    "productLinkCopied": "Product link copied!",
+    "copyLinkFailed": "Failed to copy the product link."
   },
 
   "messages": {
