@@ -1,9 +1,10 @@
+import appConfig from "@/config/appConfig";
 import RegisterPanel from "@/features/auth/components/register-form/RegisterPanel";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Create Account",
-  description: "Create your Athlo account to start shopping.",
+  description: `Create your ${appConfig.name} account to start shopping.`,
   robots: {
     index: false,
     follow: false,
