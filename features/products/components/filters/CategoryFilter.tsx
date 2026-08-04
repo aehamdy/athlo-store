@@ -11,9 +11,9 @@ import {
 } from "@/components/ui/collapsible";
 import Icon from "@/components/shared/Icon";
 import { Button } from "@/components/ui/button";
+import useFetchCategories from "@/features/categories/hooks/useFetchCategories";
 import { Separator } from "@/components/ui/separator";
-import useFetchCategories from "@/features/home/hooks/useFetchCategories";
-import { CategoryT } from "@/features/home/types";
+import { CategoryT } from "@/features/categories/types";
 
 function CategoryFilter() {
   const { data } = useFetchCategories();
