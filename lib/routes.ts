@@ -2,6 +2,7 @@ const ROUTES = {
   public: {
     home: "/",
     products: "/products",
+    categories: "/categories",
     productDetail: (id: string) => `/products/${id}`,
     about: "/about",
     contact: "/contact",
