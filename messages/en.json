@@ -220,7 +220,10 @@
       ]
     },
     "shopByCategory": {
-      "title": "Shop by Category"
+      "title": "Shop by Category",
+      "separateTitle": { "shop": "Shop", "by": "By", "category": "Category" },
+      "viewAllCategories": "View All Categories",
+      "exploreCategories": "Explore all {count} categories"
     },
     "featuredProducts": {
       "title": "Featured Products",
@@ -245,6 +248,10 @@
     "title": "Products",
     "filters": "Filters",
     "items": "Items"
+  },
+
+  "categoriesPage": {
+    "title": "Categories"
   },
 
   "reviews": {
