@@ -4,6 +4,7 @@ import { Button } from "../../../components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import AppImage from "@/components/shared/AppImage";
+import ImageMagnifier from "./ImageMagnifier";
 
 type ProductImageGalleryProps = {
   images: string[];
@@ -19,12 +20,7 @@ function ProductImageGallery({
   return (
     <div className={`space-y-md bg-base`}>
       <div className="aspect-square bg-muted rounded-xl border overflow-hidden">
-        <AppImage
-          productImage={images[selectedImage]}
-          altText={productName}
-          width={500}
-          height={500}
-        />
+        <ImageMagnifier src={images[selectedImage]} alt={productName} />
       </div>
 
       <div className="flex gap-sm pb-xs overflow-x-auto">
