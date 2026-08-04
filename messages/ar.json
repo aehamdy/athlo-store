@@ -222,7 +222,14 @@
       ]
     },
     "shopByCategory": {
-      "title": "تسوق حسب الفئة"
+      "title": "تسوق حسب الفئة",
+      "separateTitle": {
+        "shop": "تسوّق",
+        "by": "حسب",
+        "category": "الفئة"
+      },
+      "viewAllCategories": "عرض جميع الفئات",
+      "exploreCategories": "استكشف جميع الفئات ({count})"
     },
     "featuredProducts": {
       "title": "منتجات مميزة",
@@ -247,6 +254,10 @@
     "title": "المنتجات",
     "filters": "الفلاتر",
     "items": "العناصر"
+  },
+
+  "categoriesPage": {
+    "title": "الفئات"
   },
 
   "reviews": {
