@@ -3,6 +3,31 @@ import Heading from "@/components/shared/Heading";
 import Icon from "@/components/shared/Icon";
 import ROUTES from "@/lib/routes";
 import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
+import appConfig from "@/config/appConfig";
+
+export const metadata: Metadata = {
+  title: "404 - Page Not Found",
+  description:
+    "The page you're looking for doesn't exist or may have been moved. Browse our premium sportswear, footwear, and fitness products instead.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  openGraph: {
+    title: `404 - Page Not Found | ${appConfig.siteName}`,
+    description:
+      "The requested page could not be found. Explore our premium sportswear collection.",
+    type: "website",
+    url: `${appConfig.url}/404`,
+  },
+  twitter: {
+    card: "summary",
+    title: `404 - Page Not Found | ${appConfig.siteName}`,
+    description:
+      "The requested page could not be found. Return to the homepage or browse our products.",
+  },
+};
 
 export default async function NotFound() {
   const t = await getTranslations("notFound");
