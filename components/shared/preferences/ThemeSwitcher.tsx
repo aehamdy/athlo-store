@@ -2,32 +2,37 @@
 
 import { Button } from "@/components/ui/button";
 import Icon from "../Icon";
-import { useState } from "react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 function ThemeSwitcher() {
-  const [isDark, setIsDark] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const handleThemeSwitch = () => {
-    document.documentElement.classList.toggle("dark");
-    setIsDark((prev) => !prev);
-  };
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const isDark = resolvedTheme === "dark";
 
   return (
     <>
       <Button
         variant="primary"
-        onClick={handleThemeSwitch}
+        onClick={() => setTheme(isDark ? "light" : "dark")}
         aria-label="Toggle theme"
         aria-describedby="theme-switcher-desc"
         className="group action-button w-full"
       >
         <Icon
           name={isDark ? "Sun" : "MoonStar"}
-          className="group-hover:text-primary-dark group-focus-visible:text-primary-dark transition-colors"
+          className="group-hover:text-primary-dark transition-colors"
         />
       </Button>
 
-      {/* Screen-reader description */}
       <span id="theme-switcher-desc" className="sr-only">
         Switch between light and dark mode
       </span>
