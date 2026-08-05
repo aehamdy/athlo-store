@@ -25,7 +25,7 @@ function NewsletterSection({ variant = "default" }: NewsletterSectionProps) {
         </Heading>
 
         <p
-          className={`${variant === "default" ? "text-muted-foreground" : ""}`}
+          className={`${variant === "default" ? "text-muted-foreground" : ""} text-center`}
         >
           {t("description")}
         </p>

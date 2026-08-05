@@ -19,11 +19,16 @@ const navLinks: NavItemType[] = [
   },
   {
     id: 3,
+    key: "categories",
+    href: ROUTES.public.categories,
+  },
+  {
+    id: 4,
     key: "about",
     href: ROUTES.public.about,
   },
   {
-    id: 4,
+    id: 5,
     key: "contact",
     href: ROUTES.public.contact,
   },
