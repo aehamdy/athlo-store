@@ -15,7 +15,7 @@ function Home() {
 
       <NewArrivals />
 
-      <section className="py-11xl bg-surface">
+      <section className="py-11xl lg:py-13xl bg-surface">
         <NewsletterSection variant="default" />
       </section>
     </main>

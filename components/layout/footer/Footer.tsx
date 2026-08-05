@@ -3,7 +3,7 @@ import FooterLegal from "./FooterLegal";
 
 function Footer() {
   return (
-    <footer className="px-md text-sm text-muted-foreground bg-surface border-t border-subtle">
+    <footer className="px-md text-black bg-accent-soft border-t border-balck rounded-t-4xl">
       <FooterMain />
 
       <FooterLegal />

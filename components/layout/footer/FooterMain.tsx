@@ -37,92 +37,113 @@ function FooterMain() {
     appConfig.contact.emails.find((e) => e.label === "info")?.value ?? "";
 
   return (
-    <section className="grid grid-cols-3 gap-xl py-4xl">
-      {/* Logo, tagline and social channels */}
-      <div className="col-span-3 lg:col-span-1">
-        <div className="flex flex-col gap-md">
-          <div className="w-fit me-auto">
-            <Logo />
+    <section className="relative flex flex-col justify-between gap-lg min-h-[50dvh] py-3xl text-black">
+      <div className="grid grid-cols-3 gap-4xl">
+        {/* Logo, tagline and social channels */}
+        <div className="col-span-3 lg:col-span-1">
+          <div className="flex flex-col gap-md">
+            <div className="w-fit me-auto">
+              <Logo />
+            </div>
+
+            <div className="md:w-3/5 lg:w-full">
+              <p className="lg:text-md">{t("tagLine")}</p>
+            </div>
+
+            <div className="flex items-center gap-sm">
+              {appConfig.social.map((channel) => {
+                const SocialIcon = brandLogos[channel.name];
+
+                return (
+                  <Link
+                    key={channel.name}
+                    href={channel.url}
+                    target="_blank"
+                    className="group p-xs text-lg hover:bg-accent-soft border border-transparent hover:border-white rounded-md"
+                  >
+                    <SocialIcon className="text-current" />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
+        </div>
 
-          <div className="md:w-3/5 lg:w-full">
-            <p>{t("tagLine")}</p>
-          </div>
+        {/* Links */}
+        <div className="col-span-3 lg:col-span-1 flex justify-between md:justify-around lg:justify-between items-start md:gap-4xl lg:gap-0">
+          {/* Quick Links */}
+          <div className="space-y-sm">
+            <Heading as="h4" className="font-semibold text-md">
+              {footerT("quickLinks.title")}
+            </Heading>
 
-          <div className="flex items-center gap-sm">
-            {appConfig.social.map((channel) => {
-              const SocialIcon = brandLogos[channel.name];
-
-              return (
+            <ul className="flex flex-col gap-sm">
+              {navLinks.map((link) => (
                 <Link
-                  key={channel.name}
-                  href={channel.url}
-                  target="_blank"
-                  className="group text-lg text-muted-foreground"
+                  key={link.id}
+                  href={link.href}
+                  className="group flex items-center gap-tiny hover:text-white hover:gap-sm transition-all duration-normal"
                 >
-                  <SocialIcon className="group-hover:text-accent-base" />
+                  {navigationsT(link.key)}
+
+                  <Icon
+                    name="ArrowRight"
+                    className="hidden group-hover:flex text-current"
+                  />
                 </Link>
-              );
-            })}
+              ))}
+            </ul>
           </div>
-        </div>
-      </div>
 
-      {/* Links */}
-      <div className="col-span-3 lg:col-span-1 flex justify-between md:justify-start lg:justify-between items-start md:gap-4xl lg:gap-0">
-        {/* Quick Links */}
-        <div className="space-y-sm">
-          <Heading as="h4" className="font-semibold text-foreground">
-            {footerT("quickLinks.title")}
-          </Heading>
+          {/* Customer Service */}
+          <div className="space-y-sm">
+            <Heading as="h4" className="font-semibold text-md">
+              {footerT("customerService.title")}
+            </Heading>
 
-          <ul className="flex flex-col gap-sm">
-            {navLinks.map((link) => (
-              <Link
-                key={link.id}
-                href={link.href}
-                className="hover:text-accent-base transition-colors duration-normal"
-              >
-                {navigationsT(link.key)}
-              </Link>
-            ))}
-          </ul>
-        </div>
+            <ul className="flex flex-col gap-sm">
+              {visibleLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex items-center gap-tiny hover:text-white hover:gap-sm transition-all duration-normal"
+                >
+                  {navigationsT(link.label)}
 
-        {/* Customer Service */}
-        <div className="space-y-sm">
-          <Heading as="h4" className="font-semibold text-foreground">
-            {footerT("customerService.title")}
-          </Heading>
+                  <Icon
+                    name="ArrowRight"
+                    className="hidden group-hover:flex text-current"
+                  />
+                </Link>
+              ))}
+            </ul>
 
-          <ul className="flex flex-col gap-sm">
-            {visibleLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="hover:text-accent-base transition-colors duration-normal"
-              >
-                {navigationsT(link.label)}
-              </Link>
-            ))}
-          </ul>
+            <div className="flex flex-col gap-sm">
+              <div className="flex items-center gap-sm">
+                <Icon name="Phone" className="text-current" />
+                <p>{primaryPhone}</p>
+              </div>
 
-          <div className="flex flex-col gap-sm">
-            <div className="flex items-center gap-sm">
-              <Icon name="Phone" />
-              <p>{primaryPhone}</p>
-            </div>
-
-            <div className="flex items-center gap-sm">
-              <Icon name="Mail" />
-              <p>{infoEmail}</p>
+              <div className="flex items-center gap-sm">
+                <Icon name="Mail" className="text-current" />
+                <p>{infoEmail}</p>
+              </div>
             </div>
           </div>
         </div>
+
+        <div className="col-span-3 lg:col-span-1">
+          <NewsletterForm variant="footer" />
+        </div>
       </div>
 
-      <div className="col-span-3 lg:col-span-1">
-        <NewsletterForm />
+      <div className="font-bold text-center select-none">
+        <Heading
+          as="h2"
+          className="text-[clamp(2.75rem,12vw,10rem)] font-bold text-black uppercase tracking-[clamp(0.25rem,1vw,1.5rem)]"
+        >
+          {appConfig.siteName}
+        </Heading>
       </div>
     </section>
   );
