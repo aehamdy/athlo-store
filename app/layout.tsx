@@ -6,6 +6,18 @@ import { STORAGE_KEYS } from "@/config/constants";
 import { Toaster } from "@/components/ui/sonner";
 import { Metadata } from "next";
 import appConfig from "@/config/appConfig";
+import { Inter, Oswald } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const oswald = Oswald({
+  variable: "--font-oswald",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -69,7 +81,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body>
+      <body
+        className={`${inter.variable} ${oswald.variable} font-sans bg-surface`}
+      >
         <Providers initialIsAuthenticated={initialIsAuthenticated}>
           {children}
 

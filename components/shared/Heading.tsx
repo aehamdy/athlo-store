@@ -19,7 +19,7 @@ function Heading({ as = "h2", children, className = "" }: HeadingProps) {
 
   const Tag = headingComponents[as];
 
-  return <Tag className={className}>{children}</Tag>;
+  return <Tag className={`font-display ${className}`}>{children}</Tag>;
 }
 
 export default Heading;
