@@ -8,7 +8,7 @@ type LayoutSectionProps = {
 
 function LayoutSection({ className, children }: LayoutSectionProps) {
   return (
-    <section className={cn("h-[40vh] bg-card overflow-hidden", className)}>
+    <section className={cn("h-[50dvh] bg-card overflow-hidden", className)}>
       {children}
     </section>
   );
