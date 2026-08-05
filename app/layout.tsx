@@ -80,7 +80,11 @@ export default async function RootLayout({
   const initialIsAuthenticated = cookieStore.has(STORAGE_KEYS.accessToken);
 
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+    <html
+      lang={locale}
+      dir={locale === "ar" ? "rtl" : "ltr"}
+      suppressHydrationWarning
+    >
       <body
         className={`${inter.variable} ${oswald.variable} font-sans bg-surface`}
       >
