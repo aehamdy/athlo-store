@@ -8,12 +8,14 @@ import Icon from "@/components/shared/Icon";
 import Image from "next/image";
 import { CategoryT } from "../types";
 import { useTranslations } from "next-intl";
+import CategoriesBentoGridSkeleton from "./CategoriesBentoGridSkeleton";
+import ErrorMessage from "@/components/shared/ErrorMessage";
 
 function CategoriesBentoGrid() {
   const t = useTranslations("home.shopByCategory");
-  const { data, isLoading } = useFetchCategories();
+  const { data, isLoading, isError } = useFetchCategories();
 
-  if (isLoading) return <div className="">Loading...</div>;
+  if (isLoading) return <CategoriesBentoGridSkeleton />;
 
   const slugs = [
     "sportswear",
@@ -35,6 +37,8 @@ function CategoriesBentoGrid() {
     supplements: `col-start-2 row-start-2 md:col-start-1 md:row-start-4 lg:col-start-1 lg:row-start-3`,
     "fitness tools": `col-start-1 row-start-3 md:col-start-2 md:row-start-4 lg:col-start-2 lg:row-start-3`,
   };
+
+  if (isError) return <ErrorMessage message={t("failedFetchingCategories")} />;
 
   return (
     <div className="flex-1 grid grid-cols-2 grid-rows-3 md:grid-cols-2 md:grid-rows-5 lg:grid-cols-3 lg:grid-rows-3 gap-4 h-162.5 md:h-225 lg:h-137.5">
