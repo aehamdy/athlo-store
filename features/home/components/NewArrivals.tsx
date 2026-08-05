@@ -8,7 +8,7 @@ function NewArrivals() {
   const actionsT = useTranslations("actions");
 
   return (
-    <section className="py-16 bg-base">
+    <section className="py-10xl bg-base">
       <div className="container mx-auto px-4">
         <SectionHeader
           sectionTitle={t("title")}
