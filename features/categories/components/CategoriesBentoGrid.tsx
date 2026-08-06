@@ -55,7 +55,7 @@ function CategoriesBentoGrid() {
             alt={category.name}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-contain bg-gray-50 scale-105 group-hover:scale-110 transition-transform duration-normal"
+            className="object-cover bg-gray-50 scale-105 group-hover:scale-110 transition-transform duration-normal"
           />
 
           <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-normal group-hover:from-black/60" />
