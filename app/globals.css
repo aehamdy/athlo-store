@@ -21,6 +21,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-primary-dark: var(--primary-dark);
   --color-primary-light: var(--primary-light);
+  --color-hero-overlay: var(--hero-overlay);
 
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -146,6 +147,7 @@
   /* Text & icons */
   --foreground: oklch(0.145 0 0); /* main text */
   --muted-foreground: oklch(0.556 0 0); /* secondary */
+  --hero-overlay: white;
 
   --primary-dark: oklch(0.145 0 0);
   --primary-light: oklch(0.985 0 0);
@@ -196,14 +198,13 @@
 
 .dark {
   /* Background layers */
-  /* --base: oklch(0.145 0 0);
-  --surface: oklch(0.205 0 0); */
   --base: oklch(0.17 0 0);
   --surface: oklch(0.22 0 0);
 
   /* Text & icons */
   --foreground: oklch(0.985 0 0); /* main text */
   --muted-foreground: oklch(0.708 0 0); /* secondary */
+  --hero-overlay: black;
 
   --subtle: hsl(0 0% 18%);
   --field: hsl(0 0% 4%);
@@ -243,9 +244,57 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+::selection {
+  color: var(--primary-dark);
+  background-color: var(--accent-soft);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+}
+
+@layer utilities {
+  .text-stroke-accent-base {
+    -webkit-text-stroke: 2px var(--accent-base);
+    color: transparent;
+  }
+
+  .text-stroke-foreground {
+    -webkit-text-stroke: 2px var(--foreground);
+    color: transparent;
+  }
+
+  .text-stroke-white {
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+  }
+}
+
+.animate-progress {
+  animation: progress var(--slide-duration) linear forwards;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
