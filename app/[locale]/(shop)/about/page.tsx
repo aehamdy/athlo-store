@@ -18,11 +18,7 @@ function AboutPage() {
 
   return (
     <main>
-      <PageHero
-        title={t("title")}
-        description={t("description")}
-        image="url(https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1920)"
-      />
+      <PageHero title={t("title")} description={t("description")} />
 
       <OurStory />
 

@@ -1,8 +1,8 @@
-import Heading from "@/components/shared/Heading";
 import { useTranslations } from "next-intl";
 import Checkout from "@/features/checkout/components/Checkout";
 import { Metadata } from "next";
 import appConfig from "@/config/appConfig";
+import PageHero from "@/components/layout/PageHero";
 
 export const metadata: Metadata = {
   title: "Checkout",
@@ -17,12 +17,10 @@ function CheckoutPage() {
   const t = useTranslations("checkoutPage");
 
   return (
-    <main className="main-page">
-      <section className="py-xl lg:py-8xl px-md">
-        <Heading as="h1" className="mb-8 font-bold text-3xl text-foreground">
-          {t("title")}
-        </Heading>
+    <main className="bg-base">
+      <PageHero title={t("title")} />
 
+      <section className="py-2xl lg:py-12xl px-xs lg:px-lg">
         <Checkout />
       </section>
     </main>
