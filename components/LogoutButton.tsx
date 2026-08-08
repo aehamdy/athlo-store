@@ -3,10 +3,11 @@
 import Icon from "./shared/Icon";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
-import { useAuthStore } from "@/lib/stores/auth.store";
 import ROUTES from "@/lib/routes";
 import { logout } from "@/lib/auth/auth";
 import { useTranslations } from "next-intl";
+import { toast } from "sonner";
+import { useQueryClient } from "@tanstack/react-query";
 
 type LogoutButtonProps = {
   variant?: "outline" | "destructive";
@@ -15,12 +16,12 @@ type LogoutButtonProps = {
 function LogoutButton({ variant = "destructive" }: LogoutButtonProps) {
   const t = useTranslations("account");
   const router = useRouter();
+  const queryClient = useQueryClient();
 
   const handleLogoutClick = () => {
     logout();
-
-    useAuthStore.getState().logout();
-
+    queryClient.clear();
+    toast.success(t("logoutSuccess"));
     router.replace(ROUTES.public.home);
   };
 
