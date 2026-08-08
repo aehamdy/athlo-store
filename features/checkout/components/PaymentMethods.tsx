@@ -18,7 +18,7 @@ function PaymentMethods() {
 
   return (
     <Card className="px-md bg-card border-subtle">
-      <CardHeader>
+      <CardHeader className="px-0">
         <CardTitle className="flex items-center gap-xs">
           <Icon name="CreditCard" size={24} className="text-accent-base" />
           {t("title")}

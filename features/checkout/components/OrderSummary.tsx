@@ -62,7 +62,7 @@ function OrderSummary({ shippingMethods, isCreatingOrder }: OrderSummaryProps) {
 
   return (
     <Card className="px-md bg-card border-subtle">
-      <CardHeader className="flex justify-between items-center">
+      <CardHeader className="flex justify-between items-center px-0">
         <CardTitle className="text-xl">{t("title")}</CardTitle>
 
         <div className="font-medium">
@@ -146,13 +146,13 @@ function OrderSummary({ shippingMethods, isCreatingOrder }: OrderSummaryProps) {
             <>
               <Icon
                 name="LoaderCircle"
-                className="me-xs h-4 w-4 animate-spin"
+                className="me-xs h-4 w-4 animate-spin text-current"
               />
               {t("placingOrder")}
             </>
           ) : (
             <>
-              <Icon name="ShieldCheck" className="me-xs h-4 w-4" />
+              <Icon name="ShieldCheck" className="me-xs h-4 w-4 text-current" />
               {t("placeOrder")}
             </>
           )}

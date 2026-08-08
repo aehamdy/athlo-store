@@ -29,7 +29,7 @@ function ShippingInformation({ shippingMethods }: ShippingInformationProps) {
 
   return (
     <Card className="bg-card border-border px-md">
-      <CardHeader>
+      <CardHeader className="px-0">
         <CardTitle className="flex items-center gap-md">
           <Icon name="Truck" size={24} className="text-accent-base" />
           {t("title")}
