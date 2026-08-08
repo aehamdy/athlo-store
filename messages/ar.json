@@ -120,7 +120,9 @@
     "productLinkCopied": "تم نسخ رابط المنتج!",
     "copyLinkFailed": "تعذر نسخ رابط المنتج.",
 
-    "offlineDescription": "قد لا تكون بعض الميزات متاحة حتى تتم استعادة اتصالك بالإنترنت."
+    "offlineDescription": "قد لا تكون بعض الميزات متاحة حتى تتم استعادة اتصالك بالإنترنت.",
+    "item": "منتج",
+    "items": "منتجات"
   },
 
   "messages": {
@@ -161,6 +163,14 @@
     "checkout": "الدفع",
     "account": "الحساب",
     "orders": "الطلبات"
+  },
+
+  "navLinks": {
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "categories": "الفئات",
+    "about": "من نحن",
+    "contact": "تواصل معنا"
   },
 
   "authPages": {
@@ -340,8 +350,6 @@
       "new": "جديد",
       "featured": "مميز"
     },
-
-    "currency": "ج.م",
 
     "actions": {
       "addToCart": "أضف إلى السلة",
@@ -751,12 +759,17 @@
 
   "cart": {
     "title": "سلة التسوق",
+    "mainTitle": "سلتك",
+    "description": "راجع وأدر المنتجات الموجودة في سلة التسوق الخاصة بك.",
     "empty": "سلة التسوق فارغة.",
     "summary": "ملخص الطلب",
-    "couponCode": "كود الخصم",
-    "applyCoupon": "تطبيق الكوبون",
-    "estimatedTotal": "الإجمالي التقريبي",
-    "proceedToCheckout": "المتابعة للدفع"
+    "couponCode": "رمز الخصم",
+    "applyCoupon": "تطبيق الخصم",
+    "estimatedTotal": "الإجمالي التقديري",
+    "proceedToCheckout": "المتابعة إلى الدفع",
+    "ariaLabel": "فتح سلة التسوق",
+    "ariaDescribedBy": "cart-trigger-description",
+    "ariaControls": "cart"
   },
 
   "account": {
