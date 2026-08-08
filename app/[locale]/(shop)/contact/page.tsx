@@ -15,11 +15,7 @@ function ContactPage() {
 
   return (
     <main>
-      <PageHero
-        title={t("title")}
-        description={t("description")}
-        image="url(https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920)"
-      />
+      <PageHero title={t("title")} description={t("description")} />
 
       <ContactSection />
 

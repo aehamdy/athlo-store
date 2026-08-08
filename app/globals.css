@@ -249,6 +249,28 @@
   background-color: var(--accent-soft);
 }
 
+.page-hero {
+  background-color: var(--surface);
+
+  background-image:
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      transparent 0,
+      transparent 30px,
+      var(--border) 31px,
+      transparent 33px
+    ),
+    radial-gradient(circle at 50% 50%, var(--muted) 0%, var(--surface) 70%);
+
+  mask-image: radial-gradient(ellipse at center, transparent 10%, black 85%);
+
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    transparent 10%,
+    black 85%
+  );
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
