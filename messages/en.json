@@ -776,7 +776,8 @@
     "orderHistory": "Order History",
     "settings": "Settings",
     "changePassword": "Change Password",
-    "logout": "Logout"
+    "logout": "Logout",
+    "logoutSuccess": "You have been logged out successfully."
   },
 
   "wishlist": {
