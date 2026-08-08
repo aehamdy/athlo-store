@@ -1,4 +1,3 @@
-import Heading from "@/components/shared/Heading";
 import Icon from "@/components/shared/Icon";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -32,20 +31,20 @@ function CartItemCard({ product }: CartItemCardProps) {
   };
 
   return (
-    <article className="p-3 text-foreground bg-surface border hover:border-accent-ring rounded-md duration-normal">
+    <article className="text-foreground bg-surface border hover:border-accent-ring rounded-md duration-normal">
       <div className="flex justify-between items-start">
         <div className="flex items-start gap-sm">
-          <div className="rounded-sm overflow-hidden h-25">
+          <div className="w-17.5 h-25 rounded-sm overflow-hidden">
             <Image
               src={product.productImageUrl}
               alt={product.productName}
               width={90}
               height={90}
-              className="w-full h-full"
+              className="w-full h-full object-cover"
             />
           </div>
 
-          <div className="space-y-tiny">
+          <div className="space-y-tiny ">
             <div className="space-y-0.5">
               <ProductTitleDisplay
                 variant="cart-item"
@@ -71,7 +70,7 @@ function CartItemCard({ product }: CartItemCardProps) {
                 )}
               </div>
 
-              <Heading as="h6" className="font-medium text-sm">
+              <div className="font-medium text-sm">
                 {product.finalPrice < product.originalPrice ? (
                   <div className="flex items-center gap-xs">
                     <span className="text-muted-foreground line-through">
@@ -86,7 +85,7 @@ function CartItemCard({ product }: CartItemCardProps) {
                     <Currency price={product.originalPrice} />
                   </div>
                 )}
-              </Heading>
+              </div>
             </div>
 
             <div className="flex items-center gap-sm">

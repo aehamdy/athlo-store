@@ -1,11 +1,13 @@
 import Currency from "@/features/products/components/Currency";
 import useGetCartSummary from "../hooks/useGetCartSummary";
+import { useTranslations } from "next-intl";
 
 type CartSummaryProps = {
   open: boolean;
 };
 
 function CartSummary({ open }: CartSummaryProps) {
+  const t = useTranslations("labels");
   const { data, isLoading } = useGetCartSummary(open);
 
   if (isLoading) {
@@ -21,7 +23,7 @@ function CartSummary({ open }: CartSummaryProps) {
 
   return (
     <div className="flex justify-between items-center mb-xs">
-      <p className="text-muted-foreground">Subtotal:</p>
+      <p className="text-muted-foreground">{t("subtotal")}:</p>
 
       <div className="flex items-center gap-sm">
         {discountedSubtotal < subtotal ? (
