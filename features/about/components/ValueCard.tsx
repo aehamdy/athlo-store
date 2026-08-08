@@ -1,3 +1,4 @@
+import Heading from "@/components/shared/Heading";
 import Icon from "../../../components/shared/Icon";
 import { Value } from "../types";
 
@@ -12,9 +13,9 @@ function ValueCard({ value }: ValueCardProps) {
         <Icon name={value.icon} className="text-accent-base" size={24} />
       </div>
 
-      <h3 className="mb-2 font-semibold text-lg text-foreground">
+      <Heading as="h3" className="mb-2 font-semibold text-lg text-foreground">
         {value.title}
-      </h3>
+      </Heading>
 
       <p className="text-sm text-muted-foreground">{value.description}</p>
     </article>
