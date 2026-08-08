@@ -19,8 +19,12 @@ import cartQueryKeys from "@/features/cart/constants/cartQueryKeys";
 import { useQueryClient } from "@tanstack/react-query";
 import prefetchCartItems from "@/features/cart/api/prefetchCartItems";
 import CartList from "./CartList";
+import { useTranslations } from "next-intl";
 
 function CartDrawer() {
+  const t = useTranslations("cart");
+  const tLabels = useTranslations("labels");
+  const tActions = useTranslations("actions");
   const [open, setOpen] = useState(false);
 
   const { data: cartItems = [], isLoading, isError } = useFetchCartItems();
@@ -42,8 +46,12 @@ function CartDrawer() {
       <SheetTrigger asChild className="relative">
         <Button
           variant="plain"
-          aria-label="Open cart"
-          aria-describedby="cart-button-desc"
+          aria-label={
+            cartItems.length > 0
+              ? `${t("ariaLabel")}, ${cartItems.length} ${tLabels("items")}`
+              : t("ariaLabel")
+          }
+          aria-describedby={t("ariaDescribedBy")}
           aria-haspopup="true"
           aria-controls="cart"
           className="group action-button focus-visible:text-primary-dark"
@@ -55,7 +63,7 @@ function CartDrawer() {
           />
 
           {cartItems.length > 0 && (
-            <span className="flex justify-center items-center absolute top-0 end-0 w-4 h-4 text-sm bg-accent-soft rounded-full">
+            <span className="flex justify-center items-center absolute top-0 end-0 translate-x-1/4 w-5 h-5 text-sm text-primary-dark bg-accent-soft rounded-full">
               {cartItems.length}
             </span>
           )}
@@ -67,12 +75,13 @@ function CartDrawer() {
           <SheetTitle className="flex items-center gap-xs">
             <Icon name="ShoppingBag" size={22} className="text-foreground" />
             <div className="flex items-center gap-xs">
-              Your Cart <span className="text-sm">( {cartItems.length} )</span>
+              {t("mainTitle")}
+              <span className="text-sm">( {cartItems.length} )</span>
             </div>
           </SheetTitle>
 
           <SheetDescription className="sr-only">
-            Review and manage the items in your shopping cart.
+            {t("description")}
           </SheetDescription>
         </SheetHeader>
 
@@ -99,7 +108,7 @@ function CartDrawer() {
               }}
               className={`main-button ${isCartEmpty && "pointer-events-none opacity-50 cursor-not-allowed"}`}
             >
-              Checkout
+              {t("proceedToCheckout")}
             </Link>
 
             <SheetClose asChild>
@@ -107,7 +116,7 @@ function CartDrawer() {
                 variant="plain"
                 className="font-normal text-foreground hover:text-primary-dark bg-transparent hover:bg-accent-base border border-subtle transition-colors duration-normal cursor-pointer"
               >
-                Continue Shopping
+                {tActions("continueShopping")}
               </Button>
             </SheetClose>
           </SheetFooter>
