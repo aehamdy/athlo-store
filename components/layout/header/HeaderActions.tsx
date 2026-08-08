@@ -7,12 +7,15 @@ import Icon from "../../shared/Icon";
 import ROUTES from "@/lib/routes";
 import AccountActions from "@/components/AccountActions";
 import { useAuthStore } from "@/lib/stores/auth.store";
+import { useLocale } from "next-intl";
 
 function HeaderActions() {
+  const locale = useLocale();
+  const isRTL = locale === "ar";
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   return (
-    <div className="flex items-center gap-xs">
+    <div dir={isRTL ? "rtl" : "ltr"} className="flex items-center gap-xs">
       <Link
         href={ROUTES.public.home}
         className="group lg:hidden p-xs action-button"
