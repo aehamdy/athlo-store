@@ -118,7 +118,9 @@
     "productLinkCopied": "Product link copied!",
     "copyLinkFailed": "Failed to copy the product link.",
 
-    "offlineDescription": "Some features may not be available until your connection is restored."
+    "offlineDescription": "Some features may not be available until your connection is restored.",
+    "item": "item",
+    "items": "items"
   },
 
   "messages": {
@@ -159,6 +161,14 @@
     "checkout": "Checkout",
     "account": "Account",
     "orders": "Orders"
+  },
+
+  "navLinks": {
+    "home": "home",
+    "products": "products",
+    "categories": "categories",
+    "about": "about",
+    "contact": "contact"
   },
 
   "authPages": {
@@ -744,12 +754,17 @@
 
   "cart": {
     "title": "Shopping Cart",
+    "mainTitle": "Your Cart",
+    "description": "Review and manage the items in your shopping cart.",
     "empty": "Your cart is empty.",
     "summary": "Order Summary",
     "couponCode": "Coupon Code",
     "applyCoupon": "Apply Coupon",
     "estimatedTotal": "Estimated Total",
-    "proceedToCheckout": "Proceed to Checkout"
+    "proceedToCheckout": "Proceed to Checkout",
+    "ariaLabel": "Open Cart",
+    "ariaDescribedBy": "cart-trigger-description",
+    "ariaControls": "cart"
   },
 
   "account": {
