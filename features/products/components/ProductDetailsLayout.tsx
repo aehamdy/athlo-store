@@ -50,10 +50,10 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
   };
 
   return (
-    <section className="relative lg:pt-2xl space-y-3xl overflow-hidden">
+    <section className="relative lg:pt-2xl space-y-3xl">
       {/* Ambient background */}
       <div className="pointer-events-none absolute top-40 md:top-135 lg:-top-40 start-1/2 lg:start-1/4 -translate-x-1/2 lg:translate-x-0 h-115 w-115 rounded-full bg-accent-base/20 blur-[140px]" />
-      <div className="pointer-events-none absolute top-6/10 end-0 h-90 w-90 rounded-full bg-accent-base/30 blur-[160px]" />
+      <div className="pointer-events-none absolute top-6/10 md:top-7/10 lg:top-6/10 end-0 h-90 w-90 rounded-full bg-accent-base/30 blur-[160px]" />
 
       <div className="grid lg:grid-cols-12 gap-lg">
         {/* Product Images */}
