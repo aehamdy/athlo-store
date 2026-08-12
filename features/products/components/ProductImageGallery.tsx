@@ -30,12 +30,16 @@ function ProductImageGallery({
               key={index}
               onClick={() => setSelectedImage(index)}
               className={cn(
-                "shrink-0 w-20 h-20 p-0 border rounded-lg transition-colors overflow-hidden ",
+                "group relative shrink-0 w-20 h-20 p-0 border-3 rounded-lg transition-colors overflow-hidden ",
                 selectedImage === index
                   ? "border-accent-base"
                   : "border-subtle",
               )}
             >
+              <div
+                className={`absolute inset-0 ${selectedImage === index ? "bg-transparent" : "bg-gray-50/50"} group-hover:bg-transparent`}
+              />
+
               <AppImage
                 productImage={image}
                 altText={""}

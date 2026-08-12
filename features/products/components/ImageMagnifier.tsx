@@ -37,7 +37,7 @@ export default function ImageMagnifier({
   return (
     <div
       ref={containerRef}
-      className="relative overflow-hidden rounded-xl cursor-zoom-in"
+      className="relative w-full h-full overflow-hidden rounded-xl cursor-zoom-in"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onMouseMove={handleMouseMove}
