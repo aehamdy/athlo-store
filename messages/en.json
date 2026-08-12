@@ -265,7 +265,8 @@
     "newsletter": {
       "title": "Newsletter",
       "getLatestDrops": "Get The Latest Drops First",
-      "description": "Subscribe to receive exclusive offers and product updates."
+      "description": "Subscribe to receive exclusive offers and product updates.",
+      "newsletterWarning": "Our newsletter is currently under development!"
     }
   },
 
