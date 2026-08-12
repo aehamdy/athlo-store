@@ -1,6 +1,9 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 type NewsletterFormProps = {
   variant?: string;
@@ -8,7 +11,8 @@ type NewsletterFormProps = {
 
 function NewsletterForm({ variant }: NewsletterFormProps) {
   const labelsT = useTranslations("labels");
-  const actionsT = useTranslations("actions");
+  const tActions = useTranslations("actions");
+  const tNewsletter = useTranslations("home.newsletter");
 
   return (
     <form
@@ -29,11 +33,14 @@ function NewsletterForm({ variant }: NewsletterFormProps) {
       </div>
 
       <Button
-        disabled={true}
+        type="button"
+        onClick={() => {
+          toast.warning(tNewsletter("newsletterWarning"));
+        }}
         variant={`${variant === "footer" ? "outline" : "outline"}`}
         className={`disabled:bg-gray-400 disabled:text-black ${variant === "footer" ? "ms-auto w-full lg:w-3/4" : "main-button shrink-2"}`}
       >
-        {actionsT("subscribe")}
+        {tActions("subscribe")}
       </Button>
     </form>
   );
