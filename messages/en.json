@@ -264,6 +264,7 @@
     },
     "newsletter": {
       "title": "Newsletter",
+      "getLatestDrops": "Get The Latest Drops First",
       "description": "Subscribe to receive exclusive offers and product updates."
     }
   },
@@ -284,7 +285,22 @@
     "noReviews": "No reviews yet. Be the first to share your experience!",
     "signInToWrite": "Sign in to write a review",
     "signInDescription": "You need to be signed in to share your thoughts about this product.",
-    "you": "You"
+    "you": "You",
+    "reviewForm": {
+      "writeReview": "Write a Review",
+      "yourRating": "Your Rating",
+      "yourReview": "Your Review",
+      "reviewPlaceholder": "Share your thoughts about this product...",
+      "submitting": "Submitting...",
+      "submitReview": "Submit Review"
+    },
+    "deleteReview": {
+      "title": "Delete this review?",
+      "description": "This action cannot be undone. Your review will be permanently deleted.",
+      "cancel": "Cancel",
+      "confirm": "Yes",
+      "deleting": "Deleting..."
+    }
   },
 
   "filters": {
