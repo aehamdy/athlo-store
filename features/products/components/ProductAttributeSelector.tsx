@@ -51,7 +51,7 @@ function ProductAttributeSelector({
               key={attribute}
               variant={selected ? "default" : "outline"}
               onClick={() => handleSelectAttribute(attribute)}
-              className={`${selected ? "text-dark" : "text-foreground"} border hover:border-accent-ring`}
+              className={`${selected ? "text-primary-dark" : "text-foreground"} border hover:border-accent-ring`}
             >
               {attribute}
             </Button>
