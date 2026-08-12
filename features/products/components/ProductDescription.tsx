@@ -9,9 +9,17 @@ function ProductDescription({
   description,
   className,
 }: ProductDescriptionProps) {
-  // return <p className="text-muted-foreground">{description}</p>;
   return (
-    <p className={cn(`text-muted-foreground ${className}`)}>{description}</p>
+    <p
+      className={cn(
+        `w-full md:w-4/5 pb-md text-muted-foreground leading-3xl ${className}`,
+      )}
+      // className={cn(
+      //   `py-md px-sm text-muted-foreground bg-accent-light leading-3xl rounded-md ${className}`,
+      // )}
+    >
+      {description}
+    </p>
   );
 }
 
