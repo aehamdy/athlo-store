@@ -19,6 +19,7 @@ function NewsletterForm({ variant }: NewsletterFormProps) {
         className={`flex items-center gap-2 ${variant === "footer" ? "ms-auto w-full lg:w-3/4 bg-white" : "w-full bg-field"}  border border-subtler focus-within:border focus-within:border-accent-strong rounded-sm`}
       >
         <Input
+          disabled
           type="email"
           name="email"
           id="email"
@@ -28,8 +29,9 @@ function NewsletterForm({ variant }: NewsletterFormProps) {
       </div>
 
       <Button
+        disabled={true}
         variant={`${variant === "footer" ? "outline" : "outline"}`}
-        className={`${variant === "footer" ? "ms-auto w-full lg:w-3/4" : "main-button shrink-2"}`}
+        className={`disabled:bg-gray-400 disabled:text-black ${variant === "footer" ? "ms-auto w-full lg:w-3/4" : "main-button shrink-2"}`}
       >
         {actionsT("subscribe")}
       </Button>
