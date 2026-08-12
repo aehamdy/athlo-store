@@ -15,6 +15,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useTranslations } from "next-intl";
 
 type ReviewItemActionsProps = {
   reviewId: number;
@@ -22,6 +23,8 @@ type ReviewItemActionsProps = {
 };
 
 function ReviewItemActions({ reviewId, onEdit }: ReviewItemActionsProps) {
+  const t = useTranslations("reviews.deleteReview");
+
   const { id: productId } = useParams<{ id: string }>();
 
   const { mutate: deleteReview, isPending } = useDeleteReview(productId);
@@ -45,25 +48,22 @@ function ReviewItemActions({ reviewId, onEdit }: ReviewItemActionsProps) {
                 <Icon name="Trash2" size={26} className="" />
               </span>
 
-              <span className="text-foreground">Delete this review?</span>
+              <span className="text-foreground">{t("title")}</span>
             </AlertDialogTitle>
 
-            <AlertDialogDescription>
-              This action cannot be undone. Your review will be permanently
-              deleted.
-            </AlertDialogDescription>
+            <AlertDialogDescription>{t("description")}</AlertDialogDescription>
           </AlertDialogHeader>
 
           <AlertDialogFooter>
             <AlertDialogCancel className="text-foreground">
-              Cancel
+              {t("cancel")}
             </AlertDialogCancel>
 
             <AlertDialogAction
               disabled={isPending}
               onClick={() => deleteReview(reviewId)}
             >
-              {isPending ? "Deleting..." : "Yes"}
+              {isPending ? t("deleting") : t("confirm")}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

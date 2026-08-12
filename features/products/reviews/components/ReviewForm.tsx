@@ -5,13 +5,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { useParams } from "next/navigation";
-
 import { MAX_REVIEW_LENGTH } from "../constants/constants";
 import useAddReview from "../hooks/useAddReview";
 import RatingInput from "./RatingInput";
 import { ReviewFormType, reviewSchema } from "../reviews-schema";
+import { useTranslations } from "next-intl";
 
 function ReviewForm() {
+  const tReviews = useTranslations("reviews.reviewForm");
   const { id } = useParams<{ id: string }>();
   const productId = Number(id);
 
@@ -52,12 +53,12 @@ function ReviewForm() {
   return (
     <div className="space-y-xl rounded-md border bg-surface p-6 text-foreground">
       <Heading as="h3" className="text-lg font-medium">
-        Write a Review
+        {tReviews("writeReview")}
       </Heading>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-xl">
         <Field>
-          <FieldLabel>Your Rating</FieldLabel>
+          <FieldLabel>{tReviews("yourRating")}</FieldLabel>
 
           <Controller
             control={control}
@@ -74,12 +75,12 @@ function ReviewForm() {
 
         <Field>
           <FieldLabel htmlFor="review-message" className="text-sm font-normal">
-            Your Review
+            {tReviews("yourReview")}
           </FieldLabel>
 
           <Textarea
             id="review-message"
-            placeholder="Share your thoughts about this product..."
+            placeholder={tReviews("reviewPlaceholder")}
             className="h-30 text-foreground border-subtle focus-visible:ring-accent-soft"
             maxLength={MAX_REVIEW_LENGTH}
             {...register("comment")}
@@ -105,7 +106,7 @@ function ReviewForm() {
           className="w-full py-sm"
           disabled={isPending || !isValid}
         >
-          {isPending ? "Submitting..." : "Submit Review"}
+          {isPending ? tReviews("submitting") : tReviews("submitReview")}
         </Button>
       </form>
     </div>

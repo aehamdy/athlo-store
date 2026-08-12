@@ -20,7 +20,7 @@ function ReviewsSection() {
 
   return (
     <section className="space-y-3xl">
-      <ReviewsSectionHeader reviewsCount={reviewList?.length ?? 0} />
+      <ReviewsSectionHeader reviewsList={reviewList ?? []} />
 
       <div className="grid lg:grid-cols-5 gap-3xl">
         <div className="lg:col-span-2">
