@@ -37,7 +37,7 @@ function ReviewItem({ review, currentUserId }: ReviewItemProps) {
 
   return (
     <article
-      className={`p-3 bg-surface border ${isOwner && "border-s-4 border-s-accent-ring"} border-subtle hover:shadow-sm rounded-md duration-normal`}
+      className={`p-3 bg-surface hover:bg-accent-light border ${isOwner && "border-s-4 border-s-accent-ring"} border-subtle hover:shadow-sm rounded-md duration-normal`}
     >
       <div className="flex flex-1 items-start gap-sm text-foreground">
         <div className="flex flex-1 items-start gap-sm">
