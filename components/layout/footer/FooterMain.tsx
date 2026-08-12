@@ -37,7 +37,7 @@ function FooterMain() {
     appConfig.contact.emails.find((e) => e.label === "info")?.value ?? "";
 
   return (
-    <section className="relative flex flex-col justify-between gap-lg min-h-[50dvh] py-3xl text-black">
+    <section className="relative flex flex-col justify-between gap-md lg:gap-2xl min-h-[50dvh] pt-3xl text-black">
       <div className="grid grid-cols-3 gap-4xl">
         {/* Logo, tagline and social channels */}
         <div className="col-span-3 lg:col-span-1">
@@ -137,13 +137,15 @@ function FooterMain() {
         </div>
       </div>
 
-      <div className="font-bold text-center select-none">
-        <Heading
-          as="h2"
-          className="text-[clamp(2.75rem,12vw,10rem)] font-bold text-black uppercase tracking-[clamp(0.25rem,1vw,1.5rem)]"
-        >
-          {appConfig.siteName}
-        </Heading>
+      <div className="relative min-h-22.5 md:min-h-27.5 lg:min-h-40 font-bold text-center select-none overflow-hidden">
+        <div className="absolute w-full h-full bottom-0 start-1/2 translate-y-1/4 lg:translate-y-[5%] -translate-x-1/2 flex justify-center items-center">
+          <Heading
+            as="h2"
+            className="flex items-center text-[clamp(2.75rem,15vw,15.2rem)] font-bold text-black h-full uppercase tracking-[clamp(0,1vw,1.5rem)] leading-3"
+          >
+            {appConfig.siteName}
+          </Heading>
+        </div>
       </div>
     </section>
   );

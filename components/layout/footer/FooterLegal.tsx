@@ -13,7 +13,7 @@ function FooterLegal() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="flex flex-col md:flex-row justify-between items-center gap-xs py-sm md:py-lg border-t border-black/30">
+    <section className="flex flex-col md:flex-row justify-between items-center gap-xs py-sm md:py-lg text-sm">
       <p className="">
         &copy; {currentYear} {footerT("copyright")}
       </p>
