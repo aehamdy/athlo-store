@@ -21,7 +21,7 @@ function ProductCardInfo({
   variant,
 }: ProductCardInfoProps) {
   return (
-    <div dir="ltr" className="border-t p-4 space-y-3 bg-surface">
+    <div className="border-t p-4 space-y-3 bg-surface">
       {variant !== "search" && (
         <ProductMetaInfo
           variant="card"

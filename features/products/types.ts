@@ -74,6 +74,7 @@ export type GetProductsParams = {
   pageSize?: number;
   search?: string;
   ordering?: number;
+  locale: string;
 };
 
 export type PaginatedProductsResponse = {
@@ -84,6 +85,7 @@ export type PaginatedProductsResponse = {
   hasNextPage: boolean;
   hasPreviousPage: boolean;
   pageSize: number;
+  locale: string;
 };
 
 export type BrandT = {

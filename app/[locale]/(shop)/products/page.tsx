@@ -3,7 +3,7 @@ import SortDropdown from "@/features/products/components/filters/SortDropdown";
 import Heading from "@/components/shared/Heading";
 import MobileFilter from "@/features/products/components/filters/MobileFilter";
 import ProductsGrid from "@/features/products/components/ProductsGrid";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import ProductsGridViewSelector from "@/features/products/components/filters/ProductsGridViewSelector";
 import { Metadata } from "next";
 import appConfig from "@/config/appConfig";
@@ -23,8 +23,10 @@ type ProductsPageProps = {
 };
 
 async function ProductsPage({ searchParams }: ProductsPageProps) {
-  const { category, brand, search, ordering } = await searchParams;
   const t = await getTranslations("productsPage");
+  const locale = await getLocale();
+
+  const { category, brand, search, ordering } = await searchParams;
 
   return (
     <main className="main-page">
@@ -66,6 +68,7 @@ async function ProductsPage({ searchParams }: ProductsPageProps) {
 
         <div className="lg:col-span-10">
           <ProductsGrid
+            locale={locale}
             category={category}
             brand={brand}
             search={search}

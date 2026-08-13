@@ -1,32 +1,31 @@
+import { useTranslations } from "next-intl";
+
 type ProductStockInfoProps = {
   stockQuantity: number;
 };
 
 function ProductStockInfo({ stockQuantity }: ProductStockInfoProps) {
-  let stockInfo;
+  const t = useTranslations("labels");
+
+  let message: React.ReactNode;
+  let color: string;
 
   if (stockQuantity === 0) {
-    stockInfo = {
-      message: "Out of stock",
-      color: "text-red-500",
-    };
+    message = t("outOfStock");
+    color = "text-red-500";
   } else if (stockQuantity <= 5) {
-    stockInfo = {
-      message: `Only ${stockQuantity} left in stock`,
-      color: "text-yellow-500",
-    };
+    message = t("lowStock", { count: stockQuantity });
+    color = "text-yellow-500";
   } else {
-    stockInfo = {
-      message: `${stockQuantity} available`,
-      color: "text-green-600",
-    };
+    message = t("available", { count: stockQuantity });
+    color = "text-green-600";
   }
 
   return (
-    <div className="flex items-center gap-2 text-sm">
-      <span className="font-medium text-foreground">Stock:</span>
+    <div className="flex items-center gap-xs text-sm">
+      <span className="font-medium text-foreground">{t("stock")}:</span>
 
-      <span className={stockInfo.color}>{stockInfo.message}</span>
+      <span className={color}>{message}</span>
     </div>
   );
 }

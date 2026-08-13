@@ -1,5 +1,6 @@
 import Icon from "@/components/shared/Icon";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 import { Dispatch, SetStateAction } from "react";
 
 type ProductQuantitySelectorProps = {
@@ -15,6 +16,8 @@ function ProductQuantitySelector({
   maxQuantity,
   disabled = false,
 }: ProductQuantitySelectorProps) {
+  const t = useTranslations("labels");
+
   const handleDecrease = () => {
     setQuantity((prev) => Math.max(1, prev - 1));
   };
@@ -25,7 +28,7 @@ function ProductQuantitySelector({
 
   return (
     <div className="space-y-sm">
-      <p className="font-medium text-sm text-foreground">Quantity</p>
+      <p className="font-medium text-sm text-foreground">{t("quantity")}:</p>
 
       <div className="flex items-center gap-sm">
         <Button
