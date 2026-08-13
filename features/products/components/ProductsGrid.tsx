@@ -2,6 +2,7 @@ import InfiniteProducts from "./InfiniteProducts";
 import fetchProducts from "../api/fetchProducts";
 
 type ProductsGridProps = {
+  locale: string;
   category?: string;
   brand?: string;
   search?: string;
@@ -9,6 +10,7 @@ type ProductsGridProps = {
 };
 
 async function ProductsGrid({
+  locale,
   category,
   brand,
   search,
@@ -21,15 +23,17 @@ async function ProductsGrid({
     pageSize: 20,
     search: backendSearch,
     ordering,
+    locale,
   });
 
   return (
     <section className="flex-1 h-full">
       <InfiniteProducts
-        key={`${backendSearch ?? "all"}-${ordering ?? 0}`}
+        key={`${backendSearch ?? "all"}-${ordering ?? 0}-${locale}`}
         initialData={initialData}
         search={backendSearch}
         ordering={ordering}
+        locale={locale}
       />
     </section>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import ProductImageGallery from "./ProductImageGallery";
 import ProductPriceDisplay from "./ProductPriceDisplay";
 import ProductTitleDisplay from "./ProductTitleDisplay";
@@ -12,18 +11,21 @@ import ProductColorSelector from "./ProductColorSelector";
 import ProductStockInfo from "./ProductStockInfo";
 import ProductQuantitySelector from "./ProductQuantitySelector";
 import ProductActionButton from "./ProductActionButton";
-
 import { ProductDetails } from "../types";
 import useHandleAddToCart from "@/features/cart/hooks/useHandleAddToCart";
 import useProductVariant from "../hooks/useProductVariant";
 import ReviewsSection from "../reviews/components/ReviewsSection";
 import Share from "./Share";
+import { useTranslations } from "next-intl";
 
 type ProductDetailsLayoutProps = {
   product: ProductDetails;
+  locale: string;
 };
 
-function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
+function ProductDetailsLayout({ product, locale }: ProductDetailsLayoutProps) {
+  const t = useTranslations("actions");
+
   const [selectedAttribute, setSelectedAttribute] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -83,6 +85,7 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
             <div className="space-y-lg py-lg px-sm bg-accent-light rounded-xl">
               {hasAttribute && (
                 <ProductAttributeSelector
+                  locale={locale}
                   attributeKey={product.attributeKey}
                   unit={product.variants[0]?.unit ?? ""}
                   product={product}
@@ -118,7 +121,7 @@ function ProductDetailsLayout({ product }: ProductDetailsLayoutProps) {
                 <div className="flex justify-between lg:justify-evenly items-center gap-sm w-full">
                   <ProductActionButton
                     icon="ShoppingBag"
-                    label="Add To Cart"
+                    label={t("addToCart")}
                     className="w-[85%] py-lg"
                     disabled={!canPurchase || isPending}
                     onClick={handleAddToCart}

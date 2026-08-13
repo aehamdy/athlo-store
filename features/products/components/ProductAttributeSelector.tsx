@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ProductDetails } from "../types";
 
 type ProductAttributeSelectorProps = {
+  locale: string;
   attributeKey?: string;
   unit?: string;
   product: ProductDetails;
@@ -11,6 +12,7 @@ type ProductAttributeSelectorProps = {
 };
 
 function ProductAttributeSelector({
+  locale,
   attributeKey,
   unit,
   product,
@@ -21,7 +23,9 @@ function ProductAttributeSelector({
   const attributes = [
     ...new Set(
       product.variants
-        .map((variant) => variant.attributeValueEn)
+        .map((variant) =>
+          locale === "ar" ? variant.attributeValueAr : variant.attributeValueEn,
+        )
         .filter(Boolean),
     ),
   ];
@@ -33,14 +37,16 @@ function ProductAttributeSelector({
 
   return (
     <div className="space-y-3">
-      <p className="flex items-center gap-xs font-medium text-sm text-foreground">
-        {attributeKey} :
-        {selectedAttribute && (
-          <span className="text-muted-foreground">
-            {selectedAttribute} {unit && unit}
-          </span>
-        )}
-      </p>
+      {attributeKey && (
+        <p className="flex items-center gap-xs font-medium text-sm text-foreground">
+          {attributeKey} :
+          {selectedAttribute && (
+            <span className="text-muted-foreground">
+              {selectedAttribute} {unit && unit}
+            </span>
+          )}
+        </p>
+      )}
 
       <div className="flex flex-wrap gap-3">
         {attributes.map((attribute) => {

@@ -1,6 +1,7 @@
 import Icon from "@/components/shared/Icon";
 import { Button } from "@/components/ui/button";
 import { ProductDetails } from "../types";
+import { useTranslations } from "next-intl";
 
 type ProductColorSelectorProps = {
   product: ProductDetails;
@@ -15,6 +16,8 @@ function ProductColorSelector({
   selectedColor,
   setSelectedColor,
 }: ProductColorSelectorProps) {
+  const t = useTranslations("labels");
+
   const colors = [
     ...new Map(
       product.variants.map((variant) => [
@@ -30,7 +33,7 @@ function ProductColorSelector({
   return (
     <div className="space-y-3">
       <p className="flex items-center gap-xs font-medium text-sm text-foreground">
-        Color:
+        {t("color")}:
         <span className="text-muted-foreground">{selectedColor}</span>
       </p>
 
