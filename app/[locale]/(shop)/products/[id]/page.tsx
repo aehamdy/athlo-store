@@ -1,8 +1,10 @@
 import { ENDPOINTS } from "@/config/endpoints";
 import ProductDetailsLayout from "@/features/products/components/ProductDetailsLayout";
 import { ProductDetailsApiResponse } from "@/features/products/types";
+import getApiLocale from "@/i18n/locale";
 import { api } from "@/lib/api";
 import { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -35,6 +37,8 @@ interface ProductPageProps {
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
+  const locale = await getLocale();
+  const apiLocale = getApiLocale(locale);
   const { id } = await params;
 
   const productId = Number(id);
@@ -43,6 +47,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const response = await api.get<ProductDetailsApiResponse>(
     ENDPOINTS.product.productDetails(productId.toString()),
+    {
+      headers: {
+        "Accept-Language": apiLocale,
+      },
+    },
   );
 
   const product = response.data.data;
@@ -51,7 +60,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <main className="main-page">
-      <ProductDetailsLayout product={product} />
+      <ProductDetailsLayout product={product} locale={locale} />
     </main>
   );
 }
