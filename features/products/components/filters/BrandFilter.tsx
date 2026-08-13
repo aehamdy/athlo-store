@@ -84,7 +84,7 @@ function BrandFilter() {
                   : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
               )}
             >
-              All
+              {t("all")}
             </Button>
 
             {brands.map((brand: BrandT) => (
@@ -92,10 +92,10 @@ function BrandFilter() {
                 <Button
                   key={brand.id}
                   variant="plain"
-                  onClick={() => handleBrandChange(brand.name)}
+                  onClick={() => handleBrandChange(brand.slug)}
                   className={cn(
                     "flex justify-start w-full px-sm py-xs rounded-lg transition-colors cursor-pointer",
-                    selectedBrand === brand.name
+                    selectedBrand === brand.slug
                       ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
                   )}
