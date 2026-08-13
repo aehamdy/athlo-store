@@ -84,6 +84,7 @@ export type PaginatedProductsResponse = {
   hasNextPage: boolean;
   hasPreviousPage: boolean;
   pageSize: number;
+  locale: string;
 };
 
 export type BrandT = {
