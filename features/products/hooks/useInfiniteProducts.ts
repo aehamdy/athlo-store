@@ -5,9 +5,7 @@ import { GetProductsParams } from "../types";
 import fetchProducts from "../api/fetchProducts";
 import productQueryKeys from "../productQueryKeys";
 
-function useInfiniteProducts(
-  params: Omit<GetProductsParams, "pageNumber"> = {},
-) {
+function useInfiniteProducts(params: Omit<GetProductsParams, "pageNumber">) {
   return useInfiniteQuery({
     queryKey: productQueryKeys.infinite(params),
 

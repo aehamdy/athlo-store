@@ -11,16 +11,21 @@ export async function GET(req: NextRequest) {
     ? Number(searchParams.get("ordering"))
     : undefined;
 
+  const locale = req.headers.get("Accept-Language") ?? "en-US";
+
   try {
     const data = await fetchProducts({
       pageNumber,
       pageSize,
       search,
       ordering,
+      locale,
     });
 
     return NextResponse.json(data);
-  } catch {
+  } catch (error) {
+    console.log("Faild to fetch products: ", error);
+
     return NextResponse.json(
       { message: "Failed to fetch products" },
       { status: 500 },
