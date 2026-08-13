@@ -13,7 +13,7 @@ function CategoryCard({ category }: CategoryCardProps) {
     <article className="h-full rounded-md overflow-hidden">
       <Link
         key={category.id}
-        href={`${ROUTES.public.products}?category=${encodeURIComponent(category.name)}`}
+        href={`${ROUTES.public.products}?category=${encodeURIComponent(category.slug)}`}
         className="group relative aspect-square rounded-xl overflow-hidden"
       >
         <AppImage
