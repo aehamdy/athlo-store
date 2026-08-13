@@ -74,6 +74,7 @@ export type GetProductsParams = {
   pageSize?: number;
   search?: string;
   ordering?: number;
+  locale: string;
 };
 
 export type PaginatedProductsResponse = {
