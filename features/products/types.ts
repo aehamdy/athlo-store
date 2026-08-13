@@ -90,6 +90,7 @@ export type BrandT = {
   id: number;
   name: string;
   imageUrl: string;
+  slug: string;
 };
 
 export type ProductViewVariant = "details" | "card" | "cart-item" | "quickView";

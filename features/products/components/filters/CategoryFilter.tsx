@@ -84,7 +84,7 @@ function CategoryFilter() {
                   : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
               )}
             >
-              All
+              {t("all")}
             </Button>
 
             {categories.map((category: CategoryT) => (
@@ -92,10 +92,10 @@ function CategoryFilter() {
                 <Button
                   key={category.id}
                   variant="plain"
-                  onClick={() => handleCategoryChange(category.name)}
+                  onClick={() => handleCategoryChange(category.slug)}
                   className={cn(
                     "flex justify-start w-full px-sm py-xs rounded-lg transition-colors cursor-pointer",
-                    selectedCategory === category.name
+                    selectedCategory === category.slug
                       ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
                   )}
