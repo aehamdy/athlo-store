@@ -48,10 +48,14 @@ function CategoryFilter() {
     if (category === "all") {
       params.delete("category");
     } else {
+      if (params.get("brand")) {
+        params.delete("brand");
+      }
+
       params.set("category", category);
     }
 
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    router.push(`${pathname}?${params.toString()}`, { scroll: true });
   };
 
   return (
@@ -80,8 +84,8 @@ function CategoryFilter() {
               className={cn(
                 "flex justify-start w-full px-sm py-xs rounded-lg",
                 selectedCategory === "all"
-                  ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
-                  : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
+                  ? "text-primary-dark bg-accent-strong hover:bg-accent-soft"
+                  : "text-muted-foreground hover:text-primary-dark hover:bg-accent-soft",
               )}
             >
               {t("all")}
@@ -92,12 +96,12 @@ function CategoryFilter() {
                 <Button
                   key={category.id}
                   variant="plain"
-                  onClick={() => handleCategoryChange(category.slug)}
+                  onClick={() => handleCategoryChange(category.name)}
                   className={cn(
                     "flex justify-start w-full px-sm py-xs rounded-lg transition-colors cursor-pointer",
-                    selectedCategory === category.slug
-                      ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
+                    selectedCategory === category.name
+                      ? "text-primary-dark bg-accent-strong hover:bg-accent-soft"
+                      : "text-muted-foreground hover:text-primary-dark hover:bg-accent-soft",
                   )}
                 >
                   {category.name}
