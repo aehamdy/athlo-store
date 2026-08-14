@@ -48,10 +48,14 @@ function BrandFilter() {
     if (brand === "all") {
       params.delete("brand");
     } else {
+      if (params.get("category")) {
+        params.delete("category");
+      }
+
       params.set("brand", brand);
     }
 
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    router.push(`${pathname}?${params.toString()}`, { scroll: true });
   };
 
   return (
@@ -80,8 +84,8 @@ function BrandFilter() {
               className={cn(
                 "flex justify-start w-full px-sm py-xs rounded-lg",
                 selectedBrand === "all"
-                  ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
-                  : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
+                  ? "text-primary-dark bg-accent-strong hover:bg-accent-soft"
+                  : "text-muted-foreground hover:text-primary-dark hover:bg-accent-soft",
               )}
             >
               {t("all")}
@@ -92,12 +96,12 @@ function BrandFilter() {
                 <Button
                   key={brand.id}
                   variant="plain"
-                  onClick={() => handleBrandChange(brand.slug)}
+                  onClick={() => handleBrandChange(brand.name)}
                   className={cn(
                     "flex justify-start w-full px-sm py-xs rounded-lg transition-colors cursor-pointer",
-                    selectedBrand === brand.slug
-                      ? "text-primary-dark bg-accent-soft/70 hover:bg-accent-base"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent-strong",
+                    selectedBrand === brand.name
+                      ? "text-primary-dark bg-accent-strong hover:bg-accent-soft"
+                      : "text-muted-foreground hover:text-primary-dark hover:bg-accent-soft",
                   )}
                 >
                   {brand.name}

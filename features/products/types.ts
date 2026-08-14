@@ -72,6 +72,8 @@ export type ProductPricesT = {
 export type GetProductsParams = {
   pageNumber?: number;
   pageSize?: number;
+  category?: string;
+  brand?: string;
   search?: string;
   ordering?: number;
   locale: string;

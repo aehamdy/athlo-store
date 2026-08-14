@@ -59,7 +59,7 @@ function CategoriesBentoGrid() {
         return (
           <Link
             key={category.id}
-            href={`${ROUTES.public.products}?category=${category.slug}`}
+            href={`${ROUTES.public.products}?category=${category.name}`}
             className={cn(
               "group relative overflow-hidden rounded-xl",
               gridMap[categoryKey],
