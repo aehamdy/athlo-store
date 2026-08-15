@@ -88,7 +88,7 @@ function FooterMain() {
 
                   <Icon
                     name="ArrowRight"
-                    className="hidden group-hover:flex text-current"
+                    className="hidden group-hover:flex text-current rtl:rotate-180"
                   />
                 </Link>
               ))}
@@ -112,7 +112,7 @@ function FooterMain() {
 
                   <Icon
                     name="ArrowRight"
-                    className="hidden group-hover:flex text-current"
+                    className="hidden group-hover:flex text-current rtl:rotate-180"
                   />
                 </Link>
               ))}
@@ -138,10 +138,13 @@ function FooterMain() {
       </div>
 
       <div className="relative min-h-22.5 md:min-h-27.5 lg:min-h-40 font-bold text-center select-none overflow-hidden">
-        <div className="absolute w-full h-full bottom-0 start-1/2 translate-y-1/4 lg:translate-y-[5%] -translate-x-1/2 flex justify-center items-center">
+        <div
+          dir="ltr"
+          className="absolute w-full h-full bottom-0 start-1/2 translate-y-1/4 lg:translate-y-[5%] -translate-x-1/2 flex justify-center items-center"
+        >
           <Heading
             as="h2"
-            className="flex items-center text-[clamp(2.75rem,15vw,15.2rem)] font-bold text-black h-full uppercase tracking-[clamp(0,1vw,1.5rem)] leading-3"
+            className="flex items-center font-brand! font-bold text-[clamp(2.75rem,15vw,15.2rem)] text-black h-full uppercase tracking-[clamp(0,1vw,1.5rem)] leading-3"
           >
             {appConfig.siteName}
           </Heading>
