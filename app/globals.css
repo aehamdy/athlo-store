@@ -320,6 +320,67 @@
   }
 }
 
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-hero-badge {
+  animation: hero-fade-down 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-hero-title {
+  animation: hero-fade-up 900ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+}
+
+.animate-hero-description {
+  animation: hero-slide-in 800ms cubic-bezier(0.22, 1, 0.36, 1) 280ms both;
+}
+
+.animate-hero-actions {
+  animation: hero-fade-up 800ms cubic-bezier(0.22, 1, 0.36, 1) 400ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-badge,
+  .animate-hero-title,
+  .animate-hero-description,
+  .animate-hero-actions {
+    animation: none;
+  }
+}
+
 .form-input {
   @apply text-foreground border-subtle focus-visible:border-none focus-visible:ring-accent-ring;
 }

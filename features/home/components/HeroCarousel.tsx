@@ -26,7 +26,7 @@ function HeroCarousel() {
     }, slideDuration);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [currentSlide]);
 
   const slide = {
     ...heroSlides[currentSlide],
@@ -59,46 +59,57 @@ function HeroCarousel() {
       />
 
       {/* Content */}
-      <div className="relative flex items-center h-full ms-lg z-10">
+      <div
+        key={currentSlide}
+        className="relative flex items-center h-full ms-lg z-10"
+      >
         <div className="container">
           <div>
-            <div className="inline-flex items-center gap-sm py-xs px-xl font-semibold text-[10px] lg:text-xs text-accent-base uppercase bg-accent-soft/10 border border-accent-base rounded-2xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-sm py-xs px-xl font-semibold text-[10px] lg:text-xs text-accent-base uppercase bg-accent-soft/10 border border-accent-base rounded-2xl animate-hero-badge">
               <Icon name="Zap" className="text-current" />
 
-              <span className="">{slide.badge}</span>
+              <span>{slide.badge}</span>
             </div>
 
+            {/* Heading */}
             <Heading
               as="h1"
               className="mt-xl font-display font-bold text-5xl lg:text-[90px] text-foreground uppercase leading-[3rem] lg:leading-[6rem]"
             >
-              {/* {slide.title} */}
-              <span className="block">{head}</span>
+              <span className="block animate-hero-title">{head}</span>
+
               {tail && (
-                <span className="block text-stroke-accent-base">{tail}</span>
+                <span className="block text-stroke-accent-base animate-hero-title [animation-delay:220ms]">
+                  {tail}
+                </span>
               )}
             </Heading>
 
-            <p className="w-3/4 lg:w-full my-2xl ps-lg text-sm lg:text-lg text-muted-foreground border-s-3 border-accent-base">
+            {/* Description */}
+            <p className="w-3/4 lg:w-full my-2xl ps-lg text-sm lg:text-lg text-muted-foreground border-s-3 border-accent-base animate-hero-description">
               {slide.description}
             </p>
 
-            <div className="flex flex-col md:flex-row gap-md w-fit font-semibold">
+            {/* Actions */}
+            <div className="flex flex-col md:flex-row gap-md w-fit font-semibold animate-hero-actions">
               <Link
                 href={slide.link}
-                className="flex justify-center items-center gap-sm py-xs md:py-md px-sm md:px-lg text-primary-dark bg-accent-soft hover:bg-accent-base shadow-2xl shadow-accent-base rounded-md"
+                className="flex justify-center items-center gap-sm py-xs md:py-md px-sm md:px-lg text-primary-dark bg-accent-soft hover:bg-accent-base shadow-2xl shadow-accent-base rounded-md transition-all duration-300 hover:-translate-y-0.5"
               >
                 {slide.cta}
 
                 <Icon
                   name="ArrowRight"
-                  className={`text-current ${isRTL ? "rotate-180" : ""}`}
+                  className={`text-current transition-transform duration-300 ${
+                    isRTL ? "rotate-180" : ""
+                  }`}
                 />
               </Link>
 
               <Link
                 href={ROUTES.public.categories}
-                className="flex justify-center items-center py-xs md:py-md px-sm md:px-lg text-foreground hover:text-primary-dark bg-accent-light hover:bg-white border border-subtle rounded-md"
+                className="flex justify-center items-center py-xs md:py-md px-sm md:px-lg text-foreground hover:text-primary-dark bg-accent-light hover:bg-white border border-subtle rounded-md transition-all duration-300 hover:-translate-y-0.5"
               >
                 {t("browseCategories")}
               </Link>
