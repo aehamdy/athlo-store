@@ -6,7 +6,7 @@ import { STORAGE_KEYS } from "@/config/constants";
 import { Toaster } from "@/components/ui/sonner";
 import { Metadata } from "next";
 import appConfig from "@/config/appConfig";
-import { Inter, Oswald } from "next/font/google";
+import { IBM_Plex_Sans_Arabic, Inter, Oswald, Tajawal } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,6 +17,18 @@ const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const tajawal = Tajawal({
+  variable: "--font-tajawal",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "500", "700", "800"],
+});
+
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  variable: "--font-ibm-plex-sans-arabic",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -83,11 +95,10 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
+      className={`${inter.variable} ${oswald.variable} ${tajawal.variable} ${ibmPlexSansArabic.variable}`}
       suppressHydrationWarning
     >
-      <body
-        className={`${inter.variable} ${oswald.variable} font-sans bg-surface`}
-      >
+      <body className="font-content bg-surface">
         <Providers initialIsAuthenticated={initialIsAuthenticated}>
           {children}
         </Providers>
