@@ -25,7 +25,7 @@ function ReviewsSectionHeader({ reviewsList }: ReviewsSectionHeaderProps) {
 
   return (
     <div className="space-y-xs">
-      <Heading as="h2" className="font-bold text-xl text-foreground">
+      <Heading as="h2" className="font-bold text-xl text-foreground uppercase">
         {tReviews("title")}
       </Heading>
 
