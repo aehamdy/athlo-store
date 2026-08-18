@@ -285,7 +285,7 @@
   },
 
   "reviews": {
-    "title": "Customer Reviews",
+    "title": "Athlete Reviews",
     "basedOnReviews": "{count, plural, =0 {Based on no reviews} one {Based on # review} other {Based on # reviews}}",
     "noReviews": "No reviews yet. Be the first to share your experience!",
     "signInToWrite": "Sign in to write a review",
