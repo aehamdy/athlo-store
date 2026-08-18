@@ -25,20 +25,21 @@ function MyOrderCard({ order, orderIndex }: MyOrderCardProps) {
 
   let orderStatusStyle = "";
 
-  switch (order.status) {
-    case "Pending":
+  switch (order.status.toLowerCase()) {
+    case "pending":
       orderStatusStyle = "text-yellow-600 bg-yellow-200 border-yellow-500";
       break;
-    case "Shipped":
-      orderStatusStyle = "text-blue-600 bg-indigo-200 border-indigo-500";
+    case "shipped":
+      orderStatusStyle = "text-purple-600 bg-purple-200 border-purple-500";
       break;
-    case "Paid":
+    case "paid":
       orderStatusStyle = "text-blue-600 bg-blue-200 border-blue-500";
-    case "Completed":
-    case "Delivered":
-      orderStatusStyle = "text-green-600 bg-green-500 border-red-500";
       break;
-    case "Cancelled":
+    case "completed":
+    case "delivered":
+      orderStatusStyle = "text-green-600 bg-green-200 border-green-500";
+      break;
+    case "cancelled":
       orderStatusStyle = "text-red-600 bg-red-200 border-red-500";
       break;
     default:
