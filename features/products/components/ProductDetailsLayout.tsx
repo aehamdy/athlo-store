@@ -17,6 +17,9 @@ import useProductVariant from "../hooks/useProductVariant";
 import ReviewsSection from "../reviews/components/ReviewsSection";
 import Share from "./Share";
 import { useTranslations } from "next-intl";
+import { useAuthStore } from "@/lib/stores/auth.store";
+import Link from "next/link";
+import ROUTES from "@/lib/routes";
 
 type ProductDetailsLayoutProps = {
   product: ProductDetails;
@@ -25,6 +28,8 @@ type ProductDetailsLayoutProps = {
 
 function ProductDetailsLayout({ product, locale }: ProductDetailsLayoutProps) {
   const t = useTranslations("actions");
+
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const [selectedAttribute, setSelectedAttribute] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
@@ -119,13 +124,22 @@ function ProductDetailsLayout({ product, locale }: ProductDetailsLayoutProps) {
 
               <div className="flex items-center gap-lg w-full">
                 <div className="flex justify-between lg:justify-evenly items-center gap-sm w-full">
-                  <ProductActionButton
-                    icon="ShoppingBag"
-                    label={t("addToCart")}
-                    className="w-[85%] py-lg"
-                    disabled={!canPurchase || isPending}
-                    onClick={handleAddToCart}
-                  />
+                  {isAuthenticated ? (
+                    <ProductActionButton
+                      icon="ShoppingBag"
+                      label={t("addToCart")}
+                      className="w-[85%] py-lg"
+                      disabled={!canPurchase || isPending}
+                      onClick={handleAddToCart}
+                    />
+                  ) : (
+                    <Link
+                      href={ROUTES.auth.login}
+                      className="main-button font-medium w-full"
+                    >
+                      {t("login")}
+                    </Link>
+                  )}
 
                   <Share productTitle={product.name} />
                 </div>
