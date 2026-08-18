@@ -17,7 +17,7 @@ function UserCard({ user }: UserCardProps) {
   return (
     <div className="p-xl bg-surface border border-subtle rounded-md">
       <div className="flex item-senter gap-sm">
-        <div className="p-4.5 uppercase font-bold text-lg bg-accent-soft rounded-full">
+        <div className="p-4.5 uppercase font-bold text-lg text-primary-dark bg-accent-soft rounded-full">
           {usernameInitials ?? "!!"}
         </div>
 
