@@ -39,7 +39,7 @@ function ForgotPasswordForm() {
   };
 
   return (
-    <section className="main-page flex justify-center">
+    <section className="main-page flex justify-center w-full">
       <Card className="w-full max-w-[90%] md:max-w-1/2 lg:max-w-125">
         <CardHeader className="flex flex-col items-center gap-md">
           <Logo />

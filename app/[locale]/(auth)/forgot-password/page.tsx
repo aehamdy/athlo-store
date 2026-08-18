@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 function ForgotPasswordPage() {
   return (
-    <section className="h-dvh">
+    <section className="flex justify-center items-center h-dvh">
       <ForgotPasswordForm />
     </section>
   );
