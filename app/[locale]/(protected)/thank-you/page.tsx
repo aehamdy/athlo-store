@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 function ThankYouPage() {
   return (
-    <main className="main-page">
+    <main className="main-page flex justify-center items-center h-dvh">
       <ThankYou />
     </main>
   );
