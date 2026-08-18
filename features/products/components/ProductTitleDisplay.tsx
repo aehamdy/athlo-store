@@ -13,7 +13,7 @@ function ProductTitleDisplay({ variant, title }: ProductTitleDisplayProps) {
   return (
     <Heading
       as={variant === "cart-item" ? "h5" : "h3"}
-      className={`line-clamp-1 ${variant === "details" ? "font-bold text-3xl text-foreground" : variant === "quickView" ? "font-medium text-sm text-foreground" : variant === "cart-item" ? "w-55 md:w-70 lg:w-60 font-medium text-sm text-foreground truncate" : "font-medium text-sm text-muted-foreground"}`}
+      className={`line-clamp-1 ${variant === "details" ? "font-bold text-3xl text-foreground" : variant === "quickView" ? "font-medium text-sm text-foreground" : variant === "cart-item" ? "w-55 md:w-62 lg:w-60 font-medium text-sm text-foreground truncate" : "font-medium text-sm text-muted-foreground"}`}
     >
       {formattedTitle}
     </Heading>
